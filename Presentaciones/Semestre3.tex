@@ -1,0 +1,640 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{multicol}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{¿Por qué son más las nociones Hausdorff en álgebra que en topología?}
+\event{Seminario de Álgebra, CUCEI}
+\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+%\github{username}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Lo que veremos hoy \smiley}
+\tableofcontents %Imprime la tabla de contenido
+\end{frame}
+
+\section{Preliminares}
+
+\begin{frame}{¿Qué es un marco?}
+    \begin{itemize}
+    \begin{multicols}{2}
+        \item $A$
+        \item $(A, \leq)$
+        \item $(A, \leq, \vee, 0)$ o $(A, \leq, \wedge, 1)$
+        \item $(A, \leq, \bigvee, \bigwedge, 0, 1)$
+    \end{multicols} 
+    \end{itemize}
+
+    \onslide<2->{Un marco es una retícula completa que cumple cierta ley distributiva (ley distributiva de marcos), es decir,}
+    \onslide<3->{\[
+    (A, \leq, \bigvee, \wedge, 0, 1), \quad a\wedge\bigvee X=\bigvee \{a\wedge x\mid x\in X\}
+    \]}
+
+    \onslide<4->\[
+    \mathbf{Frm}=\left\{ \begin{array}{ll} A, & \mbox{ marcos}\\ \\  f, & \mbox{ morfismo de marcos} \end{array} \right.
+    \]
+\end{frame}
+
+\begin{frame}{¿Por qué estudiamos los marcos?}
+    \begin{itemize}
+        \item Estructuras simples.
+        \item<2-> Existen herramientas que facilitan el estudio de los marcos.
+        \item<3-> Correspondencias biyectivas.
+        \item<4-> Buen comportamiento categórico.
+        \item<5-> \alert<7->{La topología de un espacio ($\mathcal{O}S)$ es un marco.}
+        \item<6-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{¿Qué relación existe entre los marcos y los espacios topológicos?}
+\[
+\left(\mathcal{O}S, \subseteq, \cap, \bigcup, S, \emptyset\right)
+\]
+
+\begin{itemize}
+    \item $\mathcal{O}(\_)\colon \mathbf{Top}\to \mathbf{Frm}$ 
+    \item $\pt(\_)\colon \mathbf{Frm}\to \mathbf{Top}$
+    \item El funtor $\pt$ es adjunto izquierdo de $\mathcal{O}$.
+\end{itemize}
+\[\begin{tikzcd}
+	{\mathbf{Top}} \\
+	{} & {} & {} \\
+	{\mathbf{Frm}}
+	\arrow["{\pt}"{name=0, swap}, from=3-1, to=1-1, shift right=5]
+	\arrow["{\mathcal{O}}"{name=1, swap}, from=1-1, to=3-1, shift right=5]
+	\arrow["\dashv"{rotate=0}, from=1, to=0, phantom]
+\end{tikzcd}\]
+    
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Axiomas de separación}
+    En la topología clásica (topología sensible a puntos), tenemos la siguiente relación entre los axiomas de separación 
+
+    \[\begin{tikzcd}
+	{T_4} & {T_{3\frac{1}{2}}} & {T_3} & {T_2} & {T_1} & {T_0} \\
+	& {(norm)} & {R_3} & {R_2} & {R_1} & {R_0}
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[Rightarrow, from=1-3, to=1-4]
+	\arrow[Rightarrow, from=1-4, to=1-5]
+	\arrow[Rightarrow, from=1-5, to=1-6]
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-1, to=2-2]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-4]
+	\arrow[Rightarrow, from=1-4, to=2-5]
+	\arrow[Rightarrow, from=1-5, to=2-6]
+	\arrow[Rightarrow, from=2-3, to=2-4]
+	\arrow[Rightarrow, from=2-4, to=2-5]
+	\arrow[Rightarrow, from=2-5, to=2-6]
+\end{tikzcd}\]
+\[
+    \mbox{ }
+\]
+    
+donde $R_2=\mathbf{(reg)}$, $R_3=\mathbf{(creg)}$, $T_i=R_{i-1}+T_{i-1}$ y $T_{3\frac{1}{2}}=R_3+T_3$, para $i=1, 2, 3$.\\
+
+$T_4=\mathbf{(norm)}+T_1$.
+    
+\end{frame}
+
+\begin{frame}{El axioma $T_2$}
+    \begin{description}
+        \item[$T_2$:] Sean $x\neq y\in S$, entonces existen $U, V\in \mathcal{O}S$ tales que
+        \[
+        x\in U,\quad y\in V, \quad U\cap V=\emptyset.
+        \]
+    \end{description}
+\end{frame}
+
+\begin{frame}{¿Qué sabemos sobre $T_2$?}
+    \begin{itemize}
+        \item Es más fuerte que $T_1$.
+        \item<2-> Es más débil que $T_3$.
+        \item<3-> Un espacio $S$ es $T_2$ si y solo si la diagonal es cerrada.
+        \item<4-> Si $S$ es $T_2$, todo $Q\in \mathcal{Q}S$ es cerrado.
+        \item<5-> Si $S$ es $T_2$ y compacto, $S$ es regular.
+        \item<6-> El producto de espacios $T_2$ es $T_2$.
+        \item<7-> Los subespacios de un espacio $T_2$ son $T_2$.
+        \item<8-> $\vdots$
+    \end{itemize}
+\end{frame}
+
+\section{Aspectos libres de puntos}
+
+\begin{frame}{Un poco más sobre los marcos}
+    Sean $a, b\in A\in \mathbf{Frm}$.
+    \begin{itemize}
+        \item<2-> $\neg a=$ negación (pseudocomplemento).
+        \item<3-> $a^*=$ complemento.
+        \item<4-> $(a\succ b)=\bigvee\{x\in A\mid x\wedge a\leq b\}$.
+        \item<5-> $\neg a=(a\succ 0)$.
+        \item<6-> $a$ es regular si $a=\neg\neg a$.
+        \item<7-> $A\in \mathbf{Frm}$ es espacial si $A=\mathcal{O}S$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Un poco sobre sublocales}
+    \begin{block}{Definición:}
+        Sea $L\in \mathbf{Loc}$. $S\subseteq L$ es un sublocal si:
+        \begin{enumerate}
+            \item $a, b\in S \Rightarrow a\wedge b\in S$.
+            \item $l\in L$ y $s\in S$ $\Rightarrow (l\succ s)\in S$.
+        \end{enumerate}
+    \end{block}
+
+    \onslide<2->\[
+    S\mbox{ es cerrado}\Leftrightarrow S=\overline{S}
+    \]
+    \onslide<3->{¿Quién es $\overline{S}$?}
+    \onslide<4->{\[
+    \overline{S}=\uparrow \bigwedge S
+    \]
+    para cada sublocal $S$ y $\bigwedge S\in S$.}
+\end{frame}
+
+\begin{frame}{Ajustado, subajustado y el axioma $T_D$}
+\begin{description}
+    \item[$\mathbf{(aju)}$] $\quad\forall\; U, V\in \mathcal{O}S$, con $U\nsubseteq V$, $\exists\; W\in \mathcal{O}S$ tal que 
+    \[
+    U\cup W=S\quad \mbox{ y }\quad (W\cup V)^\circ\neq V.
+    \]
+    \item<2->[$\mathbf{(saju)}$] $\quad\forall\; U, V\in \mathcal{O}S$, con $U\nsubseteq V$, $\exists\; W\in \mathcal{O}S$ tal que 
+    \[
+    U\cup W=S\neq V\cup W.
+    \]
+    \item<3->[$T_D$] $\quad\forall\; x\in S$, $\exists\; U\in \mathcal{O}S$ tal que 
+    \[
+    x\in U\quad \mbox{ y } \quad U\setminus \{x\}\in \mathcal{O}S.
+    \]
+\end{description}
+\onslide<4->\[
+    \mathbf{(aju)}\Rightarrow \mathbf{(saju)},\quad \mathbf{(saju)}\nRightarrow T_D,\quad T_D\nRightarrow \mathbf{(saju)}
+    \]
+\end{frame}
+
+\begin{frame}{Otra alternativa de ver los axiomas $T_n$}
+    \[
+    \begin{split}
+        T_1&= T_D+\mathbf{(saju)}\\
+        T_2&= N_2+\mathbf{(saju)}\\
+        T_3&= N_3+\mathbf{(saju)}\\
+        T_4&= N_4+\mathbf{(saju)}\\
+    \end{split}
+    \]
+    \onslide<2->{donde $N_i$, para $i=2, 3, 4$, son conocidas como \emph{propiedades de normalidad} (ver \cite{H.S.4})}.\\
+    \begin{tiny}
+$$\mbox{ }$$
+\end{tiny}
+
+    \onslide<3->\alert{Existen otras maneras de definir los axiomas de separación en $\mathbf{Frm}$}
+\end{frame}
+
+\begin{frame}{Elemento máximo, primo y semiprimo}
+    $A\in \mathbf{Frm}$ y $S=\pt A$, entonces 
+    \begin{itemize}
+        \item<2-> $p\in S$ si y solo si $p\neq 1$ y $\forall\; a, b\in A$ si 
+        \[
+        a\wedge b\leq p\Rightarrow a\leq p\mbox{ o } b\leq p.
+        \]
+        Si $p\in S$ entonces $p$ es \emph{primo}.
+        \item<3-> $p\in A$ es \emph{semiprimo} si $\forall\; a, b\in A$ con $a\wedge b=0$, entonces $a\leq p$ o $b\leq p$.
+        \item<4-> $p\in A$ es \emph{máximo} si $\forall\; m\in A$ con $p\leq m$, entonces $p=m$ o $m=1$.
+    \end{itemize}
+
+\onslide<5->\[
+    \mbox{máximo }\Rightarrow \mbox{ primo }\Rightarrow \mbox{ semiprimo}
+    \]
+\end{frame}
+
+\begin{frame}{Axiomas de separación}
+\framesubtitle{(libres de puntos)}
+    \begin{description}
+    \item[$(T_1)$] Todo elemento primo es máximo.
+    \item<2->[$(reg)$] $\quad\forall\, U\in \mathcal{O}S$, con ``$\prec$''= \emph{bastante por debajo}
+    \[
+    U=\bigcup\{V\mid V\prec U\}
+    \]
+    \item<3->[$(T_3)$] $=(reg)+(T_{1})$ 
+    \item<4->[$(creg)$] $\quad\forall\, U\in \mathcal{O}S$, con ``$\prec\prec$''= \emph{completamente por debajo}
+    \[
+    U=\bigcup\{V\mid V\prec\prec U\}
+    \]
+    \item<5->[$(T_{3\frac{1}{2}})$] $=(creg)+(T_{1})$ 
+    \item<6->[$(norm)$] $\quad\forall\, X, Y \in \mathcal{O}S$ tales que $X\cup Y=S$, $\exists$ $U, V \in \mathcal{O}S$ tales que
+    \[
+    X\cup U=S, \quad Y\cup V=S, \quad U\cap V=\emptyset
+    \]
+    \item<7->[$(T_{4})$] $=(norm)+(T_{1})$ 
+\end{description}
+\end{frame}
+
+\section{Hausdorff en $\mathbf{Frm}$}
+
+\begin{frame}{Propiedad conservativa, de 1° orden y de 2° orden}
+
+\begin{definition}
+    \begin{enumerate}
+        \item Para un espacio $S$ decimos que una propiedad $P$ es \emph{conservativa} si y solo si $\mathcal{O}S$ tiene la propiedad $P_S$.
+
+        \item<2-> Decimos que una propiedad en marcos $P$ es \emph{suficientemente Hausdorff} si y solo si $P$ implica la propiedad Hausdorff espacial.
+        
+        \item<3-> Decimos que una propiedad en marcos $P$ es de \emph{1° orden} si y solo si $P$ es enunciada como una fórmula para elementos del marco.
+
+        \item<4-> Decimos que una propiedad en marcos $P$ es de \emph{2° orden} si y solo si $P$ es enunciada como una caracterización de sublocales.
+    \end{enumerate}
+\end{definition}
+
+\end{frame}
+
+\subsection{Algo más débil que $T_2$}
+\begin{frame}{Débilmente Hausdorff}
+\framesubtitle{[Dowker y Strauss (1972)]}
+    Esta noción sugiere ver $T_2$ como algo más fuerte que $T_1$.\\
+
+    \onslide<2->\begin{block}{Definición}
+        Sea $A\in \mathbf{Frm}$. Decimos que $A$ es \emph{débilmente Hausdorff} si se cumple lo siguiente:
+        \begin{description}
+            \item[$(\mathbf{dH})$] $\quad a\vee b=1$ y $a, b\neq 1$, $\exists$ $u, v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$.  
+        \end{description}
+        con $a, b, u, v\in A$.
+    \end{block}
+
+    \onslide<3->{Recordemos que 
+    \[
+    T_1=T_D+\mathbf{(saju)}.
+    \]}
+\end{frame}
+
+\begin{frame}
+        La propuesta de Dowker y Strauss fue
+    \[
+    T_2=\mathbf{(dH)}+\mathbf{(saju)}.
+    \]
+
+\onslide<2->\begin{block}{Observaciones}
+    \begin{itemize}
+        \item<3-> $\mathbf{(dH)}=N_2$.
+        \item<4-> Un espacio $S$ cumple $T_2$ (espacial) $\Leftrightarrow$ $\mathcal{O}S$ cumple $T_2$ (en marcos).
+        \item<5-> $\mathbf{(dH)}$ no es suficientemente Hausdorff.
+    \end{itemize}
+\end{block}
+    
+\end{frame}
+
+\subsection{Algo más fuerte que $T_2$}
+\begin{frame}{Hausdorff}
+\framesubtitle{[Johnstone y Shu-Hau (1987)]}
+ Esta noción sugiere ver $T_2$ como algo más débil que $T_3$.\\
+ 
+    \onslide<2->\begin{block}{Definición}
+    Sea $A\in \mathbf{Frm}$ y consideremos $a,b\in A$. Decimos que $a$ está \emph{bastante por debajo} de $b$ (denotado por ``$a\prec b$'') si $\exists\; c\in A$ tal que 
+    \[
+    a\wedge c=0 \quad\mbox{ y }\quad c\vee b=1
+    \]
+    \end{block}
+
+\onslide<3->\begin{description}
+  \item<2->[$\mathbf{(reg)}$] $\quad\forall\, b\in A$,
+    \[
+    b=\bigvee\{a\in A\mid a\prec b\}
+    \]
+\end{description}
+    
+\end{frame}
+
+\begin{frame}
+    Haciendo las respectivas modificaciones obtenemos
+
+    \onslide<2->\begin{block}{Definición [Paseka y Smarda (1987)]:}
+        Sea $A\in \mathbf{Frm}$ y sean $a, b\in A$ con $b\neq 1$. Decimos que ``$a\sqsubset b$'' si 
+        \[
+        a\leq b\quad \mbox{ y }\quad \neg a\leq b
+        \]
+    \end{block}
+
+    \onslide<3->\begin{description}
+        \item[$T_2$] $\forall\;b\in A$ con $b\neq 1$,
+        \[
+        b=\bigvee\{a\in A\mid a\sqsubset b\}.
+        \]
+    \end{description}
+    \onslide<4->{Equivalentemente
+
+    \begin{description}
+        \item[$T_2$] $\forall\;1\neq a \nleq b$, $\exists\; u, v\in A$ tales que  
+        \[
+        u\nleq a,\quad v\nleq b, \quad v\leq a,\quad u\wedge v=0.
+        \]
+    \end{description}}
+    
+\end{frame}
+
+\begin{frame}
+    Johnstone y Shu-Hau modificaron la noción dada por Isbell y obtuvieron 
+
+    \begin{description}
+        \item[$\mathbf{(H)}$] $\forall\;1\neq a\nleq b$, $\exists\; u, v\in A$ tales que
+        \[
+        u\nleq a, \quad v\nleq b,\quad u\wedge v=0.
+        \]
+    \end{description}
+
+    \onslide<2->\begin{block}{Observaciones:}
+    \begin{itemize}
+        \item<3-> $T_2 \mbox{ (P. y S.) } \Leftrightarrow \mathbf{(H)}$.
+        \item<4-> $\mathbf{(H)}\Leftrightarrow T_2$ (D. y S.).
+        \item<5-> Un espacio cumple $T_2$ (espacial) $\Leftrightarrow \mathcal{O}S$ cumple $\mathbf{(H)}$.
+        \item<6-> $\mathbf{(H)}$ es hereditaria.
+        \item<7-> $\mathbf{(H)}$ es cerrada bajo coproductos.
+        \item<8-> $\mathbf{(reg)}\Rightarrow \mathbf{(H)}$
+    \end{itemize}
+        
+    \end{block}
+\end{frame}
+
+\begin{frame}{Ejemplo}
+    $A\in \mathbf{Frm}$ y sea 
+    \[
+    \tilde{A}=\{(x, y)\mid x\leq y\}\subseteq L\times \mathcal{B}(L),
+    \]
+    donde
+    \[
+    \mathcal{B}(L)=\{x\in A\mid x=\neg\neg x\}=\{x^*\mid x\in L\}
+    \]
+
+    \onslide<2->\begin{block}{Observaciones:}
+        \begin{itemize}
+            \item<3-> $A$ es Hausdorff $\Rightarrow$ $\tilde{A}$ es Hausdorff.
+            \item<4-> $A$ compacto $\Rightarrow$ $\tilde{A}$ compacto.
+            \item<5-> $\tilde{A}$ no es subajustado.
+            \item<6-> $\tilde{A}$ es Hausdorff y compacto, pero no regular.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Algo parecido a $T_2$}
+\begin{frame}{Fuertemente Hausdorff}
+\framesubtitle{[Isbell (1972)]}
+Esta noción sugiere ver $T_2$ en marcos como algo similar a $T_2$ espacial.\\  
+
+\onslide<2->\begin{block}{Proposición:}
+    $S$ es $T_2$ $\Leftrightarrow \Delta=\{(x, x)\in (S\times S)\mid x\in S\}$ es cerrada en $S\times S$.
+\end{block}
+
+\onslide<3->{La caracterización anterior es traducida para el producto de locales (coproducto de marcos).} 
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Definición:}
+    Sea $L$ un local. Consideramos el coproducto binario $L\oplus L$. Decimos que un marco es \emph{fuertemente Hausdorff} si y solo si el sublocal diagonal $\Delta[L]$ es cerrado en $L\oplus L$.
+\end{block}
+
+\uncover<2->{La propiedad enunciada en la definición anterior puede ser reescrita de la siguiente manera.
+
+\begin{description}
+    \item[$\mathbf{(fH)}$] $\quad\Delta[L]=\uparrow d_L$, 
+\end{description}
+donde $d_L$ es el menor elemento de $\Delta[L]$, es decir,
+\[
+d_L=\Delta(0)=\{(x, y)\mid x\wedge y\leq 0\}=\downarrow\{(x, x^*)\mid x\in L\}.
+\]}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Observaciones:}
+    \begin{itemize}
+    \item Cada sublocal de un marco fuertemente Hausdorff es fuertemente Hausdorff.
+    \item<2-> $\mathbf{(fH)}$ $\Rightarrow$ $\mathbf{(H)}$.
+    \item<3-> $\mathbf{(fH)} + \mbox{compacto}$ $\Rightarrow$ $\mathbf{(reg)}$.
+    \item<4-> Sean $S$ un espacio $T_0$ y $\mathcal{O}S$ un marco fuertemente Hausdorff. Entonces $S$ es $T_2$.
+    \item<5-> $\mathbf{(H)} + \mathbf{(saju)}$ $\nRightarrow$ $\mathbf{(fH)}$.
+    \item<6-> $\mathbf{(reg)} \Rightarrow \mathbf{(fH)}$.
+    \end{itemize}
+\end{block}
+    
+\end{frame}
+
+\subsection{Una manera diferente de ver $T_2$}
+\begin{frame}{Hausdorff punteados}
+\framesubtitle{[Rosicky y Smarda (1985)]}
+
+Esta noción sugiere ver $T_2$ como una propiedad relaciona con $T_1$ en marcos.\\
+
+\onslide<2->{Recordemos que 
+    \begin{description}
+    \item[$(T_1)$] Todo elemento primo en $A$   es máximo.
+    \end{description}}
+
+\uncover<3->{\begin{block}{Definición:}
+    Decimos que un marco $A$ es \emph{Hausdorff punteado} si cumple la siguiente propiedad
+    \begin{description}
+        \item[$\mathbf{(Hp)}$] $\quad$Todo elemento semiprimo en $A$ es máximo. 
+    \end{description}
+\end{block}}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Observaciones:}
+        \begin{itemize}
+            \item $S$ es $T_2$ (espacial) $\Leftrightarrow$ $\mathcal{O}S$ es $\mathbf{(Hp)}$.
+            \item<2-> $\mathbf{(H)}\Rightarrow \mathbf{(Hp)}$.
+            \item<3-> ¿Qué pasaría si tenemos $\mathbf{(Hp)}+\mathbf{(saju)}$?
+            \item<4-> $\mathbf{(Hp)}$ caracteriza a algunos marcos espaciales.
+            \item<5-> No existe mas información sobre $\mathbf{(Hp)}$.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile, plain, standout]
+    \[\begin{tikzcd}
+	&& {\mathbf{(reg)}} \\
+	{\mathbf{(aju)}} && {\mathbf{(fH)}} && {\mathbf{(H)}+\mathbf{(saju)}} \\
+	{\mathbf{(saju)}} && {T_U} && {\mathbf{(H)}} \\
+	&& {T_1}
+	\arrow[Rightarrow, from=1-3, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-5]
+	\arrow[dotted, no head, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=2-1, to=3-3]
+	\arrow[dotted, no head, from=2-1, to=3-5]
+	\arrow[dotted, no head, from=2-3, to=2-5]
+	\arrow[dotted, no head, from=2-3, to=3-1]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+	\arrow[Rightarrow, from=2-5, to=3-1]
+	\arrow[dotted, no head, from=2-5, to=3-3]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[dotted, no head, from=3-1, to=3-3]
+	\arrow[dotted, no head, from=3-1, to=4-3]
+	\arrow[dotted, no head, from=3-3, to=3-5]
+	\arrow[Rightarrow, from=3-3, to=4-3]
+	\arrow[Rightarrow, from=3-5, to=4-3]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	&& {(H)} \\
+	{\mathbf{(reg)}} & {\mathbf{(fH)}} & {T_U} & {T_1}
+	\arrow[Rightarrow, from=2-1, to=2-2]
+	\arrow[Rightarrow, from=2-2, to=1-3]
+	\arrow[Rightarrow, from=2-2, to=2-3]
+	\arrow[Rightarrow, from=2-3, to=2-4]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}[plain, fragile, standout]
+\[\begin{tikzcd}
+	&& {\mathbf{(saju)}} \\
+	{\mathbf{(reg)}} & {\mathbf{(H)}+\mathbf{(saju)}} & {\mathbf{(H)}} & {T_1}
+	\arrow[Rightarrow, from=2-1, to=2-2]
+	\arrow[Rightarrow, from=2-2, to=1-3]
+	\arrow[Rightarrow, from=2-2, to=2-3]
+	\arrow[Rightarrow, from=2-3, to=2-4]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	&&&& {\mathbf{(saju)}} \\
+	{\mathbf{(reg)}} && {\mathbf{(aju)}} && {(T_1)} \\
+	&&&& {(T_U)}
+	\arrow[Rightarrow, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-3, to=1-5]
+	\arrow[Rightarrow, from=2-3, to=2-5]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+\end{tikzcd}\]
+
+    
+\end{frame}
+
+\section{¿Cuál noción Hausdorff es mejor?}
+
+\begin{frame}[standout]{En resumen}
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+ Axioma/Comportamiento & \textbf{C.} & 1° & 2° & \textbf{S. H.} & \textbf{C. S. E.}\\ \hline
+$\mathbf{(dH)}$ & x & $\checkmark$ & x & x & x \\ \hline
+$\mathbf{(H)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & x \\ \hline
+$\mathbf{(Hp)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & ? \\ \hline
+$\mathbf{(fH)}$ & x & x &  $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{tiny}
+$$\mbox{ }$$
+\end{tiny}
+
+\textbf{C.}= Propiedad conservativa\\
+\textbf{S. H.}= Suficientemente Huasdorff\\
+\textbf{C. S. E.}= Comportamiento similar al espacial
+
+
+%\begin{definition}
+    
+%\end{definition}
+
+%\begin{corollary}
+    
+%\end{corollary}
+\end{frame}
+
+\begin{frame}[standout]{Conclusiones}
+    \begin{itemize}
+        \item $T_2$ (D. y S.) no es suficientemente Hausdorff.
+        \item<2-> $\mathbf{(H)}$ podría ser un muy buen acercamiento a $T_2$.
+        \item<3-> $\mathbf{(fH)}$ reúne los aspectos espaciales, pero es complicado trabajar con ella.
+        \item<4-> $\mathbf{(Hp)}$ necesita ser aun explorada.
+        \item<5-> No podemos concluir con certeza cual noción Hausdorff en marcos es ``la mejor''.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\smiley Gracias por su atención\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      %\vfill
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/piazzai/arguelles} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+\bibitem{D.S.} H. Dowker and D. Strauss, \textit{Separation axioms for frames}. In topics in topology, pp. 223-240. Proc. Colloq., Keszthely, 1992.
+
+\bibitem{R. I.} J. R. Isbell, \textit{Atomless parts of spaces}. Math. Scand. 31 (1972) 5-32. 
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+\bibitem{J.S.} P.T. Johnstone, S.-H. Sun, \textit{Weak products and Hausdorff locales}. In: Categorical algebra and its applications, pp. 173-193. Lecture notes in mathematics, vol. 1348. Springer-Verlag, Berlin, 1988.
+
+\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+\bibitem{P.S.} J. Paseka, B. Smarda, \textit{$T_2$-frames and almost compact frames}. Czechoslovak Math. J. 42 (1992) 297-313.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} J. Rosicky, B. Smarda, \textit{$T_1$-locales.} Math. Proc. Cambridge Philos. Soc. 98 (1985) 81-86.
+
+%\bibitem{R.S.} Rosemary A Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+%\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{H.S.3} Harold Simmons, \textit{The assembly of a frame}, University of Manchester (2006).
+
+\bibitem{H.S.4} Harold Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society (1978), vol. 21, no 1, p. 41-48.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2024. Universidad de Guadalajara.
+
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain, standout]
+    \begin{center}
+    \includegraphics[height=9.5cm]{tacos.jpg}
+    \end{center}
+\end{frame}
+
+
+\end{document}

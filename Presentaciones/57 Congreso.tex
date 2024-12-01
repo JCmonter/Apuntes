@@ -1,0 +1,515 @@
+% arguelles v2.3.0
+% author: Michele Piazzai
+% contact: michele.piazzai@uc3m.es
+% license: MIT
+
+% Copied from GitHub: https://github.com/piazzai/arguelles
+
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{Modificaciones de parches}
+\subtitle{y su relación con los axiomas tipo Hausdorff}
+\event{57° Congreso Nacional de la SMM}
+\date{Herramientas reticulares y categóricas para el estudio de anillos y módulos}
+\author{Juan Carlos Monter Cortés\\ Luis Ángel Zaldívar Corichi}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx\\ $\quad$ luis.zaldivar@academicos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+%\github{username}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Contenido}
+\tableofcontents %Imprime la tabla de contenido
+\end{frame}
+
+\section{Antecedentes}
+
+\begin{frame}{El parche original}
+    \begin{theorem}
+        Sea $S$ un espacio coherente con topología $\mathcal{O}S$. Consideremos 
+        \[
+        A=\{U\in \mathcal{O}S\mid U \mbox{ compacto}\}\quad\mbox{ y }
+        \]
+        \[
+        A^*=\{V\in\mathcal{P}S\mid V \mbox{ es complemento de }U \mbox{ y }U\in A\}
+        \]
+        Sea $\mathcal{O}'S$ la topología en $S$ que tiene como base al conjunto
+        \[
+        C=\{U\cap V\mid U\in A, V\in A^*\}.
+        \]
+        Entonces $(S, \mathcal{O}'S)$ es un espacio de Stone.
+    \end{theorem}
+    
+\end{frame}
+
+\begin{frame}[fragile]{La adjunción entre $\mathbf{Frm}$ y $\mathbf{Top}$}
+\begin{itemize}
+    \item $\mathcal{O}(\_)\colon \mathbf{Top}\to \mathbf{Frm}$ 
+    \item $\pt(\_)\colon \mathbf{Frm}\to \mathbf{Top}$
+    \item El funtor $\pt$ es adjunto izquierdo de $\mathcal{O}$.
+\end{itemize}
+\[\begin{tikzcd}
+	{\mathbf{Top}} \\
+	{} & {} & {} \\
+	{\mathbf{Frm}}
+	\arrow["{\pt}"{name=0, swap}, from=3-1, to=1-1, shift right=5]
+	\arrow["{\mathcal{O}}"{name=1, swap}, from=1-1, to=3-1, shift right=5]
+	\arrow["\dashv"{rotate=0}, from=1, to=0, phantom]
+\end{tikzcd}\]
+    
+\end{frame}
+
+\begin{frame}[fragile]
+      \frametitle{Axiomas de separación}
+      \framesubtitle{(sensibles a puntos)}
+      En la topología clásica (topología sensible a puntos), tenemos la siguiente relación entre los axiomas de separación 
+
+    \[\begin{tikzcd}
+	{T_4} & {T_{3\frac{1}{2}}} & {T_3} & {T_2} & {T_1} & {T_0} \\
+	& {(norm)} & {R_3} & {R_2} & {R_1} & {R_0}
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[Rightarrow, from=1-3, to=1-4]
+	\arrow[Rightarrow, from=1-4, to=1-5]
+	\arrow[Rightarrow, from=1-5, to=1-6]
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-1, to=2-2]
+	\arrow[Rightarrow, from=1-2, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-4]
+	\arrow[Rightarrow, from=1-4, to=2-5]
+	\arrow[Rightarrow, from=1-5, to=2-6]
+	\arrow[Rightarrow, from=2-3, to=2-4]
+	\arrow[Rightarrow, from=2-4, to=2-5]
+	\arrow[Rightarrow, from=2-5, to=2-6]
+\end{tikzcd}\]
+\[
+    \mbox{ }
+\]
+    
+donde $R_2=\mathbf{(reg)}$, $R_3=\mathbf{(creg)}$, $T_i=R_{i-1}+T_{i-1}$ y $T_{3\frac{1}{2}}=R_3+T_3$, para $i=1, 2, 3$.\\
+
+$T_4=\mathbf{(norm)}+T_1$.
+    
+\end{frame}
+
+\begin{frame}{Axiomas de separación}
+\framesubtitle{(libres de puntos)}
+    \begin{description}
+    \item[$(T_1)$] Todo elemento primo es máximo.
+    \item<2->[$(reg)$] $\quad\forall\, U\in \mathcal{O}S$
+    \[
+    U=\bigcup\{V\mid V\prec U\}
+    \]
+    \item<3->[$(T_3)$] $=(reg)+(T_{1})$ 
+    \item<4->[$(creg)$] $\quad\forall\, U\in \mathcal{O}S$
+    \[
+    U=\bigcup\{V\mid V\prec\prec U\}
+    \]
+    \item<5->[$(T_{3\frac{1}{2}})$] $=(creg)+(T_{1})$ 
+    \item<6->[$(norm)$] $\quad\forall\, X, Y \in \mathcal{O}S$ tales que $X\cup Y=S$, $\exists$ $U, V \in \mathcal{O}S$ tales que
+    \[
+    X\cup U=S, \quad Y\cup V=S, \quad U\cap V=\emptyset
+    \]
+    \item<7->[$(T_{4})$] $=(norm)+(T_{1})$ 
+\end{description}
+\end{frame}
+
+\begin{frame}{Axiomas de separación en $\mathbf{Frm}$}
+Qué pasa si $A$ es un marco arbitrario? 
+\begin{tiny}
+$$\mbox{ }$$
+\end{tiny}
+
+\uncover<2->{\begin{description}
+    \item[$(reg)$] $\quad \forall \,a\in A$, $a=\bigvee\{x\in A\mid x\prec a\}$
+    \item[$(creg)$] $\quad\forall \,a\in A$, $a=\bigvee\{x\in A\mid x\prec\prec a\}$
+    \item[$(norm)$] $\quad\forall \,a, b\in A$ tales que $a\vee b=1$, $\exists\; u, v\in A$ tales que 
+    \[
+    a\vee u=b\vee v=1 \qquad \mbox{ y }\qquad u\wedge v=0
+    \]
+\end{description}}
+    
+\end{frame}
+
+\section{Modificación de parches}
+\begin{frame}{Espacio de parches}
+    \[
+\mbox{Si } S\mbox{ es }T_2\Rightarrow \mbox{ todo conjunto compacto (saturado) es cerrado.}
+\]
+
+\uncover<2->{\begin{definition}
+    Un espacio topológico $S$ es \emph{empaquetado} si todo conjunto compacto saturado es cerrado
+\end{definition}}
+
+\uncover<3->{\begin{lemma}
+    Un espacio topológico que es $T_0$ y empaquetado es $T_1$.
+\end{lemma}}
+
+\uncover<4->{\[
+T_2\Rightarrow T_0+\mbox{ empaquetado }\Rightarrow T_1
+\]}
+\end{frame}
+
+\begin{frame}[plain]
+     Si $Q\in \mathcal{Q}S$ y $Q\notin \mathcal{C}S \Rightarrow S$ no es empaquetado.
+
+    \onslide<2->{\[
+    \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, \; Q\in \mathcal{Q}S\}
+    \]}
+
+    \uncover<3->{\begin{definition}
+        Para un espacio topológico $S$, sea $^pS$ (\emph{espacio de parches}), el espacio con los mismos puntos que $S$ y la topología $\mathcal{O}^pS$ generada por la pbase.
+    \end{definition}}
+
+    \uncover<4->{\[
+    S \mbox{ es empaquetado }\quad \Leftrightarrow\quad  ^pS=S
+    \]}
+
+    \uncover<5->{\begin{lemma}
+        El espacio de parches de un espacio $T_2$ es él mismo.
+    \end{lemma}}
+\end{frame}
+
+\begin{frame}{Según Rosemary}
+    Basados en el \emph{Teorema de Hoffmann-Mislove}, se introduce un nuevo marco de parches.
+
+\[\text{p-base}(A) =\{u_{a}\wedge v_{F}\mid F\in A^{\wedge}\}.\]
+
+\uncover<2->{Sea $P(A)=\langle\text{p-base}(A)\rangle$, es decir, tomamos supremos arbitrarios de elementos en $\text{p-base}(A)$
+
+ \[\xymatrix{ A\ar[r]^{p}\ar@/^/@<+1.5ex>[rr]^{\eta_{A}} & P(A)\ar[r]^{\iota} & NA }\]
+}
+
+\uncover<3->{
+\[
+¿\mbox{Cuándo } A\cong P(A)?
+\]}
+\end{frame}
+
+\begin{frame}
+\frametitle{Marcos $\alpha$-arreglados}
+
+\begin{theorem}
+    Supongamos que $A$ es un marco regular y sea $j\in NA$ tal que $\bigtriangledown (j)$ es abierto. Entonces $j=u_d$, donde $d=j(0)$
+\end{theorem}
+\uncover<2->{\[
+  A \mbox{ es regular } \Rightarrow A\cong P(A)
+\]}
+
+\uncover<3->{\begin{definition}
+    $A\in \mathbf{Frm}$ es parche trivial si el encaje $A\to P(A)$ es un isomorfismo.
+\end{definition}}
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Sea $A\in \mathbf{Frm}$ y $\alpha$ un ordinal, un filtro abierto $F$ en $A$ es $\alpha-$\emph{arreglado} si \[x\in F\Rightarrow u_{d(\alpha)}(x)=d(\alpha)\vee x=1,\] donde $d(\alpha)=f^{\alpha}(0)$ y $f=\dot\bigvee\{v_a\mid a\in F\}$.
+\end{definition}
+
+\onslide<2->{Un marco es \emph{parche trivial} si y solo si es arreglado (donde arreglado quiere decir que es $\alpha$-arreglado para algún ordinal $\alpha$).}
+
+\onslide<3->\begin{theorem}
+Sea $S$ un espacio $T_{0}$, éste tiene \alert<4->{marco de abiertos 1-arreglado si y solo si $S$ es $T_2$}.
+\end{theorem}
+\end{frame}
+
+\section{Axiomas tipo Hausdorff}
+\begin{frame}{Propiedad conservativa, de 1° orden y de 2° orden}
+
+\begin{definition}
+    \begin{enumerate}
+        \item Para un espacio $S$ decimos que una propiedad $P$ es \emph{conservativa} si y solo si $\mathcal{O}S$ tiene la propiedad $P_S$.
+
+        \item<2-> Decimos que una propiedad en marcos $P$ es \emph{suficientemente Hausdorff} si y solo si $P$ implica la propiedad Hausdorff espacial.
+        
+        \item<3-> Decimos que una propiedad en marcos $P$ es de \emph{1° orden} si y solo si $P$ es enunciada como una fórmula para elementos del marco.
+
+        \item<4-> Decimos que una propiedad en marcos $P$ es de \emph{2° orden} si y solo si $P$ es enunciada como una caracterización de sublocales.
+    \end{enumerate}
+\end{definition}
+
+\end{frame}
+
+\begin{frame}{Axiomas tipo Hausdorff}
+    \begin{description}
+        \item[$(\mathbf{dH})$] $\quad a\vee b=1$ y $a, b\neq 1$, $\exists$ $u, v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$. 
+        \item<2->[$(\mathbf{H})$] $\quad 1\neq a\nleq b\in L$, $\exists$ $u, v\in L$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$. 
+        \item<3->[$(\mathbf{Hp})$] $\quad$Cada elemento semiprimo en $L$ es máximo.
+        \item<4->{[$(\mathbf{fH})$] $\quad$El sublocal diagonal $\Delta[L]$ es cerrado en $L\oplus L$.
+        \[
+        \Leftrightarrow \Delta[L]=\uparrow d_L
+        \]
+        donde $d_L$ es el menor elemento de $\Delta[L]$, es decir,
+\[
+d_L=\Delta(0)=\{(x, y)\mid x\wedge y\leq 0\}=\downarrow\{(x, x^*)\mid x\in L\}.
+\]}
+    \end{description}
+\end{frame}
+
+\begin{frame}{Jerarquía y comportamiento}
+    \[
+    \mathbf{(fH)}\Rightarrow \mathbf{(H)}\Rightarrow \mathbf{(dH)} \quad\mbox{ y }  \quad
+    \mathbf{(fH)}\Rightarrow \mathbf{(H)} \Rightarrow \mathbf{(Hp)}
+    \]
+\begin{tiny}
+$$\mbox{ }$$
+\end{tiny}
+
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+ Axioma/Comportamiento & \textbf{C.} & 1° & 2° & \textbf{S. H.} & \textbf{C. S. E.}\\ \hline
+$\mathbf{(dH)}$ & x & $\checkmark$ & x & x & x \\ \hline
+$\mathbf{(H)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & x \\ \hline
+$\mathbf{(Hp)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & ? \\ \hline
+$\mathbf{(fH)}$ & x & x &  $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{tiny}
+$$\mbox{ }$$
+\end{tiny}
+
+\textbf{C.}= Propiedad conservativa\\
+\textbf{S. H.}= Suficientemente Huasdorff\\
+\textbf{C. S. E.}= Comportamiento similar al espacial
+
+
+%\begin{definition}
+    
+%\end{definition}
+
+%\begin{corollary}
+    
+%\end{corollary}
+\end{frame}
+
+\begin{frame}[fragile, plain]
+    \[\begin{tikzcd}
+	&& {\mathbf{(reg)}} \\
+	{\mathbf{(aju)}} && {\mathbf{(fH)}} && {\mathbf{(H)}+\mathbf{(saju)}} \\
+	{\mathbf{(saju)}} && {T_U} && {\mathbf{(H)}} \\
+	&& {T_1}
+	\arrow[Rightarrow, from=1-3, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-5]
+	\arrow[dotted, no head, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=2-1, to=3-3]
+	\arrow[dotted, no head, from=2-1, to=3-5]
+	\arrow[dotted, no head, from=2-3, to=2-5]
+	\arrow[dotted, no head, from=2-3, to=3-1]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+	\arrow[Rightarrow, from=2-5, to=3-1]
+	\arrow[dotted, no head, from=2-5, to=3-3]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[dotted, no head, from=3-1, to=3-3]
+	\arrow[dotted, no head, from=3-1, to=4-3]
+	\arrow[dotted, no head, from=3-3, to=3-5]
+	\arrow[Rightarrow, from=3-3, to=4-3]
+	\arrow[Rightarrow, from=3-5, to=4-3]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	&&&& {\mathbf{(H)}} \\
+	{\mathbf{(reg)}} && {\mathbf{(fH)}} && {(T_U)} && {(T_1)}
+	\arrow[Rightarrow, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-3, to=1-5]
+	\arrow[Rightarrow, from=2-3, to=2-5]
+	\arrow[Rightarrow, from=2-5, to=2-7]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}[plain, fragile]
+\[\begin{tikzcd}
+	&& {\mathbf{(saju)}} \\
+	{\mathbf{(reg)}} & {\mathbf{(H)}+\mathbf{(saju)}} & {\mathbf{(H)}} & {T_1}
+	\arrow[Rightarrow, from=2-1, to=2-2]
+	\arrow[Rightarrow, from=2-2, to=1-3]
+	\arrow[Rightarrow, from=2-2, to=2-3]
+	\arrow[Rightarrow, from=2-3, to=2-4]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	&&&& {\mathbf{(saju)}} \\
+	{\mathbf{(reg)}} && {\mathbf{(aju)}} && {(T_1)} \\
+	&&&& {(T_U)}
+	\arrow[Rightarrow, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-3, to=1-5]
+	\arrow[Rightarrow, from=2-3, to=2-5]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+\end{tikzcd}\]
+
+    
+\end{frame}
+
+\section{Marcos arreglados vs axiomas tipo Hausdorff}
+
+\begin{frame}
+\frametitle{Algunos resultados}
+\begin{definition}
+    Decimos que un marco $A$ es espacial si $A=\mathcal{O}S$, para $S$ un espacio topológico.
+\end{definition}
+
+\uncover<2->{\begin{theorem}
+    Si $A$ es un marco espacial entonces 
+    \[
+    A \text{ es } 1\text{-arreglado si y solo si } S \text{ es } T_2
+    \] 
+\end{theorem}
+ }
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{itemize}
+        \item Si $S$ es $T_2$ $\Rightarrow$ $\mathcal{O}S$ es parche trivial
+        \item<2-> Un marco $A$ es arreglado $\Leftrightarrow$ A parche trivial.
+        \item<3-> $\mathbf{(H)}$ es conservativa
+    \end{itemize}
+
+    \uncover<4->{\[
+\mathcal{O}S \mbox{ es }\mathbf{(H)}\Leftrightarrow S\mbox{ es }T_2\Rightarrow \mathcal{O}S \mbox{ parche trivial }\Leftrightarrow \mathcal{O}S \mbox{ arreglado}
+\]}
+
+\uncover<5->{\begin{block}{Conjetura}
+    Todo marco Hausdorff es 1-arreglado.
+\end{block}}
+\end{frame}
+
+\begin{frame}[plain, fragile]
+    Buscamos tener nuevas caracterizaciones de arreglo basadas en las nociones tipo Hausdorff para marcos. Por ejemplo:
+
+\begin{theorem}
+        Para $A$ un marco espacial, $\mathcal{O}S$ es un marco Hausdorff si y solo si $A$ es $1-$arreglado.
+    \end{theorem}
+
+\begin{theorem}
+    Todo marco fuertemente Hausdorff es arreglado.
+\end{theorem}
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} && {\mathbf{(fH)}} && {\mathbf{(H)}} \\
+	\\
+	&& {\mathbf{Arreglado}}
+	\arrow[Rightarrow, from=1-1, to=1-3]
+	\arrow[Rightarrow, from=1-1, to=3-3]
+	\arrow[Rightarrow, from=1-3, to=1-5]
+	\arrow[Rightarrow, from=1-3, to=3-3]
+	\arrow[Rightarrow, dashed, from=1-5, to=3-3]
+\end{tikzcd}\]
+\end{frame}
+
+%\begin{frame}[bg=demo-arguelles.png]
+ %     \frametitle{A frame with background image}
+  %    You can still add title and subtitle. \par
+   %   You can also use a background in the title slide by setting: \\
+    %  \texttt{\textbackslash frame[plain,bg=demo-background.jpg]\{\textbackslash titlepage\}}
+%\end{frame}
+
+%\begin{frame}[plain]
+ %     \frametitle{A plain frame has no headline}
+  %    \begin{table}
+   %         \small
+    %        \begin{tabular}{rl}
+    %              \ttfamily\textbackslash Alegreya              & \Alegreya Lorem ipsum dolor sit amet              \\
+     %             \ttfamily\textbackslash AlegreyaMedium        & \AlegreyaMedium Lorem ipsum dolor sit amet        \\
+     %             \ttfamily\textbackslash AlegreyaExtraBold     & \AlegreyaExtraBold Lorem ipsum dolor sit amet     \\
+     %             \ttfamily\textbackslash AlegreyaBlack         & \AlegreyaBlack Lorem ipsum dolor sit amet         \\
+     %             \ttfamily\textbackslash AlegreyaSansThin      & \AlegreyaSansThin Lorem ipsum dolor sit amet      \\
+ %                 \ttfamily\textbackslash AlegreyaSansLight     & \AlegreyaSansLight Lorem ipsum dolor sit amet     \\
+  %                \ttfamily\textbackslash AlegreyaSans          & \AlegreyaSans Lorem ipsum dolor sit amet          \\
+   %               \ttfamily\textbackslash AlegreyaSansMedium    & \AlegreyaSansMedium Lorem ipsum dolor sit amet    \\
+%                  \ttfamily\textbackslash AlegreyaSansExtraBold & \AlegreyaSansExtraBold Lorem ipsum dolor sit amet \\
+ %                 \ttfamily\textbackslash AlegreyaSansBlack     & \AlegreyaSansBlack Lorem ipsum dolor sit amet
+  %          \end{tabular}
+   %   \end{table}
+    %  \vfill
+     % \begin{alert}{Alert!}
+%            A \textit{plain} frame does not show the progress bar but still appears in it unless the frame comes after \texttt{\textbackslash End}
+ %     \end{alert}
+%\end{frame}
+
+\begin{frame}[standout]
+Lo que viene...
+\begin{itemize}
+    \item<2-> Si $A$ es un marco arreglado $\Rightarrow$ $A_j$ es arreglado.
+    \item<3-> Si $\{A_i\}_{i\in \mathcal{I}}$ marcos arreglados $\Rightarrow$ $\prod A_i$ es arreglado.
+    \item<4-> Si $S$ es un sublocal compacto de un local Hausdorff $\Rightarrow$ $S$ es cerrado.
+    \item<5-> Caracterizar marcos que no son arreglados.
+    \item<6-> Que propiedades de separación cumple $PA$.
+    \item<7-> $\vdots$
+\end{itemize}
+     % \centering\large
+      %A \textbf{\itshape\scshape standout} frame can be used to focus attention
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\smiley Muchas gracias por su atención\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      %\vfill
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/piazzai/arguelles} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{Referencias}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+
+\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} Rosemary A Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+\bibitem{H.S.3} Harold Simmons, \textit{The assembly of a frame}, University of Manchester (2006).
+
+\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2024. Universidad de Guadalajara.
+
+\end{thebibliography}
+\end{frame}
+
+\end{document}
