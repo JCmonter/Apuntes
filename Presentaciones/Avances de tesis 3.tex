@@ -1,0 +1,351 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{multicol}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{Patch modifications and separation axioms in point-free topology}
+\event{Seminario de avance de tesis III}
+\date{\today}
+\author{Juan Carlos Monter Cortés\\ Luis Ángel Zaldívar Corichi} 
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+%\github{username}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Lo que veremos hoy \smiley}
+\tableofcontents %Imprime la tabla de contenido
+\end{frame}
+
+\section{Lo que si sabemos}
+\subsection{Espacio de parches vs ensamble de parches}
+\begin{frame}{Espacio de parches}
+		
+		\begin{block}{Definición:}
+			Un espacio topológico $S$ es \emph{empaquetado} si todo conjunto compacto saturado es cerrado.
+		\end{block}
+
+		\onslide<2->{\[
+   \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, \; Q\in \mathcal{Q}S\}.
+   \]}
+
+   
+   \uncover<3->{\begin{block}{Definición:}
+	Para un espacio topológico $S$, sea $^pS$ (\emph{espacio de parches}), el espacio con los mismos puntos que $S$ y la topología $\mathcal{O}^pS$ generada por la pbase.
+\end{block}}
+		
+\end{frame}
+
+\begin{frame}
+\begin{block}{Observaciones:}
+\begin{itemize}
+\item $T_2\Rightarrow T_0+\mbox{empaqueta}\Rightarrow T_1$.
+\item<2-> Si $S$ es $T_0$ $\Rightarrow$ $^pS$ es $T_1$ y si $S$ es $T_1$ $\Rightarrow$ $^pS=^{pp}S$.
+\item<3-> Si $S$ es $T_0$ $\Rightarrow$ $^{pp}S=\,^{ppp}S$.
+\item<4-> Si $S$ es $T_2$ $\Rightarrow$ $S=^pS$.
+\item<5-> $S$ es empaquetado $\Leftrightarrow$ $S=^pS$. 
+\end{itemize}
+\end{block}
+
+\onslide<6->{¿Cuál es el análogo de empaquetado en $\mathbf{Frm}$?}
+\end{frame}
+
+\begin{frame}{Filtros, núcleos y el Teorema de H-M}
+	\begin{definition}
+		Sea $A\in \mathbf{Frm}$. Para $F\subseteq A$, decimos que $F$ es un \emph{filtro} si:
+		\begin{enumerate}
+			\item $1\in F$.
+			\item $a\leq b$, $a\in  F$ $\Rightarrow b \in F$.
+			\item $a, b \in F \Rightarrow  a \wedge b \in F$.
+		\end{enumerate}
+	\end{definition}
+	\uncover<2->{Existen diferentes tipos de filtros:
+	\begin{itemize}
+	\begin{multicols}{2}
+		\item Propio
+		\item Primo
+		\item Completamente primo
+		\item (Scott) abierto
+		\item Admisible ($\nabla(j)$)
+		\end{multicols}
+	\end{itemize} }
+\end{frame}
+
+\begin{frame}
+Sea $A\in \mathbf{Frm}$. Para $a, b\in A$, $j\colon A\to A$ es un \emph{núcleo} si:
+\begin{enumerate}
+\item<2-> $a\leq b$ $\Rightarrow$ $j(a)\leq j(b)$
+\item<3-> $a\leq j(a)$
+\item<4-> $j^2(a)=j(a)$
+\item<5-> $j(a\wedge b)=j(a)\wedge j(b)$
+\end{enumerate}
+
+\onslide<6->{\begin{block}{Observaciones:}
+\begin{itemize}
+\item<7-> $NA=$ conjunto de todos los núcleos en $A$ y $NA\in \mathbf{Frm}$.
+\item<8-> $u_a(x)=a\vee x$, $v_a(x)=(a\succ x)$, $w_a=((x\succ a)\succ a)\in NA$.
+\item<9-> $\eta_A\colon A\to NA$, $a\mapsto u_a$.
+\item<10-> Si $f=f^*\in \mathbf{Frm}$ $\Rightarrow$ $k=f_*f^*\in NA$.
+\item<11-> Para $U_A^*\colon A\to \mathcal{O}S$, $sp=(U_A)_*U_A^*\in NA$.
+\end{itemize}
+\end{block}}
+\end{frame}
+
+\begin{frame}
+	\only<-1>{\begin{block}{Teorema (Hoffman-Mislove):}
+	Sean $A\in \mathbf{Frm}$ y $S=\pt(A)$, entonces existe una correspondencia biyectiva entre:
+	\begin{enumerate}
+		\item $\mathcal{Q}S=$ compactos saturados en $S$
+		\item $A^\wedge=$ filtros abiertos en $A$
+	\end{enumerate}
+\end{block}}
+
+ \only<2->{\begin{block}{Teorema (Hoffman-Mislove extendido):}
+	Sean $A\in \mathbf{Frm}$ y $S=\pt(A)$, entonces existe una correspondencia biyectiva entre:
+	\begin{enumerate}
+		\item $\mathcal{Q}S=$ compactos saturados en $S$
+		\item $A^\wedge=$ filtros abiertos en $A$
+		\item $v_F=$ núcleos ajustados
+	\end{enumerate}
+\end{block}}
+\onslide<3->{El Teorema de H.-M. nos proporciona $(F, Q, \nabla(Q))$
+\[
+F\in A^\wedge  \leftrightarrow Q\in \mathcal{Q}S\leftrightarrow \nabla(Q)\in \mathcal{O}S^\wedge
+\]
+\[
+	x\in F  \Leftrightarrow Q\subseteq U_A(x)\Leftrightarrow U_A(x)\in \nabla(Q)
+\]}
+\end{frame}
+
+\begin{frame}{El ensamble parches}
+	Basados en el Teorema de H.-M. se introduce el \emph{marco de parches}.
+
+	\[\text{p-base}(A) =\{u_{a}\wedge v_{F}\mid a\in A, F\in A^{\wedge}\}.\]
+	
+	\uncover<2->{Sea $P(A)=\langle\text{p-base}(A)\rangle$, es decir, tomamos supremos arbitrarios de elementos en $\text{p-base}(A)$
+	
+	 \[\xymatrix{ A\ar[r]^{i}\ar@/^/@<+1.5ex>[rr]^{\eta_{A}} & P(A)\ar[r]^{\iota} & NA }\]
+	}
+	
+	\uncover<3->{
+	\[
+	¿\mbox{Cuándo } A\cong P(A)?
+	\]} 
+
+\end{frame}
+
+\begin{frame}{Parche trivial}
+	\begin{block}{Definición:}
+		$A\in \mathbf{Frm}$ es \emph{parche trivial} si $i\colon A\to P(A)$ es un isomorfismo.
+	\end{block}
+
+\onslide<2->{¿Bajo qué circunstancias es el marco $A$ parche trivial?}
+	\onslide<3->{\begin{block}{Observaciones:}
+    \begin{itemize}
+		\item<4-> $S=\,^pS \leftrightarrow A\cong PA$.
+		\item<5-> Si $j\in NA$, $j=\bigvee\{v_x\wedge u_{j(x)}\mid x\in A\}$.
+		\item<6-> Si $j\in PA$, $j=\bigvee\{v_F\wedge u_d\mid F\in A^\wedge \mbox{ y }d\in A\}$.
+		\item<7-> $A$ es parche trivial $\Leftrightarrow$ $v_F=u_d$.
+		\item<8-> $\forall a\in A$, $u_a\leq v_a$ y $v_a\leq j \Leftrightarrow j(a)=1$.
+    \end{itemize}
+	\end{block}}
+\end{frame}
+
+\begin{frame}{Regularidad implica parche trival}
+	\begin{block}{Teorema:}
+		Supongamos que $A$ es un marco regular y sea $j\in NA$ tal que $\bigtriangledown (j)$ es abierto. Entonces $j=u_d$, donde $d=j(0)$
+	\end{block}
+\end{frame}    
+
+\begin{frame}{Marcos arreglados}
+	\begin{block}{Definición:}
+		Sea $A\in \mathbf{Frm}$ y $\alpha$ un ordinal, un filtro abierto $F$ en $A$ es $\alpha-$\emph{arreglado} si \[x\in F\Rightarrow u_{d(\alpha)}(x)=d(\alpha)\vee x=1,\] donde $d(\alpha)=f^{\alpha}(0)$ y $f=\dot\bigvee\{v_a\mid a\in F\}$.
+		\end{block}
+\end{frame}
+
+\begin{frame}
+	Un marco es \emph{parche trivial} si y solo si es arreglado (donde arreglado quiere decir que es $\alpha$-arreglado para algún ordinal $\alpha$).
+
+	\onslide<2->\begin{block}{Teorema:}
+		Sea $S$ un espacio $T_{0}$, éste tiene \alert<4->{marco de abiertos 1-arreglado si y solo si $S$ es $T_2$}.
+		\end{block}
+\end{frame}
+
+\begin{frame}{Propiedad conservativa, de 1° orden y de 2° orden}
+
+	\begin{block}{Definición:}
+		\begin{enumerate}
+			\item Para un espacio $S$ decimos que una propiedad $P$ es \emph{conservativa} si y solo si $\mathcal{O}S$ tiene la propiedad $P_S$.
+	
+			\item<2-> Decimos que una propiedad en marcos $P$ es \emph{suficientemente Hausdorff} si y solo si $P$ implica la propiedad Hausdorff espacial.
+			
+			\item<3-> Decimos que una propiedad en marcos $P$ es de \emph{1° orden} si y solo si $P$ es enunciada como una fórmula para elementos del marco.
+	
+			\item<4-> Decimos que una propiedad en marcos $P$ es de \emph{2° orden} si y solo si $P$ es enunciada como una caracterización de sublocales.
+		\end{enumerate}
+	\end{block}
+	
+	\end{frame}
+
+\begin{frame}{Marcos Hausdorff}
+	\begin{description}
+        \item[$(\mathbf{dH})$] $\quad a\vee b=1$ y $a, b\neq 1$, $\exists$ $u, v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$. 
+        \item<2->[$(\mathbf{H})$] $\quad 1\neq a\nleq b\in L$, $\exists$ $u, v\in L$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$. 
+        \item<3->[$(\mathbf{Hp})$] $\quad$Cada elemento semiprimo en $L$ es máximo.
+        \item<4->{[$(\mathbf{fH})$] $\quad$El sublocal diagonal $\Delta[L]$ es cerrado en $L\oplus L$.
+        \[
+        \Leftrightarrow \Delta[L]=\uparrow d_L
+        \]
+        donde $d_L$ es el menor elemento de $\Delta[L]$, es decir,
+\[
+d_L=\Delta(0)=\{(x, y)\mid x\wedge y\leq 0\}=\downarrow\{(x, x^*)\mid x\in L\}.
+\]}
+    \end{description}
+\end{frame}
+
+\section{Los problemas que tenemos}
+\subsection{La conjetura}
+\begin{frame}{El razonamiento}
+	\begin{block}{Definición:}
+		Decimos que un marco $A$ es espacial si $A=\mathcal{O}S$, para $S$ un espacio topológico.
+	\end{block}
+	
+	\uncover<2->{\begin{block}{Teorema:}
+		Si $A$ es un marco espacial entonces 
+		\[
+		A \text{ es } 1\text{-arreglado si y solo si } S \text{ es } T_2
+		\] 
+	\end{block}
+	 }
+
+
+\end{frame}
+
+\begin{frame}{La conjetura}
+
+		\begin{itemize}
+			\item Si $S$ es $T_2$ $\Rightarrow$ $\mathcal{O}S$ es parche trivial
+			\item<2-> Un marco $A$ es arreglado $\Leftrightarrow$ A parche trivial.
+			\item<3-> $\mathbf{(H)}$ es conservativa
+		\end{itemize}
+	
+		\uncover<4->{\[
+	\mathcal{O}S \mbox{ es }\mathbf{(H)}\Leftrightarrow S\mbox{ es }T_2\Rightarrow \mathcal{O}S \mbox{ parche trivial }\Leftrightarrow \mathcal{O}S \mbox{ arreglado}
+	\]}
+	
+	\uncover<5->{\begin{block}{Conjetura}
+		Todo marco Hausdorff es 1-arreglado.
+	\end{block}}
+\end{frame}
+
+\begin{frame}[plain, fragile]
+    Buscamos tener nuevas caracterizaciones de arreglo basadas en las nociones tipo Hausdorff para marcos. Por ejemplo:
+
+\begin{block}{Teorema:}
+        Para $A$ un marco espacial, $\mathcal{O}S$ es un marco Hausdorff si y solo si $A$ es $1-$arreglado.
+    \end{block}
+
+\begin{block}{Teorema:}
+    Todo marco fuertemente Hausdorff es arreglado.
+\end{block}
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} && {\mathbf{(fH)}} && {\mathbf{(H)}} \\
+	\\
+	&& {\mathbf{Arreglado}}
+	\arrow[Rightarrow, from=1-1, to=1-3]
+	\arrow[Rightarrow, from=1-1, to=3-3]
+	\arrow[Rightarrow, from=1-3, to=1-5]
+	\arrow[Rightarrow, from=1-3, to=3-3]
+	\arrow[Rightarrow, dashed, from=1-5, to=3-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}{¿Qué significa apilado en marcos?}
+	\[
+		\begin{split}
+			\mathcal{O}S\; \mathbf{0}-\mbox{arreglado }& \Leftrightarrow S=\emptyset\\
+			\mathcal{O}S\; \mathbf{1}-\mbox{arreglado }& \Leftrightarrow S \mbox{ es } T_2\\
+			\mathcal{O}S\, \mbox{ arreglado }& \Leftrightarrow S \mbox{ empaquetado }+ \mbox{ apilado}
+		\end{split}
+	\]
+\end{frame}
+
+\section{Las alternativas que hemos pensado}
+\begin{frame}[fragile]{EL Q-cuadrado}
+\[\begin{tikzcd}
+	A && {A_F} \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla} \\
+	&&& \bullet
+	\arrow["F", shift left=2, from=1-1, to=1-3]
+	\arrow["{U_A}"', shift right=2, from=1-1, to=3-1]
+	\arrow["G", from=1-1, to=3-3]
+	\arrow["{F_*}", shift left=2, from=1-3, to=1-1]
+	\arrow[from=1-3, to=2-4]
+	\arrow["{g^*}", shift left=2, dashed, from=1-3, to=3-3]
+	\arrow["{(U_A)_*}"', shift right=2, from=3-1, to=1-1]
+	\arrow["\nabla"', shift right=2, from=3-1, to=3-3]
+	\arrow["{g_*}", shift left=3, from=3-3, to=1-3]
+	\arrow[from=3-3, to=2-4]
+	\arrow["{\nabla_*}"', shift right=2, from=3-3, to=3-1]
+\end{tikzcd}\]
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+
+\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} Rosemary A Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+\bibitem{H.S.3} Harold Simmons, \textit{The assembly of a frame}, University of Manchester (2006).
+
+\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2024. Universidad de Guadalajara.
+
+\end{thebibliography}
+\end{frame}
+\end{document}
