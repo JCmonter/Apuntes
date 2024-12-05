@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  5 DEC 2024 01:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  5 DEC 2024 03:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1439,27 +1439,15 @@ LaTeX Font Info:    Font shape `T1/Alegreya-OsF/bold/n' will be
 
 [27
 
-] <xymatrix 3x1 145>
-
-LaTeX Warning: Command \textquestiondown invalid in math mode on input line 165.
-
-
+]
 
 [28
 
-] <xymatrix 3x1 145>
-
-LaTeX Warning: Command \textquestiondown invalid in math mode on input line 165.
-
-
+]
 
 [29
 
-] <xymatrix 3x1 145>
-
-LaTeX Warning: Command \textquestiondown invalid in math mode on input line 165.
-
-
+]
 
 [30
 
@@ -1475,15 +1463,27 @@ LaTeX Warning: Command \textquestiondown invalid in math mode on input line 165.
 
 [33
 
-]
+] <xymatrix 3x1 145>
+
+LaTeX Warning: Command \textquestiondown invalid in math mode on input line 183.
+
+
 
 [34
 
-]
+] <xymatrix 3x1 145>
+
+LaTeX Warning: Command \textquestiondown invalid in math mode on input line 183.
+
+
 
 [35
 
-]
+] <xymatrix 3x1 145>
+
+LaTeX Warning: Command \textquestiondown invalid in math mode on input line 183.
+
+
 
 [36
 
@@ -1520,27 +1520,10 @@ LaTeX Warning: Command \textquestiondown invalid in math mode on input line 165.
 [44
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+Alegreya-OsF on input line 218.
- (C:\Users\jcmon\AppData\Local\Programs\MiKTeX\tex/latex/alegreya\ts1alegreya-osf.fd
-File: TS1Alegreya-OsF.fd 2019/10/08 (autoinst) Font definitions for TS1/Alegreya-OsF.
-)
-LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/m/it' in size <12> not available
-(Font)              Font shape `TS1/Alegreya-OsF/regular/it' tried instead on input line 218.
-LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/regular/it' will be
-(Font)              scaled to size 12.0pt on input line 218.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `Alegreya-OsF' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/sb/n' in size <17.28> not available
-(Font)              Font shape `TS1/Alegreya-OsF/medium/n' tried instead on input line 218.
-LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/medium/n' will be
-(Font)              scaled to size 17.28pt on input line 218.
-
 
 [45
 
-{C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/alegreya/algr_nwaz6g.enc}]
+]
 
 [46
 
@@ -1553,58 +1536,18 @@ LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/medium/n' will be
 [48
 
 ]
-Overfull \hbox (7.11916pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
-Overfull \hbox (7.01115pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
 
 [49
 
 ]
-Overfull \hbox (7.11916pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
-Overfull \hbox (7.01115pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
 
 [50
 
 ]
-Overfull \hbox (7.11916pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
-Overfull \hbox (7.01115pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
 
 [51
 
 ]
-Overfull \hbox (7.11916pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
-Overfull \hbox (7.01115pt too wide) in paragraph at lines 234--234
-[][]$\U/zeus/m/n/12 ¨[]©$[]  
- []
-
-
 
 [52
 
@@ -1629,17 +1572,31 @@ Overfull \hbox (7.01115pt too wide) in paragraph at lines 234--234
 [57
 
 ]
+LaTeX Font Info:    Trying to load font information for TS1+Alegreya-OsF on input line 247.
+ (C:\Users\jcmon\AppData\Local\Programs\MiKTeX\tex/latex/alegreya\ts1alegreya-osf.fd
+File: TS1Alegreya-OsF.fd 2019/10/08 (autoinst) Font definitions for TS1/Alegreya-OsF.
+)
+LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/m/it' in size <12> not available
+(Font)              Font shape `TS1/Alegreya-OsF/regular/it' tried instead on input line 247.
+LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/regular/it' will be
+(Font)              scaled to size 12.0pt on input line 247.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `Alegreya-OsF' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/sb/n' in size <17.28> not available
+(Font)              Font shape `TS1/Alegreya-OsF/medium/n' tried instead on input line 247.
+LaTeX Font Info:    Font shape `TS1/Alegreya-OsF/medium/n' will be
+(Font)              scaled to size 17.28pt on input line 247.
+
 
 [58
 
-]
+{C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/alegreya/algr_nwaz6g.enc}]
 
 [59
 
 ]
-\openout4 = `"Avances de tesis 3.vrb"'.
-
- (c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.vrb)
 
 [60
 
@@ -1648,19 +1605,114 @@ Overfull \hbox (7.01115pt too wide) in paragraph at lines 234--234
 [61
 
 ]
-\openout4 = `"Avances de tesis 3.vrb"'.
+Overfull \hbox (7.11916pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
 
- (c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.vrb)
+
+Overfull \hbox (7.01115pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
 
 [62
 
 ]
+Overfull \hbox (7.11916pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
+Overfull \hbox (7.01115pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
 
 [63
 
- <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
+]
+Overfull \hbox (7.11916pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
+Overfull \hbox (7.01115pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
 
 [64
+
+]
+Overfull \hbox (7.11916pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
+Overfull \hbox (7.01115pt too wide) in paragraph at lines 263--263
+[][]$\U/zeus/m/n/12 ¨[]©$[]  
+ []
+
+
+
+[65
+
+]
+
+[66
+
+]
+
+[67
+
+]
+
+[68
+
+]
+
+[69
+
+]
+
+[70
+
+]
+
+[71
+
+]
+
+[72
+
+]
+\openout4 = `"Avances de tesis 3.vrb"'.
+
+ (c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.vrb)
+
+[73
+
+]
+
+[74
+
+]
+\openout4 = `"Avances de tesis 3.vrb"'.
+
+ (c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.vrb)
+
+[75
+
+]
+
+[76
+
+ <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
+
+[77
 
 
 ]
@@ -1686,20 +1738,20 @@ L3 programming layer <2024-05-27>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Avances de tesis 3".out' has not changed.
-(rerunfilecheck)             Checksum: 2B28772EF3CA83CD8E9E0F36CE660981;1130.
+(rerunfilecheck)             Checksum: C8327C781C19A9C9C2CBC9D4A5AA5E95;1130.
  ) 
 Here is how much of TeX's memory you used:
- 42928 strings out of 473904
- 879721 string characters out of 5726600
- 1958908 words of memory out of 5000000
- 64589 multiletter control sequences out of 15000+600000
+ 42968 strings out of 473904
+ 880287 string characters out of 5726600
+ 1959908 words of memory out of 5000000
+ 64603 multiletter control sequences out of 15000+600000
  940032 words of font info for 236 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,123p,3298b,1095s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\jcmon\AppData\Local\MiKTeX\fonts/pk/ljfour/public/wasy/dpi1037\wasy10.pk><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Bold.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Italic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Medium.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-MediumItalic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Black.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/xypic/xycmat10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/xypic/xycmbt10.pfb>
-Output written on "c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.pdf" (64 pages, 932867 bytes).
+Output written on "c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.pdf" (77 pages, 1033966 bytes).
 PDF statistics:
- 2202 PDF objects out of 2487 (max. 8388607)
- 144 named destinations out of 1000 (max. 500000)
+ 2652 PDF objects out of 2984 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
  86121 words of extra memory for PDF output out of 89155 (max. 10000000)
 

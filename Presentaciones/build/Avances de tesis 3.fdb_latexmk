@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1733384339.02684 "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" "build/Avances de tesis 3.pdf" "Avances de tesis 3" 1733384366.23706 0
-  "Avances de tesis 3.tex" 1733384333 12425 2dc9eb3491323eabb9f8f0eb58304f7d ""
+["pdflatex"] 1733389647.77962 "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" "build/Avances de tesis 3.pdf" "Avances de tesis 3" 1733389677.48918 0
+  "Avances de tesis 3.tex" 1733389610 13477 1aabc44a37de02956ddd6f5fe09664a3 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732837320 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/pk/ljfour/public/wasy/dpi1037/wasy10.pk" 1732836438 28960 554fc1723ece5f783f66b0e5a846b3ae ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -383,12 +383,12 @@
   "beamerinnerthemeArguelles.sty" 1732835936 3716 3dcdf198506207f786116d9ead6d7b58 ""
   "beamerouterthemeArguelles.sty" 1732835936 771 c3f5319f030c3cd288620da86fbb9385 ""
   "beamerthemeArguelles.sty" 1732835936 2849 d0a87baf87dd7b9b370d15e8444b2cc7 ""
-  "build/Avances de tesis 3.aux" 1733384364 6303 18478eb9cae011d789adbb3963acd87c "pdflatex"
-  "build/Avances de tesis 3.nav" 1733384364 3948 3dd924eb3867223b2a996a86520bf23e "pdflatex"
-  "build/Avances de tesis 3.out" 1733384364 1130 2b28772ef3ca83cd8e9e0f36ce660981 "pdflatex"
-  "build/Avances de tesis 3.toc" 1733384364 354 37d80c3f48b487b20db7d41e0142a974 "pdflatex"
-  "build/Avances de tesis 3.vrb" 1733384363 651 c52b5b6d8152031a97b4d4a9624f408b "pdflatex"
-  "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" 1733384333 12425 2dc9eb3491323eabb9f8f0eb58304f7d ""
+  "build/Avances de tesis 3.aux" 1733389675 6473 71ee0d647f89fa2482a71642c48d2584 "pdflatex"
+  "build/Avances de tesis 3.nav" 1733389675 4082 bea6820680b8c2b49dcd9263722a3613 "pdflatex"
+  "build/Avances de tesis 3.out" 1733389675 1130 c8327c781c19a9c9c2cbc9d4a5aa5e95 "pdflatex"
+  "build/Avances de tesis 3.toc" 1733389675 354 35b63e2806953e54e9d123dd7ee83179 "pdflatex"
+  "build/Avances de tesis 3.vrb" 1733389673 651 c52b5b6d8152031a97b4d4a9624f408b "pdflatex"
+  "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" 1733389610 13477 1aabc44a37de02956ddd6f5fe09664a3 ""
   (generated)
   "build/Avances de tesis 3.aux"
   "build/Avances de tesis 3.log"

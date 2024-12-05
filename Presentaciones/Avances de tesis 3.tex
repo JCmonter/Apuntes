@@ -121,6 +121,24 @@ Sea $A\in \mathbf{Frm}$. Para $a, b\in A$, $j\colon A\to A$ es un \emph{núcleo}
 \end{block}}
 \end{frame}
 
+\begin{frame}{Filtros admisibles y núcleos ajustados}
+\begin{block}{Definición:}
+Sea $j\in NA$. El \emph{filtro de admisibilidad} de $j$ es el conjunto
+\[
+\nabla(j)=\{a\in A\mid j(a)=1\}.
+\]
+\end{block}
+
+\onslide<2->{\begin{block}{Observaciones:}
+\begin{itemize}
+	\item<3-> $j, k\in NA$, $j\sim k\Leftrightarrow \nabla(j)=\nabla(k)$.
+	\item<4-> $j\in NA$ es \emph{ajustado} si es el menor elemento de su bloque.
+	\item<5-> $F\in A^\wedge \Rightarrow F=\nabla(j)$ para algún $j\in NA$.
+	\item<6-> $F\in A^\wedge\Rightarrow [v_F, w_F]$
+\end{itemize}
+\end{block}}
+\end{frame}
+
 \begin{frame}
 	\only<-1>{\begin{block}{Teorema (Hoffman-Mislove):}
 	Sean $A\in \mathbf{Frm}$ y $S=\pt(A)$, entonces existe una correspondencia biyectiva entre:
@@ -185,6 +203,17 @@ F\in A^\wedge  \leftrightarrow Q\in \mathcal{Q}S\leftrightarrow \nabla(Q)\in \ma
 	\begin{block}{Teorema:}
 		Supongamos que $A$ es un marco regular y sea $j\in NA$ tal que $\bigtriangledown (j)$ es abierto. Entonces $j=u_d$, donde $d=j(0)$
 	\end{block}
+
+	\onslide<2->{\begin{proof}
+		\begin{enumerate}
+			\item<3-> $A$ es regular $\Rightarrow$ $A$ es ajustado.
+			\item<4-> $A$ es ajustado $\Rightarrow$ cada bloque tiene un solo elemento.
+			\item<5-> $x=\bigvee\{y\in A\mid (\exists \,z)[z\wedge y=0 \mbox{ y }z\vee x=1]\}$ es dirigido.
+			\item<6-> $\nabla(u_d)=\nabla(j)\Rightarrow j\sim u_d$.
+			\item<7-> $A$ es ajustado $\Rightarrow$ $u_d$ es el único en su bloque.
+			\item<8-> $j=u_d$.
+		\end{enumerate}
+	\end{proof}}
 \end{frame}    
 
 \begin{frame}{Marcos arreglados}
