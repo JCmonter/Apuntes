@@ -700,6 +700,8 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\public\eulervm\zeusm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy7.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eusm7.tfm
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\AlegreyaSans-Regular-osf-t1.vf
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\AlegreyaSans-Regular-osf-t1--base.tfm
 OUTPUT c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.nav
 OUTPUT c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.toc
 OUTPUT c:\Users\jcmon\Desktop\Apuntes\Presentaciones\build\Avances de tesis 3.snm
