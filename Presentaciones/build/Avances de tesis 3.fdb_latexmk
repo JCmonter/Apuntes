@@ -1,8 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1733473685.45855 "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" "build/Avances de tesis 3.pdf" "Avances de tesis 3" 1733473739.74059 0
-  "Avances de tesis 3.tex" 1733473550 16433 ab038265ace561e9e906767e13350deb ""
+["pdflatex"] 1733543442.39668 "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" "build/Avances de tesis 3.pdf" "Avances de tesis 3" 1733543491.56199 0
+  "Avances de tesis 3.tex" 1733543437 18412 9af5e6464637f943fe26939b3cdfb770 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732837320 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/pk/ljfour/public/wasy/dpi1037/wasy10.pk" 1732836438 28960 554fc1723ece5f783f66b0e5a846b3ae ""
+  "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/pk/ljfour/public/wasy/dpi600/wasy8.pk" 1733542643 12188 06960341c7f03d04c75a090de8d40125 ""
+  "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/pk/ljfour/public/wasy/dpi720/wasy10.pk" 1732836435 18436 21590c41868f48a79029b8cf175ab70d ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1721109188 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1721695688 24264717 23d3567c602afeb5555b250def30ddb4 ""
@@ -383,12 +385,12 @@
   "beamerinnerthemeArguelles.sty" 1732835936 3716 3dcdf198506207f786116d9ead6d7b58 ""
   "beamerouterthemeArguelles.sty" 1732835936 771 c3f5319f030c3cd288620da86fbb9385 ""
   "beamerthemeArguelles.sty" 1732835936 2849 d0a87baf87dd7b9b370d15e8444b2cc7 ""
-  "build/Avances de tesis 3.aux" 1733473737 7016 6d65725aef0892a6777943f25c5e3192 "pdflatex"
-  "build/Avances de tesis 3.nav" 1733473737 4480 f929cd33bfc9ce372d7045c942d47b4d "pdflatex"
-  "build/Avances de tesis 3.out" 1733473737 1130 b289034e580ced0bdc658fb4f4a633f0 "pdflatex"
-  "build/Avances de tesis 3.toc" 1733473737 354 888f0821d23ea7cb3b7d4dfc20c618b2 "pdflatex"
-  "build/Avances de tesis 3.vrb" 1733473733 1379 d78fe327515960223bad30555350d39d "pdflatex"
-  "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" 1733473550 16433 ab038265ace561e9e906767e13350deb ""
+  "build/Avances de tesis 3.aux" 1733543488 7252 e7a87dce56913229693f493819bdebcd "pdflatex"
+  "build/Avances de tesis 3.nav" 1733543488 4660 c943dd17cae99953c0b905fb1fb77830 "pdflatex"
+  "build/Avances de tesis 3.out" 1733543488 1041 4fa6c4c1d0362a2d34d7baff96bdbe47 "pdflatex"
+  "build/Avances de tesis 3.toc" 1733543488 338 4f19b4d202b86aff23dc496443d4ce20 "pdflatex"
+  "build/Avances de tesis 3.vrb" 1733543486 662 71323223cacf819f9848967ea41a56a7 "pdflatex"
+  "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Avances de tesis 3.tex" 1733543437 18412 9af5e6464637f943fe26939b3cdfb770 ""
   (generated)
   "build/Avances de tesis 3.aux"
   "build/Avances de tesis 3.log"

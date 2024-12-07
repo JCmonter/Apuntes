@@ -1,34 +1,22 @@
-\frametitle{EL Q-cuadrado}
-\begin{block}{Ingredientes:}
-		\begin{multicols}{3}
-		
-		 \begin{itemize}
-			\item $U_A\colon \mathcal{O}S$
-			\item $F\in A^\wedge \rightarrow v_F$
-			\item $A_F=A_{v_F}$
-			\item $\nabla\in \mathcal{O}S \rightarrow v_\nabla$
-			\item $\mathcal{O}S_\nabla=\mathcal{O}S_{v_\nabla}$
-			\item $G=\nabla U_A$
-			\item $Q=\pt A_F$
-			\item $g=G_{\mid A_F}$
-			\item $?\colon \mathcal{O}S_\nabla\to A_F$
-		 \end{itemize}
-		
-		\end{multicols}
-	\end{block}
+De esta manera
+\[
+\mho\colon [V_Q, W_Q]\to [V_F, W_F]
+\]
+
 \[\begin{tikzcd}
-	A && {A_F} && {} \\
-	&&& {\mathcal{O}Q} \\
-	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
-	\arrow["F", shift left=2, color={rgb,255:red,67;green,67;blue,239}, from=1-1, to=1-3]
-	\arrow["{U_A}"', shift right=2, color={rgb,255:red,67;green,67;blue,239}, from=1-1, to=3-1]
-	\arrow["G", from=1-1, to=3-3]
-	\arrow["{F_*}", shift left=2, color={rgb,255:red,245;green,61;blue,61}, from=1-3, to=1-1]
-	\arrow[from=1-3, to=2-4]
-	\arrow["g", shift left=2, color={rgb,255:red,69;green,237;blue,72}, dashed, from=1-3, to=3-3]
-	\arrow["{(U_A)_*}"', shift right=2, color={rgb,255:red,245;green,61;blue,61}, from=3-1, to=1-1]
-	\arrow["\nabla"', shift right=2, color={rgb,255:red,67;green,67;blue,239}, from=3-1, to=3-3]
-	\arrow["{?}", shift left=2, from=3-3, to=1-3]
-	\arrow[from=3-3, to=2-4]
-	\arrow["{\nabla_*}"', shift right=2, color={rgb,255:red,245;green,61;blue,61}, from=3-3, to=3-1]
+	NA && {N\mathcal{O}S} \\
+	{[v_F, w_F]} && {[v_Q, w_Q]}
+	\arrow["{N(U)}", shift left=2, from=1-1, to=1-3]
+	\arrow["{N(U)_*}", shift left=2, from=1-3, to=1-1]
+	\arrow[hook, from=2-1, to=1-1]
+	\arrow["\mho^*", shift left=2, dashed, from=2-1, to=2-3]
+	\arrow[hook, from=2-3, to=1-3]
+	\arrow["\mho", shift left=2, from=2-3, to=2-1]
 \end{tikzcd}\]
+
+\begin{block}{Observaciones:}
+\begin{itemize}
+\item<2-> ¿Qué información aporta el morfismo $\mho*$?
+\item<3-> ¿Cuál es el comportamiento de los diagramas anteriores cuando $A$ cumple alguna propiedad Hausdorff?
+\end{itemize}
+\end{block}

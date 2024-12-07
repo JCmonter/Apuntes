@@ -380,7 +380,7 @@ Si $A\in \mathbf{Frm}$ y $j\in NA\Rightarrow$ $A_j\in \mathbf{Frm}$.
 \onslide<3->{¿Qué relación tiene esta noción espacial con las nociones en marcos?}
 \end{frame}
 
-\section{Las alternativas que hemos pensado}
+\section{Otras alternativas}
 \begin{frame}[fragile]{EL Q-cuadrado}
 	\begin{block}{Ingredientes:}
 		\begin{multicols}{3}
@@ -431,10 +431,72 @@ Si $A\in \mathbf{Frm}$ y $j\in NA\Rightarrow$ $A_j\in \mathbf{Frm}$.
 \end{block}
 \end{frame}
 
-\begin{frame}
-3
-\end{frame}
+\begin{frame}[fragile]{Las propiedades del funtor $N$}
+	\[\begin{tikzcd}
+		A & NA \\
+		\\
+		{\mathcal{O}S} & {N\mathcal{O}S}
+		\arrow[""{name=0, anchor=center, inner sep=0}, "U"', from=1-1, to=3-1]
+		\arrow[""{name=1, anchor=center, inner sep=0}, "{N(U)}", from=1-2, to=3-2]
+		\arrow["{N(\_)}", shorten <=7pt, shorten >=7pt, maps to, from=0, to=1]
+	\end{tikzcd}\]
 
+	\begin{block}{Observaciones:}
+\onslide<2->{\begin{itemize}
+    \item<3-> $N(U) \dashv N(U)_*$
+    \item<4-> $N(U)(j)\leq k\Leftrightarrow j\leq N(U)_*(k)$
+    \item<5-> $N(U)(j)\leq k\Leftrightarrow Uj\leq kU$
+    \item<6-> $N(U)_*(j)=U_*jU^*$ y $UN(U)_*(j)=jU$
+\end{itemize}
+\end{block}}
+	\end{frame}
+
+	\begin{frame}[fragile]{Los intervalos $[v_{\_}, w_{\_}]$}
+		Para $F\in A^\wedge$, $Q\in \mathcal{Q}S$ y $j\in N\mathcal{O}S$ 
+		\[\begin{tikzcd}
+			x\in A & {\mathcal{O}S} & {\mathcal{O}S} & A
+			\arrow["{U^*}", from=1-1, to=1-2]
+			\arrow["j", from=1-2, to=1-3]
+			\arrow["{U_*}", from=1-3, to=1-4]
+		\end{tikzcd}\]
+
+		\begin{itemize}
+		\item<2-> $U_*(j(U(x)))=\bigwedge(S\setminus j(U(x)))$
+		\item<3-> $U_*(j(U^*(x)))\subseteq \pt A$. Así,
+		\item<4-> $x\in F \Leftrightarrow  x\in \nabla(U_*jU^*)$
+        \item<5-> $F=\nabla(U_*jU^*)$
+	\end{itemize}
+
+	\onslide<6->{Por lo tanto 
+	\[
+	j\in [v_Q, w_Q]\Rightarrow F\in [v_F, w_F].
+	\]}
+	\end{frame}
+
+	\begin{frame}[fragile]
+		De esta manera
+\[
+\mho\colon [V_Q, W_Q]\to [V_F, W_F]
+\]
+
+\[\begin{tikzcd}
+	NA && {N\mathcal{O}S} \\
+	{[v_F, w_F]} && {[v_Q, w_Q]}
+	\arrow["{N(U)}", shift left=2, from=1-1, to=1-3]
+	\arrow["{N(U)_*}", shift left=2, from=1-3, to=1-1]
+	\arrow[hook, from=2-1, to=1-1]
+	\arrow["\mho^*", shift left=2, dashed, from=2-1, to=2-3]
+	\arrow[hook, from=2-3, to=1-3]
+	\arrow["\mho", shift left=2, from=2-3, to=2-1]
+\end{tikzcd}\]
+
+\begin{block}{Observaciones:}
+\begin{itemize}
+\item<2-> ¿Qué información aporta el morfismo $\mho*$?
+\item<3-> ¿Cuál es el comportamiento de los diagramas anteriores cuando $A$ cumple alguna propiedad Hausdorff?
+\end{itemize}
+\end{block}
+	\end{frame}
 \End
 
 \section*{\textsc{Referencias}}
