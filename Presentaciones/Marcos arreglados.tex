@@ -43,40 +43,256 @@
 
 \frame[plain]{\titlepage}
 
-\begin{frame}{Contenido}
-\tableofcontents %Imprime la tabla de contenido
-\end{frame}
+%\begin{frame}{Contenido}
+%\tableofcontents %Imprime la tabla de contenido
+%\end{frame}
 
 \begin{frame}{¿Qué son los marcos arreglados?}
-    
+    \begin{itemize}
+
+    \item Una de las aplicaciones de la teoría de marcos es que, en cierto punto, un marco puede llegar a mimetizar el comportamiento de la topología de un espacio.\\
+
+    \item En este sentido, los marcos arreglados buscan imitar la propiedad de que un espacio sea empaquetado.\\
+
+    \item Como es habitual, las variantes que proporcionan los marcos son caracterizaciones ``libres de puntos''.
+    \end{itemize}
 \end{frame}
 
+\section{Información sobre los parches}
 \begin{frame}{Espacio de parches}
-    
+    Sea $S\in \mathbf{Top}$. El espacio de parches, denotado por $^pS$, es el espacio cuya topología está dada por 
+\[
+\mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
+\]
+Un espacio es \emph{empaquetado} si todo conjunto compacto (saturado) es cerrado.
+\begin{block}{Propiedades:}
+    \begin{itemize}
+        \item $T_2\Rightarrow \mbox{ empaquetado }\Rightarrow T_1$
+        \item $S\,=\,^pS\Leftrightarrow S$ es empaquetado
+        \item $^{pp}S\,=\,^{ppp}S$.
+    \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Filtros en $\mathbf{Frm}$}
+    Sea $A\in \mathbf{Frm}$. Para $F\subseteq A$, decimos que $F$ es un \emph{filtro} si:
+		\begin{enumerate}
+			\item $1\in F$.
+			\item $a\leq b$, $a\in  F$ $\Rightarrow b \in F$.
+			\item $a, b \in F \Rightarrow  a \wedge b \in F$.
+		\end{enumerate}
+	\uncover<2->{Existen diferentes tipos de filtros:
+	\begin{itemize}
+	\begin{multicols}{2}
+		\item Propio
+		\item Primo
+		\item Completamente primo
+		\item (Scott) abierto
+		\item Admisible ($\nabla(j)$)
+		\end{multicols}
+	\end{itemize} }
+\end{frame}
+
+\begin{frame}{Filtros admisibles y núcleos ajustados}
+    Sea $j\in NA$. El \emph{filtro de admisibilidad} de $j$ es el conjunto
+    \[
+    \nabla(j)=\{a\in A\mid j(a)=1\}.
+    \]
+    \onslide<2->{\begin{block}{Observaciones:}
+        \begin{itemize}
+            \item<3-> $j, k\in NA$, $j\sim k\Leftrightarrow \nabla(j)=\nabla(k)$.
+            \item<4-> $j\in NA$ es \emph{ajustado} si es el menor elemento de su bloque.
+            \item<5-> $F\in A^\wedge \Rightarrow F=\nabla(j)$ para algún $j\in NA$.
+            \item<6-> $F\in A^\wedge\Rightarrow [v_F, w_F]$.
+        \end{itemize}
+        \end{block}}
+\end{frame}
+
+\begin{frame}
+	\only<-1>{\begin{block}{Teorema (Hoffman-Mislove):}
+	Sean $A\in \mathbf{Frm}$ y $S=\pt(A)$, entonces existe una correspondencia biyectiva entre:
+	\begin{enumerate}
+		\item $\mathcal{Q}S=$ compactos saturados en $S$
+		\item $A^\wedge=$ filtros abiertos en $A$
+	\end{enumerate}
+\end{block}}
+
+ \only<2->{\begin{block}{Teorema (Hoffman-Mislove extendido):}
+	Sean $A\in \mathbf{Frm}$ y $S=\pt(A)$, entonces existe una correspondencia biyectiva entre:
+	\begin{enumerate}
+		\item $\mathcal{Q}S=$ compactos saturados en $S$
+		\item $A^\wedge=$ filtros abiertos en $A$
+		\item $v_F=$ núcleos ajustados
+	\end{enumerate}
+\end{block}}
+\onslide<3->{El Teorema de H.-M. nos proporciona $(F, Q, \nabla(Q))$
+\[
+F\in A^\wedge  \leftrightarrow Q\in \mathcal{Q}S\leftrightarrow \nabla(Q)\in \mathcal{O}S^\wedge
+\]
+\[
+	x\in F  \Leftrightarrow Q\subseteq U_A(x)\Leftrightarrow U_A(x)\in \nabla(Q)
+\]}
 \end{frame}
 
 \begin{frame}{El marco de parches}
-    
+    Basados en el Teorema de H.-M. se introduce el \emph{marco de parches}.
+
+	\[\text{Pbase}(A) =\{u_{a}\wedge v_{F}\mid a\in A, F\in A^{\wedge}\}.\]
+	
+	\uncover<2->{
+        \begin{itemize}
+            \item $PA$ es el marco generado por la $\mbox{Pbase}$. 
+            \item $A\in \mathbf{Frm}$ es \emph{parche trivial} si $A\simeq PA$
+            \item $A$ es parche trivial $\Leftrightarrow$ $u_d=v_F$
+        \end{itemize}} 
+
+        \uncover<3->{
+	 \[\xymatrix{ A\ar[r]^{i}\ar@/^/@<+1.5ex>[rr]^{\eta_{A}} & PA\ar[r]^{\iota} & NA }\]
+	}
 \end{frame}
 
-\begin{frame}{¿Cómo medir el grado de arreglo?}
-    
+\section{La condición de arreglo}
+\begin{frame}{Marcos arreglados}
+    Sea $A\in \mathbf{Frm}$ y $\alpha\in \mathbf{Ord}$. 
+    \begin{itemize}
+        \item $F\in A^\wedge$ es $\alpha$-arreglado si 
+    \[
+    x\in F\Rightarrow u_d(x)=d\vee x=1,
+    \]
+    donde $d=d(\alpha)=f^\alpha(0)$ y $f=\bigvee\{v_a\mid a\in F\}$
+    \item $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
+    \item $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Herramientas adicionales}
-    
+\begin{frame}{Marcos arreglados}
+    \begin{block}{Propiedades:}
+        \begin{itemize}
+            \item Parche trivial $\Leftrightarrow$ arreglado
+            \item Arreglado $\Leftrightarrow $ empaquetado $+$ apilado
+            \item Un espacio $S$ tiene topología 1-arreglada $\Leftrightarrow$ $S$ es $T_2$.
+            \item Arreglado $\Rightarrow$ $T_1$
+            \item Regularidad $\Rightarrow$ arreglado
+            \item $(\mathbf{fH})\Rightarrow$ arreglado
+        \end{itemize}
+    \end{block}
 \end{frame}
 
-\begin{frame}{Caracterizaciones meramente en marcos}
+\begin{frame}{Otra forma de ver arreglado}
+    Si $A\in \mathbf{Frm}$ y $j\in NA\Rightarrow$ $A_j\in \mathbf{Frm}$.
+    \onslide<2->{\begin{block}{Observaciones:}
+    \begin{itemize}
+        \item<3-> $A_j$ es un cociente de $A$.
+        \item<4-> $A_j$ es compacto $\Leftrightarrow$ $\nabla(j)\in A^\wedge$.
+        \item<5-> $F\in A^\wedge\Rightarrow F=\nabla(j)$.
+        \item<6-> $A$ es arreglado si todo cociente compacto es cerrado. 
+        \item<7-> $F\in [v_F, w_F]$ produce una familia de cocientes compactos.
+        \item<8-> $v_F=w_F$ produce un único cociente compacto.  
+    \end{itemize}
+    \end{block}}
     
+    \end{frame}
+    
+    \begin{frame}[fragile]{Colapso del intervalo de admisibilidad}
+        \[\begin{tikzcd}
+        {(\mathbf{aju})} \\
+        {(\mathbf{reg})} & {v_F=w_F} \\
+        {(\mathbf{fH})} \\
+        {(\mathbf{H})}
+        \arrow[Rightarrow, from=1-1, to=2-2]
+        \arrow[Rightarrow, from=2-1, to=1-1]
+        \arrow[Rightarrow, from=2-1, to=2-2]
+        \arrow[Rightarrow, from=2-1, to=3-1]
+        \arrow[Rightarrow, from=3-1, to=2-2]
+        \arrow[Rightarrow, from=3-1, to=4-1]
+        \arrow[Rightarrow, from=4-1, to=2-2]
+    \end{tikzcd}\]
+    \end{frame}
+
+    \section{Lo que hemos hecho}
+\begin{frame}[fragile]{Resultados probados}
+    \begin{block}{Proposición:}
+        Para $F\in A^\wedge$ y $Q\in \mathcal{Q}S$, si $j\in [V_Q, W_Q]$, entonces 
+    \[
+    \nabla(U_* j U^*)=F.
+    \]
+    \end{block}
+
+    De esta manera $\mho\colon [V_Q, W_Q]\to [V_F, W_F]$
+    
+    \[\begin{tikzcd}
+        NA && {N\mathcal{O}S} \\
+        {[v_F, w_F]} && {[v_Q, w_Q]}
+        \arrow["{N(U)}", shift left=2, from=1-1, to=1-3]
+        \arrow["{N(U)_*}", shift left=2, from=1-3, to=1-1]
+        \arrow[hook, from=2-1, to=1-1]
+        \arrow["\mho^*", shift left=2, dashed, from=2-1, to=2-3]
+        \arrow[hook, from=2-3, to=1-3]
+        \arrow["\mho", shift left=2, from=2-3, to=2-1]
+    \end{tikzcd}\]
 \end{frame}
 
 \begin{frame}{Resultados probados}
-    
+\begin{block}{Proposición:}
+Para un marco $A$ Hausdorff, el intervalo de admisibilidad asociado a un filtro abierto es trivial. En otras palabras, para $F\in A^\wedge$, $[v_F, w_F]=\{*\}$, es decir, $v_F=w_F$.
+\end{block}
+
+\begin{block}{Teorema:}
+En un marco Hausdorff todo cociente compacto es isomorfo a un cociente cerrado de la topología de un espacio Hausdorff.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{EL Q-cuadrado}
+	\begin{block}{Ingredientes:}
+		\begin{multicols}{3}
+		
+		 \begin{itemize}
+			\item $U_A\colon \mathcal{O}S$
+			\item $F\in A^\wedge \rightarrow v_F$
+			\item $A_F=A_{v_F}$
+			\item $\nabla\in \mathcal{O}S \rightarrow v_\nabla$
+			\item $\mathcal{O}S_\nabla=\mathcal{O}S_{v_\nabla}$
+			\item $G=\nabla U_A$
+			\item $Q=\pt A_F$
+			\item $g=G_{\mid A_F}$
+			\item $?\colon \mathcal{O}S_\nabla\to A_F$
+		 \end{itemize}
+		
+		\end{multicols}
+	\end{block}
+\[\begin{tikzcd}
+	A && {A_F} && {} \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["F", shift left=2, color={rgb,255:red,67;green,67;blue,239}, from=1-1, to=1-3]
+	\arrow["{U_A}"', shift right=2, color={rgb,255:red,67;green,67;blue,239}, from=1-1, to=3-1]
+	\arrow["G", from=1-1, to=3-3]
+	\arrow["{F_*}", shift left=2, color={rgb,255:red,245;green,61;blue,61}, from=1-3, to=1-1]
+	\arrow[from=1-3, to=2-4]
+	\arrow["g", shift left=2, color={rgb,255:red,69;green,237;blue,72}, dashed, from=1-3, to=3-3]
+	\arrow["{(U_A)_*}"', shift right=2, color={rgb,255:red,245;green,61;blue,61}, from=3-1, to=1-1]
+	\arrow["\nabla"', shift right=2, color={rgb,255:red,67;green,67;blue,239}, from=3-1, to=3-3]
+	\arrow["{?}", shift left=2, from=3-3, to=1-3]
+	\arrow[from=3-3, to=2-4]
+	\arrow["{\nabla_*}"', shift right=2, color={rgb,255:red,245;green,61;blue,61}, from=3-3, to=3-1]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}{Resultados probados}
+\begin{block}{Proposición:}
+    Sea $A$ un marco y $j\in NA$. Si $A$ es arreglado, entonces $A_j$ es arreglado.
+\end{block}
 \end{frame}
 
 \begin{frame}{Preguntas abiertas}
-    
+    \begin{itemize}
+        \item ¿Se cumple que $PPA=PA$ o $PPPA=PPA$?
+        \item ¿$\mathbf{(H)}\Rightarrow$ arreglado?
+        \item ¿$A$ arreglado $\Rightarrow$ $\prod A$ arreglado?
+        \item ¿Cómo se puede medir el fallo de la condición de arreglo?
+        \item ¿Qué significa que un marco sea apilado?
+        \item ¿Existen ejemplos de marcos (locales) Hausdorff y compactos que sean cerrados?
+        \end{itemize}
 \end{frame}
 
 \end{document}
