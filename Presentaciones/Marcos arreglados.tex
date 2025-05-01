@@ -48,7 +48,34 @@
 \end{frame}
 
 \begin{frame}{Por si acaso...}
+    \begin{itemize}
+        \begin{multicols}{2}
+            \item $A$
+            \item $(A, \leq)$
+            \item $(A, \leq, \vee, 0)$ o $(A, \leq, \wedge, 1)$
+            \item $(A, \leq, \bigvee, \bigwedge, 0, 1)$
+        \end{multicols} 
+        \end{itemize}
+    
+        \onslide<2->{Un marco es una retícula completa que cumple cierta ley distributiva (ley distributiva de marcos), es decir,}
+        \onslide<3->{\[
+        (A, \leq, \bigvee, \wedge, 0, 1), \quad a\wedge\bigvee X=\bigvee \{a\wedge x\mid x\in X\}
+        \]}
+    
+        \onslide<4->\[
+        \mathbf{Frm}=\left\{ \begin{array}{ll} A, & \mbox{ marcos}\\ \\  f, & \mbox{ morfismo de marcos} \end{array} \right.
+        \]
+\end{frame}
 
+\begin{frame}{¿Por qué estudiamos los marcos?}
+    \begin{itemize}
+        \item Estructuras simples.
+        \item<2-> Existen herramientas que facilitan el estudio de los marcos.
+        \item<3-> Correspondencias biyectivas.
+        \item<4-> Buen comportamiento categórico.
+        \item<5-> \alert<7->{La topología de un espacio ($\mathcal{O}S)$ es un marco.}
+        \item<6-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
+    \end{itemize}
 \end{frame}
 
 \section{Cocientes compactos}
