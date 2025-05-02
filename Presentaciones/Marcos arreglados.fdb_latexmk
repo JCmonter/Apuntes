@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1746077601.82639 "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Marcos arreglados.tex" "Marcos arreglados.pdf" "Marcos arreglados" 1746077622.57384 0
+["pdflatex"] 1746154679.24312 "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Marcos arreglados.tex" "Marcos arreglados.pdf" "Marcos arreglados" 1746154704.83904 0
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1737948772 618170 5c090dc8f89dc557a10347f49a9d287f ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1721109186 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/jcmon/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1721109188 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -78,6 +78,7 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Regular.pfb" 1570565835 382710 f296b7ee69fd732d1ce39dadb41c7482 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb" 1335456787 12536 a46bc0672764104789d46e9c8de8f188 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1335366146 21098 d4aee7c0aac232caac5688b586b9363c ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb" 1335366146 22644 35cfbc2e737f53c1da991002473b4310 ""
@@ -364,17 +365,18 @@
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/wasysym/wasysym.sty" 1579693002 11252 7fbfbe7bbcbe1f73acbe32ae2f10c666 ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "Marcos arreglados.aux" 1746077620 4674 3edc0b56cb3558bc98406bf73b0104ea "pdflatex"
-  "Marcos arreglados.nav" 1746077620 2734 c62460f1c0150dc2b1bcd1ef8b715e69 "pdflatex"
-  "Marcos arreglados.out" 1746077620 587 9be5b7b4eabb5f8f81a3023fa333f102 "pdflatex"
-  "Marcos arreglados.tex" 1746077511 13275 f630fbe3c59dcaaeceeb6dea76ac0f73 ""
-  "Marcos arreglados.toc" 1746077620 191 a5b6d1abbbb2adf4710ea92f6f9a457d "pdflatex"
+  "Marcos arreglados.aux" 1746154702 5058 5ae1e0d13f3f3b0154ea2f20b9b1263e "pdflatex"
+  "Marcos arreglados.nav" 1746154702 3010 d546ae0a7e981c046910cc998f578a7c "pdflatex"
+  "Marcos arreglados.out" 1746154702 587 9be5b7b4eabb5f8f81a3023fa333f102 "pdflatex"
+  "Marcos arreglados.tex" 1746154610 14654 5314d1802d0a509320e0d02dfcccb725 ""
+  "Marcos arreglados.toc" 1746154702 191 84c6c5e0be6fd0eec44623c17c547bc4 "pdflatex"
+  "Marcos arreglados.vrb" 1746154702 521 b9280dcdc57e43a059a93f6032818e3e "pdflatex"
   "beamercolorthemeArguelles.sty" 1732835936 561 47c5d88222a119814bd22183c20e0844 ""
   "beamerfontthemeArguelles.sty" 1732835936 1032 d58eba50fab82b7d51d2f2ec2ffddace ""
   "beamerinnerthemeArguelles.sty" 1732835936 3716 3dcdf198506207f786116d9ead6d7b58 ""
   "beamerouterthemeArguelles.sty" 1732835936 771 c3f5319f030c3cd288620da86fbb9385 ""
   "beamerthemeArguelles.sty" 1732835936 2849 d0a87baf87dd7b9b370d15e8444b2cc7 ""
-  "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Marcos arreglados.tex" 1746077511 13275 f630fbe3c59dcaaeceeb6dea76ac0f73 ""
+  "c:/Users/jcmon/Desktop/Apuntes/Presentaciones/Marcos arreglados.tex" 1746154610 14654 5314d1802d0a509320e0d02dfcccb725 ""
   (generated)
   "Marcos arreglados.aux"
   "Marcos arreglados.log"
@@ -383,4 +385,6 @@
   "Marcos arreglados.pdf"
   "Marcos arreglados.snm"
   "Marcos arreglados.toc"
+  "Marcos arreglados.vrb"
   (rewritten before read)
+  "Marcos arreglados.vrb"

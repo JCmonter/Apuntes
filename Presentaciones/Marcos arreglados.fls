@@ -686,6 +686,8 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\Aleg
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\Alegreya-MediumItalic-osf-t1--base.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\Alegreya-Italic-osf-t1.vf
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\Alegreya-Italic-osf-t1--base.tfm
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\Alegreya-Italic-osf-t1.vf
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\Alegreya-Italic-osf-t1--base.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\public\eulervm\zeusm7.vf
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy7.tfm
@@ -693,8 +695,6 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\eul
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\public\eulervm\zeuex10.vf
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\euex10.tfm
-INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\Alegreya-Italic-osf-t1.vf
-INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\Alegreya-Italic-osf-t1--base.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\public\eulervm\zeurm10.vf
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -707,6 +707,10 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr7.tfm
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\vf\huerta\alegreya\Alegreya-Regular-osf-t1.vf
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\tfm\huerta\alegreya\Alegreya-Regular-osf-t1--base.tfm
+OUTPUT Marcos arreglados.vrb
+INPUT .\Marcos arreglados.vrb
+INPUT .\Marcos arreglados.vrb
+INPUT Marcos arreglados.vrb
 OUTPUT Marcos arreglados.nav
 OUTPUT Marcos arreglados.toc
 OUTPUT Marcos arreglados.snm
@@ -733,6 +737,8 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\euex10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\euex10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eufm10.pfb

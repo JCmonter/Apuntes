@@ -1,0 +1,14 @@
+\frametitle{Colapso del intervalo de admisibilidad}
+\[\begin{tikzcd}
+        {(\mathbf{aju})} \\
+        {(\mathbf{reg})} & {v_F=w_F} \\
+        {(\mathbf{fH})} \\
+        {(\mathbf{H})}
+        \arrow[Rightarrow, from=1-1, to=2-2]
+        \arrow[Rightarrow, from=2-1, to=1-1]
+        \arrow[Rightarrow, from=2-1, to=2-2]
+        \arrow[Rightarrow, from=2-1, to=3-1]
+        \arrow[Rightarrow, from=3-1, to=2-2]
+        \arrow[Rightarrow, from=3-1, to=4-1]
+        \arrow[Rightarrow, from=4-1, to=2-2]
+    \end{tikzcd}\]
