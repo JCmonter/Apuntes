@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  30 APR 2025 20:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  30 APR 2025 23:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1474,9 +1474,145 @@ LaTeX Font Info:    Font shape `T1/Alegreya-OsF/regular/it' will be
 
 [31
 
- <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
+]
 
 [32
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[33
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[34
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[35
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[36
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[37
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[38
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[39
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[40
+
+]
+Overfull \vbox (13.05081pt too high) detected at line 185
+ []
+
+
+
+[41
+
+]
+
+[42
+
+]
+
+[43
+
+]
+
+[44
+
+]
+
+[45
+
+]
+
+[46
+
+]
+
+[47
+
+]
+
+[48
+
+]
+
+[49
+
+]
+
+[50
+
+]
+
+[51
+
+]
+
+[52
+
+]
+
+[53
+
+]
+
+[54
+
+]
+
+[55
+
+]
+
+[56
+
+ <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
+
+[57
 
 
 ]
@@ -1501,17 +1637,17 @@ Package rerunfilecheck Info: File `"Marcos arreglados".out' has not changed.
 (rerunfilecheck)             Checksum: 9BE5B7B4EABB5F8F81A3023FA333F102;587.
  ) 
 Here is how much of TeX's memory you used:
- 42505 strings out of 473904
- 870133 string characters out of 5726600
- 1941908 words of memory out of 5000000
- 64251 multiletter control sequences out of 15000+600000
- 1040081 words of font info for 247 fonts, out of 8000000 for 9000
+ 42566 strings out of 473904
+ 870804 string characters out of 5726600
+ 1942908 words of memory out of 5000000
+ 64255 multiletter control sequences out of 15000+600000
+ 1041250 words of font info for 252 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,123p,3297b,859s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Bold.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Italic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Medium.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-MediumItalic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Black.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "Marcos arreglados.pdf" (32 pages, 639631 bytes).
+Output written on "Marcos arreglados.pdf" (57 pages, 778043 bytes).
 PDF statistics:
- 857 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
- 94297 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 1462 PDF objects out of 1728 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 96345 words of extra memory for PDF output out of 106986 (max. 10000000)
 
