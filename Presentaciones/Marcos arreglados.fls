@@ -711,6 +711,14 @@ OUTPUT Marcos arreglados.vrb
 INPUT .\Marcos arreglados.vrb
 INPUT .\Marcos arreglados.vrb
 INPUT Marcos arreglados.vrb
+OUTPUT Marcos arreglados.vrb
+INPUT .\Marcos arreglados.vrb
+INPUT .\Marcos arreglados.vrb
+INPUT Marcos arreglados.vrb
+OUTPUT Marcos arreglados.vrb
+INPUT .\Marcos arreglados.vrb
+INPUT .\Marcos arreglados.vrb
+INPUT Marcos arreglados.vrb
 OUTPUT Marcos arreglados.nav
 OUTPUT Marcos arreglados.toc
 OUTPUT Marcos arreglados.snm
@@ -753,3 +761,5 @@ INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\e
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\euler\eusm7.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
 INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
+INPUT C:\Users\jcmon\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  1 MAY 2025 20:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.22)  2 MAY 2025 00:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1371,50 +1371,66 @@ LaTeX Font Info:    Font shape `T1/Alegreya-OsF/bold/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/sb/it' in size <14.4> not available
-(Font)              Font shape `T1/Alegreya-OsF/medium/it' tried instead on input line 99.
+(Font)              Font shape `T1/Alegreya-OsF/medium/it' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/medium/it' will be
-(Font)              scaled to size 14.4pt on input line 99.
+(Font)              scaled to size 14.4pt on input line 100.
 LaTeX Font Info:    Font shape `T1/AlegreyaSans-OsF/m/n' in size <17.28> not available
-(Font)              Font shape `T1/AlegreyaSans-OsF/regular/n' tried instead on input line 99.
+(Font)              Font shape `T1/AlegreyaSans-OsF/regular/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/AlegreyaSans-OsF/regular/n' will be
-(Font)              scaled to size 17.28pt on input line 99.
+(Font)              scaled to size 17.28pt on input line 100.
 LaTeX Font Info:    Font shape `T1/AlegreyaSans-OsF/m/n' in size <10> not available
-(Font)              Font shape `T1/AlegreyaSans-OsF/regular/n' tried instead on input line 99.
+(Font)              Font shape `T1/AlegreyaSans-OsF/regular/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/AlegreyaSans-OsF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 99.
+(Font)              scaled to size 10.0pt on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/b/n' in size <17.28> not available
-(Font)              Font shape `T1/Alegreya-OsF/bold/n' tried instead on input line 99.
+(Font)              Font shape `T1/Alegreya-OsF/bold/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/bold/n' will be
-(Font)              scaled to size 17.28pt on input line 99.
+(Font)              scaled to size 17.28pt on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/b/n' in size <10> not available
-(Font)              Font shape `T1/Alegreya-OsF/bold/n' tried instead on input line 99.
+(Font)              Font shape `T1/Alegreya-OsF/bold/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/bold/n' will be
-(Font)              scaled to size 10.0pt on input line 99.
+(Font)              scaled to size 10.0pt on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/m/n' in size <10> not available
-(Font)              Font shape `T1/Alegreya-OsF/regular/n' tried instead on input line 99.
+(Font)              Font shape `T1/Alegreya-OsF/regular/n' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/regular/n' will be
-(Font)              scaled to size 10.0pt on input line 99.
+(Font)              scaled to size 10.0pt on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/m/it' in size <17.28> not available
-(Font)              Font shape `T1/Alegreya-OsF/regular/it' tried instead on input line 99.
+(Font)              Font shape `T1/Alegreya-OsF/regular/it' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/regular/it' will be
-(Font)              scaled to size 17.28pt on input line 99.
+(Font)              scaled to size 17.28pt on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/m/it' in size <10> not available
-(Font)              Font shape `T1/Alegreya-OsF/regular/it' tried instead on input line 99.
+(Font)              Font shape `T1/Alegreya-OsF/regular/it' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/Alegreya-OsF/regular/it' will be
-(Font)              scaled to size 10.0pt on input line 99.
+(Font)              scaled to size 10.0pt on input line 100.
+
+Overfull \vbox (2.20326pt too high) detected at line 100
+ []
+
 
 
 [14
 
 ]
+Overfull \vbox (2.20326pt too high) detected at line 100
+ []
+
+
 
 [15
 
 ]
+Overfull \vbox (2.20326pt too high) detected at line 100
+ []
+
+
 
 [16
 
 ]
+Overfull \vbox (2.20326pt too high) detected at line 100
+ []
+
+
 
 [17
 
@@ -1567,16 +1583,11 @@ LaTeX Font Info:    Font shape `T1/Alegreya-OsF/regular/it' will be
 [54
 
 ]
-Overfull \hbox (21.2883pt too wide) detected at line 265
-\T1/Alegreya-OsF/regular/it/12 A[] \U/zeus/m/n/12 , \T1/Alegreya-OsF/regular/it/12 A[]
- []
-
-
 
 [55
 
 ]
-Overfull \hbox (21.2883pt too wide) detected at line 265
+Overfull \hbox (21.2883pt too wide) detected at line 266
 \T1/Alegreya-OsF/regular/it/12 A[] \U/zeus/m/n/12 , \T1/Alegreya-OsF/regular/it/12 A[]
  []
 
@@ -1585,7 +1596,7 @@ Overfull \hbox (21.2883pt too wide) detected at line 265
 [56
 
 ]
-Overfull \hbox (21.2883pt too wide) detected at line 265
+Overfull \hbox (21.2883pt too wide) detected at line 266
 \T1/Alegreya-OsF/regular/it/12 A[] \U/zeus/m/n/12 , \T1/Alegreya-OsF/regular/it/12 A[]
  []
 
@@ -1594,7 +1605,7 @@ Overfull \hbox (21.2883pt too wide) detected at line 265
 [57
 
 ]
-Overfull \hbox (21.2883pt too wide) detected at line 265
+Overfull \hbox (21.2883pt too wide) detected at line 266
 \T1/Alegreya-OsF/regular/it/12 A[] \U/zeus/m/n/12 , \T1/Alegreya-OsF/regular/it/12 A[]
  []
 
@@ -1603,6 +1614,11 @@ Overfull \hbox (21.2883pt too wide) detected at line 265
 [58
 
 ]
+Overfull \hbox (21.2883pt too wide) detected at line 266
+\T1/Alegreya-OsF/regular/it/12 A[] \U/zeus/m/n/12 , \T1/Alegreya-OsF/regular/it/12 A[]
+ []
+
+
 
 [59
 
@@ -1615,19 +1631,61 @@ Overfull \hbox (21.2883pt too wide) detected at line 265
 [61
 
 ]
-\openout4 = `"Marcos arreglados.vrb"'.
-
- (Marcos arreglados.vrb)
 
 [62
 
 ]
+\openout4 = `"Marcos arreglados.vrb"'.
+
+ (Marcos arreglados.vrb)
 
 [63
 
- <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
+]
+\openout4 = `"Marcos arreglados.vrb"'.
+
+ (Marcos arreglados.vrb)
 
 [64
+
+]
+\openout4 = `"Marcos arreglados.vrb"'.
+
+ (Marcos arreglados.vrb)
+
+[65
+
+]
+
+[66
+
+]
+
+[67
+
+]
+
+[68
+
+]
+
+[69
+
+]
+
+[70
+
+]
+
+[71
+
+]
+
+[72
+
+ <C:/Users/jcmon/AppData/Local/Programs/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>]
+
+[73
 
 
 ]
@@ -1652,17 +1710,17 @@ Package rerunfilecheck Info: File `"Marcos arreglados".out' has not changed.
 (rerunfilecheck)             Checksum: 9BE5B7B4EABB5F8F81A3023FA333F102;587.
  ) 
 Here is how much of TeX's memory you used:
- 42734 strings out of 473904
- 874750 string characters out of 5726600
- 1946908 words of memory out of 5000000
- 64406 multiletter control sequences out of 15000+600000
+ 42947 strings out of 473904
+ 879609 string characters out of 5726600
+ 1950908 words of memory out of 5000000
+ 64597 multiletter control sequences out of 15000+600000
  1041250 words of font info for 252 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,20n,123p,3297b,1096s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Bold.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Italic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Medium.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-MediumItalic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Black.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "Marcos arreglados.pdf" (64 pages, 862175 bytes).
+ 128i,20n,123p,3297b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Bold.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Italic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Medium.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-MediumItalic.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/Alegreya-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Black.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/huerta/alegreya/AlegreyaSans-Regular.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm7.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/jcmon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "Marcos arreglados.pdf" (73 pages, 957631 bytes).
 PDF statistics:
- 1902 PDF objects out of 2073 (max. 8388607)
- 142 named destinations out of 1000 (max. 500000)
+ 2482 PDF objects out of 2487 (max. 8388607)
+ 160 named destinations out of 1000 (max. 500000)
  96345 words of extra memory for PDF output out of 106986 (max. 10000000)
 
