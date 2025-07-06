@@ -1,0 +1,48 @@
+# === Archivos auxiliares de LaTeX ===
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.brf
+*.ilg
+*.ind
+*.idx
+*.glo
+*.gls
+*.ist
+*.acn
+*.acr
+*.alg
+*.glg
+*.glsdefs
+
+# === Específicos de Beamer ===
+*.nav
+*.snm
+
+# === Archivos temporales y respaldos ===
+*~
+*.bak
+*.backup
+*.tmp
+*.swp
+
+# === Carpetas de compilación ===
+build/
+_output/
+output/
+tmp/
+
+# === Archivos del sistema ===
+.DS_Store
+Thumbs.db
+
+# === ¡Importante! NO ignorar PDFs ===
+# (dejamos explícitamente fuera *.pdf para que sí se suban)
