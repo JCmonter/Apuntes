@@ -1,0 +1,518 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{multicol}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+%%Se define el "environment" teorema
+\newtheorem{thm}{Teorema}
+\newtheorem{dfn}{Definición}
+\newtheorem*{dfn*}{Definición}
+\newtheorem{lem}{Lema}
+\newtheorem{cor}{Corolario}
+\newtheorem{prop}{Proposición}
+\newtheorem{obs}{Observación}
+\newtheorem{ej}{Ejemplo}
+
+\title{Modificaciones de parches y axiomas de separación en topología sin puntos}
+%\event{Seminario de Álgebra, CUCEI}
+\date{\today}
+\author{Juan Carlos Monter Cortés \\ Director: Dr. Luis Ángel Zaldívar Corichi}
+\institute{Universidad de Guadalajara}
+%\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+%\github{username}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Contenido}
+\tableofcontents %Imprime la tabla de contenido
+\end{frame}
+
+\section{Lo que sabemos}
+\begin{frame}[fragile]{Ejemplo}
+Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
+\[
+\mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
+\]
+donde $a,b\in S$. Entonces 
+\[\begin{tikzcd}
+	{\mathcal{O}_lS} & {\mathcal{O}_mS} & {\mathcal{O}_nS}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+\end{tikzcd}\]
+Se puede verificar que 
+\[
+\mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
+\]
+es decir, para $A=\mathcal{O}_lS$
+\[\begin{tikzcd}
+	{A} & {PA} & {NA}
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}{Filtros en $\Frm$}
+    Sea $A\in \Frm$. Para $F\subseteq A$, decimos que $F$ es un \emph{filtro} si:
+		\begin{enumerate}
+			\item $1\in F$.
+			\item $a\leq b$, $a\in  F$ $\Rightarrow b \in F$.
+			\item $a, b \in F \Rightarrow  a \wedge b \in F$.
+		\end{enumerate}
+	\uncover<2->{Existen diferentes tipos de filtros:
+	\begin{itemize}
+	\begin{multicols}{2}
+		\item Propio
+		\item Primo
+		\item Completamente primo
+		\item (Scott) abierto
+		\item Admisible ($\nabla(j)$)
+		\end{multicols}
+	\end{itemize} }
+\end{frame}
+
+\begin{frame}[fragile]{Construcciones de parches}
+	La construcción en $\Top$:
+	\begin{itemize}
+		\item $S\in \Top$ es empaquetado si y solo si $Q\in \mathcal{Q}S$ entonces $Q\in \mathcal{C}S$. 
+		\item $^pS\in \Top$ es el espacio de parches con la topología generado por 
+		\[
+		\mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}.
+		\]
+		\item $S$ es empaquetado si y solo si $^pS=S$.
+		\item $T_2\Rightarrow \mbox{ Empaquetado}\Rightarrow T_1$.
+		\item Si $S$ es $T_1$, entonces $^pS=\,^{pp}S$.
+		\item Si $S$ es $T_0$, entonces $^{pp}S=\,^{ppp}S$
+	\end{itemize}
+	\[\begin{tikzcd}
+	{\mathcal{O}S} & {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}[fragile]{Construcciones de parches}
+	La construcción en $\Frm$:
+	\begin{itemize}
+		\item Para $A\in \Frm$, $PA$ es el marco de parches y es generado por 
+		\[
+		\mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}.
+		\] 
+		\item $A$ es parche trivial si y solo si $A\simeq PA$.
+		\item ¿Cuándo ocurre que $A\simeq PA$?
+		\item ¿Cómo se comparta $PA$?
+	\end{itemize}
+	\[\begin{tikzcd}
+	{A} & {PA} & {NA}
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=1-2, to=1-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}[fragile]{El diagrama de parches}
+\begin{equation}\label{Diagrama de parches}
+	\begin{tikzcd}
+	A & PA & NA \\
+	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
+	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-1, to=3-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=3-2, to=3-3]
+\end{tikzcd}
+\end{equation}
+\end{frame}
+
+\begin{frame}{Marcos arreglados}
+Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$. 
+    \begin{itemize}
+        \item $F\in A^\wedge$ es $\alpha$-arreglado si 
+    \[
+    x\in F\Rightarrow u_d(x)=d\vee x=1,
+    \]
+    donde $d=d(\alpha)=f^\alpha(0)$ y $f=\dot{\bigvee}\{v_a\mid a\in F\}$
+    \item $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
+    \item $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Porpiedades de los marcos arreglados}
+\begin{itemize}
+	\item Arreglado $\Leftrightarrow$ Parche trivial.
+	\item Regular $\Rightarrow$ Arreglado.
+	\item Si $A$ es arreglado $\Rightarrow S=\pt A$ es $T_1$.
+	\item Si $A$ es $1$-arreglado $\Rightarrow S$ es $T_2$.
+	\item $\mathcal{O}S$ es $1$-arreglado $\Leftrightarrow S$ es $T_2$.
+	\item $\mathcal{O}S$ es arreglado $\Leftrightarrow S$ es empaquetado y apilado.  
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile, plain]{Axiomas de separación en $\Frm$}
+    \[\begin{tikzcd}
+	&& {\mathbf{(reg)}} \\
+	{\mathbf{(aju)}} && {\mathbf{(fH)}} && {\mathbf{(H)}+\mathbf{(saju)}} \\
+	{\mathbf{(saju)}} && {T_U} && {\mathbf{(H)}} \\
+	&& {T_1}
+	\arrow[Rightarrow, from=1-3, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-5]
+	\arrow[dotted, no head, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=2-1, to=3-3]
+	\arrow[dotted, no head, from=2-1, to=3-5]
+	\arrow[dotted, no head, from=2-3, to=2-5]
+	\arrow[dotted, no head, from=2-3, to=3-1]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+	\arrow[Rightarrow, from=2-5, to=3-1]
+	\arrow[dotted, no head, from=2-5, to=3-3]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[dotted, no head, from=3-1, to=3-3]
+	\arrow[dotted, no head, from=3-1, to=4-3]
+	\arrow[dotted, no head, from=3-3, to=3-5]
+	\arrow[Rightarrow, from=3-3, to=4-3]
+	\arrow[Rightarrow, from=3-5, to=4-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}{Axiomas tipo Hausdorff}
+\begin{center}
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+ Axioma/Comportamiento & \textbf{C.} & 1° & 2° & \textbf{S. H.} & \textbf{C. S. E.}\\ \hline
+$\mathbf{(dH)}$ & x & $\checkmark$ & x & x & x \\ \hline
+$\mathbf{(H)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & x \\ \hline
+$\mathbf{(Hp)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & ? \\ \hline
+$\mathbf{(fH)}$ & x & x &  $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
+\end{tabular}
+\end{center}
+\begin{tiny}
+$$\mbox{ }$$
+\end{tiny}
+
+\textbf{C.}= Propiedad conservativa\\
+\textbf{S. H.}= Suficientemente Huasdorff\\
+\textbf{C. S. E.}= Comportamiento similar al espacial
+
+\end{frame}
+
+\section{Lo que hemos hecho}
+\begin{frame}{Analizando $PA$}
+¿El marco de parches se comporta como el espacio de parches?
+\begin{itemize}
+	\item $PA$, en general, no es  $T_1$.
+	\item Al no ser $T_1$ no puede cumplir algún otro axioma de separación más fuerte que $T_1$.
+	\item ¿$PA$ cumple $\mathbf{(saju)}$?
+	\item ¿Se cumple que $PA\simeq P^2A$?
+	\item Se cumple que $P^2A\simeq P^3A$.
+\end{itemize}
+¿Qué pasa si el marco $A$ cumple $\mathbf{(H)}$?
+\end{frame}
+
+\begin{frame}{Marcos arreglados vs propiedades en $\Frm$}
+\begin{cor}
+Si $A\in \Frm$ es espacial, entonces $\mathcal{O}S$ cumple $\mathbf{(H)}\Leftrightarrow A$ es $1$-arreglado.
+\end{cor}
+
+\begin{cor}
+	Todo marco ajustado es arreglado.
+\end{cor}
+
+\begin{prop}
+Todo marco fuertemente Hausdorff es arreglado.
+\end{prop}
+
+\begin{prop}
+Si $A$ es arreglado, $A_j$ es arreglado para $j\in NA$.
+\end{prop}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\[\begin{tikzcd}
+	{\mathbf{(aju)}} \\
+	{\mathbf{(reg)}} && {\mbox{Arreglado}} \\
+	{\mathbf{(fH)}} \\
+	{\mathbf{(H)}}
+	\arrow[Rightarrow, from=1-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=1-1]
+	\arrow[Rightarrow, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[Rightarrow, from=3-1, to=2-3]
+	\arrow[Rightarrow, from=3-1, to=4-1]
+	\arrow["{?}"', Rightarrow, from=4-1, to=2-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}{Intervalos de admisibilidad}
+Si $F\in A^\wedge$, entonces 
+\[
+u_d\leq v_F \leq  w_F
+\] 
+para $d=v_F(0)$, $v_F=f^\infty$.
+
+\begin{block}{Información con los intervalos}
+\begin{itemize}
+\item $[v_F, w_F]\subseteq NA$ es el intervalo de admisibilidad.
+\item Si $j\in [v_F,w_F]$, $A_j$ es compacto.
+\item Arreglado $\Leftrightarrow v_F\leq u_d$
+\item $\mathbf{(fH)}\Leftrightarrow\forall\, j\in [v_F,w_F]$, $j=u_\bullet$ y $\bullet\in A$.  
+\item $\mathbf{(aju)}\Leftrightarrow [v_F,w_F]=\{*\}$ y $*=u_\bullet$ para $\bullet\in A$. 
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+Por el Teorema de Hoffman-Mislove 
+\[
+Q\in \mathcal{Q}S\leftrightarrow F\in A^\wedge\quad \mbox{ y } \quad Q\in \mathcal{Q}S\leftrightarrow \nabla\in \mathcal{O}S^\wedge.
+\]
+Además, $[v_Q, w_Q]\subseteq N\mathcal{O}S$ es un intervalo de admisibilidad.
+
+\begin{prop}
+Con $F$ y $Q$ como antes, si $j\in [v_Q, w_Q]$, entonces 
+\[
+\nabla(U_*jU^*)=F
+\]
+donde $U^*$ es la reflexión espacial y $U_*$ es su adjunto derecho.
+\end{prop}
+Equivalentemente
+\[
+\mho\colon [v_Q, w_Q]\to [v_F, w_F].
+\]
+\end{frame}
+
+\begin{frame}[fragile]{El $Q$-cuadrado}
+En \cite{H.S.V} construyen el diagrama
+\[\begin{tikzcd}
+	A & A \\
+	{\mathcal{O}S} & {\mathcal{O}S}
+	\arrow["{f^\infty}", from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow["{U_A}", from=1-2, to=2-2]
+	\arrow["{F^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+y prueban que $U_A\circ f^\infty\leq F^\infty \circ U_A$.\\
+	
+Si $j\in NA$, $\hat{f}^\infty$ es el núcleo asociado al filtro $j_*F\in A^\wedge$.
+\[\begin{tikzcd}
+	A & A \\
+	{A_j} & {A_j}
+	\arrow["{\hat{f}^\infty}", from=1-1, to=1-2]
+	\arrow["{j}"', from=1-1, to=2-1]
+	\arrow["{j}", from=1-2, to=2-2]
+	\arrow["{f^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{prop}
+Para $j, f$ y $\hat{f}$ como antes, se cumple que
+\begin{enumerate}
+\item $j\circ \hat{f}\leq f\circ j$.
+\item $j\circ \hat{f}^\infty \leq f^\infty\circ j$.
+\end{enumerate}
+\end{prop}
+
+Definiendo $H=f^\infty\circ j$ y $h=H_{\mid A_{j_*F}}$, obtenemos el diagrama
+\begin{equation}\label{diagrama h}
+	\begin{tikzcd}
+	A & {A_{\hat{f}^\infty}} \\
+	{A_j} & {A_{f^\infty}}
+	\arrow["{\hat{f}^\infty}", from=1-1, to=1-2]
+	\arrow["j"', from=1-1, to=2-1]
+	\arrow["H"', from=1-1, to=2-2]
+	\arrow["h", from=1-2, to=2-2]
+	\arrow["{f^\infty}"', from=2-1, to=2-2]
+\end{tikzcd}
+\end{equation}
+
+\begin{prop}
+	El diagrama \eqref{diagrama h} es conmutativo.
+\end{prop}
+\end{frame}
+
+\begin{frame}{Marcos $KC$}
+$S\in \Top$ es $\mathrm{KC}$ si todo conjunto compacto es cerrado. $S$ es $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
+\[
+T_2\Rightarrow KC\Rightarrow US\Rightarrow T_1
+\]
+
+\begin{dfn}
+$A\in \Frm$ es $KC$ si todo cociente compacto de $A$ es cerrado. 
+\end{dfn}
+Equivalentemente
+\[
+A_F=u_d
+\]
+para algún $d\in A$ y $F\in A^\wedge$.
+\end{frame}
+
+\begin{frame}[fragile]{Propiedades de los marcos $KC$}
+\[
+KC\Rightarrow \mbox{Arreglado}
+\]
+
+\begin{prop}
+Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
+\end{prop}
+
+\begin{prop}
+Si $A$ es $KC$, entonces $A$ es $T_1$.
+\end{prop}
+
+De hecho
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} & {\mathbf{(fH)}} & KC & {\mbox{Arreglado}} & {T_1} \\
+	& {\mathbf{(aju)}} && {}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-1, to=2-2]
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[Rightarrow, from=1-3, to=1-4]
+	\arrow[Rightarrow, from=1-4, to=1-5]
+	\arrow[Rightarrow, from=2-2, to=1-3]
+\end{tikzcd}\]
+
+\end{frame}
+
+\begin{frame}{La topología máximo compacta}
+Consideremos $S=\{x,y\}\cup \mathbb{N}^2$ con $x,y\notin \mathbb{N}^2$ y sea 
+\[
+R_n=\{(m,n)\mid m\in \mathbb{N}\}
+\]
+Definimos 
+\[
+\mathcal{O}S=\mathcal{P}\mathbb{N}^2 \cup \mathcal{U}\cup\mathcal{V}
+\]
+donde
+\[
+\mathcal{U}=\{U\subseteq S\mid x\in U\mbox{ y }\forall n\in \mathbb{N}, U\cap R_n\mbox{ es cofinito}\}
+\]
+\[
+\mathcal{V}=\{V\subseteq S\mid y\in V \mbox{ y }\exists F\subseteq \mathbb{N}\mbox{ finito tal que }\forall n\notin F, R_n\subseteq V \}
+\]
+$\mathcal{O}S$ es una topología..
+\end{frame}
+
+\begin{frame}{Propiedades de $\mathcal{O}S$}
+	\begin{itemize}
+	\item $\mathcal{O}S$ es $T_1$.
+	\item $\mathcal{O}S$ no es $\mathbf{(H)}$.
+	\item $\mathcal{O}S$ es compacto.
+	\item $\mathcal{O}S$ es $\mathbf{(aju)}$.
+	\item $\mathcal{O}S$ es $KC$.
+	\item $\mathcal{O}S$ es $2$-arreglado.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{El ejemplo de Paseka y Smarda}
+Consideremos $A\in\Frm$ y $A_r=\{a\in A\mid \neg\neg a=a\}$. Definimos
+\[
+K(A)=\{(u,v)\mid u\in A,\, v\in A_r,\, u\leq v\}
+\]
+$K(A)\in \Frm$.
+\begin{block}{Propiedades de $K(A)$}
+\begin{itemize}
+	\item Si $A$ es $\mathbf{(H)}$ y $\neg m=0$ para $m$ máximo, $K(A)$ es $\mathbf{(H)}$.
+	\item Si $A$ es compacto, entonces $K(A)$ es compacto.
+	\item $K(A)$ no es subajustado
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
+\begin{itemize}
+\item $\mathcal{O}I$ es $\mathbf{(H)}$.
+\item $\mathcal{O}I$ es compacto.
+\item $K(\mathcal{O}I)$ es compacto y $\mathbf{(H)}$.
+\item $K(\mathcal{O}I)$ no es subajustado.
+\item $K(\mathcal{O}I)$ no es espacial.
+\end{itemize}
+
+\[
+\mbox{Existe marcos Hausdorr y compactos que no son espaciales}.
+\]
+\end{frame}
+
+\section{Conclusiones}
+\begin{frame}{Conclusiones}
+
+\end{frame}
+
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliografía}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
+
+\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{H.S.} H. Simmons, \textit{An Introduction to Frame Theory}, lecture notes, University of Manchester. Disponible en línea en \url{https://web.archive.org/web/20190714073511/http://staff.cs.manchester.ac.uk/~hsimmons}.
+
+\bibitem{H.S.R} H. Simmons, \textit{Regularity, fitness, and the block structure of frames.} Applied Categorical Structures 14 (2006): 1-34.
+
+\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
+
+\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+
+\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
+\end{thebibliography}
+\end{frame}
+
+\end{document}
