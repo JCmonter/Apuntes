@@ -59,27 +59,25 @@
 \end{frame}
 
 \section{Lo que sabemos}
+
 \begin{frame}[fragile]{Ejemplo}
 Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
 \[
 \mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
 \]
-donde $a,b\in S$. Entonces 
-\[\begin{tikzcd}
-	{\mathcal{O}_lS} & {\mathcal{O}_mS} & {\mathcal{O}_nS}
-	\arrow[hook, from=1-1, to=1-2]
-	\arrow[hook, from=1-2, to=1-3]
-\end{tikzcd}\]
-Se puede verificar que 
+donde $a,b\in S$. Entonces
+\[
+\mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
+\]
+
+\uncover<2->{Se puede verificar que 
 \[
 \mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
-\]
-es decir, para $A=\mathcal{O}_lS$
-\[\begin{tikzcd}
-	{A} & {PA} & {NA}
-	\arrow[from=1-1, to=1-2]
-	\arrow[hook, from=1-2, to=1-3]
-\end{tikzcd}\]
+\]}
+\uncover<3->{es decir, 
+\[
+\mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
+\]}
 \end{frame}
 
 \begin{frame}{Filtros en $\Frm$}
@@ -102,23 +100,31 @@ es decir, para $A=\mathcal{O}_lS$
 \end{frame}
 
 \begin{frame}[fragile]{Construcciones de parches}
-	La construcción en $\Top$:
-	\begin{itemize}
-		\item $S\in \Top$ es empaquetado si y solo si $Q\in \mathcal{Q}S$ entonces $Q\in \mathcal{C}S$. 
-		\item $^pS\in \Top$ es el espacio de parches con la topología generado por 
-		\[
-		\mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}.
-		\]
-		\item $S$ es empaquetado si y solo si $^pS=S$.
-		\item $T_2\Rightarrow \mbox{ Empaquetado}\Rightarrow T_1$.
-		\item Si $S$ es $T_1$, entonces $^pS=\,^{pp}S$.
-		\item Si $S$ es $T_0$, entonces $^{pp}S=\,^{ppp}S$
-	\end{itemize}
-	\[\begin{tikzcd}
+La construcción en $\Top$:
+\begin{itemize}
+    \item $S\in \Top$ es empaquetado si y solo si $Q\in \mathcal{Q}S$ entonces $Q\in \mathcal{C}S$. 
+    \pause
+    \item $^pS\in \Top$ es el espacio de parches con la topología generada por 
+    \[
+    \mbox{pbase} = \{U\cap Q'\mid U\in \mathcal{O}S,\ Q\in \mathcal{Q}S\}.
+    \]
+    \pause
+    \item $S$ es empaquetado si y solo si $^pS = S$.
+    \pause
+    \item $T_2 \Rightarrow \mbox{Empaquetado} \Rightarrow T_1$.
+    \pause
+    \item Si $S$ es $T_1$, entonces $^pS = \,^{pp}S$.
+    \pause
+    \item Si $S$ es $T_0$, entonces $^{pp}S = \,^{ppp}S$
+    \pause
+\end{itemize}
+\[
+\begin{tikzcd}
 	{\mathcal{O}S} & {\mathcal{O}^pS} & {\mathcal{O}^fS}
 	\arrow[hook, from=1-1, to=1-2]
 	\arrow[hook, from=1-2, to=1-3]
-\end{tikzcd}\]
+\end{tikzcd}
+\]
 \end{frame}
 
 \begin{frame}[fragile]{Construcciones de parches}
@@ -127,10 +133,14 @@ es decir, para $A=\mathcal{O}_lS$
 		\item Para $A\in \Frm$, $PA$ es el marco de parches y es generado por 
 		\[
 		\mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}.
-		\] 
+		\]
+		\pause 
 		\item $A$ es parche trivial si y solo si $A\simeq PA$.
+		\pause
 		\item ¿Cuándo ocurre que $A\simeq PA$?
+		\pause
 		\item ¿Cómo se comparta $PA$?
+	\pause
 	\end{itemize}
 	\[\begin{tikzcd}
 	{A} & {PA} & {NA}
@@ -141,35 +151,44 @@ es decir, para $A=\mathcal{O}_lS$
 
 \begin{frame}[fragile]{El diagrama de parches}
 \begin{equation}\label{Diagrama de parches}
-	\begin{tikzcd}
+\begin{tikzcd}
 	A & PA & NA \\
 	{\mathcal{O}S} & {P\mathcal{O}S} & {N\mathcal{O}S} \\
 	& {\mathcal{O}^pS} & {\mathcal{O}^fS}
 	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-1]
-	\arrow[from=1-2, to=1-3]
-	\arrow[from=1-2, to=2-2]
-	\arrow[from=1-3, to=2-3]
+	\arrow["{U_A}"', from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["{PU_A}", from=1-2, to=2-2]
+	\arrow["{NU_A}", from=1-3, to=2-3]
 	\arrow[from=2-1, to=2-2]
 	\arrow[from=2-1, to=3-2]
-	\arrow[from=2-2, to=2-3]
-	\arrow[from=2-2, to=3-2]
-	\arrow[from=2-3, to=3-3]
-	\arrow[from=3-2, to=3-3]
+	\arrow[hook, from=2-2, to=2-3]
+	\arrow["{\pi_S}", from=2-2, to=3-2]
+	\arrow["{\sigma_S}", from=2-3, to=3-3]
+	\arrow[hook, from=3-2, to=3-3]
 \end{tikzcd}
 \end{equation}
+\uncover<2->{
+\begin{itemize}
+	\item La contrucción de parches es funtorial si para
+\[
+f\colon A\to B
+\]
+convierte filtros abiertos.
+\item $U_A$ convierte filtros abiertos.
+\end{itemize}}
 \end{frame}
 
 \begin{frame}{Marcos arreglados}
 Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$. 
     \begin{itemize}
-        \item $F\in A^\wedge$ es $\alpha$-arreglado si 
+        \item<2-> $F\in A^\wedge$ es $\alpha$-arreglado si 
     \[
     x\in F\Rightarrow u_d(x)=d\vee x=1,
     \]
     donde $d=d(\alpha)=f^\alpha(0)$ y $f=\dot{\bigvee}\{v_a\mid a\in F\}$
-    \item $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
-    \item $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
+    \item<3-> $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
+    \item<4-> $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
     \end{itemize}
 \end{frame}
 
@@ -232,7 +251,6 @@ $$\mbox{ }$$
 \textbf{C. S. E.}= Comportamiento similar al espacial
 
 \end{frame}
-
 \section{Lo que hemos hecho}
 \begin{frame}{Analizando $PA$}
 ¿El marco de parches se comporta como el espacio de parches?
@@ -244,6 +262,29 @@ $$\mbox{ }$$
 	\item Se cumple que $P^2A\simeq P^3A$.
 \end{itemize}
 ¿Qué pasa si el marco $A$ cumple $\mathbf{(H)}$?
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item Si $A$ es $\mathbf{(H)}\Rightarrow S=\pt A$ es $T_2$
+\item Si $S$ es $T_2\Rightarrow \mathcal{O}S$ es $1$-arreglado.
+\item Si $\mathcal{O}S$ es $1$-arreglado $\Rightarrow \mathcal{O}S\simeq P\mathcal{O}S$.
+\item Si $S$ es $T_2\Rightarrow ^pS=S$.
+\item Si $^pS=S\Rightarrow \mathcal{O}S=\mathcal{O}^pS$.
+\end{itemize}
+\[\begin{tikzcd}
+	A & PA & NA \\
+	& {\mathcal{O}S} & {N\mathcal{O}S} \\
+	&& {\mathcal{O}^fS}
+	\arrow[from=1-1, to=1-2]
+	\arrow["{U_A}"', from=1-1, to=2-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow["{PU_A}", from=1-2, to=2-2]
+	\arrow["{NU_A}", from=1-3, to=2-3]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-3]
+	\arrow["{\sigma_S}", from=2-3, to=3-3]
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}{Marcos arreglados vs propiedades en $\Frm$}
@@ -369,6 +410,22 @@ Definiendo $H=f^\infty\circ j$ y $h=H_{\mid A_{j_*F}}$, obtenemos el diagrama
 \end{prop}
 \end{frame}
 
+\begin{frame}[fragile]
+Consideremos 
+\[\begin{tikzcd}
+	A && {A_F} \\
+	&&& {\mathcal{O}Q} \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{U_A}"', from=1-1, to=3-1]
+	\arrow[from=1-3, to=2-4]
+	\arrow[from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow[from=3-3, to=2-4]
+\end{tikzcd}\]
+¿Qué pasa si $A$ cumple $\mathbf{(H)}$?
+\end{frame}
+
 \begin{frame}{Marcos $KC$}
 $S\in \Top$ es $\mathrm{KC}$ si todo conjunto compacto es cerrado. $S$ es $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
 \[
@@ -474,7 +531,13 @@ De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
 
 \section{Conclusiones}
 \begin{frame}{Conclusiones}
-
+\begin{itemize}
+\item Requerimos identificar cual es significado de que un marco sea $US$.
+\item Conocer más sobre el comportamiento del marco de parches para niveles superiores.
+\item Verificar que $\mathbf{(H)}$ implica (o no) $KC$ (o arreglado).
+\item Desarrollar ejemplos donde aparezcan las propiedades que están involucradas en la investigación.
+\item Explorar las posibilidades que brindan los intervalos de admisibilidad y el $Q$-cuadrado.
+\end{itemize}
 \end{frame}
 
 
