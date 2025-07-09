@@ -70,14 +70,14 @@ donde $a,b\in S$. Entonces
 \mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
 \]
 
-\uncover<2->{Se puede verificar que 
+Se puede verificar que 
 \[
 \mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
-\]}
-\uncover<3->{es decir, 
+\]
+es decir, 
 \[
 \mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
-\]}
+\]
 \end{frame}
 
 \begin{frame}{Filtros en $\Frm$}
@@ -87,7 +87,7 @@ donde $a,b\in S$. Entonces
 			\item $a\leq b$, $a\in  F$ $\Rightarrow b \in F$.
 			\item $a, b \in F \Rightarrow  a \wedge b \in F$.
 		\end{enumerate}
-	\uncover<2->{Existen diferentes tipos de filtros:
+	Existen diferentes tipos de filtros:
 	\begin{itemize}
 	\begin{multicols}{2}
 		\item Propio
@@ -96,27 +96,21 @@ donde $a,b\in S$. Entonces
 		\item (Scott) abierto
 		\item Admisible ($\nabla(j)$)
 		\end{multicols}
-	\end{itemize} }
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Construcciones de parches}
 La construcción en $\Top$:
 \begin{itemize}
     \item $S\in \Top$ es empaquetado si y solo si $Q\in \mathcal{Q}S$ entonces $Q\in \mathcal{C}S$. 
-    \pause
     \item $^pS\in \Top$ es el espacio de parches con la topología generada por 
     \[
     \mbox{pbase} = \{U\cap Q'\mid U\in \mathcal{O}S,\ Q\in \mathcal{Q}S\}.
     \]
-    \pause
     \item $S$ es empaquetado si y solo si $^pS = S$.
-    \pause
     \item $T_2 \Rightarrow \mbox{Empaquetado} \Rightarrow T_1$.
-    \pause
     \item Si $S$ es $T_1$, entonces $^pS = \,^{pp}S$.
-    \pause
     \item Si $S$ es $T_0$, entonces $^{pp}S = \,^{ppp}S$
-    \pause
 \end{itemize}
 \[
 \begin{tikzcd}
@@ -134,13 +128,9 @@ La construcción en $\Top$:
 		\[
 		\mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}.
 		\]
-		\pause 
 		\item $A$ es parche trivial si y solo si $A\simeq PA$.
-		\pause
 		\item ¿Cuándo ocurre que $A\simeq PA$?
-		\pause
 		\item ¿Cómo se comparta $PA$?
-	\pause
 	\end{itemize}
 	\[\begin{tikzcd}
 	{A} & {PA} & {NA}
@@ -168,7 +158,6 @@ La construcción en $\Top$:
 	\arrow[hook, from=3-2, to=3-3]
 \end{tikzcd}
 \end{equation}
-\uncover<2->{
 \begin{itemize}
 	\item La contrucción de parches es funtorial si para
 \[
@@ -176,19 +165,19 @@ f\colon A\to B
 \]
 convierte filtros abiertos.
 \item $U_A$ convierte filtros abiertos.
-\end{itemize}}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Marcos arreglados}
 Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$. 
     \begin{itemize}
-        \item<2-> $F\in A^\wedge$ es $\alpha$-arreglado si 
+        \item $F\in A^\wedge$ es $\alpha$-arreglado si 
     \[
     x\in F\Rightarrow u_d(x)=d\vee x=1,
     \]
     donde $d=d(\alpha)=f^\alpha(0)$ y $f=\dot{\bigvee}\{v_a\mid a\in F\}$
-    \item<3-> $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
-    \item<4-> $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
+    \item $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
+    \item $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
     \end{itemize}
 \end{frame}
 
