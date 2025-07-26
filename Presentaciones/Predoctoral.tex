@@ -54,49 +54,24 @@
 
 \frame[plain]{\titlepage}
 
-\begin{frame}{Contenido}
-\tableofcontents %Imprime la tabla de contenido
-\end{frame}
+%\begin{frame}{Contenido}
+%\tableofcontents %Imprime la tabla de contenido
+%\end{frame}
 
-\section{Lo que sabemos}
+%\section{Lo que sabemos}
+\begin{frame}{El axioma $T_2$}
+\begin{description}
+    \item[$T_2$:] Si $x, y\in S$ con $x\neq y$, $\exists\, U, V\in \mathcal{O}S$ tal que $x\in U$, $y\in V$ y $U\cap V=\emptyset$.
+\end{description}
 
-\begin{frame}[fragile]{Ejemplo}
-Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
-\[
-\mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
-\]
-donde $a,b\in S$. Entonces
-\[
-\mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
-\]
+Si $S$ es $T_2$,
 
-Se puede verificar que 
-\[
-\mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
-\]
-es decir, 
-\[
-\mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
-\]
-\end{frame}
-
-\begin{frame}{Filtros en $\Frm$}
-    Sea $A\in \Frm$. Para $F\subseteq A$, decimos que $F$ es un \emph{filtro} si:
-		\begin{enumerate}
-			\item $1\in F$.
-			\item $a\leq b$, $a\in  F$ $\Rightarrow b \in F$.
-			\item $a, b \in F \Rightarrow  a \wedge b \in F$.
-		\end{enumerate}
-	Existen diferentes tipos de filtros:
-	\begin{itemize}
-	\begin{multicols}{2}
-		\item Propio
-		\item Primo
-		\item Completamente primo
-		\item (Scott) abierto
-		\item Admisible ($\nabla(j)$)
-		\end{multicols}
-	\end{itemize}
+\begin{itemize}
+    \item Todo conjunto compacto (saturado) es cerrado.
+    \item El subespacio diagonal es cerrado.
+    \item $T_2+$ compacto $\Rightarrow$ Regular.
+    \item $\vdots$
+\end{itemize}    
 \end{frame}
 
 \begin{frame}[fragile]{Construcciones de parches}
@@ -121,6 +96,23 @@ La construcción en $\Top$:
 \]
 \end{frame}
 
+\begin{frame}{Para la ``traducción''}
+Lo que necesitamos:
+\begin{enumerate}
+\item Núcleos
+\begin{itemize}
+	\item Núcleos abiertos
+	\item Núcleos cerrados
+\end{itemize}
+\item Filtros 
+\begin{itemize}
+	\item Filtros abiertos
+	\item Filtros admisibles
+\end{itemize}
+\item El Teorema de Hoffman-Mislove
+\end{enumerate}
+\end{frame}
+
 \begin{frame}[fragile]{Construcciones de parches}
 	La construcción en $\Frm$:
 	\begin{itemize}
@@ -137,6 +129,29 @@ La construcción en $\Top$:
 	\arrow[from=1-1, to=1-2]
 	\arrow[hook, from=1-2, to=1-3]
 \end{tikzcd}\]
+\[
+\mbox{¿Qué tanto se parece empaquetado y parche trivial?}
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Ejemplo}
+Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
+\[
+\mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
+\]
+donde $a,b\in S$. Entonces
+\[
+\mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
+\]
+
+Se puede verificar que 
+\[
+\mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
+\]
+es decir, 
+\[
+\mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
+\]
 \end{frame}
 
 \begin{frame}[fragile]{El diagrama de parches}
@@ -159,7 +174,7 @@ La construcción en $\Top$:
 \end{tikzcd}
 \end{equation}
 \begin{itemize}
-	\item La contrucción de parches es funtorial si para
+	\item La construcción de parches es funtorial si para
 \[
 f\colon A\to B
 \]
@@ -192,6 +207,11 @@ Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$.
 \end{itemize}
 \end{frame}
 
+\begin{frame}[plain, standout]{Objetivo}
+    \Huge{¿Qué relación existe entre la propiedad arreglado y los distintas propiedades de separación que existe en $\Frm$?}
+
+\end{frame}
+
 \begin{frame}[fragile, plain]{Axiomas de separación en $\Frm$}
     \[\begin{tikzcd}
 	&& {\mathbf{(reg)}} \\
@@ -221,10 +241,19 @@ Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$.
 \end{frame}
 
 \begin{frame}{Axiomas tipo Hausdorff}
+    \begin{description}
+        \item[$\mathbf{(dH):}$]$\quad$ Si $a\vee b=1$, con $a,b\neq 1$, $\exists\, u,v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$.
+        \item[$\mathbf{(H):}$]$\quad$ Si $1\neq a\nleq b$ $\exists\, u, v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$.
+        \item[$\mathbf{(Hp):}$]$\quad$ Todo elemento semiprimo es máximo.
+        \item[$\mathbf{(fH):}$]$\quad$ El sublocal diagonal es cerrado.
+    \end{description}
+\end{frame}
+
+\begin{frame}{En resumen...}
 \begin{center}
 \begin{tabular}{| c | c | c | c | c | c |}
 \hline
- Axioma/Comportamiento & \textbf{C.} & 1° & 2° & \textbf{S. H.} & \textbf{C. S. E.}\\ \hline
+ Propiedad/Comportamiento & \textbf{C.} & 1° & 2° & \textbf{S. H.} & \textbf{C. S. E.}\\ \hline
 $\mathbf{(dH)}$ & x & $\checkmark$ & x & x & x \\ \hline
 $\mathbf{(H)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & x \\ \hline
 $\mathbf{(Hp)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & ? \\ \hline
@@ -235,11 +264,23 @@ $\mathbf{(fH)}$ & x & x &  $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
 $$\mbox{ }$$
 \end{tiny}
 
-\textbf{C.}= Propiedad conservativa\\
-\textbf{S. H.}= Suficientemente Huasdorff\\
+\textbf{S. H.}= Suficientemente Huasdorff ($P\Rightarrow T_2$)\\
+\textbf{C.}= Propiedad conservativa ($P\Leftrightarrow T_2$)\\
 \textbf{C. S. E.}= Comportamiento similar al espacial
-
+\[
+(\mathbf{(H)}+\mbox{Compacto}\nRightarrow \mathbf{(reg)})
+\]
 \end{frame}
+
+\begin{frame}[plain, standout]{Otros objetivos}
+    \begin{itemize}
+        \item Conocer la relación entre parche trivial y empaquetado.
+        \item Ver el comportamiento de arreglado con respecto a los axiomas tipo Hausdorff.
+        \item Desarrollar teoría que permita comprender la interacción entre las propiedades.
+        \item Ver ejemplos.
+    \end{itemize}
+\end{frame}
+
 \section{Lo que hemos hecho}
 \begin{frame}{Analizando $PA$}
 ¿El marco de parches se comporta como el espacio de parches?
