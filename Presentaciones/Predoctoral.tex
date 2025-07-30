@@ -64,29 +64,30 @@
     \item[$T_2$:] Si $x, y\in S$ con $x\neq y$, $\exists\, U, V\in \mathcal{O}S$ tal que $x\in U$, $y\in V$ y $U\cap V=\emptyset$.
 \end{description}
 
-Si $S$ es $T_2$,
+\onslide<2->{Si $S$ es $T_2$,}
 
 \begin{itemize}
-    \item Todo conjunto compacto (saturado) es cerrado.
-    \item El subespacio diagonal es cerrado.
-    \item $T_2+$ compacto $\Rightarrow$ Regular.
-    \item $\vdots$
+    \item<3-> \alert<7->{Todo conjunto compacto (saturado) es cerrado.}
+    \item<4-> El subespacio diagonal es cerrado.
+    \item<5-> $T_2+$ compacto $\Rightarrow$ Regular.
+    \item<6-> $\vdots$
 \end{itemize}    
 \end{frame}
 
 \begin{frame}[fragile]{Construcciones de parches}
 La construcción en $\Top$:
 \begin{itemize}
-    \item $S\in \Top$ es empaquetado si y solo si $Q\in \mathcal{Q}S$ entonces $Q\in \mathcal{C}S$. 
-    \item $^pS\in \Top$ es el espacio de parches con la topología generada por 
+    \item<2-> $S\in \Top$ es empaquetado si y solo si $Q\in \mathcal{Q}S$ entonces $Q\in \mathcal{C}S$. 
+    \item<3-> $^pS\in \Top$ es el espacio de parches con la topología generada por 
     \[
     \mbox{pbase} = \{U\cap Q'\mid U\in \mathcal{O}S,\ Q\in \mathcal{Q}S\}.
     \]
-    \item $S$ es empaquetado si y solo si $^pS = S$.
-    \item $T_2 \Rightarrow \mbox{Empaquetado} \Rightarrow T_1$.
-    \item Si $S$ es $T_1$, entonces $^pS = \,^{pp}S$.
-    \item Si $S$ es $T_0$, entonces $^{pp}S = \,^{ppp}S$
+    \item<4-> $S$ es empaquetado si y solo si $^pS = S$.
+    \item<5-> $T_2 \Rightarrow \mbox{Empaquetado} \Rightarrow T_1$.
+    \item<6-> Si $S$ es $T_1$, entonces $^pS = \,^{pp}S$.
+    \item<7-> Si $S$ es $T_0$, entonces $^{pp}S = \,^{ppp}S$
 \end{itemize}
+\onslide<8->
 \[
 \begin{tikzcd}
 	{\mathcal{O}S} & {\mathcal{O}^pS} & {\mathcal{O}^fS}
@@ -99,37 +100,37 @@ La construcción en $\Top$:
 \begin{frame}{Para la ``traducción''}
 Lo que necesitamos:
 \begin{enumerate}
-\item Núcleos
+\item<2-> Núcleos
 \begin{itemize}
-	\item Núcleos abiertos
-	\item Núcleos cerrados
+	\item<3-> Núcleos abiertos ($v_\bullet$)
+	\item<4-> Núcleos cerrados ($u_\bullet$)
 \end{itemize}
-\item Filtros 
+\item<5-> Filtros 
 \begin{itemize}
-	\item Filtros abiertos
-	\item Filtros admisibles
+	\item<6-> Filtros abiertos ($A^\wedge$)
+	\item<7-> Filtros admisibles ($\nabla(j)$)
 \end{itemize}
-\item El Teorema de Hoffman-Mislove
+\item<8-> El Teorema de Hoffman-Mislove
 \end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]{Construcciones de parches}
 	La construcción en $\Frm$:
 	\begin{itemize}
-		\item Para $A\in \Frm$, $PA$ es el marco de parches y es generado por 
+		\item<2-> Para $A\in \Frm$, $PA$ es el marco de parches y es generado por 
 		\[
 		\mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}.
 		\]
-		\item $A$ es parche trivial si y solo si $A\simeq PA$.
-		\item ¿Cuándo ocurre que $A\simeq PA$?
-		\item ¿Cómo se comparta $PA$?
+		\item<3-> $A$ es parche trivial si y solo si $A\simeq PA$.
+		\item<4-> ¿Cuándo ocurre que $A\simeq PA$?
+		\item<5-> ¿Cómo se comparta $PA$?
 	\end{itemize}
-	\[\begin{tikzcd}
+	\onslide<6->\[\begin{tikzcd}
 	{A} & {PA} & {NA}
 	\arrow[from=1-1, to=1-2]
 	\arrow[hook, from=1-2, to=1-3]
 \end{tikzcd}\]
-\[
+\onslide<7->\[
 \mbox{¿Qué tanto se parece empaquetado y parche trivial?}
 \]
 \end{frame}
@@ -139,19 +140,19 @@ Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
 \[
 \mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
 \]
-donde $a,b\in S$. Entonces
+donde $a,b\in S$. \onslide<2->{Entonces
 \[
 \mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
 \]
-
-Se puede verificar que 
+}
+\onslide<3->{Se puede verificar que 
 \[
 \mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
 \]
 es decir, 
 \[
 \mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
-\]
+\]}
 \end{frame}
 
 \begin{frame}[fragile]{El diagrama de parches}
@@ -174,41 +175,41 @@ es decir,
 \end{tikzcd}
 \end{equation}
 \begin{itemize}
-	\item La construcción de parches es funtorial si para
+	\item<2-> La construcción de parches es funtorial si para
 \[
 f\colon A\to B
 \]
 convierte filtros abiertos.
-\item $U_A$ convierte filtros abiertos.
+\item<3-> $U_A$ convierte filtros abiertos.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Marcos arreglados}
 Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$. 
     \begin{itemize}
-        \item $F\in A^\wedge$ es $\alpha$-arreglado si 
+        \item<2-> $F\in A^\wedge$ es $\alpha$-arreglado si 
     \[
     x\in F\Rightarrow u_d(x)=d\vee x=1,
     \]
     donde $d=d(\alpha)=f^\alpha(0)$ y $f=\dot{\bigvee}\{v_a\mid a\in F\}$
-    \item $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
-    \item $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
+    \item<3-> $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
+    \item<4-> $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Porpiedades de los marcos arreglados}
 \begin{itemize}
 	\item Arreglado $\Leftrightarrow$ Parche trivial.
-	\item Regular $\Rightarrow$ Arreglado.
-	\item Si $A$ es arreglado $\Rightarrow S=\pt A$ es $T_1$.
-	\item Si $A$ es $1$-arreglado $\Rightarrow S$ es $T_2$.
-	\item $\mathcal{O}S$ es $1$-arreglado $\Leftrightarrow S$ es $T_2$.
-	\item $\mathcal{O}S$ es arreglado $\Leftrightarrow S$ es empaquetado y apilado.  
+	\item<2-> Regular $\Rightarrow$ Arreglado.
+	\item<3-> Si $A$ es arreglado $\Rightarrow S=\pt A$ es $T_1$.
+	\item<4-> Si $A$ es $1$-arreglado $\Rightarrow S$ es $T_2$.
+	\item<5-> $\mathcal{O}S$ es $1$-arreglado $\Leftrightarrow S$ es $T_2$.
+	\item<6-> $\mathcal{O}S$ es arreglado $\Leftrightarrow S$ es empaquetado y apilado.  
 \end{itemize}
 \end{frame}
 
 \begin{frame}[plain, standout]{Objetivo}
-    \Huge{¿Qué relación existe entre la propiedad arreglado y los distintas propiedades de separación que existe en $\Frm$?}
+    \Huge{Conocer la relación que existe entre la propiedad arreglado y los distintas propiedades de separación que existe en $\Frm$}
 
 \end{frame}
 
@@ -249,7 +250,13 @@ Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$.
     \end{description}
 \end{frame}
 
-\begin{frame}{En resumen...}
+\begin{frame}{Comportamiento de los axiomas}
+\textbf{S. H.}= Suficientemente Huasdorff ($P\Rightarrow T_2$)\\
+\textbf{C.}= Propiedad conservativa ($P\Leftrightarrow T_2$)\\
+\textbf{C. S. E.}= Comportamiento similar al espacial
+\[
+(\mathbf{(H)}+\mbox{Compacto}\nRightarrow \mathbf{(reg)})
+\]
 \begin{center}
 \begin{tabular}{| c | c | c | c | c | c |}
 \hline
@@ -260,24 +267,15 @@ $\mathbf{(Hp)}$ & $\checkmark$ & $\checkmark$ & x & $\checkmark$ & ? \\ \hline
 $\mathbf{(fH)}$ & x & x &  $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
 \end{tabular}
 \end{center}
-\begin{tiny}
-$$\mbox{ }$$
-\end{tiny}
 
-\textbf{S. H.}= Suficientemente Huasdorff ($P\Rightarrow T_2$)\\
-\textbf{C.}= Propiedad conservativa ($P\Leftrightarrow T_2$)\\
-\textbf{C. S. E.}= Comportamiento similar al espacial
-\[
-(\mathbf{(H)}+\mbox{Compacto}\nRightarrow \mathbf{(reg)})
-\]
 \end{frame}
 
 \begin{frame}[plain, standout]{Otros objetivos}
     \begin{itemize}
         \item Conocer la relación entre parche trivial y empaquetado.
-        \item Ver el comportamiento de arreglado con respecto a los axiomas tipo Hausdorff.
-        \item Desarrollar teoría que permita comprender la interacción entre las propiedades.
-        \item Ver ejemplos.
+        \item<2-> Ver el comportamiento de arreglado con respecto a los axiomas tipo Hausdorff.
+        \item<3-> Desarrollar teoría que permita comprender la interacción entre las propiedades.
+        \item<4-> Ver ejemplos.
     \end{itemize}
 \end{frame}
 
@@ -285,24 +283,24 @@ $$\mbox{ }$$
 \begin{frame}{Analizando $PA$}
 ¿El marco de parches se comporta como el espacio de parches?
 \begin{itemize}
-	\item $PA$, en general, no es  $T_1$.
-	\item Al no ser $T_1$ no puede cumplir algún otro axioma de separación más fuerte que $T_1$.
-	\item ¿$PA$ cumple $\mathbf{(saju)}$?
-	\item ¿Se cumple que $PA\simeq P^2A$?
-	\item Se cumple que $P^2A\simeq P^3A$.
+	\item<2-> $PA$, en general, no es  $T_1$.
+	\item<3-> Al no ser $T_1$ no puede cumplir algún otro axioma de separación más fuerte que $T_1$.
+	\item<4-> ¿$PA$ cumple $\mathbf{(saju)}$?
+	\item<5-> ¿Se cumple que $PA\simeq P^2A$?
+	\item<6-> Se cumple que $P^2A\simeq P^3A$.
 \end{itemize}
-¿Qué pasa si el marco $A$ cumple $\mathbf{(H)}$?
+\onslide<7->{¿Qué pasa si el marco $A$ cumple $\mathbf{(H)}$?}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{itemize}
 \item Si $A$ es $\mathbf{(H)}\Rightarrow S=\pt A$ es $T_2$
-\item Si $S$ es $T_2\Rightarrow \mathcal{O}S$ es $1$-arreglado.
-\item Si $\mathcal{O}S$ es $1$-arreglado $\Rightarrow \mathcal{O}S\simeq P\mathcal{O}S$.
-\item Si $S$ es $T_2\Rightarrow ^pS=S$.
-\item Si $^pS=S\Rightarrow \mathcal{O}S=\mathcal{O}^pS$.
+\item<2-> Si $S$ es $T_2\Rightarrow \mathcal{O}S$ es $1$-arreglado.
+\item<3-> Si $\mathcal{O}S$ es $1$-arreglado $\Rightarrow \mathcal{O}S\simeq P\mathcal{O}S$.
+\item<4-> Si $S$ es $T_2\Rightarrow ^pS=S$.
+\item<5-> Si $^pS=S\Rightarrow \mathcal{O}S=\mathcal{O}^pS$.
 \end{itemize}
-\[\begin{tikzcd}
+\onslide<6->\[\begin{tikzcd}
 	A & PA & NA \\
 	& {\mathcal{O}S} & {N\mathcal{O}S} \\
 	&& {\mathcal{O}^fS}
@@ -361,11 +359,11 @@ para $d=v_F(0)$, $v_F=f^\infty$.
 
 \begin{block}{Información con los intervalos}
 \begin{itemize}
-\item $[v_F, w_F]\subseteq NA$ es el intervalo de admisibilidad.
-\item Si $j\in [v_F,w_F]$, $A_j$ es compacto.
-\item Arreglado $\Leftrightarrow v_F\leq u_d$
-\item $\mathbf{(fH)}\Leftrightarrow\forall\, j\in [v_F,w_F]$, $j=u_\bullet$ y $\bullet\in A$.  
-\item $\mathbf{(aju)}\Leftrightarrow [v_F,w_F]=\{*\}$ y $*=u_\bullet$ para $\bullet\in A$. 
+\item<2-> $[v_F, w_F]\subseteq NA$ es el intervalo de admisibilidad.
+\item<3-> Si $j\in [v_F,w_F]$, $A_j$ es compacto.
+\item<4-> Arreglado $\Leftrightarrow v_F\leq u_d$
+\item<5-> $\mathbf{(fH)}\Leftrightarrow\forall\, j\in [v_F,w_F]$, $j=u_\bullet$ y $\bullet\in A$.  
+\item<6-> $\mathbf{(aju)}\Leftrightarrow [v_F,w_F]=\{*\}$ y $*=u_\bullet$ para $\bullet\in A$. 
 \end{itemize}
 \end{block}
 \end{frame}
@@ -377,17 +375,17 @@ Q\in \mathcal{Q}S\leftrightarrow F\in A^\wedge\quad \mbox{ y } \quad Q\in \mathc
 \]
 Además, $[v_Q, w_Q]\subseteq N\mathcal{O}S$ es un intervalo de admisibilidad.
 
-\begin{prop}
+\onslide<2->{\begin{prop}
 Con $F$ y $Q$ como antes, si $j\in [v_Q, w_Q]$, entonces 
 \[
 \nabla(U_*jU^*)=F
 \]
 donde $U^*$ es la reflexión espacial y $U_*$ es su adjunto derecho.
-\end{prop}
-Equivalentemente
+\end{prop}}
+\onslide<3->{Equivalentemente
 \[
 \mho\colon [v_Q, w_Q]\to [v_F, w_F].
-\]
+\]}
 \end{frame}
 
 \begin{frame}[fragile]{El $Q$-cuadrado}
@@ -402,8 +400,8 @@ En \cite{H.S.V} construyen el diagrama
 \end{tikzcd}\]
 y prueban que $U_A\circ f^\infty\leq F^\infty \circ U_A$.\\
 	
-Si $j\in NA$, $\hat{f}^\infty$ es el núcleo asociado al filtro $j_*F\in A^\wedge$.
-\[\begin{tikzcd}
+\onslide<2->{Si $j\in NA$, $\hat{f}^\infty$ es el núcleo asociado al filtro $j_*F\in A^\wedge$.}
+\onslide<3->\[\begin{tikzcd}
 	A & A \\
 	{A_j} & {A_j}
 	\arrow["{\hat{f}^\infty}", from=1-1, to=1-2]
@@ -422,8 +420,8 @@ Para $j, f$ y $\hat{f}$ como antes, se cumple que
 \end{enumerate}
 \end{prop}
 
-Definiendo $H=f^\infty\circ j$ y $h=H_{\mid A_{j_*F}}$, obtenemos el diagrama
-\begin{equation}\label{diagrama h}
+\onslide<2->{Definiendo $H=f^\infty\circ j$ y $h=H_{\mid A_{j_*F}}$, obtenemos el diagrama}
+\onslide<3->\begin{equation}\label{diagrama h}
 	\begin{tikzcd}
 	A & {A_{\hat{f}^\infty}} \\
 	{A_j} & {A_{f^\infty}}
@@ -435,9 +433,9 @@ Definiendo $H=f^\infty\circ j$ y $h=H_{\mid A_{j_*F}}$, obtenemos el diagrama
 \end{tikzcd}
 \end{equation}
 
-\begin{prop}
+\onslide<4->{\begin{prop}
 	El diagrama \eqref{diagrama h} es conmutativo.
-\end{prop}
+\end{prop}}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -462,14 +460,14 @@ $S\in \Top$ es $\mathrm{KC}$ si todo conjunto compacto es cerrado. $S$ es $\math
 T_2\Rightarrow KC\Rightarrow US\Rightarrow T_1
 \]
 
-\begin{dfn}
+\onslide<2->{\begin{dfn}
 $A\in \Frm$ es $KC$ si todo cociente compacto de $A$ es cerrado. 
-\end{dfn}
-Equivalentemente
+\end{dfn}}
+\onslide<3->{Equivalentemente
 \[
 A_F=u_d
 \]
-para algún $d\in A$ y $F\in A^\wedge$.
+para algún $d\in A$ y $F\in A^\wedge$.}
 \end{frame}
 
 \begin{frame}[fragile]{Propiedades de los marcos $KC$}
@@ -477,16 +475,16 @@ para algún $d\in A$ y $F\in A^\wedge$.
 KC\Rightarrow \mbox{Arreglado}
 \]
 
-\begin{prop}
+\onslide<2->{\begin{prop}
 Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
-\end{prop}
+\end{prop}}
 
-\begin{prop}
+\onslide<3->{\begin{prop}
 Si $A$ es $KC$, entonces $A$ es $T_1$.
 \end{prop}
 
-De hecho
-\[\begin{tikzcd}
+De hecho}
+\onslide<4->\[\begin{tikzcd}
 	{\mathbf{(reg)}} & {\mathbf{(fH)}} & KC & {\mbox{Arreglado}} & {T_1} \\
 	& {\mathbf{(aju)}} && {}
 	\arrow[Rightarrow, from=1-1, to=1-2]
@@ -563,10 +561,10 @@ De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
 \begin{frame}{Conclusiones}
 \begin{itemize}
 \item Requerimos identificar cual es significado de que un marco sea $US$.
-\item Conocer más sobre el comportamiento del marco de parches para niveles superiores.
-\item Verificar que $\mathbf{(H)}$ implica (o no) $KC$ (o arreglado).
-\item Desarrollar ejemplos donde aparezcan las propiedades que están involucradas en la investigación.
-\item Explorar las posibilidades que brindan los intervalos de admisibilidad y el $Q$-cuadrado.
+\item<2-> Conocer más sobre el comportamiento del marco de parches para niveles superiores.
+\item<3-> Verificar que $\mathbf{(H)}$ implica (o no) $KC$ (o arreglado).
+\item<4-> Desarrollar ejemplos donde aparezcan las propiedades que están involucradas en la investigación.
+\item<5-> Explorar las posibilidades que brindan los intervalos de admisibilidad y el $Q$-cuadrado.
 \end{itemize}
 \end{frame}
 

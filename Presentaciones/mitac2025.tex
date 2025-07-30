@@ -1,0 +1,327 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{multicol}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+%%Se define el "environment" teorema
+\newtheorem{thm}{Teorema}
+\newtheorem{dfn}{Definición}
+\newtheorem*{dfn*}{Definición}
+\newtheorem{lem}{Lema}
+\newtheorem{cor}{Corolario}
+\newtheorem{prop}{Proposición}
+\newtheorem{obs}{Observación}
+\newtheorem{ej}{Ejemplo}
+
+\title{Intervalos de admisibilidad y marcos $KC$}
+%\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+\event{MITAC, Agosto 2025}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Contenido}
+\tableofcontents %Imprime la tabla de contenido
+\end{frame}
+
+\section{Información preliminar}
+\begin{frame}{Marcos}
+    \begin{itemize}
+        \begin{multicols}{2}
+            \item $A$
+            \item $(A, \leq)$
+            \item $(A, \leq, \vee, 0)$ o $(A, \leq, \wedge, 1)$
+            \item $(A, \leq, \bigvee, \bigwedge, 0, 1)$
+        \end{multicols} 
+        \end{itemize}
+    
+        \onslide<2->{Un marco es una retícula completa que cumple cierta ley distributiva (ley distributiva de marcos), es decir,}
+        \onslide<3->{\[
+        (A, \leq, \bigvee, \wedge, 0, 1), \quad a\wedge\bigvee X=\bigvee \{a\wedge x\mid x\in X\}
+        \]}
+    
+        \onslide<4->\[
+        \mathbf{Frm}=\left\{ \begin{array}{ll} A, & \mbox{ marcos}\\ \\  f, & \mbox{ morfismo de marcos} \end{array} \right.
+        \]
+\end{frame}
+
+\begin{frame}{¿Por qué estudiamos los marcos?}
+    \begin{itemize}
+        \item Estructuras simples.
+        \item<2-> Existen herramientas que facilitan el estudio de los marcos.
+        \item<3-> Correspondencias biyectivas.
+        \item<4-> Buen comportamiento categórico.
+        \item<5-> \alert<7->{La topología de un espacio ($\mathcal{O}S)$ es un marco.}
+        \item<6-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Cocientes en $\mathbf{Frm}$}
+$\mathbf{Frm}$ proporciona correspondencias biyectivas interesantes
+\onslide<2->{\[
+\mbox{Congruencias}\leftrightarrow \mbox{Conjuntos implicativos}\leftrightarrow \mbox{\alert<3->{Núcleos}}
+\]}
+
+\onslide<4->{\begin{block}{Definición:}
+Sea $A\in \mathbf{Frm}$ y $j\colon A\to A$, decimos que $j$ es un \emph{núcleo} si:
+\begin{enumerate}
+    \item $j$ infla.
+    \item $j$ es monótona.
+    \item $j$ es idempotente.
+    \item $j$ respeta ínfimos finitos.
+\end{enumerate}
+\end{block}
+\[
+    NA= \mbox{núcleos de } A.
+\]}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Definición:}
+    Un cociente de un marco $A$ es un marco $B$ equipado con un morfismo suprayectivo $f\colon A\to B$.
+\end{block}
+\onslide<2->{Si $A\in \mathbf{Frm}$ y $j\in NA$, entonces $A_j\in \mathbf{Frm}$.
+\[
+A_j=\{a\in A\mid j(a)=a\}.
+\]}
+\begin{itemize}
+\item<3-> $A_j$ es un cociente de $A$.
+\item<4-> ¿Qué es un cociente compacto?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Otros ``tipos'' de cocientes}
+    $a\in A\in \mathbf{Frm}$ definimos
+    \onslide<2->{\[
+    u_a(x)=a\vee x, \quad v_a(x)=a\succ x, \quad w_a(x)=((x\succ a)\succ a)
+    \]
+    $x\in A$}
+    
+    \begin{itemize}
+    \item<3-> $A_{u_a}$ ``cociente cerrado'' \onslide<7->{$\leftrightarrow$ sublocal cerrado.}
+    \item<4-> $A_{v_a}$ ``cociente abierto'' \onslide<7->{$\leftrightarrow$ sublocal abierto.}
+    \item<5-> $A_{w_a}$ ``cociente regular'' \onslide<7->{$\leftrightarrow$ sublocal regular.}
+    \end{itemize}
+    
+    \onslide<6->{\[
+    \mbox{Núcleos }\leftrightarrow \mbox{ Sublocales}\leftrightarrow \mbox{ Subespacios}
+    \]}
+    \end{frame}
+
+
+\section{Intervalos de admisibilidad}
+\begin{frame}{Teoría de marcos}
+
+\end{frame}
+
+\begin{frame}{Núcleos}
+
+\end{frame}
+
+\begin{frame}{Filtros de admisiblidad}
+
+\end{frame}
+
+\begin{frame}{Intervalos de admisibilidad}
+
+\end{frame}
+
+\section{Marcos $KC$}
+
+\begin{frame}{Cocientes en $\Frm$}
+
+\end{frame}
+
+\begin{frame}{Intervalos de admisibilidad}
+Si $F\in A^\wedge$, entonces 
+\[
+u_d\leq v_F \leq  w_F
+\] 
+para $d=v_F(0)$, $v_F=f^\infty$.
+
+\begin{block}{Información con los intervalos}
+\begin{itemize}
+\item<2-> $[v_F, w_F]\subseteq NA$ es el intervalo de admisibilidad.
+\item<3-> Si $j\in [v_F,w_F]$, $A_j$ es compacto.
+\item<4-> Arreglado $\Leftrightarrow v_F\leq u_d$
+\item<5-> $\mathbf{(fH)}\Leftrightarrow\forall\, j\in [v_F,w_F]$, $j=u_\bullet$ y $\bullet\in A$.  
+\item<6-> $\mathbf{(aju)}\Leftrightarrow [v_F,w_F]=\{*\}$ y $*=u_\bullet$ para $\bullet\in A$. 
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Marcos $KC$}
+$S\in \Top$ es $\mathrm{KC}$ si todo conjunto compacto es cerrado. $S$ es $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
+\[
+T_2\Rightarrow KC\Rightarrow US\Rightarrow T_1
+\]
+
+\onslide<2->{\begin{dfn}
+$A\in \Frm$ es $KC$ si todo cociente compacto de $A$ es cerrado. 
+\end{dfn}}
+\onslide<3->{Equivalentemente
+\[
+A_F=u_d
+\]
+para algún $d\in A$ y $F\in A^\wedge$.}
+\end{frame}
+
+\begin{frame}[fragile]{Propiedades de los marcos $KC$}
+\[
+KC\Rightarrow \mbox{Arreglado}
+\]
+
+\onslide<2->{\begin{prop}
+Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
+\end{prop}}
+
+\onslide<3->{\begin{prop}
+Si $A$ es $KC$, entonces $A$ es $T_1$.
+\end{prop}
+
+De hecho}
+\onslide<4->\[\begin{tikzcd}
+	{\mathbf{(reg)}} & {\mathbf{(fH)}} & KC & {\mbox{Arreglado}} & {T_1} \\
+	& {\mathbf{(aju)}} && {}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-1, to=2-2]
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[Rightarrow, from=1-3, to=1-4]
+	\arrow[Rightarrow, from=1-4, to=1-5]
+	\arrow[Rightarrow, from=2-2, to=1-3]
+\end{tikzcd}\]
+
+\end{frame}
+
+\begin{frame}{La topología máximo compacta}
+Consideremos $S=\{x,y\}\cup \mathbb{N}^2$ con $x,y\notin \mathbb{N}^2$ y sea 
+\[
+R_n=\{(m,n)\mid m\in \mathbb{N}\}
+\]
+Definimos 
+\[
+\mathcal{O}S=\mathcal{P}\mathbb{N}^2 \cup \mathcal{U}\cup\mathcal{V}
+\]
+donde
+\[
+\mathcal{U}=\{U\subseteq S\mid x\in U\mbox{ y }\forall n\in \mathbb{N}, U\cap R_n\mbox{ es cofinito}\}
+\]
+\[
+\mathcal{V}=\{V\subseteq S\mid y\in V \mbox{ y }\exists F\subseteq \mathbb{N}\mbox{ finito tal que }\forall n\notin F, R_n\subseteq V \}
+\]
+$\mathcal{O}S$ es una topología..
+\end{frame}
+
+\begin{frame}{Propiedades de $\mathcal{O}S$}
+	\begin{itemize}
+	\item $\mathcal{O}S$ es $T_1$.
+	\item $\mathcal{O}S$ no es $\mathbf{(H)}$.
+	\item $\mathcal{O}S$ es compacto.
+	\item $\mathcal{O}S$ es $\mathbf{(aju)}$.
+	\item $\mathcal{O}S$ es $KC$.
+	\item $\mathcal{O}S$ es $2$-arreglado.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{El ejemplo de Paseka y Smarda}
+Consideremos $A\in\Frm$ y $A_r=\{a\in A\mid \neg\neg a=a\}$. Definimos
+\[
+K(A)=\{(u,v)\mid u\in A,\, v\in A_r,\, u\leq v\}
+\]
+$K(A)\in \Frm$.
+\begin{block}{Propiedades de $K(A)$}
+\begin{itemize}
+	\item Si $A$ es $\mathbf{(H)}$ y $\neg m=0$ para $m$ máximo, $K(A)$ es $\mathbf{(H)}$.
+	\item Si $A$ es compacto, entonces $K(A)$ es compacto.
+	\item $K(A)$ no es subajustado
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
+\begin{itemize}
+\item $\mathcal{O}I$ es $\mathbf{(H)}$.
+\item $\mathcal{O}I$ es compacto.
+\item $K(\mathcal{O}I)$ es compacto y $\mathbf{(H)}$.
+\item $K(\mathcal{O}I)$ no es subajustado.
+\item $K(\mathcal{O}I)$ no es espacial.
+\end{itemize}
+
+\[
+\mbox{Existe marcos Hausdorr y compactos que no son espaciales}.
+\]
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliografía}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
+
+\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{H.S.} H. Simmons, \textit{An Introduction to Frame Theory}, lecture notes, University of Manchester. Disponible en línea en \url{https://web.archive.org/web/20190714073511/http://staff.cs.manchester.ac.uk/~hsimmons}.
+
+\bibitem{H.S.R} H. Simmons, \textit{Regularity, fitness, and the block structure of frames.} Applied Categorical Structures 14 (2006): 1-34.
+
+\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
+
+\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+
+\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
+\end{thebibliography}
+\end{frame}
+
+\end{document}
