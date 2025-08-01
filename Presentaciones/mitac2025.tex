@@ -86,7 +86,8 @@
         \item<3-> Correspondencias biyectivas.
         \item<4-> Buen comportamiento categórico.
         \item<5-> \alert<7->{La topología de un espacio ($\mathcal{O}S)$ es un marco.}
-        \item<6-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
+        \item<6-> $A\in \Frm$ es espacial si y solo si $A\simeq \mathcal{O}S$ para $S\in \Top$. 
+        \item<7-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
     \end{itemize}
 \end{frame}
 
@@ -120,11 +121,11 @@ A_j=\{a\in A\mid j(a)=a\}.
 \]}
 \begin{itemize}
 \item<3-> $A_j$ es un cociente de $A$.
-\item<4-> ¿Qué es un cociente compacto?
+\item<4-> Existen cocientes interesantes que estudiar
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Otros ``tipos'' de cocientes}
+\begin{frame}{Algunos tipos de cocientes}
     $a\in A\in \mathbf{Frm}$ definimos
     \onslide<2->{\[
     u_a(x)=a\vee x, \quad v_a(x)=a\succ x, \quad w_a(x)=((x\succ a)\succ a)
@@ -142,27 +143,43 @@ A_j=\{a\in A\mid j(a)=a\}.
     \]}
     \end{frame}
 
-
 \section{Intervalos de admisibilidad}
-\begin{frame}{Teoría de marcos}
-
-\end{frame}
-
-\begin{frame}{Núcleos}
-
+\begin{frame}{Filtros en $\mathbf{Frm}$}
+    Sea $A\in \mathbf{Frm}$. Para $F\subseteq A$, decimos que $F$ es un \emph{filtro} si:
+		\begin{enumerate}
+			\item $1\in F$.
+			\item $a\leq b$, $a\in  F$ $\Rightarrow b \in F$.
+			\item $a, b \in F \Rightarrow  a \wedge b \in F$.
+		\end{enumerate}
+	\uncover<2->{Existen diferentes tipos de filtros:
+	\begin{itemize}
+	\begin{multicols}{2}
+		\item Propio
+		\item Primo
+		\item Completamente primo
+		\item \alert<3->{(Scott) abierto ($A^\wedge$)}
+		\item \alert<3->{Admisible ($\nabla(j)$)}
+		\end{multicols}
+	\end{itemize} }
 \end{frame}
 
 \begin{frame}{Filtros de admisiblidad}
-
-\end{frame}
-
-\begin{frame}{Intervalos de admisibilidad}
-
-\end{frame}
-
-\section{Marcos $KC$}
-
-\begin{frame}{Cocientes en $\Frm$}
+    Sea $j\in NA$. El \emph{filtro de admisibilidad} de $j$ es el conjunto
+    \[
+    \nabla(j)=\{a\in A\mid j(a)=1\}.
+    \]
+    \onslide<2->{\begin{block}{Observaciones:}
+        \begin{itemize}
+            \item<3-> $j, k\in NA$, $j\sim k\Leftrightarrow \nabla(j)=\nabla(k)$.
+            \item<4-> $j\in NA$ es \emph{ajustado} si es el menor elemento de su bloque.
+            \item<5-> $F\in A^\wedge \Rightarrow F=\nabla(j)$ para algún $j\in NA$.
+            \item<6-> $F\in A^\wedge\Rightarrow [v_F, w_F]$.
+        \end{itemize}
+        \end{block}}
+        
+    \onslide<7->{\[
+        f=\dot{\bigvee}\{v_a\mid a\in F\}, \quad v_F(a)=f^\infty(a), \quad w_F(a)=\bigwedge\{p\in M\mid a\leq p\}.
+        \]}
 
 \end{frame}
 
@@ -176,12 +193,54 @@ para $d=v_F(0)$, $v_F=f^\infty$.
 \begin{block}{Información con los intervalos}
 \begin{itemize}
 \item<2-> $[v_F, w_F]\subseteq NA$ es el intervalo de admisibilidad.
-\item<3-> Si $j\in [v_F,w_F]$, $A_j$ es compacto.
-\item<4-> Arreglado $\Leftrightarrow v_F\leq u_d$
-\item<5-> $\mathbf{(fH)}\Leftrightarrow\forall\, j\in [v_F,w_F]$, $j=u_\bullet$ y $\bullet\in A$.  
-\item<6-> $\mathbf{(aju)}\Leftrightarrow [v_F,w_F]=\{*\}$ y $*=u_\bullet$ para $\bullet\in A$. 
+\item<3-> Bajo ciertas condiciones, los intervalos se comportan de manera particular:
+\begin{itemize}
+    \item<4-> Se puede colapsar el intervalo ($[v_F, w_F]=\{*\}$).
+    \item<5-> Si $j\in [v_F, w_F]$, $j$ tiene una forma peculiar ($j=u_\bullet$, $\bullet\in A$).
+\end{itemize}
+\item<6-> ¿Qué significa que ocurra alguno de los casos anteriores?
 \end{itemize}
 \end{block}
+\end{frame}
+
+\begin{frame}{Relación con otras propiedades}
+Sean $A\in \Frm$ y $F\in A^\wedge$.
+\begin{itemize}
+\item<2-> Si $A$ es \emph{arreglado}, $v_F=u_d$, para $d=v_F(0)$.
+\item<3-> Si $A$ es \emph{ajustado}, $v_F=w_F=u_\bullet$ para algún $\bullet\in A$.
+\item<4-> Si $A$ es \emph{fuertemente Hausdorff}, $u_\bullet=j\in [v_F,w_F]$ para algún $\bullet\in A$.
+\end{itemize}
+\onslide<5->\[
+\mbox{¿Existen otras propiedades que se relacionen con los intervalos?}
+\]
+\end{frame}
+
+\begin{frame}{Algo más técnico}
+\begin{itemize}
+\item $A\in\Frm, F\in A^\wedge$, entonces $[v_F, w_F]\subseteq NA$
+\item<2-> $\mathcal{O}S\in \Frm, F\in \mathcal{O}S^\wedge$, entonces $[v_F, w_F]\subseteq N\mathcal{O}S$
+\onslide<3->\[F=\nabla(Q), \mbox{ donde } Q\in \mathcal{Q}S\]
+
+\item<4-> $\phi\colon [v_{\nabla(Q)},w_{\nabla(Q)}]\to [v_F, w_F]$
+\onslide<5->\[
+\mbox{¿Qué propiedades cumple $\phi$?}
+\]
+\end{itemize}
+\end{frame}
+
+\section{Marcos $KC$}
+\begin{frame}{Cocientes compactos}
+\begin{block}{Definición:}
+Sea $A\in \mathbf{Frm}$. Una \emph{cubierta} $A$ es un subconjunto $X\subseteq A$ tal que $\bigvee X=1$. Una \emph{subcubierta} de $X$ es un subconjunto $Y\subseteq X$ tal que $\bigvee Y=1$
+\end{block}
+\onslide<2->{\[ 
+A \mbox{ es compacto si }1 \mbox{ es compacto.}
+\]}
+
+\begin{itemize}
+    \item<3-> $A_j$ es un cociente de $A$.
+    \item<4-> $A_j$ es compacto $\Leftrightarrow$ $\nabla(j)\in A^\wedge$.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Marcos $KC$}
@@ -195,26 +254,22 @@ $A\in \Frm$ es $KC$ si todo cociente compacto de $A$ es cerrado.
 \end{dfn}}
 \onslide<3->{Equivalentemente
 \[
-A_F=u_d
+A_j=u_\bullet
 \]
-para algún $d\in A$ y $F\in A^\wedge$.}
+para algún $\bullet\in A$, $F\in A^\wedge$ y $j\in [v_F, w_F]$.}
 \end{frame}
 
 \begin{frame}[fragile]{Propiedades de los marcos $KC$}
-\[
-KC\Rightarrow \mbox{Arreglado}
-\]
+\begin{itemize}
+\item $KC\Rightarrow$ Arreglado
 
-\onslide<2->{\begin{prop}
-Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
-\end{prop}}
+\item<2-> Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
 
-\onslide<3->{\begin{prop}
-Si $A$ es $KC$, entonces $A$ es $T_1$.
-\end{prop}
 
-De hecho}
-\onslide<4->\[\begin{tikzcd}
+\item<3-> Si $A$ es $KC$, entonces $A$ es $T_1$.
+\end{itemize}
+\onslide<4->{De hecho}
+\onslide<5->\[\begin{tikzcd}
 	{\mathbf{(reg)}} & {\mathbf{(fH)}} & KC & {\mbox{Arreglado}} & {T_1} \\
 	& {\mathbf{(aju)}} && {}
 	\arrow[Rightarrow, from=1-1, to=1-2]
@@ -224,15 +279,50 @@ De hecho}
 	\arrow[Rightarrow, from=1-4, to=1-5]
 	\arrow[Rightarrow, from=2-2, to=1-3]
 \end{tikzcd}\]
-
+\onslide<6->\[
+\mbox{¿Como se relaciona $KC$ con otras propiedades en }\Frm?
+\]
 \end{frame}
 
+\begin{frame}{$KC$ y su relación con los intervalos}
+\begin{itemize}
+    \item $A\in \Frm$, $F\in A^\wedge$, entonces $[v_F, w_F]\subseteq NA$.
+    \item $F\in A^\wedge$, entonces para todo $j\in [v_F, w_F]$, $A_j$ es compacto. 
+    \item<2-> Si $A$ es $KC$, entonces $A_j$ es compacto y cerrado
+    \item<3-> Si $A$ es $KC$, entonces para todo $j\in [v_F, w_F]$, $A_j$ es compacto y cerrado.
+\end{itemize}
+\onslide<4->\[
+\mbox{Bajo }KC\mbox{ los intervalos de admisibilidad están conformados por }u_\bullet
+\]
+\end{frame}
+
+\begin{frame}{¿Para qué usamos los marcos $KC$}
+Si $S\in \Top$ y es $T_2$, entonces todo conjunto compacto (saturado) es cerrado.
+
+\onslide<2->\[
+T_2\Rightarrow \mbox{Empaquetado}\Rightarrow T_1
+\]
+
+\begin{itemize}
+    \item<3-> En $\Top:$ $KC\Leftrightarrow$ Empaquetado
+    \item<4-> En $\Frm:$ $KC\Rightarrow$ Arreglado
+\end{itemize}
+
+\onslide<5->\[
+\mathcal{O}S\mbox{ es }KC\Leftrightarrow S \mbox{ es empaquetado}
+\]
+\onslide<6->\[
+\mbox{¿Qué pasa en el caso no espacial?}
+\]
+\end{frame}
+
+\section{Ejemplos}
 \begin{frame}{La topología máximo compacta}
 Consideremos $S=\{x,y\}\cup \mathbb{N}^2$ con $x,y\notin \mathbb{N}^2$ y sea 
 \[
 R_n=\{(m,n)\mid m\in \mathbb{N}\}
 \]
-Definimos 
+\onslide<2->{Definimos 
 \[
 \mathcal{O}S=\mathcal{P}\mathbb{N}^2 \cup \mathcal{U}\cup\mathcal{V}
 \]
@@ -242,51 +332,16 @@ donde
 \]
 \[
 \mathcal{V}=\{V\subseteq S\mid y\in V \mbox{ y }\exists F\subseteq \mathbb{N}\mbox{ finito tal que }\forall n\notin F, R_n\subseteq V \}
-\]
-$\mathcal{O}S$ es una topología..
-\end{frame}
-
-\begin{frame}{Propiedades de $\mathcal{O}S$}
-	\begin{itemize}
-	\item $\mathcal{O}S$ es $T_1$.
-	\item $\mathcal{O}S$ no es $\mathbf{(H)}$.
-	\item $\mathcal{O}S$ es compacto.
-	\item $\mathcal{O}S$ es $\mathbf{(aju)}$.
-	\item $\mathcal{O}S$ es $KC$.
-	\item $\mathcal{O}S$ es $2$-arreglado.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{El ejemplo de Paseka y Smarda}
-Consideremos $A\in\Frm$ y $A_r=\{a\in A\mid \neg\neg a=a\}$. Definimos
-\[
-K(A)=\{(u,v)\mid u\in A,\, v\in A_r,\, u\leq v\}
-\]
-$K(A)\in \Frm$.
-\begin{block}{Propiedades de $K(A)$}
-\begin{itemize}
-	\item Si $A$ es $\mathbf{(H)}$ y $\neg m=0$ para $m$ máximo, $K(A)$ es $\mathbf{(H)}$.
-	\item Si $A$ es compacto, entonces $K(A)$ es compacto.
-	\item $K(A)$ no es subajustado
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}
-De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
-\begin{itemize}
-\item $\mathcal{O}I$ es $\mathbf{(H)}$.
-\item $\mathcal{O}I$ es compacto.
-\item $K(\mathcal{O}I)$ es compacto y $\mathbf{(H)}$.
-\item $K(\mathcal{O}I)$ no es subajustado.
-\item $K(\mathcal{O}I)$ no es espacial.
-\end{itemize}
-
-\[
-\mbox{Existe marcos Hausdorr y compactos que no son espaciales}.
+\]}
+\onslide<3->{$\mathcal{O}S$ es una topología y es un marco $KC$ que no es $\mathbf{(H)}$.}
+\onslide<4->\[
+¿\mathbf{(H)}\Rightarrow KC?
 \]
 \end{frame}
 
+\begin{frame}{Ejemplo sobre los intervalos}
+
+\end{frame}
 \End
 
 \section*{\textsc{Referencias}}
@@ -296,9 +351,9 @@ De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
 
 \bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
 
-\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
 
-\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+%\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
 
 \bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
 
@@ -314,9 +369,9 @@ De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
 
 \bibitem{H.S.R} H. Simmons, \textit{Regularity, fitness, and the block structure of frames.} Applied Categorical Structures 14 (2006): 1-34.
 
-\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
+%\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
 
-\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+%\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
 
 \bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
 

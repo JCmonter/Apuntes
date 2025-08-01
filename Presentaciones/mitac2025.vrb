@@ -1,18 +1,14 @@
 \frametitle{Propiedades de los marcos $KC$}
-\[
-KC\Rightarrow \mbox{Arreglado}
-\]
+\begin{itemize}
+\item $KC\Rightarrow$ Arreglado
 
-\onslide<2->{\begin{prop}
-Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
-\end{prop}}
+\item<2-> Si $A$ es $KC$ entonces $A_j$ es $KC$ para todo $j\in NA$.
 
-\onslide<3->{\begin{prop}
-Si $A$ es $KC$, entonces $A$ es $T_1$.
-\end{prop}
 
-De hecho}
-\onslide<4->\[\begin{tikzcd}
+\item<3-> Si $A$ es $KC$, entonces $A$ es $T_1$.
+\end{itemize}
+\onslide<4->{De hecho}
+\onslide<5->\[\begin{tikzcd}
 	{\mathbf{(reg)}} & {\mathbf{(fH)}} & KC & {\mbox{Arreglado}} & {T_1} \\
 	& {\mathbf{(aju)}} && {}
 	\arrow[Rightarrow, from=1-1, to=1-2]
@@ -22,4 +18,6 @@ De hecho}
 	\arrow[Rightarrow, from=1-4, to=1-5]
 	\arrow[Rightarrow, from=2-2, to=1-3]
 \end{tikzcd}\]
-
+\onslide<6->\[
+\mbox{¿Como se relaciona $KC$ con otras propiedades en }\Frm?
+\]
