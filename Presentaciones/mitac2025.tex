@@ -231,15 +231,20 @@ Sean $A\in \Frm$ y $F\in A^\wedge$.
 \section{Marcos $KC$}
 \begin{frame}{Cocientes compactos}
 \begin{block}{Definición:}
-Sea $A\in \mathbf{Frm}$. Una \emph{cubierta} $A$ es un subconjunto $X\subseteq A$ tal que $\bigvee X=1$. Una \emph{subcubierta} de $X$ es un subconjunto $Y\subseteq X$ tal que $\bigvee Y=1$
+Sea $A\in \mathbf{Frm}$. 
+\begin{itemize}
+\item<2-> Una \emph{cubierta} $A$ es un subconjunto $X\subseteq A$ tal que $\bigvee X=1$. 
+\item<3-> Una \emph{subcubierta} de $X$ es un subconjunto $Y\subseteq X$ tal que $\bigvee Y=1$.
+\item <4-> $A$ es \emph{compacto} si toda cubierta tiene una subcubierta finita.
+\end{itemize}
 \end{block}
-\onslide<2->{\[ 
+\onslide<5->{\[ 
 A \mbox{ es compacto si }1 \mbox{ es compacto.}
 \]}
 
 \begin{itemize}
-    \item<3-> $A_j$ es un cociente de $A$.
-    \item<4-> $A_j$ es compacto $\Leftrightarrow$ $\nabla(j)\in A^\wedge$.
+    \item<6-> $A_j$ es un cociente de $A$.
+    \item<7-> $A_j$ es compacto $\Leftrightarrow$ $\nabla(j)\in A^\wedge$.
 \end{itemize}
 \end{frame}
 
@@ -254,7 +259,7 @@ $A\in \Frm$ es $KC$ si todo cociente compacto de $A$ es cerrado.
 \end{dfn}}
 \onslide<3->{Equivalentemente
 \[
-A_j=u_\bullet
+A_j=A_{u_\bullet}
 \]
 para algún $\bullet\in A$, $F\in A^\wedge$ y $j\in [v_F, w_F]$.}
 \end{frame}
