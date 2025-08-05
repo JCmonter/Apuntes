@@ -85,10 +85,13 @@
         \item<2-> Existen herramientas que facilitan el estudio de los marcos.
         \item<3-> Correspondencias biyectivas.
         \item<4-> Buen comportamiento categórico.
-        \item<5-> \alert<7->{La topología de un espacio ($\mathcal{O}S)$ es un marco.}
-        \item<6-> $A\in \Frm$ es espacial si y solo si $A\simeq \mathcal{O}S$ para $S\in \Top$. 
-        \item<7-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
-    \end{itemize}
+        \item<5-> \alert<8->{La topología de un espacio ($\mathcal{O}S)$ es un marco.}
+        \item<6-> $\mathbf{Loc}=\mathbf{Frm}^{\op}$ está en relación con $\mathbf{Top}$.
+    \end{itemize}        
+    
+    \onslide<7->\[
+    U_A(x)=\{x\in \pt A\mid x\nleq p\}\qquad A\simeq \mathcal{O}S, A \mbox{ es espacial}.
+    \]
 \end{frame}
 
 \begin{frame}{Cocientes en $\mathbf{Frm}$}
@@ -133,14 +136,10 @@ A_j=\{a\in A\mid j(a)=a\}.
     $x\in A$}
     
     \begin{itemize}
-    \item<3-> $A_{u_a}$ ``cociente cerrado'' \onslide<7->{$\leftrightarrow$ sublocal cerrado.}
-    \item<4-> $A_{v_a}$ ``cociente abierto'' \onslide<7->{$\leftrightarrow$ sublocal abierto.}
-    \item<5-> $A_{w_a}$ ``cociente regular'' \onslide<7->{$\leftrightarrow$ sublocal regular.}
+    \item<3-> $A_{u_a}$ ``cociente cerrado'' 
+    \item<4-> $A_{v_a}$ ``cociente abierto'' 
+    \item<5-> $A_{w_a}$ ``cociente regular'' 
     \end{itemize}
-    
-    \onslide<6->{\[
-    \mbox{Núcleos }\leftrightarrow \mbox{ Sublocales}\leftrightarrow \mbox{ Subespacios}
-    \]}
     \end{frame}
 
 \section{Intervalos de admisibilidad}
@@ -180,6 +179,7 @@ A_j=\{a\in A\mid j(a)=a\}.
     \onslide<7->{\[
         f=\dot{\bigvee}\{v_a\mid a\in F\}, \quad v_F(a)=f^\infty(a), \quad w_F(a)=\bigwedge\{p\in M\mid a\leq p\}.
         \]}
+    \onslide<8->{$M=\{m\in A\setminus F\mid m \mbox{ es máximo}\}$ y $M\subseteq S=\pt A$}.
 
 \end{frame}
 
@@ -322,6 +322,44 @@ T_2\Rightarrow \mbox{Empaquetado}\Rightarrow T_1
 \end{frame}
 
 \section{Ejemplos}
+\begin{frame}{Complejidad del intervalo}
+Si $A\in \Frm$ y $F\in A^\wedge$, entonces $[v_F, w_F]\subseteq NA$.
+\onslide<2->{\[
+I_F=[v_F(0), w_F(0)]\subseteq A\quad \mbox{ y }\quad j_a=v_F\vee u_a
+\]
+para $a\in I_F$}
+\onslide<3->{
+    \[
+    \begin{split}
+I_F& \to [v_F, w_F]\\
+a &\mapsto j_a
+    \end{split}
+    \]
+}
+\onslide<4->{$I_F$ indica la complejidad del intervalo de admisibilidad $[v_F, w_F]$.}
+\onslide<5->\[
+\mbox{¿Qué pasa si } A \mbox{ es espacial}?
+\]
+\end{frame}
+
+\begin{frame}
+\begin{dfn}
+Sea $S\in \Top$ y $E\in \mathcal{P}S$. Definimos $[E]\colon \mathcal{O}S\to \mathcal{O}S$ por
+\[
+[E](U)=(E\cup U)^\circ.
+\]
+\end{dfn}
+\begin{itemize}
+    \item<2-> $[E]\in N\mathcal{O}S$.
+    \item<3-> Si $j\in N\mathcal{O}S$ tiene la forma de $[E]$, se dice que es un \emph{núcleo espacialmente inducido}. 
+\end{itemize}
+\onslide<4->{Si $A=\mathcal{O}S$ y $Q\in \mathcal{Q}S$ 
+\[
+v_F\leq [Q']\leq [M']=w_F
+\]}
+\onslide<5->{Si $S$ es $T_1$, $Q=M$.}
+\end{frame}
+
 \begin{frame}{La topología máximo compacta}
 Consideremos $S=\{x,y\}\cup \mathbb{N}^2$ con $x,y\notin \mathbb{N}^2$ y sea 
 \[
@@ -344,9 +382,6 @@ donde
 \]
 \end{frame}
 
-\begin{frame}{Ejemplo sobre los intervalos}
-
-\end{frame}
 \End
 
 \section*{\textsc{Referencias}}
@@ -382,6 +417,17 @@ donde
 
 \bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
 \end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\smiley Gracias por su atención\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      \vfill
+      \scalebox{4}{\faGithub} \par\bigskip
+      \url{https://github.com/JCmonter} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
 \end{frame}
 
 \end{document}
