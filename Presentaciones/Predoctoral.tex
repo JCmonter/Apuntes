@@ -185,7 +185,8 @@ convierte filtros abiertos.
 \end{frame}
 
 \begin{frame}{Marcos arreglados}
-Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$. 
+\begin{dfn}[Ver \cite{R.S.3}]\label{Marcoarreglado}
+	Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$. 
     \begin{itemize}
         \item<2-> $F\in A^\wedge$ es $\alpha$-arreglado si 
     \[
@@ -195,6 +196,7 @@ Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$.
     \item<3-> $A$ es $\alpha$-arreglado si todo $F\in A^\wedge$ es $\alpha$-arreglado.
     \item<4-> $A$ es arreglado si $A$ es $\alpha$-arreglado para algún $\alpha$.
     \end{itemize}
+\end{dfn}
 \end{frame}
 
 \begin{frame}{Porpiedades de los marcos arreglados}
@@ -214,7 +216,8 @@ Sea $A\in \Frm$ y $\alpha\in \mathbf{Ord}$.
 \end{frame}
 
 \begin{frame}[fragile, plain]{Axiomas de separación en $\Frm$}
-    \[\begin{tikzcd}
+    Información sobre los axiomas de separación puede ser consultada en \cite{J.P.2}
+	\[\begin{tikzcd}
 	&& {\mathbf{(reg)}} \\
 	{\mathbf{(aju)}} && {\mathbf{(fH)}} && {\mathbf{(H)}+\mathbf{(saju)}} \\
 	{\mathbf{(saju)}} && {T_U} && {\mathbf{(H)}} \\
@@ -320,7 +323,7 @@ $\mathbf{(fH)}$ & x & x &  $\checkmark$ & $\checkmark$ & $\checkmark$ \\ \hline
 Si $A\in \Frm$ es espacial, entonces $\mathcal{O}S$ cumple $\mathbf{(H)}\Leftrightarrow A$ es $1$-arreglado.
 \end{cor}
 
-\begin{cor}
+\begin{cor}[Ver \cite{H.S.R}]
 	Todo marco ajustado es arreglado.
 \end{cor}
 
@@ -455,7 +458,10 @@ Consideremos
 \end{frame}
 
 \begin{frame}{Marcos $KC$}
-$S\in \Top$ es $\mathrm{KC}$ si todo conjunto compacto es cerrado. $S$ es $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
+\begin{dfn}[Ver \cite{A.W.}]
+	$S\in \Top$ es $\mathrm{KC}$ si todo conjunto compacto es cerrado. $S$ es $\mathrm{US}$ si cada sucesión convergente tiene exactamente un límite al cual converge.
+\end{dfn}
+
 \[
 T_2\Rightarrow KC\Rightarrow US\Rightarrow T_1
 \]
@@ -465,7 +471,7 @@ $A\in \Frm$ es $KC$ si todo cociente compacto de $A$ es cerrado.
 \end{dfn}}
 \onslide<3->{Equivalentemente
 \[
-A_F=u_d
+A_F=A_{u_d}
 \]
 para algún $d\in A$ y $F\in A^\wedge$.}
 \end{frame}
@@ -555,6 +561,80 @@ De manera adicional, sea $A=[0,1]$ con la topología usual. Entonces
 \[
 \mbox{Existe marcos Hausdorr y compactos que no son espaciales}.
 \]
+\end{frame}
+
+\begin{frame}[standout]{Cronograma de actividades (Al inicio)}
+
+\begin{tiny}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{8}{c}
+{\textbf{Cronograma de actividades}}\\
+\hline
+\hline
+
+\large{\textbf{Actividades}} & \rotatebox{90}{SEMESTRE 1 } & \rotatebox{90}{SEMESTRE 2 } & \rotatebox{90}{SEMESTRE 3 } & \rotatebox{90}{SEMESTRE 4 } & \rotatebox{90}{SEMESTRE 5 } & \rotatebox{90}{SEMESTRE 6 } & \rotatebox{90}{SEMESTRE 7 } & \rotatebox{90}{SEMESTRE 8 }\\\hline
+\scriptsize{Revisión de bibliografía}  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\\hline
+\scriptsize{Lectura de artículos}  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\\hline
+\scriptsize{Generar de conjeturas} &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & & \\\hline
+\scriptsize{Probar resultados} &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Validación y rechazo de conjeturas} &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Redacción de artículos y otros documentos} &  & \checkmark & \checkmark  & \checkmark  & \checkmark & \checkmark  & \checkmark & \checkmark \\\hline
+\scriptsize{Desarrollar conclusiones} &  &  &  & & & \checkmark & \checkmark & \checkmark \\\hline
+\scriptsize{Sustentación} &  &  &  & & & & & \checkmark \\\hline
+\end{tabular}
+\end{center}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[standout]{Cronograma de actividades (Particular)}
+\begin{tiny}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{8}{c}
+{\textbf{Cronograma de actividades}}\\
+\hline
+\hline
+
+\large{\textbf{Actividades}} & \rotatebox{90}{SEMESTRE 1 } & \rotatebox{90}{SEMESTRE 2 } & \rotatebox{90}{SEMESTRE 3 } & \rotatebox{90}{SEMESTRE 4 } & \rotatebox{90}{SEMESTRE 5 } & \rotatebox{90}{SEMESTRE 6 } & \rotatebox{90}{SEMESTRE 7 } & \rotatebox{90}{SEMESTRE 8 }\\\hline
+\scriptsize{Aprender sobre construciones de parches}  & \checkmark & \checkmark & \checkmark & &  &  &  &  \\\hline
+\scriptsize{Aprender sobre axiomas de separación}  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  \\\hline
+\scriptsize{Entender ejemplos} &  & \checkmark &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Consultar fuentes alternativas} &  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Desarrollar teoría} &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Probar resultados} &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Validación y rechazo de conjeturas} &  &  &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Redacción de artículos y otros documentos} &  & \checkmark & \checkmark  & \checkmark  & \checkmark & \checkmark  & \checkmark & \checkmark \\\hline
+\scriptsize{Desarrollar conclusiones} &  &  &  & & & \checkmark & \checkmark & \checkmark \\\hline
+\scriptsize{Sustentación} &  &  &  & & & & & \checkmark \\\hline
+\end{tabular}
+\end{center}
+\end{tiny}
+\end{frame}
+
+\begin{frame}[standout]{Cronograma de actividades (2da mitad)}
+\begin{tiny}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{4}{c}
+{\textbf{Cronograma de actividades}}\\
+\hline
+\hline
+
+\large{\textbf{Actividades}} & \rotatebox{90}{SEMESTRE 5 } & \rotatebox{90}{SEMESTRE 6 } & \rotatebox{90}{SEMESTRE 7 } & \rotatebox{90}{SEMESTRE 8 }\\\hline
+\scriptsize{Consultar fuentes bibliográficas}  & \checkmark & \checkmark & \checkmark & \\\hline
+\scriptsize{Proponer conjeturas} & \checkmark & \checkmark & \checkmark & \checkmark \\\hline
+\scriptsize{Validación y rechazo de conjeturas} & \checkmark & \checkmark & \checkmark & \checkmark \\\hline
+\scriptsize{Redacción y presentación de artículos} & \checkmark & \checkmark & \checkmark  & \checkmark \\\hline
+\scriptsize{Escritura de la tesis} & \checkmark & \checkmark & \checkmark  & \checkmark \\\hline
+\scriptsize{Desarrollar conclusiones} & \checkmark & \checkmark & \checkmark & \checkmark \\\hline
+\scriptsize{Sustentación} &  &  &  & \checkmark \\\hline
+\end{tabular}
+\end{center}
+\end{tiny}
 \end{frame}
 
 \section{Conclusiones}
