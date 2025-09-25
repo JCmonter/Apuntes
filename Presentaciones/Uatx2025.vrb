@@ -1,0 +1,18 @@
+\frametitle{Un ejemplo espacial}
+Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
+\[
+\mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
+\]
+donde $a,b\in S$. Entonces
+\[
+\mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
+\]
+
+Se puede verificar que
+\[
+\mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
+\]
+es decir,
+\[
+\mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
+\]

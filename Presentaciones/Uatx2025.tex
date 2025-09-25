@@ -1,0 +1,793 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel,positioning,calc,arrows.meta}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{multicol}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+
+\newcommand{\den}[1]{[\![#1]\!]} % denotación sin stmaryrd
+
+% Columnas: L = texto que se ajusta (izquierda), C = columna de notación centrada
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}m{2.4cm}}
+
+% Encabezado reutilizable
+\newcommand{\TablaNucleosHead}{%
+  \toprule
+  \multicolumn{1}{c}{\textbf{Noción locálica}\\\textbf{(geométrica)}} &
+  \textbf{Notación} &
+  \multicolumn{1}{c}{\textbf{Correspondencia en núcleos}\\\textbf{(algebraica)}}\\
+  \midrule
+}
+
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+%%Se define el "environment" teorema
+\newtheorem{thm}{Teorema}
+\newtheorem{dfn}{Definición}
+\newtheorem*{dfn*}{Definición}
+\newtheorem{lem}{Lema}
+\newtheorem{cor}{Corolario}
+\newtheorem{prop}{Proposición}
+\newtheorem{obs}{Observación}
+\newtheorem{ej}{Ejemplo}
+
+\title{¿Para qué estudiar topología sin puntos y cómo hacerlo?}
+\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+\event{XX Seminario de Matemáticas Aplicadas, FCBIyT UATx}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}{Contenido}
+\tableofcontents %Imprime la tabla de contenido
+\end{frame}
+
+\section{¿Qué es la topología sin puntos?}
+\begin{frame}{¿Por qué hablar de ``topología sin puntos''?}
+  \centering
+  \begin{columns}[c]
+    % --- Punto ---
+    \column{0.32\textwidth}
+      \only<1->{
+        \begin{tikzpicture}
+          \fill (0,0) circle (3pt); % un solo punto
+        \end{tikzpicture}\\[0.3em]
+        \scriptsize Punto
+      }
+
+    % --- Recta ---
+    \column{0.32\textwidth}
+      \only<2->{
+        \begin{tikzpicture}
+          \draw[-] (-1,0) -- (1,0); % línea recta
+        \end{tikzpicture}\\[0.3em]
+        \scriptsize Recta
+      }
+
+    % --- Abierto (círculo más grande con puntos dentro) ---
+    \column{0.32\textwidth}
+      \only<3->{
+        \begin{tikzpicture}
+          % círculo más grande y relleno semitransparente
+          \fill[blue!20, opacity=0.3] (0,0) circle (1.3);
+          \draw[blue, thick] (0,0) circle (1.3);
+
+          % puntos dentro (animados)
+          \only<4->{\fill (0.5,0.4) circle (2.5pt);}
+          \only<5->{\fill (-0.5,-0.4) circle (2.5pt);}
+        \end{tikzpicture}\\[0.3em]
+        \scriptsize Abierto
+      }
+  \end{columns}
+\end{frame}
+
+\begin{frame}{¿Qué es la topología sin puntos?}
+  \begin{itemize}
+    \item<1-> En topología clásica describimos un espacio como un conjunto de puntos $S$ junto con una familia de abiertos $\tau$.
+    \item<2-> En la topología sin puntos nos olvidamos de $S$ y trabajamos únicamente con la estructura de abiertos.
+    \item<3-> El enfoque anterior se trabaja por medio de la \textbf{teoría de marcos}.
+  \end{itemize}
+  \vspace{1em}
+  \uncover<4->{\centering
+    \textcolor{blue!60!black}{\Large ``Lo importante no son los puntos, sino cómo se relacionan los abiertos''}
+  }
+\end{frame}
+
+\begin{frame}{¿Qué es un marco?}
+  \begin{columns}[T,totalwidth=\textwidth]
+    % --- Columna izquierda ---
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item<1-> $A$
+        \item<2-> $(A, \leq)$
+      \end{itemize}
+    \end{column}
+
+    % --- Columna derecha ---
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item<3-> $(A, \leq, \vee, 0)$ o $(A, \leq, \wedge, 1)$
+        \item<4-> $(A, \leq, \bigvee, \bigwedge, 0, 1)$
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \vspace{1em}
+
+  \onslide<5->\begin{block}{Marco}
+    Un \textbf{marco} es una retícula completa, $(A, \leq, \bigvee, \wedge, 0, 1)$,
+    en la que los ínfimos finitos se distribuyen sobre supremos arbitrarios:
+    \[
+      a \wedge \bigvee_{i \in I} b_i \;=\; \bigvee_{i \in I} (a \wedge b_i).\qquad \mbox{(LDM)}
+    \]
+  \end{block}
+\onslide<6->{LDM: Ley Distributiva de marcos}
+\end{frame}
+
+\begin{frame}{¿Que es una topología?}
+ \begin{block}{Topología}
+    Una \textbf{topología} sobre un conjunto $S$ es una familia $\tau \subseteq \mathcal{P}(S)$ tal que:
+    \begin{itemize}
+      \item $\varnothing, S \in \tau$.
+      \item Si $U,V \in \tau$, entonces $U \cap V \in \tau$.
+      \item Si $\{U_i\}_{i \in I} \subseteq \tau$, entonces $\bigcup_{i \in I} U_i \in \tau$.
+    \end{itemize}
+  \end{block}
+  \onslide<2->{Al par $(S, \tau)$ se le llama \textbf{espacio topológico}.} \onslide<3->{De hecho,
+  \[
+  (\tau, \subseteq, \bigcup, \cap, \varnothing, X)
+  \] 
+  es un marco.} \onslide<4->{A $\tau=\mathcal{O}S$ se le llama el \textbf{marco de abiertos} de $S$.}
+
+\end{frame} 
+
+\begin{frame}{Detalles rigurosos}
+  \begin{itemize}
+    \item<1-> \textbf{Morfismos de marcos:} funciones que preservan supremos y finitos ínfimos.
+    \item<2-> \textbf{Categoría Frm:} marcos como objetos y morfismos como flechas.
+    \item<3-> \textbf{Adjunciones:} conexión entre topologías y marcos.
+    \item<4-> \textbf{Generalización:} construcción de sublocales, núcleos y ensamble.
+  \end{itemize}
+
+    \vspace{1em}
+  \uncover<5->{\centering
+    \textcolor{blue!60!black}{\Large ``Detrás de la idea intuitiva hay una teoría categórica robusta''}
+  }
+\end{frame}
+
+\begin{frame}[fragile]{Adjunción entre Top y Frm}
+ 
+\[\begin{tikzcd}
+	\Top && \Frm
+	\arrow["{\mathcal{O}(\_)}", shift left=2, from=1-1, to=1-3]
+	\arrow["{\pt(\_)}", shift left=2, from=1-3, to=1-1]
+\end{tikzcd}\]
+  \vspace{1em}
+
+  \begin{itemize}
+    \item<2-> $\mathcal{O}$: Asigna a cada espacio topológico su \textbf{marco de abiertos}.
+    \item<3-> $\pt$: Construye el \textbf{espacio de puntos} de un marco.
+    \item<4-> Esta relación forma una \textbf{adjunción}:
+    \onslide<5->\[
+      \Hom_{\Top}(S, \pt(A)) \;\cong\; \Hom_{\Frm}(A, \mathcal{O}(S)).
+    \]
+  \end{itemize}
+
+  \vspace{0.5em}
+  \uncover<6->{\centering\textcolor{blue!60!black}{\large ``La topología sin puntos y la topología clásica se conectan por esta adjunción''}}
+\end{frame}
+
+
+\section{¿Para qué estudiar topología sin puntos?}
+\begin{frame}{¿Por qué estudiamos los marcos?}
+    \begin{itemize}
+        \item Estructuras simples.
+        \item<2-> Existen herramientas que facilitan el estudio de los marcos.
+        \item<3-> Correspondencias biyectivas.
+        \item<4-> Buen comportamiento categórico.
+        \item<5-> A veces es más sencillo hacer teoría de marcos.
+        \item<6-> Parte de la topología usual se puede ver como un caso particular de la teoría de marcos.
+    \end{itemize}        
+\end{frame}
+
+\begin{frame}{¿Para qué estudiar topología sin puntos?}
+La topología sin puntos permite ``traducir'' nociones clásicas de la categoría de espacios topológicos al contexto de marcos, y viceversa.
+
+  \onslide<2->\[
+    \Top \;\longleftrightarrow\; \Frm
+  \]
+
+  \vspace{1em}
+
+  \uncover<3->{\centering
+    \textcolor{blue!60!black}{\Large 
+      ``¿Consideras que en algún momento has realizado topología sin puntos?''}
+  }
+
+  \vspace{0.5em}
+
+  \uncover<4->{\centering
+    \textbf{\Large Seguramente sí...}
+  }
+\end{frame}
+
+\begin{frame}{Primer encuentro con la continuidad}
+  \textbf{En cálculo:} $f:\mathbb{R}\to\mathbb{R}$.
+
+  \begin{block}{Definición $\varepsilon$–$\delta$}
+    $f$ es continua en $a$ si
+    \[
+      \forall \varepsilon>0 \;\; \exists \delta>0 \;\; 
+      |x-a|<\delta \;\Rightarrow\; |f(x)-f(a)|<\varepsilon.
+    \]
+  \end{block}
+
+  \uncover<2->{\centering
+    \textcolor{red!70!black}{\Large ``Así conocimos la continuidad por primera vez''}
+  }
+\end{frame}
+
+\begin{frame}{Continuidad en espacios métricos}
+  \textbf{En análisis matemático:} $f:(X,d_1)\to(Y,d_2)$.
+
+  \begin{block}{Definición $\varepsilon$–$\delta$ (versión métrica)}
+    $f$ es continua en $a$ si
+    \[
+      \forall \varepsilon>0 \;\; \exists \delta>0 \;\; 
+      d_1(x,a)<\delta \;\Rightarrow\; d_2(f(x),f(a))<\varepsilon.
+    \]
+  \end{block}
+
+  \uncover<2->{\centering
+    \textcolor{red!70!black}{\Large ``La idea es la misma, pero sigue siendo técnica''}
+  }
+\end{frame}
+
+\begin{frame}{Caracterización topológica}
+  \begin{block}{Teorema}
+    $f:(X,d_1)\to(Y,d_2)$ es continua si y solo si 
+    \[
+      \forall\; V \;\text{abierto en } Y, \quad f^{-1}(V)\;\text{es abierto en } X.
+    \]
+  \end{block}
+
+  \uncover<2->{\centering
+    \textcolor{blue!60!black}{\Large ``Una sola condición global simplifica todo''}
+  }
+
+  \vspace{1em}
+
+  \uncover<3->{\centering
+    \textbf{¿De qué manera prefieres demostrar continuidad?}}
+\end{frame}
+
+\begin{frame}{Topología clásica vs. topología sin puntos}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{0.48\textwidth}
+      \textbf{Topología clásica}
+      \begin{itemize}
+        \item<1-> Requiere un conjunto de puntos $S$.
+        \item<2-> Los abiertos son subconjuntos de $S$.
+        \item<3-> Argumentos basados en puntos.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Topología sin puntos (marcos)}
+      \begin{itemize}
+        \item<4-> No requiere conjunto de puntos.
+        \item<5-> Se trabaja con la estructura de abiertos.
+        \item<6-> Más general: todo espacio $\leadsto$ marco.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\section{¿Cómo estudiar topología sin puntos?}
+\begin{frame}{Recorrido: de $\varepsilon$--$\delta$ a la topología sin puntos}
+  \centering
+  \resizebox{0.95\linewidth}{!}{%
+  \begin{tikzpicture}[>=latex, node distance=3.0cm, every node/.style={align=center}]
+    \node[draw, rounded corners, fill=red!10] (calc) {\textbf{Cálculo}\\$\varepsilon$--$\delta$\\($\mathbb{R}\to\mathbb{R}$)};
+    \node[draw, rounded corners, fill=orange!10, right=of calc] (metric) {\textbf{Espacios métricos}\\Def. con distancias};
+    \node[draw, rounded corners, fill=blue!10, right=of metric] (top) {\textbf{Topología}\\Preimágenes de abiertos};
+
+    \coordinate (mid) at ($(metric)!0.5!(top)$);
+    \node[draw, rounded corners, fill=green!6, below=of mid] (frm) {\textbf{Topología sin puntos}\\(marcos)};
+
+    \draw[->, thick] (calc) -- node[above]{generalizar} (metric);
+    \draw[->, thick] (metric) -- node[above]{abstraer} (top);
+    \draw[->, thick] (top) -- node[right]{reinterpretar} (frm);
+  \end{tikzpicture}%
+  }
+\end{frame}
+
+\begin{frame}{De Top a Frm}
+\centering
+\resizebox{0.95\linewidth}{!}{%
+\begin{tikzpicture}[>=latex, every node/.style={align=center}]
+  % estilos
+  \tikzset{
+    box/.style={draw=black!30, rounded corners, fill=white,
+                text=orange!70!black, font=\small, inner sep=4pt,
+                minimum width=44mm, minimum height=10mm},
+    lab/.style={font=\bfseries\footnotesize, text=black!60},
+    arr/.style={->, line width=0.9pt, draw=black!55, -{Latex[length=2.2mm]}}
+  }
+
+  % columnas
+  \coordinate (L) at (0,0);
+  \coordinate (R) at (8,0);
+
+  % encabezados
+  \node[lab] at ($(L)+(0,2.5)$) {Top};
+  \node[lab] at ($(R)+(0,2.5)$) {Frm};
+
+  % cajas
+  \node[box] (t1) at ($(L)+(0,1.2)$) {Noción topológica};
+  \node[box] (t2) at ($(L)+(0,-1.0)$) {Reescribir la noción en términos\\ del marco de abiertos};
+
+  \node[box] (f1) at ($(R)+(0,1.2)$) {Noción en marcos};
+  \node[box] (f2) at ($(R)+(0,-1.0)$) {Generalizar a un\\ marco arbitrario};
+
+  % flechas (rectas)
+  %\draw[arr] (t1) -- (f1);                 % horizontal
+  \draw[arr] (f2.north) -- (f1.south);     % vertical hacia abajo
+  \draw[arr] (t1.south) -- (t2.north);     % vertical hacia abajo
+  \draw[arr] (t2) -- (f2);                 % horizontal de derecha a izquierda
+\end{tikzpicture}%
+}
+\end{frame}
+
+\begin{frame}{De Frm a Top}
+\centering
+\resizebox{0.95\linewidth}{!}{%
+\begin{tikzpicture}[>=latex, every node/.style={align=center}]
+  % estilos
+  \tikzset{
+    box/.style={draw=black!30, rounded corners, fill=white,
+                text=orange!70!black, font=\small, inner sep=4pt,
+                minimum width=44mm, minimum height=10mm},
+    lab/.style={font=\bfseries\footnotesize, text=black!60},
+    arr/.style={->, line width=0.9pt, draw=black!55, -{Latex[length=2.2mm]}}
+  }
+
+  % columnas base
+  \coordinate (L) at (0,0);
+  \coordinate (R) at (8,0);
+
+  % encabezados
+  \node[lab] at ($(L)+(0,2.5)$) {Top};
+  \node[lab] at ($(R)+(0,2.5)$) {Frm};
+
+  % cajas
+  \node[box] (t1) at ($(L)+(0,1.2)$) {Definir caracterizaciones\\ para espacios topológicos};
+  \node[box] (t2) at ($(L)+(0,-1.0)$) {Obtener una equivalencia\\ para el marco de abiertos};
+
+  \node[box] (f1) at ($(R)+(0,1.2)$) {Noción en la teoría\\ de marcos};
+  \node[box] (f2) at ($(R)+(0,-1.0)$) {Desarrollar teoría\\ para la noción en marcos};
+
+  % flechas (todas rectas/verticales)
+  %\draw[arr] (t1) -- (f1);                 % horizontal
+  \draw[arr] (f1.south) -- (f2.north);     % vertical hacia abajo
+  \draw[arr] (t2.north) -- (t1.south);     % vertical hacia arriba
+  \draw[arr] (f2) -- (t2);       % regreso horizontal limpio
+\end{tikzpicture}%
+}
+\end{frame}
+
+\subsection{Ejemplos}
+\begin{frame}{Axiomas de separación en Top}
+  \begin{itemize}
+    \item \textbf{T$_0$ (Kolmogórov):} para $x\neq y$, existe abierto que contiene a uno y no al otro.
+    \item \textbf{T$_1$:} para $x\neq y$, hay abierto que contiene a $x$ pero no a $y$ \emph{y} viceversa).
+    \item \textbf{T$_2$ (Hausdorff):} para $x\neq y$, existen abiertos disjuntos $U,V$ con $x\in U$, $y\in V$.
+    \item \textbf{Regular:} para todo $x\in X$ y todo cerrado $F\subseteq X$
+        con $x\notin F$, existen abiertos disjuntos $U,V$ tales que
+        $x\in U$ y $F\subseteq V$.
+     \item \textbf{Normal:} para cualesquiera cerrados disjuntos
+        $F,G\subseteq X$, existen abiertos disjuntos $U,V$ con
+        $F\subseteq U$ y $G\subseteq V$.
+  \end{itemize}
+  \vspace{0.6em}
+  \centering
+  \textcolor{blue!60!black}{\large¿Cómo se leen estas ideas \emph{sin puntos}?}
+\end{frame}
+
+\begin{frame}{Normalidad sin puntos}
+Sea $S\in \Top$. Si $A\in \mathcal{O}S$, entonces $A'\in \mathcal{C}S$.
+\begin{itemize}
+\item<2-> \textbf{Normalidad:} para cualesquiera $A, B\in \mathcal{C}S$ con $A\cap B=\varnothing$, 
+existen $U,V\in \mathcal{O}S$ con $A\subseteq U$, $B\subseteq V$ y $U\cap V=\varnothing$.
+
+ \uncover<3->{\centering
+  \textcolor{blue!60!black}{\large¿Qué necesitamos para hacer la traducción?}}
+  \item<4-> Si $A,B\in \mathcal{C}S \iff X=A', Y=B'\in \mathcal{O}S$.
+    \item<5-> $A\cap B=\varnothing \iff X\cup Y=S$.
+    \item<6-> $A\subseteq U \iff U'\subseteq X\iff X\cup U=S$.
+    \item<7-> \alert{Traducción:} para cualesquiera $X, Y\in \mathcal{O}S$ con $X\cup Y=S$, 
+existen $U,V\in \mathcal{O}S$ con $X\cup U=Y\cup V=S$ y $U\cap V=\varnothing$. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ingredientes para traducir $T_1$}
+
+\begin{block}{Elementos en un marco $A$}
+  \begin{itemize}
+    \item<2-> \textbf{máximo:} un elemento $m\in A$ es \emph{máximo} si $m<1$ y,
+    para todo $b\in A$, \; $m\le b<1 \;\Rightarrow\; b=m$.
+    % (equiv.: no existe propio entre $m$ y $1$)
+
+    \item<3-> \textbf{primo:} un elemento $a\in A$ con $a\ne 1$ es
+    \emph{primo} si para todos $u,v\in A$,
+    \[
+      u\wedge v \le a \;\Rightarrow\; (u\le a)\ \text{o}\ (v\le a).
+    \]
+  \end{itemize}
+\end{block}
+
+\onslide<4->\begin{alertblock}{Observación}
+En un \emph{marco} todo elemento \textbf{máximo} es
+\textbf{primo}. El recíproco \textbf{no} vale en general.
+\end{alertblock}
+
+\end{frame}
+
+\begin{frame}{T$_1$ sin puntos}
+\textbf{T$_1$:} Para todo $x\neq y\in S$, existe $U\in \mathcal{O}S$ con $x\in U$ y $y\notin U$.
+
+\vspace{0.5em}
+\begin{itemize}
+  \item<2-> $S$ es $T_1$ $\iff$ $\forall\,x\in S$, $\overline{\{x\}}=\{x\}$ (los unipuntuales son cerrados).
+  \item<3-> Entonces $S\setminus\{x\}\in \mathcal{O}S$.
+  \item<4-> $S\setminus\overline{\{x\}}$ es un elemento máximo.
+  \item<5-> $S\setminus\{x\}$ es un elemento primo. 
+  \item<6-> \alert{Traducción:} todo elemento primo es máximo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ingredientes para traducir regularidad}
+
+  Si $a,b\in A$, podemos hacer algebra a través de sus operaciones.
+  \begin{itemize}
+    \item<2-> Operaciones del marco: $\bigvee,\;\wedge,\;\succ,\;\prec$\; y \;$\neg$.
+    \item<3-> Implicación:
+      \[
+        (a \succ b)=\bigvee\{x\in A\mid x\wedge a\leq b\}.
+      \]
+    \item<4-> Negación:
+      \[
+        \neg a=\bigvee\{x\in A\mid x\wedge a=0\}=(a \succ 0).
+      \]
+    \item<5-> Relación bastante por debajo: 
+      \[
+      \begin{split}
+        a \prec b &\iff\;\mbox{ existe } c\in A \mbox{ tal que } c\wedge a=0, c\vee b=1.\\
+        &\iff\; \neg a \vee b=1.
+      \end{split}
+      \]
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Regularidad sin puntos}
+\textbf{Regularidad:} Para todo $x\in S$ y $X\in \mathcal{C}S$ con $x\notin X$, existen $U,V\in \mathcal{O}S$ tales que 
+\[
+x\in U, \quad X\subseteq V, \quad U\cap V=\varnothing.
+\]
+\begin{itemize}
+  \item<2-> $S$ es regular $\iff$ para todo $x\in X$ y $U\in \mathcal{O}S$ con  $x\in U$, existe $V\in\mathcal{O}S$ tal que
+    \[
+      x\in V\subseteq \overline{V}\subseteq U.
+    \]
+  \item<3-> Si $V\in \mathcal{O}S$, entonces $\neg V=S\setminus \overline{V}\in \mathcal{O}S$.
+  \item<4-> $\overline{V}\subseteq U$ $\iff$ $\neg V\vee U=S$ $\iff$ $V\prec U$.
+  \item<5-> \alert{Traducción:} para todo $U\in \mathcal{O}S$
+  \[
+    U=\bigcup\{V\in \mathcal{O}S \mid V\prec U\}.
+  \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Los axiomas en Frm}
+Si $A$ es un marco arbitrario, entonces:
+\begin{itemize}
+  \item<1-> $A$ es \textbf{T$_1$} si todo elemento primo es máximo.
+  \item<2-> $A$ es \textbf{regular} si para todo $a\in A$
+  \[
+    a=\bigvee\{x\in A \mid x\prec a\}.
+  \]
+  \item<3-> $A$ es \textbf{normal} si para todos $a,b\in A$ con $a\vee b=1$, existen $u,v\in A$ tales que
+  \[
+    a\vee u=1, \quad b\vee v=1, \quad u\wedge v=0.
+  \]
+  \uncover<4->{\centering
+  \textcolor{blue!60!black}{\large Obtuvimos algunos axiomas de separación que podemos usar cuando trabajemos con marcos :D}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Algunas traducciones más tecnicas}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|p{.43\linewidth}|p{.14\linewidth}|p{.43\linewidth}|}
+\hline
+\textbf{Noción locálica (geométrica)} & \textbf{Notación} & \textbf{Correspondencia en núcleos (algebraica)}\\ \hline
+Sublocal denso más pequeño de $A$ & $d(A)$ & Corresponde al núcleo doble negación ($w_0$).\\ \hline
+Sublocal denso en $A$ &  & Corresponde al núcleo $j$ que está por debajo del núcleo doble negación ($j\leq w_0$).\\ \hline
+Sublocal abierto &  & Corresponde al núcleo $v_a$.\\ \hline
+Sublocal cerrado &  & Corresponde al núcleo $u_a$.\\ \hline
+Sublocal booleano &  & Corresponde al núcleo $w_a$.\\ \hline
+Sublocal $A_k$ denso en $A_j$ &  & Corresponde al núcleo $k$ tal que $k\leq w_a$.\\ \hline
+Sublocal $A_k$ denso en $NA_j$ &  & Corresponde al núcleo $k$ tal que $j\lessdot k$.\\ \hline
+Sublocal $A_k$ denso en ninguna parte de $A_j$ & $A_k\leq_{nd} A_j$ & Corresponde al núcleo $k$ tal que $j(0)\lessdot k(0)$.\\ \hline
+\end{tabular}
+
+\large La tabla completa puede verse en \cite{J.M.}
+\end{frame}
+
+\begin{frame}[t]{¿Dónde más aparecen los marcos?}
+\footnotesize
+\begin{columns}[T,totalwidth=\textwidth]
+  % ---- Cómputo / Lógica ----
+  \begin{column}{0.49\textwidth}
+    \textbf{Cómputo y Lógica}
+    \begin{itemize}\setlength{\itemsep}{2pt}
+      \item Teoría de dominios y semántica denotacional (Scott, puntos fijos de Tarski).
+      \item Lógica intuicionista / teoría de tipos: marcos = Heyting completas; sheaves/locales.
+      \item Toposes y razonamiento sin puntos (Kripke–Joyal, modelos constructivos).
+    \end{itemize}
+  \end{column}
+
+   %---- Mates / Afines ----
+  \begin{column}{0.49\textwidth}
+   \textbf{Matemáticas y áreas afines}
+    \begin{itemize}\setlength{\itemsep}{2pt}
+      \item Geometría algebraica: $\mathrm{Spec}\,R$ (Zariski), espacios espectrales.
+      \item Medida/probabilidad constructiva: “Borel locales”, integración sin puntos.
+      \item Dualidades: Stone; marcos espaciales vs.\ espacios topológicos.
+    \end{itemize}
+  \end{column}
+\end{columns}
+
+\vspace{0.25em}
+{\scriptsize \textit{Palabras clave:} domain theory, Scott topology, Heyting algebra, topos, Stone duality, spectral spaces, locale measure.}
+\end{frame}
+
+\begin{frame}[t]{Computación vista con marcos (versión ligera)}
+\footnotesize
+\begin{columns}[T,totalwidth=\textwidth]
+  \begin{column}{0.58\textwidth}
+    \begin{block}{Diccionario Lógica $\leftrightarrow$ Marco (Heyting completo)}
+    \begingroup
+      \setlength{\arraycolsep}{0.6em}
+      \renewcommand{\arraystretch}{1.15}
+      \[
+      \begin{array}{rcl}
+        \text{Conjunción }(\land) &\leftrightarrow& \wedge \quad(\text{ínfimo})\\[0.2em]
+        \text{Disyunción }(\lor)  &\leftrightarrow& \vee \quad(\text{supremo})\\[0.2em]
+        \text{Implicación }(\to)  &\leftrightarrow& a\Rightarrow b \\[0.2em]
+        \text{Negación }(\neg a)  &\leftrightarrow& a^{*} := (a\Rightarrow 0)\\[0.2em]
+        \forall_i \varphi_i       &\leftrightarrow& \bigwedge_i \den{\varphi_i}\\[0.2em]
+        \exists_i \varphi_i       &\leftrightarrow& \bigvee_i \den{\varphi_i}
+      \end{array}
+      \]
+    \endgroup
+    \end{block}
+  \end{column}
+  \begin{column}{0.42\textwidth}
+    \begin{itemize}\setlength{\itemsep}{2pt}
+      \item \textbf{Propiedades observables} de programas = \emph{abiertos}; forman un \textbf{marco}.
+      \item Semántica \(f:\mathrm{St}\to \mathrm{St}\) induce \(f^{*}=f^{-1}:\mathcal{O}(\mathrm{St})\to\mathcal{O}(\mathrm{St})\) que preserva \(\bigvee\) y \(\wedge\) finitos \(\Rightarrow\) \textbf{morfismo de marcos}.
+      \item En lógica clásica \(a\vee \neg a=1\); en marcos (intuicionista) \emph{no necesariamente}.
+    \end{itemize}
+  \end{column}
+\end{columns}
+
+\vspace{0.6em}
+\centering
+\textcolor{blue!60!black}{\Large \textbf{En cómputo, razonar por propiedades = razonar en un marco.}}
+\vspace{0.4em}
+\begin{block}{\footnotesize Notas}
+\scriptsize
+\(\mathrm{St}\): conjunto de estados. \ 
+\(f:\mathrm{St}\to\mathrm{St}\): transformador de estados (semántica concreta). \
+\(f^{*}=f^{-1}\): preimagen sobre propiedades, morfismo de marcos. \
+\(\den{\varphi}\): abierto que interpreta la proposición \(\varphi\).
+\end{block}
+\end{frame}
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliografía}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+%\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+%\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+%\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+%\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
+
+%\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{H.S.} H. Simmons, \textit{An Introduction to Frame Theory}, lecture notes, University of Manchester. Disponible en línea en \url{https://web.archive.org/web/20190714073511/http://staff.cs.manchester.ac.uk/~hsimmons}.
+
+%\bibitem{H.S.R} H. Simmons, \textit{Regularity, fitness, and the block structure of frames.} Applied Categorical Structures 14 (2006): 1-34.
+
+%\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
+
+%\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+
+%\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\smiley Gracias por su atención\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      \vfill
+      \scalebox{4}{\faGithub} \par\bigskip
+      \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+
+\appendix
+\section*{Apéndice: Definiciones de respaldo}
+
+% --- Orden parcial ---
+\begin{frame}{Orden parcial}
+  \begin{block}{Definición}
+    Una relación $\leq$ en un conjunto $A$ es un \textbf{orden parcial} si cumple:
+    \begin{itemize}
+      \item Reflexividad: $a \leq a$.
+      \item Antisimetría: $a \leq b$ y $b \leq a \;\Rightarrow\; a=b$.
+      \item Transitividad: $a \leq b$ y $b \leq c \;\Rightarrow\; a \leq c$.
+    \end{itemize}
+  \end{block}
+  \vspace{0.5em}
+  \centering
+  \begin{tikzpicture}[scale=0.9, every node/.style={circle,draw,inner sep=1.5pt}]
+    \node (a) at (0,0) {a};
+    \node (b) at (1.2,1) {b};
+    \node (c) at (-1.2,1) {c};
+    \node (d) at (0,2) {d};
+    \draw (a) -- (b) -- (d) -- (c) -- (a);
+  \end{tikzpicture}
+  \\
+  \scriptsize Ejemplo de un conjunto parcialmente ordenado (Hasse).
+\end{frame}
+
+% --- Supremo / Ínfimo ---
+\begin{frame}{Supremo e ínfimo}
+  \begin{itemize}
+    \item El \textbf{supremo} de un subconjunto es la menor cota superior.
+    \item El \textbf{ínfimo} es la mayor cota inferior.
+  \end{itemize}
+  \vspace{0.8em}
+  \centering
+  \begin{tikzpicture}[scale=0.9, every node/.style={circle,draw,inner sep=1.5pt}]
+    \node (0) at (0,0) {0};
+    \node (a) at (-1,1) {a};
+    \node (b) at (1,1) {b};
+    \node (1) at (0,2) {1};
+    \draw (0) -- (a) -- (1);
+    \draw (0) -- (b) -- (1);
+  \end{tikzpicture}
+  \\
+  \scriptsize Aquí $\sup\{a,b\} = 1$, \; $\inf\{a,b\} = 0$.
+\end{frame}
+
+% --- Semirretícula y retícula ---
+\begin{frame}{De semirretícula a retícula}
+  \begin{itemize}
+    \item Una \textbf{semirretícula} es un poset con supremos finitos (o ínfimos finitos).
+    \item Una \textbf{retícula} tiene ambos: supremos e ínfimos finitos.
+  \end{itemize}
+  \vspace{0.8em}
+  \centering
+  \begin{tikzpicture}[scale=0.9, every node/.style={circle,draw,inner sep=1.5pt}]
+    \node (0) at (0,0) {0};
+    \node (a) at (-1,1) {a};
+    \node (b) at (1,1) {b};
+    \node (c) at (0,1) {c};
+    \node (1) at (0,2) {1};
+    \draw (0) -- (a) -- (1);
+    \draw (0) -- (b) -- (1);
+    \draw (0) -- (c) -- (1);
+  \end{tikzpicture}
+  \\
+  \scriptsize Retícula: todos los pares tienen sup e inf.
+\end{frame}
+
+% --- Marco ---
+\begin{frame}{Marco}
+  \begin{block}{Definición}
+    Un \textbf{marco} es una retícula completa $(A, \leq, \bigvee, \wedge, 0, 1)$
+    donde vale la \textbf{Ley Distributiva de Marcos} (LDM):
+    \[
+      a \wedge \bigvee_{i \in I} b_i \;=\; \bigvee_{i \in I}(a \wedge b_i).
+    \]
+  \end{block}
+  \vspace{0.8em}
+  \centering
+  \scriptsize Esta es la definición formal que conecta con la topología sin puntos.
+\end{frame}
+
+\begin{frame}[fragile]{Un ejemplo espacial}
+Sea $S=\mathbb{R}$ y consideremos las topologías generadas por:
+\[
+\mathcal{O}_lS=\{(-\infty, a)\},\quad  \mathcal{O}_mS=\{(a,b)\}, \quad \mathcal{O}_nS=\{[a,b)\},
+\]
+donde $a,b\in S$. Entonces
+\[
+\mathcal{O}_lS \hookrightarrow \mathcal{O}_mS \hookrightarrow \mathcal{O}_nS
+\]
+
+Se puede verificar que 
+\[
+\mathcal{O}_l^pS=\mathcal{O}_mS\simeq P\mathcal{O}_lS\quad\mbox{ y }\quad\mathcal{O}_l^fS=\mathcal{O}_nS\simeq N\mathcal{O}_lS,
+\]
+es decir, 
+\[
+\mathcal{O}_lS=A\rightarrow PA\hookrightarrow NA
+\]
+\end{frame}
+
+\begin{frame}{Axiomas tipo Hausdorff}
+    \begin{description}
+        \item[$\mathbf{(dH):}$]$\quad$ Si $a\vee b=1$, con $a,b\neq 1$, $\exists\, u,v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$.
+        \item[$\mathbf{(H):}$]$\quad$ Si $1\neq a\nleq b$ $\exists\, u, v$ tales que $u\nleq a$, $v\nleq b$ y $u\wedge v=0$.
+        \item[$\mathbf{(Hp):}$]$\quad$ Todo elemento semiprimo es máximo.
+        \item[$\mathbf{(fH):}$]$\quad$ El sublocal diagonal es cerrado.
+    \end{description}
+\end{frame}
+
+\end{document}
