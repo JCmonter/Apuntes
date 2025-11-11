@@ -1,25 +1,16 @@
-\frametitle{Separation axioms in Frm}
+Podemos construir el diagrama (ver \cite{H.S.V})
 \[\begin{tikzcd}
-	&& {\mathbf{(reg)}} \\
-	{\mathbf{(fit)}} && {\mathbf{(sH)}} && {\mathbf{(H)}+\mathbf{(sfit)}} \\
-	{\mathbf{(sfit)}} && {T_1} && {\mathbf{(H)}}
-	\arrow[Rightarrow, from=1-3, to=2-1]
-	\arrow[Rightarrow, from=1-3, to=2-3]
-	\arrow[Rightarrow, from=1-3, to=2-5]
-	\arrow[Rightarrow, from=2-1, to=3-1]
-	\arrow[Rightarrow, from=2-1, to=3-3]
-	\arrow[dotted, no head, from=2-3, to=2-1]
-	\arrow[dotted, no head, from=2-3, to=2-5]
-	\arrow[dotted, no head, from=2-3, to=3-1]
-	\arrow[Rightarrow, from=2-3, to=3-3]
-	\arrow[Rightarrow, from=2-3, to=3-5]
-	\arrow[Rightarrow, from=2-5, to=3-5]
-	\arrow[dotted, no head, from=3-1, to=3-3]
-	\arrow[Rightarrow, from=3-5, to=3-3]
+	A && {A_F} \\
+	&&& \mathcal{O}Q \\
+	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{U_A}"', from=1-1, to=3-1]
+	\arrow["{\simeq }", from=1-3, to=2-4]
+	\arrow["g", from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+	\arrow["{\simeq }"', from=3-3, to=2-4]
 \end{tikzcd}\]
-\footnotetext[0]{$\forall\, a\nleq b\in A$, then }
-\footnotetext[0]{\textbf{(reg):} $\exists \, x,y\in A$ such that $a\vee x=1, y\nleq b$ and $x\wedge y=0$.}
-\footnotetext[0]{\textbf{(H):} $\exists\, c\in A$ such that $c\nleq a$ and $\neg c\leq b$.}
-\footnotetext[0]{\textbf{(fit):} $\exists\, x,y\in A$ such that $x\vee a=1, y\nleq b$ and $x\wedge y\leq b$.}
-\footnotetext[0]{\textbf{(sfit):} $\exists\, c\in A$ such that $c\vee a=1\neq c\vee b$.}
-\footnotetext[0]{\textbf{(sH)} and $T_1$ are notion some different. All this can be found in \cite{J.P.2}.}
+donde $g=(U_A)_*\circ (v_\nabla)_{\mid A_F}$.
+\[
+\mbox{¿Qué pasa si } A \mbox{ tiene la propiedad }\mathbf{(H)}?
+\]
