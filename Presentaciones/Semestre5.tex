@@ -24,6 +24,7 @@
 
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\Fit}{Fit}
 \DeclareMathOperator{\Pth}{P}
@@ -210,7 +211,7 @@ Sean $A\in \Frm$ y $j\in NA$.
 \end{block}
 \end{frame}
 
-\begin{frame}{El Teorema de Hoffman-Mislove}
+\begin{frame}{El Teorema de Hofmann-Mislove}
 \begin{block}{Proposición}
 \begin{enumerate}
   \item Si $F\in A^\wedge$, entonces $F=\nabla(j)$.
@@ -223,14 +224,14 @@ Sean $A\in \Frm$ y $j\in NA$.
 \end{block}
 
   \only<1>{
-    \begin{block}{Teorema [Hoffman-Mislove]}
+    \begin{block}{Teorema [Hofmann-Mislove]}
       Sea $A\in \Frm$ y $S=\pt A\in \Top$. Existe una correspondencia biyectiva entre $Q\in \mathcal{Q}S$ y $F\in A^\wedge$.
     \end{block}
   }
 
   % Segunda versión (extendida)
   \only<2->{
-    \begin{block}{Teorema [Hoffman-Mislove (extendido)]}
+    \begin{block}{Teorema [Hofmann-Mislove (extendido)]}
       Sea $A\in \Frm$ y $S=\pt A\in \Top$. Existe una correspondencia biyectiva entre $Q\in \mathcal{Q}S$ y núcleos ajustados.
     \end{block}
   }
@@ -266,7 +267,7 @@ A \arrow[r] \arrow[rr, "\eta_A", bend left] & PA \arrow[r] & NA
 \end{tikzcd}
 \]
 \begin{block}{Definición}
-    $A$ es \textbf{parche trivial} si y solo si $A\simeq PA$.
+    $A$ es \textbf{parche trivial} si y solo si $A\cong PA$.
       \[
         ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
       \]
@@ -429,6 +430,23 @@ A\mbox{ es eficiente } & \Rightarrow A\mbox{ es } T_1
 \end{tiny}
 \end{frame}
 
+\section{Nuestro trabajo}
+
+\begin{frame}{¿Qué significa $u_d=v_F$?}
+Para $f=\bigvee\{v_a\mid a\in F\}\in NA$ y tomamos
+\[
+f^0=\id, \quad f^{\alpha +1}=f(f^\alpha),\quad f^\lambda=\bigvee\{f^\alpha\mid \alpha< \lambda\}.
+\]
+Consideramos $v_F=f^\infty$. Entonces
+\begin{itemize}
+  \item Si $d=v_F(0)\Rightarrow u_d\leq v_F$
+  \item Si $x\in F$ tal que $u_d(x)=x\vee d=1\Rightarrow v_F\leq u_d$
+  \item $f^\alpha\notin NA$, pero $f^\infty\in NA$. 
+  \item Bajo eficiencia obtenemos $F=\nabla(u_d)$.
+  
+\end{itemize}
+\end{frame}
+
 \begin{frame}{El diccionario}
 
 \begin{columns}[T,onlytextwidth]
@@ -460,8 +478,6 @@ A\mbox{ es eficiente } & \Rightarrow A\mbox{ es } T_1
 \end{columns}
 \end{frame}
 
-\section{Nuestro trabajo}
-
 \begin{frame}[fragile]{Algunos resultados}
 Si $(f\colon A\to B)\in \Frm$, $G\subseteq A$ y $F\subseteq B$ son filtros, entonces
 \[
@@ -469,7 +485,7 @@ b\in f[G]\iff f_*(b)\in G\quad\mbox{ y }\quad a\in f_*[F]\iff f(a)\in F.
 \]
 También, si $F\in B^\wedge$, entonces $f_*(F)\in A^\wedge$.
 \begin{block}{Proposición}
-Para $f^\infty$ y $f_j^\infty$ los núcleos asociados a $F$ y $j_*F$, respectivamente, tenemos que
+Para $f^\infty$ y $f_j^\infty$ los núcleos asociados a $F\in A_j^\wedge$ y $j_*F\in A^\wedge$, respectivamente, tenemos que
 \[
 j\circ f_j^\infty\leq f^\infty \circ j
 \]
