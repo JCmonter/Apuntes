@@ -102,7 +102,7 @@
 \node[year, visible on=<5->] at ($(p13)+(0,-0.6)$) {2013};
 
 \node[tick, visible on=<6->] at (pMi) {};
-\node[year, visible on=<6->] at ($(pMi)+(0,0.7)$) {2024}; % cambia el año si quieres
+\node[year, visible on=<6->] at ($(pMi)+(0,0.7)$) {2025}; % cambia el año si quieres
 
 % --- Imágenes alternadas (más GRANDES)
 
@@ -123,7 +123,7 @@
   {\includegraphics[width=3cm]{Imagenes/Rosy.jpg}};
 % 2013 - Klinke (arriba, silueta)
 \node[visible on=<5->, anchor=south] (e2013) at ($(p13)+(0,1.5)$)
-  {\includegraphics[width=4cm]{Imagenes/Klinke.png}};
+  {\includegraphics[width=6cm]{Imagenes/Portada.png}};
 
 % 2024 - MITAC (abajo, la última un poco más abajo para lucir)
 \node[visible on=<6->, anchor=north] (eMITAC) at ($(pMi)+(0,-1.6)$)
@@ -144,21 +144,22 @@
 \begin{frame}[fragile]{Espacio de parches}
     Consideremos $S\in \Top$. Denotamos por $^pS=(S, \mathcal{O}^pS)$ al \textbf{espacio de parches} de $S$, donde $\mathcal{O}^pS$ está generado por
     \[
-    \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
+    \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\mbox{\footnote{Decimos que $Q\subseteq S$ es saturado si $Q=\bigcap\{V\in \mathcal{O}S\mid Q\subseteq V\}$.\\ 
+    $\mathcal{Q}S=$ Conjuntos compactos saturados de $S$.}}\}
     \]
-    \[
-      \begin{tikzcd}
-        \mathcal{O}S \arrow[r] & \mathcal{O}^pS \arrow[r] & \mathcal{O}^fS
-      \end{tikzcd}
-    \]
-\begin{block}{Definición}
+    \[\begin{tikzcd}
+\mathcal{O}S \arrow[r, hook] & \mathcal{O}^pS
+\end{tikzcd}\]
+
+\onslide<2->{\begin{block}{Definición}
 $S$ es \textbf{empaquetado} si todo subconjunto compacto (saturado) es cerrado
 \[
 S \mbox{ es empaquetado}\iff\, ^pS=S\quad \mbox{ y }\quad T_2\Rightarrow \mbox{empaquetado}\Rightarrow T_1
 \]
-\end{block}
+\end{block}}
 \end{frame}
 
+\subsection{Teoría de marcos}
 \begin{frame}[fragile]{Teoría de marcos}
 \[
 \Frm= \left\{ \begin{array}{lc} \Obj: & (A, \leq, \wedge, \bigvee, 1, 0) \\ \\ \mbox{Flechas:} & f\colon A\to B  \end{array} \right.
@@ -174,7 +175,7 @@ Además,
 \Top \arrow[rr, "\mathcal{O}( \_ )", bend left] & \perp & \Frm \arrow[ll, "\pt( \_ )", bend left]
 \end{tikzcd}
 \]
-es una adjunción.
+es una adjunción, es decir, $\Hom_{\Top}(\pt A, S)\cong \Hom_{\Frm}(A, \mathcal{O}S)$.
 \end{frame}
 
 \begin{frame}{Núcleos y cocientes}
@@ -185,12 +186,12 @@ Sea $j\colon A\to A$. Decimos que $j$ es un \textbf{núcleo} si para todo $a, b\
   i)\, a\leq j(a)\quad ii)\, a\leq b\Rightarrow j(a)\leq j(b)\quad iii)\, j^2(a)=j(a)\quad iv)\; j(a\wedge b)=j(a)\wedge j(b)
 \]}
 \end{block}
-$NA=\{\mbox{núcleos en }A\}$.\\
-Si $a\in A$, definimos 
+\onslide<2->{$NA=\{\mbox{núcleos en }A\}\in \Frm$.\\}
+\onslide<3->{Si $a\in A$, definimos 
 \[
 u_a(x)=a\vee x\quad v_a(x)=(a\succ x)\quad w_a(x)=((x\succ a)\succ a)
 \]
-y $u_a, v_a, w_a\in NA$.
+y $u_a, v_a, w_a\in NA$}. \onslide<4->{Además, $\eta_A\colon A\to NA$ dada por $\eta_A(a)=u_a$}.
 \end{frame}
 
 \begin{frame}
@@ -201,14 +202,14 @@ f\colon A\to B
 \]
 suprayectivo.
 \end{block}
-Sea $A_j=\{a\in A\mid j(a)=a\}$. Si $j\in NA$,
+\onslide<2->{Sea $A_j=\{a\in A\mid j(a)=a\}$. Si $j\in NA$,
 \[
 j\colon A\to A_j \mbox{ es suprayectivo}\quad \mbox{ y }\quad A_j\in \Frm
 \]
-$A_j$ es el \emph{marco cociente}. En particular,
+$A_j$ es el \emph{marco cociente}}. \onslide<3->{En particular,
 \[
 A_{u_a}=\mbox{c. cerrado}, \quad A_{v_a}=\mbox{c. abierto},\quad A_{w_a}=\mbox{c. regular}.
-\]
+\]}
 \end{frame}
 
 \begin{frame}{Filtros}
@@ -220,11 +221,11 @@ A_{u_a}=\mbox{c. cerrado}, \quad A_{v_a}=\mbox{c. abierto},\quad A_{w_a}=\mbox{c
       \item Si $a, b\in F$, entonces $a\wedge b\in F$.
     \end{enumerate}
   \end{block}
-  En particular, decimos que $F$ es un \textbf{filtro abierto} si: 
+  \onslide<2->{En particular, decimos que $F$ es un \textbf{filtro abierto} si: 
   \[
     X\subseteq A \mbox{ dirigido tal que }\bigvee X\in F\Rightarrow F\cap X\neq \emptyset.
   \]
-  $A^\wedge=$Filtros abiertos en $A$.
+  $A^\wedge=$Filtros abiertos en $A$}.
 \end{frame}
 
 \begin{frame}{Filtros de admisibilidad}
@@ -235,14 +236,14 @@ Sean $A\in \Frm$ y $j\in NA$.
   \[
     \nabla(j)=\{a\in A\mid j(a)=1\}.
   \]
-  \item Para $j, k\in NA$ definimos 
+  \item<2-> Para $j, k\in NA$ definimos 
   \[
     j\sim k\iff \nabla(j)=\nabla(k)
   \]
-  \item Decimos que $f\in [\; j \;]$ es un \textbf{núcleo ajustado} si para todo $k\in [\; j \;]$, $f\leq k$. Equivalentemente
+  \item<3-> Decimos que $f\in [\; j \;]$ es un \textbf{núcleo ajustado} si para todo $k\in [\; j \;]$, $f\leq k$. \onslide<4->{Equivalentemente
   \[
     f \mbox{ es ajustado} \iff f=\bigvee\{v_a\mid a\in F=\nabla(j)\}.
-  \]
+  \]}
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -280,28 +281,33 @@ Sean $A\in \Frm$ y $j\in NA$.
 \begin{block}{Proposición}
 \begin{enumerate}
   \item Si $F\in A^\wedge$, entonces $F=\nabla(j)$.
-  \item $F=\nabla(j)\in A^\wedge$ si y solo si $A_j$ es compacto\footnotemark[1]. 
-  \item $F=\nabla(j)\in A^\wedge$ si y solo si para todo $k\in [\; j \;]$ se tiene que $v_F\leq k$, donde
-  \[
-    v_F=f^\infty\quad \mbox{ y }\quad v_F\mbox{ es ajustado}.
-  \]
+  \item $F=\nabla(j)\in A^\wedge$ si y solo si $A_j$ es compacto\footnotemark[3]. 
+  \item $F=\nabla(j)\in A^\wedge$ si y solo si para todo $k\in [\; j \;]$ se tiene que $v_F\leq k$, donde $v_F=f_F^\infty$.
 \end{enumerate}
 \end{block}
 
-  \only<1>{
+  \only<2>{
     \begin{block}{Teorema [Hoffman-Mislove]}
       Sea $A\in \Frm$ y $S=\pt A\in \Top$. Existe una correspondencia biyectiva entre $Q\in \mathcal{Q}S$ y $F\in A^\wedge$.
     \end{block}
+    \[
+      Q\longleftrightarrow F
+    \]
   }
 
   % Segunda versión (extendida)
-  \only<2->{
+  \only<3>{
     \begin{block}{Teorema [Hoffman-Mislove (extendido)]}
       Sea $A\in \Frm$ y $S=\pt A\in \Top$. Existe una correspondencia biyectiva entre $Q\in \mathcal{Q}S$ y núcleos ajustados.
     \end{block}
-  }
-  \footnotetext[1]{$A\in \Frm$ es compacto si y solo si para $X\subseteq A$, $1=\bigvee X$.}
+    \[
+      Q\longleftrightarrow F\longleftrightarrow v_F
+    \]}
+  
+  \footnotetext[3]{$A\in \Frm$ es compacto si y solo si para $X\subseteq A$, $1=\bigvee X$.}
 \end{frame}
+
+\subsection{Parche trivial}
 \begin{frame}[fragile]{Marco de parches}
 Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches} de $A$, donde $PA$ está generado por
 \[
@@ -312,12 +318,13 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches} de $A$
 A \arrow[r] \arrow[rr, "\eta_A", bend left] & PA \arrow[r] & NA
 \end{tikzcd}
 \]
-\begin{block}{Definición}
-    $A$ es \textbf{parche trivial} si y solo si $A\simeq PA$.
+
+\onslide<2->{\begin{block}{Definición}
+    $A$ es \textbf{parche trivial} si y solo si $A\simeq PA$. \only<3->{\alert<3->{¿Cuándo sucede esto?}}
       \[
         ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
       \]
-\end{block}
+\end{block}}
 \end{frame}
 
 \begin{frame}{El diccionario}
@@ -330,9 +337,8 @@ A \arrow[r] \arrow[rr, "\eta_A", bend left] & PA \arrow[r] & NA
       \item<4-> pbase$=\{U\cap Q'\}$ 
       \item<6-> Empaquetado ($^pS=S$)
       \item<8-> $Q\in \mathcal{Q}S\Rightarrow Q\in \mathcal{C}S$
-      \item<10-> $^{pp}S=\,^{ppp}S$
-      \item<12-> $T_2\Rightarrow $Empaquetado
-      \item<14-> Subespacios compactos cerrados
+      \item<10-> $T_2\Rightarrow $Empaquetado
+      \item<12-> Subespacios compactos cerrados
     \end{itemize}
   \end{block}
 
@@ -342,14 +348,54 @@ A \arrow[r] \arrow[rr, "\eta_A", bend left] & PA \arrow[r] & NA
       \item<3-> Marco de parches ($PA$)
       \item<5-> Pbase$=\{u_a\wedge v_F\}$
       \item<7-> Parche trivial ($PA\cong A$)
-      \item<9-> $u_d=v_F$
-      \item<11-> ¿$PPA=PPPA$?
-      \item<13-> ¿$\mathbf{(H)}\Rightarrow $Eficiente?
-      \item<15-> \alert<16->{Cocientes compactos cerrados.}
+      \item<9-> $u_a=v_F$
+      \item<11-> ¿$\mathbf{(H)}\Rightarrow $Parche trivial?
+      \item<13-> \alert<16->{Cocientes compactos cerrados.}
     \end{itemize}
   \end{block}
 \end{columns}
 \end{frame}
+
+\begin{frame}{Parche trivial vs otras propiedades}
+  \begin{block}{Proposición [Caso espacial ($A=\mathcal{O}S$)]}
+    Sea $S\in \Top$. Las siguientes afirmaciones se cumplen:
+    \begin{enumerate}
+      \item Si $S$ es $T_2$, entonces $\mathcal{O}S$ es parche trivial.
+      \item Si $S$ es $T_1$, sobrio y empaquetado, entonces $\mathcal{O}S$ es parche trivial.
+    \end{enumerate}
+    \end{block}
+
+    \onslide<2->{
+    \begin{block}{Proposición [Caso general]}
+      Sea $A\in \Frm$. Las siguientes afirmaciones se cumplen:
+      \begin{enumerate}
+        \item Si $A$ cumple $\mathbf{(reg)}$ y $j\in NA$. Si $\nabla(j)\in A^\wedge$, entonces $j=u_a$, donde $a=j(0)$.
+        \item Si $A$ cumple $\mathbf{(aju)}$, entonces $j\in NA$ es ajustado.
+      \end{enumerate}
+    \end{block}}
+    \end{frame}
+
+\begin{frame}{Comparando $u_a$ y $v_F$}
+\begin{block}{Proposición}
+Si $A\in \Frm$ y $j\in NA$, las siguientes se cumplen:
+\begin{enumerate}
+  \item<2-> $u_a\leq j \iff a\leq j(0)$
+  \item<3-> $v_a\leq j \iff j(a)=1\iff a\in \nabla(j)$.
+\end{enumerate}
+\end{block}
+
+\onslide<4->{Para $f_F=\dot{\bigvee}\{v_a\mid a\in F=\nabla(j)\}$, tenemos
+\[
+f^0=id,\quad f^{\alpha+1}=f\circ f^\alpha,\quad f^\lambda=\bigvee\{f^\alpha\mid\alpha<\lambda\}.
+\]
+Así $v_F=f^\infty$}. \onslide<5->{De manera similar, 
+\[
+d(0)=0,\quad d(\alpha+1)=f(d(\alpha)),\quad d(\lambda)=\bigvee\{d(\alpha)\mid \alpha <\lambda\}.
+\]}
+\onslide<6->{Si $d=f^\infty(0)=v_F(0)$, se cumple que 
+$u_d\leq v_F$.} \onslide<7->{\alert<7->{¿Cuándo $v_F\leq u_d$?}} 
+\end{frame}
+
 
 \section{Marcos eficientes}
 
@@ -357,36 +403,36 @@ A \arrow[r] \arrow[rr, "\eta_A", bend left] & PA \arrow[r] & NA
 \begin{block}{Definición [\cite{R.S.3}, Def. 8.2.1]}
 Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
 \begin{enumerate}
-    \item $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde
+    \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d(\alpha)\vee x=1$, donde
     \[
-    d=d(\alpha)=f^\alpha(0).
+    d(\alpha)=f^\alpha(0).
     \]
-    \item $A$ es $\alpha$\textbf{-eficiente} si cada $F\in A^\wedge$ es $\alpha$-eficiente.
-    \item $A$ es \textbf{eficiente} si es $\alpha$-eficiente para algún $\alpha\in \Ord$.
+    \item<3-> $A$ es $\alpha$\textbf{-eficiente} si cada $F\in A^\wedge$ es $\alpha$-eficiente.
+    \item<4-> $A$ es \textbf{eficiente} si es $\alpha$-eficiente para algún $\alpha\in \Ord$.
 \end{enumerate}
 \end{block}
 
-\begin{block}{Proposición [\cite{R.S.3}, Lema 8.2.2]}
+\onslide<5->{\begin{block}{Proposición [\cite{R.S.3}, Lema 8.2.2]}
 \[
     A \mbox{ es eficiente}\quad \iff\quad A \mbox{ es parche trivial}.
 \]
-\end{block}
+\end{block}}
 \end{frame}
 
 
 \begin{frame}{Propiedades de los marcos eficientes}
-Este es in resumen de las propiedades que Sexton menciona en \cite{R.S.3}
+Este es un resumen de las propiedades que Sexton menciona en \cite{R.S.3}
 \begin{itemize}
-\item En el caso espacial ($A=\mathcal{O}S$),
+\item<2-> En el caso espacial ($A=\mathcal{O}S$),
 \[
 \begin{split}
 \mathcal{O}S \mbox{ es 0-eficiente } & \iff S=\emptyset \\
-\mathcal{O}S \mbox{ es 1-eficiente } & \iff S \mbox{ is }T_2 \\
+\mathcal{O}S \mbox{ es 1-eficiente } & \iff S \mbox{ es }T_2 \\
 \mathcal{O}S \mbox{ es eficiente } & \iff S \mbox{ es empaquetado y apilado}.
 \end{split}
 \]
 
-\item Para $A\in \Frm$ arbitrario
+\item<3-> Para $A\in \Frm$ arbitrario
 \[
 \begin{split}
 A\mbox{ es }\mathbf{(reg)} & \Rightarrow A \mbox{ es eficiente}\\
@@ -397,52 +443,69 @@ A\mbox{ es eficiente } & \Rightarrow A\mbox{ es } T_1
 \end{itemize}
 \end{frame}
 
+\begin{frame}{¿Qué significa ser $\alpha$-eficiente?}
+\[
+1-\mbox{Eficiente}\Rightarrow 2-\mbox{Eficiente}\Rightarrow \cdots \Rightarrow \alpha-\mbox{Eficiente}\Rightarrow \cdots \Rightarrow T_1
+\]
+
+\onslide<2->{
+\begin{block}{Proposición}
+Sean $A\in \Frm$ y $j, k\in NA$. 
+\begin{enumerate}
+  \item<3-> Si $j\leq k$, entonces $\nabla(j)\subseteq \nabla(k)$.
+  \item<4-> Si $j$ es ajustado, se cumple que 
+\[
+j\leq k\iff \nabla(j)\subseteq \nabla(k).
+\]
+\end{enumerate}
+\end{block}}
+\end{frame}
+
+\begin{frame}
+Sean $A\in \Frm$ y $F\in A^\wedge$.
+\begin{itemize}
+\item<2-> Si $A$ es 1-eficiente, para $x\in F$ se cumple que $x\vee d(1)=1$, es decir,
+\onslide<3->{\[
+\begin{split}
+u_{d(1)}(x)=1& \Rightarrow x\in \nabla(u_{d(1)})\Rightarrow \nabla(v_F)=F\subseteq \nabla(u_{d(1)})\\
+& \Rightarrow v_F\leq u_{d(1)}\\
+& \Rightarrow v_F(0)=d(\infty)\leq u_{d(1)}=d(1).\\
+& \Rightarrow d(\infty)= d(1).
+\end{split}
+\]}
+\onslide<4->{Además, 
+\[
+u_{d(1)}\leq u_d\leq v_F\Rightarrow \nabla(u_{d(1)})\subseteq \nabla(u_d)\subseteq \nabla(v_F)=F.
+\]}
+\end{itemize}
+\onslide<5->{Por lo tanto $\nabla(u_{d(1)})=F$}.
+\end{frame}
+
+\begin{frame}{La pregunta inicial}
+  \alert{¿Para qué son eficientes los marcos eficientes?}
+\begin{itemize}
+\item<2-> Bajo eficiencia, la sucesión $d(\alpha)$ se estabiliza en el grado de eficiencia.
+\item<3-> Proporciona el menor núcleo cerrado que admite a un filtro abierto.
+\item<4-> Para cada filtro abierto $F$, proporciona un cociente compacto cerrado.  
+\end{itemize}
+\onslide<5->{Lo ``malo...:'': el grado de eficiencia puede ser arbitrariamente grande \Large{\frownie{}}}
+\end{frame}
+
 \begin{frame}{Más propiedades de los marcos eficientes}
 \begin{block}{Proposición}
 Si $A\in \Frm$ es eficiente y $j\in NA$, entonces $A_j$ es eficiente.
 \end{block}
-\begin{proof}
-\begin{itemize}
-\item Tomamos $x\in F\in A_j^\wedge$ y $F\subseteq j_*[F]\in A^\wedge$.
-\item Para $f^\infty$ y $f_j^\infty$ como antes, tenemos
-\[
-d=d(\alpha)\geq d_j(\alpha)=d_j
-\]
-\item Ya que $A$ es eficiente, entonces $d_j\vee x=1$, para todo $x\in j_*[F]$. En particular, para todo $x\in F$.
-\item Por lo tanto, $d\vee x=1$.
-\end{itemize}
-\end{proof}
 
-%\begin{block}{Proposition}
-%If $A, B\in \Frm$ are tidy, then $A\oplus B$ is tidy.
-%\end{block}
-\end{frame}
-
-\begin{frame}
 \begin{block}{Proposición}
 Si $\{A_i\}_{i\in I}$ es una familia de marcos eficientes, entonces $\bigoplus_{i\in I}A_i$ es un marco eficiente.
 \end{block}
 
-\begin{proof}
-Sabemos que $\bigoplus A_i\in \Frm$ y $(\iota_i\colon A_i\to \bigoplus A_i)\in Frm$. Entonces
-\begin{itemize}
-\item Existe $(\iota_i)_*$ y para $F\in (\bigoplus A_i)^\wedge$, $(\iota_i)_*[F]\in A_i^\wedge$.
-\item Consideramos $\sup\{\alpha_i\}$ como el grado de eficiencia de cada $A_i$.
-\item Por la eficiencia, si $x_i\in (\iota_i)_*[F]$, entonces $x_i\vee d_i=1$.
-\item Consideramos $\langle x_i \rangle\in F$.
-\item Verificamos que $\langle d_i\rangle\leq f_F^\alpha(\iota_i(0))=d(\alpha)=d$.
-\item Por lo tanto $\langle x_i\rangle \vee d=1$.
-\end{itemize}
-\end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{block}{Corolario}
 Si $A$ es $\mathbf{(fH)}$, $A$ es eficiente.
 \end{block}
-\begin{proof}
-Bajo $\mathbf{(fH)}$ todos los cocientes compactos son cerrados.
-\end{proof}
 
 \[\begin{tikzcd}
 	& {\mathbf{(H)}} \\
@@ -458,83 +521,26 @@ Bajo $\mathbf{(fH)}$ todos los cocientes compactos son cerrados.
 \end{tikzcd}\]
 \end{frame}
 
-\begin{frame}{Cocientes compactos}
-  \[
-  \mbox{Eficiente} \iff \mbox{ P. trivial }\iff u_d=v_F
-  \]
-
-  Notemos que
-  \[
-  A_{u_d} \mbox{ es un cociente cerrado}\quad \mbox{ y }\quad A_{v_F} \mbox{ es un cociente compacto.}
-  \]
-  Si $A$ es eficiente, tenemos un cociente compacto y cerrado.
-\end{frame}
-
-\begin{frame}{Marcos KC}
-En \cite{A.W.}, Wilansky menciona que $S\in \Top$ es \textbf{KC} si cada subconjunto compacto es cerrado. 
-
-\begin{block}{Definición}
-$A\in \Frm$ es un \textbf{marco KC} si cada cociente compacto es cerrado.
-\end{block}
-\[
-\mathbf{KC}\Rightarrow \mbox{Eficiente}
-\]
-\begin{block}{Proposición}
-Si $A\in \Frm$ es $\mathbf{KC}$ y $j\in NA$, entonces $A_j$ es $\mathbf{KC}$.
-\end{block}
-\end{frame}
-
-\begin{frame}
-\begin{proof}
-\begin{itemize}
-  \item Consideramos $k\in NA_j$ tal que $\nabla(k)\in A_j^\wedge$.
-  \item Si $\nabla(k)\in A_j^\wedge \Rightarrow j_*[\nabla(k)]\in A^\wedge$\footnotemark[3].
-  \item Tomamos $l=j_*\circ k\circ j\in NA$ y $\nabla(l)\in A^\wedge\Rightarrow l=u_a$ para algún $a\in A$.
-  \item Además $a=k(j(a))$.
-  \item Para $x, b\in A_j$ con $b=j(a)$ tenemos $u_b(x)=k(x)$. 
-\end{itemize}
-\end{proof}
-
-\footnotetext[3]{\textbf{Proposición:} Para $j\in NA$ y $k\in NA_j$. Si $\nabla(k)\in A_j^\wedge$, $\nabla(j_*kj)\in A^\wedge$.}
-\end{frame}
-
-\begin{frame}[fragile]
-Podemos construir el diagrama (ver \cite{H.S.V})
-\[\begin{tikzcd}
-	A && {A_F} \\
-	&&& \mathcal{O}Q \\
-	{\mathcal{O}S} && {\mathcal{O}S_\nabla}
-	\arrow["{v_F}", from=1-1, to=1-3]
-	\arrow["{U_A}"', from=1-1, to=3-1]
-	\arrow["{\simeq }", from=1-3, to=2-4]
-	\arrow["g", from=1-3, to=3-3]
-	\arrow["{v_\nabla}"', from=3-1, to=3-3]
-	\arrow["{\simeq }"', from=3-3, to=2-4]
-\end{tikzcd}\]
-donde $g=(U_A)_*\circ (v_\nabla)_{\mid A_F}$.
-\[
-\mbox{¿Qué pasa si } A \mbox{ tiene la propiedad }\mathbf{(H)}?
-\]
-\end{frame}
-
-\begin{frame}
-\begin{block}{Teorema}
-Sea $A$ un marco con la propiedad $\mathbf{(H)}$, entonces para cada $F\in A^\wedge$ y su correspondiente $Q\in \mathcal{Q}S$, tenemos
-\[
-\mathcal{O}Q\simeq \uparrow{Q'},
-\]
-es decir, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un cociente compacto y cerrado de un espacio Hausdorff.
-\end{block}
-\end{frame}
-
 \subsection{Ejemplos}
 \begin{frame}{Algunos ejemplos}
 \begin{itemize}
-\item Con la topología cofinita vemos que $PA= NA$.
-\item Con la topología conumerable vemos que $\pt NA\subseteq \pt PA$.
-\item La topología subregular de los reales proporciona un marco 1-eficiente que no es regular. 
-\item Con la topología máximo compacta tenemos un marco 2-eficiente que no es 1-eficiente.
-\item La topología guía sobre un árbol muestra que existen marcos $\alpha$-eficientes.
+\item Con la topología cofinita vemos que $PA=NA$.
+\item<2-> Con la topología conumerable vemos que $\pt NA\subseteq \pt PA$.
+\[
+ \alert{\mbox{En ambos casos }A \mbox{ no es } 1\mbox{-eficiente y } PA \mbox{ es espacial.}}
+\] 
+\item<3-> La topología subregular de los reales proporciona un marco 1-eficiente que no es regular. 
+\[
+\alert{1\mbox{-eficiente}\nRightarrow \mathbf{(reg)}}
+\]
+\item<4-> Con la topología máximo compacta tenemos un marco 2-eficiente que no es 1-eficiente.
+\[
+\alert{2\mbox{-eficiente}\nRightarrow \mathbf{(H)}}
+\]
+\item<5-> La topología guía sobre un árbol muestra que existen marcos $\omega$-eficientes.
+\[
+\alert{\omega\mbox{-eficiente}\nRightarrow n\mbox{-eficiente para algún } n\in \mathbb{N}}
+\]
 \end{itemize}
 \end{frame}
 
@@ -547,9 +553,9 @@ es decir, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un c
 
 \bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
 
-\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
 
-\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+%\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
 
 \bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
 
@@ -569,11 +575,84 @@ es decir, el marco de abiertos del espacio de puntos de $A_F$ es isomorfo a un c
 
 \bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
 
-\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
+%\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
 
 \bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
 \end{thebibliography}
 \end{frame}
 
+%\begin{frame}[plain, standout]
+%\centering
+
+%{\Huge \bfseries ¡Muchas gracias!}\\[1cm]
+
+%{\Large
+%\textit{Preguntas, comentarios o sugerencias} \\[1cm]
+%\texttt{juan.monter2902@alumnos.udg.mx}
+%}
+%\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\bfseries \smiley ¡Muchas gracias! \smiley}\\[1cm]
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      \scalebox{4}{\faGithub} \par\bigskip
+      \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+
+\appendix
+\section*{Apéndice: Definiciones de respaldo}
+
+% --- Orden parcial ---
+\begin{frame}{La topología subregular de $\mathbb{R}$}
+  Consideramos $S=\mathbb{R}$ con la topología generada por la base
+  \[
+    \mathcal{O}_{sr}S=\{U\cup (\mathbb{Q}\cap V)\mid U, V\in \mathcal{O}S\}.
+  \]
+  y $\mathcal{O}S$ es la topología métrica.
+  \begin{itemize}
+    \item $\mathcal{O}S\subseteq \mathcal{O}_{sr}S$.
+    \item $(S, \mathcal{O}_{sr}S)$ es $T_2$, entonces $\mathcal{O}_{sr}S$ es 1-eficiente.
+    \item $\mathcal{O}S_{sr}$ no es ajustado.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Topología máximo compacta}
+  Sea $S=\{x, y\} \cup \mathbb{N}^2$, donde $(x, y)\notin \mathbb{N}^2$ y $x\neq y$. Definimos 
+  \[
+    R_n=\{(m,n)\mid m\in \mathbb{N}\}.
+  \]
+  Tomamos 
+  \[
+    \mathcal{O}S=\mathcal{P}\mathbb{N}^2\cup \mathcal{U}_x\cup \mathcal{V}_y,
+  \]
+  donde 
+  \[
+    \mathcal{U}_x=\{U\subseteq S\mid x\in U \mbox{ y }U\cap R_n \mbox{ es cofinito }\forall n\in \mathbb{N}\}, 
+  \]
+  y
+  \[
+    \mathcal{V}_y=\{V\subseteq S\mid y\in V \mbox{ y }R_n\subseteq V \mbox{ para casi todo } n\in \mathbb{N}\}.
+  \]
+\end{frame}
+
+\begin{frame}{Topología guía sobre un árbol}
+ $\mathbb{T}$ es un árbol si para cada nodo $x$ el conjunto 
+\[
+  \mathcal{P}(x)=\{y\in \mathbb{T}\mid y\leq x\}
+\]
+es linealmente ordenado. Denotamos por 
+\[
+  I(x)=\{y\in \mathbb{T}\mid y \mbox{ es sucesor inmediato de } x\}.
+\]
+Para $*\notin \mathbb{T}$, definimos $S=\mathbb{T}\cup \{*\}$ y la familia $\mathcal{O}S$ de subconjuntos $U\subseteq S$ tales que:
+\begin{itemize}
+  \item $(\forall x\in \mathbb{T})[x\in U\Rightarrow I(x)\setminus U \mbox{ es numerable}]$.
+  \item $*\in U\Rightarrow (\forall x\in \mathbb{T})[I(x)\setminus U \mbox{ es numerable}]$.
+\end{itemize}
+$\mathcal{O}S$ es una topología sobre $S$, llamada \textbf{topología guía} sobre el árbol $\mathbb{T}$.
+\end{frame}
 
 \end{document}
