@@ -1,16 +1,17 @@
-\begin{block}{Corolario}
-Si $A$ es $\mathbf{(fH)}$, $A$ es eficiente.
-\end{block}
+\frametitle{Marco de parches}
+Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches} de $A$, donde $PA$ está generado por
+\[
+\mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}
+\]
+\[
+\begin{tikzcd}
+A \arrow[r] \arrow[rr, "\eta_A", bend left] & PA \arrow[r] & NA
+\end{tikzcd}
+\]
 
-\[\begin{tikzcd}
-	& {\mathbf{(H)}} \\
-	{\mathbf{(reg)}} & {\mathbf{(fH)}} & {\text{Eficiente}} \\
-	& {\mathbf{(aju)}}
-	\arrow[Rightarrow, dotted, from=1-2, to=2-3]
-	\arrow[Rightarrow, from=2-1, to=1-2]
-	\arrow[Rightarrow, from=2-1, to=2-2]
-	\arrow[Rightarrow, from=2-1, to=3-2]
-	\arrow[Rightarrow, from=2-2, to=1-2]
-	\arrow[Rightarrow, from=2-2, to=2-3]
-	\arrow[Rightarrow, from=3-2, to=2-3]
-\end{tikzcd}\]
+\onslide<2->{\begin{block}{Definición}
+    $A$ es \textbf{parche trivial} si y solo si $A\simeq PA$. \only<3->{\alert<3->{¿Cuándo sucede esto?}}
+      \[
+        ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
+      \]
+\end{block}}
