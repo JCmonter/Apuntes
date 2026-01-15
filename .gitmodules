@@ -1,0 +1,19 @@
+[submodule "Art-culo-marcos-Hausdorff"]
+	path = Art-culo-marcos-Hausdorff
+	url = https://github.com/JCmonter/Art-culo-marcos-Hausdorff.git
+
+[submodule "Categor-as-2025"]
+	path = Categor-as-2025
+	url = https://github.com/JCmonter/Categor-as-2025.git
+
+[submodule "Marcos-book"]
+	path = Marcos-book
+	url = https://github.com/Dr-pik/Marcos-book.git
+
+[submodule "Tesis-doctorado"]
+	path = Tesis-doctorado
+	url = https://github.com/JCmonter/Tesis-doctorado.git
+
+[submodule "Notas-Teoria-de-Topos"]
+	path = Notas-Teoria-de-Topos
+	url = https://github.com/JCmonter/Notas-Teoria-de-Topos.git
