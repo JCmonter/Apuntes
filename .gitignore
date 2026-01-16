@@ -1,0 +1,56 @@
+# =========================
+# System files
+# =========================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux / editor backups
+*~
+*.swp
+*.swo
+
+# =========================
+# VS Code
+# =========================
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# =========================
+# LaTeX auxiliary files
+# (NO PDFs — esos se conservan)
+# =========================
+
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.bcf
+*.run.xml
+
+# =========================
+# Temporary / local folders
+# =========================
+
+tmp/
+temp/
+backup/
+Avance-1/
