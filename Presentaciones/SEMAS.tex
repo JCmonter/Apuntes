@@ -39,6 +39,24 @@
 }
 
 
+% Si quieres que todas las imágenes tengan la misma altura:
+\newcommand{\personimg}[2]{%
+  \begin{minipage}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[height=3.2cm,keepaspectratio]{#1}\\[-2pt]
+    {\footnotesize #2}
+  \end{minipage}
+}
+
+% Variante para 4 imágenes (2x2)
+\newcommand{\personimgsmall}[2]{%
+  \begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[height=3.0cm,keepaspectratio]{#1}\\[-2pt]
+    {\footnotesize #2}
+  \end{minipage}
+}
+
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\spec}{spec}
@@ -77,8 +95,157 @@
 \tableofcontents %Imprime la tabla de contenido
 \end{frame}
 
+\section{¿Para qué estudiar topología sin puntos?}
+
+\begin{frame}{Nacimiento de la topología clásica}
+\centering
+
+% --- Fila de 3 imágenes ---
+\personimg{Imagenes/gauss.jpg}{Gauss}\hfill
+\personimg{Imagenes/Poincare.png}{Poincar\'e}\hfill
+\personimg{Imagenes/Hausdorff.jpg}{Hausdorff}
+
+\vspace{0.6cm}
+
+\begin{itemize}\justifying
+  \item Surge del estudio geométrico y analítico de deformaciones continuas.
+  \item Se formaliza la noción de \emph{espacio topológico}: puntos + abiertos.
+\end{itemize}
+
+\vspace{0.1cm}
+\centering{\small\itshape La topología clásica estudia espacios como conjuntos de puntos organizados por abiertos.}
+\end{frame}
+
+\begin{frame}{Nacimiento de la topología ``sin puntos''}
+\centering
+
+\personimg{Imagenes/Isbell.png}{Isbell}\hfill
+\personimg{Imagenes/Tarski.jpg}{Tarski}\hfill
+\personimg{Imagenes/Mstone.jpg}{Stone}
+
+\vspace{0.6cm}
+
+\begin{itemize}\justifying
+  \item Se observa que los abiertos forman estructuras algebraicas ricas.
+  \item Comienza el enfoque: estudiar “espacios” a través de la estructura de abiertos.
+\end{itemize}
+
+\vspace{0.1cm}
+\centering{\small\itshape La topología puede desarrollarse sin mencionar puntos explícitamente.}
+\end{frame}
+
+\begin{frame}{Actualidad de la topología sin puntos}
+\centering
+
+\personimg{Imagenes/Simmons.png}{Simmons}\hfill
+\personimg{Imagenes/Johnstone.jpg}{Johnstone}\hfill
+\personimg{Imagenes/Picado.jpg}{Picado}
+
+\vspace{0.55cm}
+
+\begin{itemize}\justifying
+  \item Teoría consolidada: libros, cursos y herramientas modernas.
+  \item Investigación activa y conexiones con lógica, computación y geometría.
+\end{itemize}
+
+\vspace{0.1cm}
+\centering{\small\itshape La topología sin puntos es hoy un área viva de investigación.}
+\end{frame}
+
+\begin{frame}{Topología sin puntos en México}
+\centering
+
+\personimg{Imagenes/MITAC.jpeg}{MITAC 2024}\hfill
+\personimg{Imagenes/FandL.jpg}\hfill
+\personimg{Imagenes/Congreso.jpg}{58 Congreso SMM}
+
+\vspace{0.55cm}
+
+\begin{itemize}\justifying
+    \item Cada vez más personas se interesan en aprender sobre esta área.
+    \item En CUCEI se estudian axiomas de separación, construcciones de parches, .
+\end{itemize}
+
+\vspace{0.1cm}
+\centering{\small\itshape ¿Consideras que en algún momento has realizado topología sin puntos?}
+\end{frame}
+
+\begin{frame}{Topología, continuidad y axiomas de separación}
+ \begin{block}{Definición:}
+    Una \textbf{topología} sobre un conjunto $S$ es una familia $\tau \subseteq \mathcal{P}(S)$ tal que:
+    \begin{itemize}
+      \item $\varnothing, S \in \tau$.
+      \item Si $U,V \in \tau$, entonces $U \cap V \in \tau$.
+      \item Si $\{U_i\}_{i \in I} \subseteq \tau$, entonces $\bigcup_{i \in I} U_i \in \tau$.
+    \end{itemize}
+  \end{block}
+  \onslide<2->{Al par $(S, \tau)$ se le llama \textbf{espacio topológico}.} \onslide<3->{De hecho,
+  \[
+  (\tau, \subseteq, \bigcup, \cap, \varnothing, X)
+  \] 
+  es un \alert<3->{marco}.}
+\end{frame} 
+
+\begin{frame}{Primer encuentro con la continuidad}
+  \textbf{En cálculo:} $f:\mathbb{R}\to\mathbb{R}$.
+
+  \begin{block}{Definición $\varepsilon$–$\delta$}
+    $f$ es continua en $a$ si
+    \[
+      \forall \varepsilon>0 \;\; \exists \delta>0 \;\; 
+      |x-a|<\delta \;\Rightarrow\; |f(x)-f(a)|<\varepsilon.
+    \]
+  \end{block}
+
+  \uncover<2->{\centering
+    \textcolor{red!70!black}{\Large ``Debemos exhibir los elementos $\varepsilon$-$\delta$ de la definición''}
+  }
+\end{frame}
+
+\begin{frame}{Continuidad en espacios métricos}
+  \textbf{En análisis matemático:} $f:(X,d_1)\to(Y,d_2)$.
+
+  \begin{block}{Definición $\varepsilon$–$\delta$ (versión métrica)}
+    $f$ es continua en $a$ si
+    \[
+      \forall \varepsilon>0 \;\; \exists \delta>0 \;\; 
+      d_1(x,a)<\delta \;\Rightarrow\; d_2(f(x),f(a))<\varepsilon.
+    \]
+  \end{block}
+
+  \uncover<2->{\centering
+    \textcolor{red!70!black}{\Large ``La idea es la misma y sigue siendo técnica''}
+  }
+\end{frame}
+
+\begin{frame}{Caracterización topológica}
+  \begin{block}{Teorema}
+    $f:(X,d_1)\to(Y,d_2)$ es continua si y solo si 
+    \[
+      \forall\; V \;\text{abierto en } Y, \quad f^{-1}(V)\;\text{es abierto en } X.
+    \]
+  \end{block}
+
+  \uncover<2->{\centering
+    \textcolor{blue!60!black}{\Large ``Una condición global que no menciona puntos''}
+  }
+
+  \vspace{1em}
+
+  \uncover<3->{\centering
+    \textbf{¿De qué manera prefieres demostrar continuidad?}}
+\end{frame}
+
+\begin{frame}{Axiomas de separación}
+Los axiomas de separación son nociones topológicas que permiten distinguir puntos distintos (o conjuntos cerrados)
+a través de conjuntos abiertos.
+
+
+\end{frame}
+
 \section{¿Qué es la topología sin puntos?}
-\begin{frame}{¿Por qué hablar de ``topología sin puntos''?}
+
+\begin{frame}{¿Por qué topología sin puntos?}
   \centering
   \begin{columns}[c]
     % --- Punto ---
@@ -159,23 +326,6 @@
 \onslide<6->{LDM: Ley Distributiva de marcos}
 \end{frame}
 
-\begin{frame}{¿Que es una topología?}
- \begin{block}{Topología}
-    Una \textbf{topología} sobre un conjunto $S$ es una familia $\tau \subseteq \mathcal{P}(S)$ tal que:
-    \begin{itemize}
-      \item $\varnothing, S \in \tau$.
-      \item Si $U,V \in \tau$, entonces $U \cap V \in \tau$.
-      \item Si $\{U_i\}_{i \in I} \subseteq \tau$, entonces $\bigcup_{i \in I} U_i \in \tau$.
-    \end{itemize}
-  \end{block}
-  \onslide<2->{Al par $(S, \tau)$ se le llama \textbf{espacio topológico}.} \onslide<3->{De hecho,
-  \[
-  (\tau, \subseteq, \bigcup, \cap, \varnothing, X)
-  \] 
-  es un marco.} \onslide<4->{A $\tau=\mathcal{O}S$ se le llama el \textbf{marco de abiertos} de $S$.}
-
-\end{frame} 
-
 \begin{frame}{Detalles rigurosos}
   \begin{itemize}
     \item<1-> \textbf{Morfismos de marcos:} funciones que preservan supremos y finitos ínfimos.
@@ -212,8 +362,6 @@
   \uncover<6->{\centering\textcolor{blue!60!black}{\large ``La topología sin puntos y la topología clásica se conectan por esta adjunción''}}
 \end{frame}
 
-
-\section{¿Para qué estudiar topología sin puntos?}
 \begin{frame}{¿Por qué estudiamos los marcos?}
     \begin{itemize}
         \item Estructuras simples.
@@ -244,56 +392,6 @@ La topología sin puntos permite ``traducir'' nociones clásicas de la categorí
   \uncover<4->{\centering
     \textbf{\Large Seguramente sí...}
   }
-\end{frame}
-
-\begin{frame}{Primer encuentro con la continuidad}
-  \textbf{En cálculo:} $f:\mathbb{R}\to\mathbb{R}$.
-
-  \begin{block}{Definición $\varepsilon$–$\delta$}
-    $f$ es continua en $a$ si
-    \[
-      \forall \varepsilon>0 \;\; \exists \delta>0 \;\; 
-      |x-a|<\delta \;\Rightarrow\; |f(x)-f(a)|<\varepsilon.
-    \]
-  \end{block}
-
-  \uncover<2->{\centering
-    \textcolor{red!70!black}{\Large ``Así conocimos la continuidad por primera vez''}
-  }
-\end{frame}
-
-\begin{frame}{Continuidad en espacios métricos}
-  \textbf{En análisis matemático:} $f:(X,d_1)\to(Y,d_2)$.
-
-  \begin{block}{Definición $\varepsilon$–$\delta$ (versión métrica)}
-    $f$ es continua en $a$ si
-    \[
-      \forall \varepsilon>0 \;\; \exists \delta>0 \;\; 
-      d_1(x,a)<\delta \;\Rightarrow\; d_2(f(x),f(a))<\varepsilon.
-    \]
-  \end{block}
-
-  \uncover<2->{\centering
-    \textcolor{red!70!black}{\Large ``La idea es la misma, pero sigue siendo técnica''}
-  }
-\end{frame}
-
-\begin{frame}{Caracterización topológica}
-  \begin{block}{Teorema}
-    $f:(X,d_1)\to(Y,d_2)$ es continua si y solo si 
-    \[
-      \forall\; V \;\text{abierto en } Y, \quad f^{-1}(V)\;\text{es abierto en } X.
-    \]
-  \end{block}
-
-  \uncover<2->{\centering
-    \textcolor{blue!60!black}{\Large ``Una sola condición global simplifica todo''}
-  }
-
-  \vspace{1em}
-
-  \uncover<3->{\centering
-    \textbf{¿De qué manera prefieres demostrar continuidad?}}
 \end{frame}
 
 \begin{frame}{Topología clásica vs. topología sin puntos}
