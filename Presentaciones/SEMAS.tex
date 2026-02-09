@@ -113,7 +113,7 @@
 \end{itemize}
 
 \vspace{0.1cm}
-\centering{\small\itshape La topología clásica estudia espacios como conjuntos de puntos organizados por abiertos.}
+\onslide<2->{\centering{\small\itshape La topología clásica estudia espacios como conjuntos de puntos organizados por abiertos.}}
 \end{frame}
 
 \begin{frame}{Nacimiento de la topología ``sin puntos''}
@@ -131,7 +131,7 @@
 \end{itemize}
 
 \vspace{0.1cm}
-\centering{\small\itshape La topología puede desarrollarse sin mencionar puntos explícitamente.}
+\onslide<2->{\centering{\small\itshape La topología puede desarrollarse sin mencionar puntos explícitamente.}}
 \end{frame}
 
 \begin{frame}{Actualidad de la topología sin puntos}
@@ -149,7 +149,7 @@
 \end{itemize}
 
 \vspace{0.1cm}
-\centering{\small\itshape La topología sin puntos es hoy un área viva de investigación.}
+\onslide<2->{\centering{\small\itshape La topología sin puntos es hoy un área viva de investigación.}}
 \end{frame}
 
 \begin{frame}{Topología sin puntos en México}
@@ -167,7 +167,7 @@
 \end{itemize}
 
 \vspace{0.1cm}
-\centering{\small\itshape ¿Consideras que en algún momento has realizado topología sin puntos?}
+\onslide<2->{\centering{\small\itshape ¿Consideras que en algún momento has realizado topología sin puntos?}}
 \end{frame}
 
 \begin{frame}{Topología, continuidad y axiomas de separación}
@@ -250,7 +250,7 @@
   \end{itemize}
   \vspace{0.6em}
   \centering
-  \textcolor{blue!60!black}{\large¿Cómo se leen estas ideas \emph{sin puntos}?}
+  \onslide<2->{\textcolor{blue!60!black}{\large¿Cómo se leen estas ideas \emph{sin puntos}?}}
 \end{frame}
 
 \section{¿Qué es la topología sin puntos?}
@@ -329,11 +329,11 @@
   \onslide<5->\begin{block}{Definición:}
     Un \textbf{marco} es una retícula completa, $(A, \leq, \bigvee, \wedge, 0, 1)$,
     en la que los ínfimos finitos se distribuyen sobre supremos arbitrarios:
-    \[
-      a \wedge \bigvee_{i \in I} b_i \;=\; \bigvee_{i \in I} (a \wedge b_i).\qquad \mbox{(LDM)}
-    \]
+    \begin{equation}\label{LDM}
+      a \wedge \bigvee X =\bigvee\{a\wedge x\mid x\in X\}\quad \mbox{donde }a\in A\text{ y } X\subseteq A.
+    \end{equation}
   \end{block}
-\onslide<6->{LDM: Ley Distributiva de marcos}
+\onslide<6->{A (\ref{LDM}) se le conoce como \emph{Ley Distributiva de marcos (LDM)}.}
 \end{frame}
 
 \begin{frame}{Algunos aspectos adicionales}
@@ -743,6 +743,43 @@ En marcos
 \textcolor{blue!60!black}{\large La teoría de separación en $\Frm$ es más rica que en $\Top$.}}
 \end{frame}
 
+\begin{frame}{Topología sin puntos y otras áreas de las matemáticas}
+
+\begin{itemize}
+\item Lógica matemática.
+\item Teoría de categorías.
+\item Teoría de haces y topos.
+\item Ciencias de la computación.
+\item Topología clásica.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\centering{\Large\itshape La topología sin puntos es un lenguaje transversal.}
+
+\end{frame}
+
+\begin{frame}{Mensaje final}
+
+\begin{itemize}
+\item La topología puede estudiarse desde los puntos\dots
+\item pero también desde la estructura de los abiertos.
+
+\item La topología sin puntos:
+\begin{itemize}
+\item no reemplaza a la topología clásica,
+\item la extiende y la profundiza.
+\end{itemize}
+
+\item Muchas nociones clásicas admiten formulaciones puramente algebraicas.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\centering{\Large\itshape Cambiar el punto de vista cambia las preguntas que podemos hacer.}
+\end{frame}
+
+
 %\begin{frame}{Algunas traducciones más tecnicas}
 %\scriptsize
 %\setlength{\tabcolsep}{2pt}
@@ -771,7 +808,7 @@ En marcos
 
 \bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
 
-\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
 
 %\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
 
