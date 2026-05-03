@@ -1,0 +1,145 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[spanish,es-noshorthands]{babel}
+%\usepackage{babel} 
+\usepackage[pages=some]{background}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usetikzlibrary{babel}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,overlay-beamer-styles,shadows.blur}
+%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{La V-modificación de un marco}
+%\subtitle{y algunos axiomas de separación en la topología sin puntos}
+\event{Seminario de Álgebra, CUCEI}
+\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+%\frame[plain]{\titlepage}
+
+\begin{frame}[plain]
+\titlepage
+
+\vfill
+\begin{center}
+    \textcolor{white}{\scriptsize Investigación apoyada por SECIHTI-PROYECTO CBF2023-2024-2630}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+\section{La construcción espacial}
+\begin{frame}{Aspectos topológicos}
+\begin{itemize}
+    \item Sea $S\in \Top$ y $p, q\in S$, entonces 
+    \[
+    q \sqsubseteq p \iff q\in \overline{\{p\}}
+    \]
+    es el orden de especialización en $S$.
+    \item Las familias de subconjuntos de $S$
+    \[
+    \mathcal{O}S, \quad \mathcal{C}S, \quad \mathcal{U}S, \quad \mathcal{Q}S
+    \]
+    abiertos, cerrados, saturados y compactos saturados.
+
+    \item Para $E\subseteq S$, entonces 
+    \[
+        E^\circ, \quad \overline{E}, \quad \uparrow E
+    \]
+    denotan interior, cerradura y saturación de $E$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{La V-modificación de un espacio}
+
+\end{frame}
+
+
+\section{La construcción en marcos}
+
+\begin{frame}{Cuestiones de marcos}
+
+\end{frame}
+
+\begin{frame}{La V-modificación de un marco}
+
+\end{frame}
+
+\section{¿Para qué queremos la V-modificación?}
+\begin{frame}{La relación entre las V-modificaciones}
+
+\end{frame}
+
+
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliografía}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+%\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
+
+\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+\bibitem{H.S.} H. Simmons, \textit{An Introduction to Frame Theory}, lecture notes, University of Manchester. Disponible en línea en \url{https://web.archive.org/web/20190714073511/http://staff.cs.manchester.ac.uk/~hsimmons}.
+
+\bibitem{H.S.R} H. Simmons, \textit{Regularity, fitness, and the block structure of frames.} Applied Categorical Structures 14 (2006): 1-34.
+
+\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
+
+\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+
+%\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
+\end{thebibliography}
+\end{frame}
+
+
+\end{document}
