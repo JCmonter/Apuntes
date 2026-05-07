@@ -1,25 +1,38 @@
 \documentclass[compress,12pt]{beamer}
 
 \usetheme{Arguelles}
+
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage[spanish,es-noshorthands]{babel}
-%\usepackage{babel} 
 \usepackage[pages=some]{background}
+
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\usetikzlibrary{
+  babel,
+  arrows.meta,
+  calc,
+  positioning,
+  overlay-beamer-styles,
+  shadows.blur
+}
+
 \usepackage{amsmath,amssymb,latexsym,amscd} 
 \usepackage[all,cmtip]{xy}
 \usepackage{fancyhdr}
 \usepackage{mathalfa}
 \usepackage{mathrsfs}
-\usetikzlibrary{babel}
 \usepackage{hyperref}
 \usepackage{ragged2e}
 \usepackage{wasysym}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,calc,positioning,overlay-beamer-styles,shadows.blur}
-%\hypersetup{colorlinks=true,linkcolor=blue,citecolor=brown,linktocpage=true,pagebackref=true,hyperindex=true}
+
+% Colores para la diapositiva Top/Frm
+\definecolor{TopBlue}{RGB}{14,73,160}
+\definecolor{FrmGreen}{RGB}{15,120,45}
+\definecolor{TopLight}{RGB}{235,242,252}
+\definecolor{FrmLight}{RGB}{235,248,238}
+
 \pagenumbering{arabic}
 
 \DeclareMathOperator{\op}{op}
@@ -58,11 +71,171 @@
 
 \end{frame}
 
+\begin{frame}{Top y Frm}
+
+\centering
+
+\begin{tikzpicture}[
+    scale=0.85,
+    transform shape,
+    >=Latex,
+    font=\scriptsize
+]
+
+%------------------------------------------------
+% TITULOS
+%------------------------------------------------
+
+\node[
+    rounded corners,
+    fill=TopBlue!10,
+    text width=4cm,
+    align=center,
+    inner sep=6pt
+] (top) at (-4.5,2.5)
+{
+    {\Large\bfseries\color{TopBlue} Top}\\
+    Espacios topológicos
+};
+
+\node[
+    rounded corners,
+    fill=FrmGreen!10,
+    text width=4cm,
+    align=center,
+    inner sep=6pt
+] (frm) at (4.5,2.5)
+{
+    {\Large\bfseries\color{FrmGreen} Frm}\\
+    Marcos
+};
+
+%------------------------------------------------
+% CAJA TOP
+%------------------------------------------------
+
+\node[
+    draw=TopBlue,
+    rounded corners,
+    fill=TopBlue!5,
+    text width=3.9cm,
+    align=left,
+    inner sep=8pt
+] (topbox) at (-4.5,0.2)
+{
+\begin{itemize}
+\item Objetos: espacios topológicos
+\item Morfismos: funciones continuas
+\item La construcción de Vietoris se realiza en Top
+\end{itemize}
+};
+
+%------------------------------------------------
+% CAJA FRM
+%------------------------------------------------
+
+\node[
+    draw=FrmGreen,
+    rounded corners,
+    fill=FrmGreen!5,
+    text width=3.9cm,
+    align=left,
+    inner sep=8pt
+] (frmbox) at (4.5,0.2)
+{
+\begin{itemize}
+\item Objetos: marcos
+\item Morfismos: homomorfismos de marcos
+\item Buscamos trasladar Vietoris a Frm
+\end{itemize}
+};
+
+%------------------------------------------------
+% FLECHAS ENTRE TOP Y FRM
+%------------------------------------------------
+
+\draw[->,thick]
+([yshift=5pt]top.east)
+.. controls +(1.3,0.75) and +(-1.3,0.75) ..
+node[above=7pt] {\(\mathcal{O}(-)\)}
+([yshift=5pt]frm.west);
+
+\draw[->,thick]
+([yshift=-5pt]frm.west)
+.. controls +(-1.3,-0.75) and +(1.3,-0.75) ..
+node[below=7pt] {\(\operatorname{pt}(-)\)}
+([yshift=-5pt]top.east);
+
+%------------------------------------------------
+% PARTE INFERIOR
+%------------------------------------------------
+
+\node[
+    draw=TopBlue,
+    rounded corners,
+    fill=TopBlue!10,
+    text width=4.0cm,
+    align=center,
+    inner sep=7pt
+] at (-4.5,-2.3)
+{
+A un espacio topológico \(S\),\\
+le asignamos su\\
+\textbf{modificación de Vietoris}
+};
+
+\node[
+    draw=FrmGreen,
+    rounded corners,
+    fill=FrmGreen!10,
+    text width=4.0cm,
+    align=center,
+    inner sep=7pt
+] at (4.5,-2.3)
+{
+A un marco \(A\),\\
+le asignaremos su\\
+\textbf{V-modificación}
+};
+
+\draw[dashed,->,thick]
+(-2.1,-2.3)--(2.1,-2.3);
+
+\end{tikzpicture}
+
+\end{frame}
+
 \begin{frame}{Contenido}
 \tableofcontents
 \end{frame}
 
 \section{La construcción espacial}
+\begin{frame}{La idea de Vietoris}
+Sea $S\in \Top$ y $\mathcal{H}S$ una familia de subconjuntos de $S$
+\[
+(\text{cerrados, compactos, compactos saturados,} \dots). 
+\]
+
+Dotamos de una topología a $\mathcal{H}S$ por medio de condiciones de pertenencia y de intersección con abiertos de $S$.
+\begin{itemize}
+\item \textbf{[``Hit'' o $\Diamond(U)$]:} $H\in \mathcal{H}S$ intersecta a un abierto $U$ de $S$.
+\item \textbf{[``Miss'' o $\Box(U)$]:} $H\in \mathcal{H}S$ está contenido en un abierto $U$ de $S$.
+\end{itemize}
+
+\[
+\langle U_1,\dots,U_n\rangle
+=
+\left\{
+K\in\mathcal{H}(S)
+\mid
+K\subseteq \bigcup_{i=1}^n U_i
+\text{ y }
+K\cap U_i\neq\varnothing
+\ \forall i
+\right\}
+\]
+\end{frame}
+
 \begin{frame}{Aspectos topológicos}
 \begin{itemize}
     \item Sea $S\in \Top$ y $p, q\in S$, entonces 
@@ -72,9 +245,9 @@
     es el orden de especialización en $S$.
     \item Las familias de subconjuntos de $S$
     \[
-    \mathcal{O}S, \quad \mathcal{C}S, \quad \mathcal{U}S, \quad \mathcal{Q}S
+    \mathcal{O}S, \quad \mathcal{C}S, \quad \mathcal{K}S, \quad \mathcal{U}S, \quad \mathcal{Q}S
     \]
-    abiertos, cerrados, saturados y compactos saturados.
+    abiertos, cerrados, compactos, saturados y compactos saturados.
 
     \item Para $E\subseteq S$, entonces 
     \[
@@ -85,6 +258,18 @@
 \end{frame}
 
 \begin{frame}{La V-modificación de un espacio}
+Sea $S\in \Top$ y $\mathcal{K}S$ . Para $U\in \mathcal{O}S$, definimos
+\[
+    \Box (U) = \{K\in \mathcal{K}S\mid K\subseteq U\}, \quad \Diamond (U) = \{K\in \mathcal{K}S\mid K\cap U\neq \emptyset\}.
+\]
+Entonces, la \textbf{modificación de Vietoris} de $S$ es el espacio topológico $VS$ con conjunto subyacente $\mathcal{K}S$ y topología generada por la subbase
+\[
+    \{\Box U: U\in \mathcal{O}S\}\cup \{\Diamond U: U\in \mathcal{O}S\}.
+\]
+
+\end{frame}
+
+\begin{frame}{El Teorema de Hofmann-Mislove}
 
 \end{frame}
 
