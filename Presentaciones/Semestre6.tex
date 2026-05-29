@@ -79,9 +79,175 @@
 
 \section{Resumen}
 
-\begin{frame}
+\begin{frame}{Los ingredientes principales}
+
+\small
+
+%--- Definición de categorías ---
+\[
+\begin{array}{rcl}
+\Top & = &
+\left\{
+\begin{array}{l}
+\text{Objetos: espacios topológicos} \\
+\text{Flechas: funciones continuas}
+\end{array}
+\right. \\[0.6cm]
+\Frm & = &
+\left\{
+\begin{array}{l}
+\text{Objetos: marcos} \\
+\text{Flechas: morfismos de marcos}
+\end{array}
+\right.
+\end{array}
+\]
+
+\vspace{0.2cm}
+
+%--- Diagrama ---
+\begin{center}
+\begin{tikzpicture}[node distance=4cm, auto]
+\node (Top) {\Large $\Top$};
+\node (Frm) [right of=Top] {\Large $\Frm$};
+
+\draw[->] (Top) to[bend left] node[above] {$\mathcal{O}(\_)$} (Frm);
+\draw[->] (Frm) to[bend left] node[below] {$\pt(\_)$} (Top);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Las herramientas}
+\small
+\begin{columns}[T,onlytextwidth]
+
+\column{0.48\textwidth}
+\textbf{Núcleos}
+\begin{itemize}
+    \item Núcleos abiertos
+    \item Núcleos cerrados
+    \item Núcleos regulares
+    \item Núcleos ajustados
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Filtros}
+\begin{itemize}
+    \item Filtros abiertos
+    \item Filtros completamente primos
+    \item Filtros de admisibilidad
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Correspondencias biyectivas}
+\begin{itemize}
+    \item Puntos--caracteres
+    \item Núcleos--cocientes
+    \item Teorema de Hofmann--Mislove
+\end{itemize}
+
+\vspace{0.4cm}
+
+\textbf{Nociones topológicas}
+\begin{itemize}
+    \item Morfismo reflexión espacial
+    \item Axiomas de separación
+    \item Núcleos espacialmente inducidos
+\end{itemize}
+
+\end{columns}
+
+Entre otras
+\end{frame}
+
+\begin{frame}[fragile]{Espacio de parches}
+    Consideremos $S\in \Top$. Denotamos por $^pS=(S, \mathcal{O}^pS)$ al \textbf{espacio de parches}\footnote{El espacio de parches fue introducido por Hochster en \cite{hochster1969prime}} de $S$, donde $\mathcal{O}^pS$ está generado por
+    \[
+    \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
+    \]
+   \[\begin{tikzcd}
+	{\mathcal{O}S} & {\mathcal{O}^pS}
+	\arrow[from=1-1, to=1-2]
+\end{tikzcd}\]
+
+\begin{block}{Definición}
+$S$ es \textbf{empaquetado} si todo subconjunto compacto (saturado) es cerrado.
+\end{block}
+\[
+S \mbox{ es empaquetado}\iff\, ^pS=S\quad \mbox{ y }\quad T_2\Rightarrow \mbox{empaquetado}\Rightarrow T_1
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Marco de parches}
+Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footnote{Información sobre el marco de parches puede ser consultada en \cite{sexton2006point, sexton2006ordinal}} de $A$, donde $PA$ está generado por
+\[
+\mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}
+\]
+
+\[\begin{tikzcd}
+	A & PA
+	\arrow[from=1-1, to=1-2]
+\end{tikzcd}\]
+
+\begin{block}{Definición}
+    $A$ es \textbf{parche trivial} si y solo si $A\cong PA$.
+      \[
+        ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
+      \]
+\end{block}
 
 \end{frame}
+
+\begin{frame}{Marcos eficientes}
+\begin{block}{Definición \cite[Def. 8.2.1]{sexton2003point}}
+Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
+\begin{enumerate}
+    \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde
+    \[
+    d:=d(\alpha)=f^\alpha(0).
+    \]
+    \item<3-> $A$ es $\alpha$\textbf{-eficiente} si cada $F\in A^\wedge$ es $\alpha$-eficiente.
+    \item<4-> $A$ es \textbf{eficiente} si es $\alpha$-eficiente para algún $\alpha\in \Ord$.
+\end{enumerate}
+\end{block}
+
+\onslide<5->{\begin{block}{Proposición \cite[Lema 8.2.2]{sexton2003point}}
+\[
+    A \mbox{ es eficiente}\quad \iff\quad A \mbox{ es parche trivial}.
+\]
+\end{block}}
+\end{frame}
+
+\begin{frame}{El diccionario}
+
+\begin{columns}[T,onlytextwidth]
+  \column{0.48\textwidth}
+  \begin{block}{\centering $\Top$}
+    \begin{itemize}
+      \item<2-> Subespacios
+      \item<4-> Subespacios cerrados y compactos
+      \item<6-> Axiomas de separación 
+      \item<8-> Espacio de parches ($^pS$)
+      \item<10-> pbase$=\{U\cap Q'\}$ 
+      \item<12-> Empaquetado ($^pS=S$)
+    \end{itemize}
+  \end{block}
+
+  \column{0.48\textwidth}
+  \begin{block}{\centering $\Frm$}
+    \begin{itemize}
+      \item<3-> Núcleos-Cocientes
+      \item<5-> Cocientes cerrados y compactos
+      \item<7-> Propiedades de separación
+      \item<9-> Marco de parches ($PA$)
+      \item<11-> Pbase$=\{u_a\wedge v_F\}$
+      \item<13-> Parche trivial ($PA\cong A$)
+    \end{itemize}
+  \end{block}
+\end{columns}
+\end{frame}
+
 
 \section{Avances}
 
@@ -94,24 +260,24 @@
 
 \section*{\textsc{Referencias}}
 \begin{frame}[allowframebreaks]
-\frametitle{Bibliografía}
-\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+%\frametitle{Bibliografía}
+%\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
 
-\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+%\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
 
 %\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
 
 %\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
 
-\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+%\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
 
-\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+%\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
 
-\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+%\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
 
-\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
+%\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
 
-\bibitem{S.S.06} RA. Sexton and H.~Simmons, \textit{An ordinal indexed hierarchy of separation properties}, Topology Proceedings, Vol.~30, No.~2, 2006, pp.~585--625.
+%\bibitem{S.S.06} RA. Sexton and H.~Simmons, \textit{An ordinal indexed hierarchy of separation properties}, Topology Proceedings, Vol.~30, No.~2, 2006, pp.~585--625.
 %\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
 
 %\bibitem{H.S.} H. Simmons, \textit{An Introduction to Frame Theory}, lecture notes, University of Manchester. Disponible en línea en \url{https://web.archive.org/web/20190714073511/http://staff.cs.manchester.ac.uk/~hsimmons}.
@@ -120,12 +286,15 @@
 
 %\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
 
-\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+%\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
 
 %\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
 
-\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
-\end{thebibliography}
+%\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
+%\end{thebibliography}
+
+\bibliographystyle{plain}
+\bibliography{research2}
 \end{frame}
 
 \begin{frame}[plain,standout]
