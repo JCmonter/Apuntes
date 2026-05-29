@@ -132,33 +132,44 @@
 
 \vspace{0.4cm}
 
-\textbf{Filtros}
+\onslide<2->{\textbf{Filtros}
 \begin{itemize}
     \item Filtros abiertos
     \item Filtros completamente primos
     \item Filtros de admisibilidad
-\end{itemize}
+\end{itemize}}
 
 \column{0.48\textwidth}
+
+\onslide<3->{
 \textbf{Correspondencias biyectivas}
 \begin{itemize}
     \item Puntos--caracteres
     \item Núcleos--cocientes
     \item Teorema de Hofmann--Mislove
-\end{itemize}
+\end{itemize}}
 
 \vspace{0.4cm}
 
+\onslide<4->{
 \textbf{Nociones topológicas}
 \begin{itemize}
     \item Morfismo reflexión espacial
     \item Axiomas de separación
     \item Núcleos espacialmente inducidos
-\end{itemize}
+\end{itemize}}
 
 \end{columns}
+\vspace{0.4cm}
 
-Entre otras
+\onslide<5->{
+\begin{center}
+\textbf{Entre otras...}
+\end{center}}
+\end{frame}
+
+\begin{frame}{Derivadas y prenúcleos}
+
 \end{frame}
 
 \begin{frame}[fragile]{Espacio de parches}
@@ -171,12 +182,13 @@ Entre otras
 	\arrow[from=1-1, to=1-2]
 \end{tikzcd}\]
 
+\onslide<2->{
 \begin{block}{Definición}
 $S$ es \textbf{empaquetado} si todo subconjunto compacto (saturado) es cerrado.
 \end{block}
 \[
 S \mbox{ es empaquetado}\iff\, ^pS=S\quad \mbox{ y }\quad T_2\Rightarrow \mbox{empaquetado}\Rightarrow T_1
-\]
+\]}
 \end{frame}
 
 \begin{frame}[fragile]{Marco de parches}
@@ -190,33 +202,14 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footno
 	\arrow[from=1-1, to=1-2]
 \end{tikzcd}\]
 
+\onslide<2->{
 \begin{block}{Definición}
     $A$ es \textbf{parche trivial} si y solo si $A\cong PA$.
+\end{block}
       \[
         ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
       \]
-\end{block}
-
-\end{frame}
-
-\begin{frame}{Marcos eficientes}
-\begin{block}{Definición \cite[Def. 8.2.1]{sexton2003point}}
-Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
-\begin{enumerate}
-    \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde
-    \[
-    d:=d(\alpha)=f^\alpha(0).
-    \]
-    \item<3-> $A$ es $\alpha$\textbf{-eficiente} si cada $F\in A^\wedge$ es $\alpha$-eficiente.
-    \item<4-> $A$ es \textbf{eficiente} si es $\alpha$-eficiente para algún $\alpha\in \Ord$.
-\end{enumerate}
-\end{block}
-
-\onslide<5->{\begin{block}{Proposición \cite[Lema 8.2.2]{sexton2003point}}
-\[
-    A \mbox{ es eficiente}\quad \iff\quad A \mbox{ es parche trivial}.
-\]
-\end{block}}
+}
 \end{frame}
 
 \begin{frame}{El diccionario}
@@ -248,10 +241,88 @@ Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
 \end{columns}
 \end{frame}
 
+\begin{frame}{Marcos eficientes}
+\begin{block}{Definición \cite[Def. 8.2.1]{sexton2003point}}
+Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
+\begin{enumerate}
+    \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde
+    \[
+    d:=d(\alpha)=f^\alpha(0).
+    \]
+    \item<3-> $A$ es $\alpha$\textbf{-eficiente} si cada $F\in A^\wedge$ es $\alpha$-eficiente.
+    \item<4-> $A$ es \textbf{eficiente} si es $\alpha$-eficiente para algún $\alpha\in \Ord$.
+\end{enumerate}
+\end{block}
+
+\onslide<5->{\begin{block}{Proposición \cite[Lema 8.2.2]{sexton2003point}}
+\[
+    A \mbox{ es eficiente}\quad \iff\quad A \mbox{ es parche trivial}.
+\]
+\end{block}}
+\end{frame}
+
+\begin{frame}{Para qué sirve la eficiciencia}
+
+\end{frame}
+
+\begin{frame}{Propiedades de los marcos eficicientes}
+
+\end{frame}
+
+\begin{frame}{Eficiencia y su relación con otras construcciones}
+
+\end{frame}
 
 \section{Avances}
 
-\begin{frame}
+\begin{frame}{Empujes y levantamientos}
+  
+\end{frame}
+
+\begin{frame}{Nociones de apilamiento}
+Consideremos $S\in\Top$. Tenemos $Q\in \mathcal{Q}S$ y $F\in \mathcal{O}S^\wedge$. Al par $(F, Q)$ lo llamamos para HM.
+Adicionalmente
+
+\[
+v_F\leq [Q']\leq w_F
+\]
+
+\begin{block}{Definición:}
+  Sea $S\in \Top$ y $(F, Q)$ un par HM.
+\begin{enumerate}
+  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_F^\infty(S)$ y es fuertemente apilado si $v_F=[Q']$.
+  \item El espacio $S$ es apilado o fuertemente apilado si cada $Q\in \mathcal{Q}S$ es apilado o fuertemente apilado, respectivamente.
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Marcos apilados y fuertemente apilados}
+\begin{block}{Definición:}
+Sean $A\in \Frm$, $S=\pt A$ y $(F,Q)$ un par HM. Decimos que $A$ es:
+\begin{enumerate}
+  \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
+  \item fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
+\end{enumerate}
+\end{block}
+
+\begin{block}{Proposición:}
+Las nociones de fuertemente apilado y apilado son conservativas.
+\end{block}
+
+\begin{proof}
+  Verificamos que 
+\[
+S \text{ apilado (f. apilado)}\iff \mathcal{O}S \text{ apilado (f. apilado)}.
+\]
+\end{proof}
+\end{frame}
+
+\begin{frame}{Interacción de la eficiencia con otras propiedades}
+
+\end{frame}
+
+\begin{frame}{Lista de actividades}
 
 \end{frame}
 
