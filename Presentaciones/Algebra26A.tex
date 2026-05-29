@@ -1,0 +1,793 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[pages=some]{background}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{
+  babel,
+  arrows.meta,
+  calc,
+  positioning,
+  overlay-beamer-styles,
+  shadows.blur
+}
+
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+
+% Colores para la diapositiva Top/Frm
+\definecolor{TopBlue}{RGB}{14,73,160}
+\definecolor{FrmGreen}{RGB}{15,120,45}
+\definecolor{TopLight}{RGB}{235,242,252}
+\definecolor{FrmLight}{RGB}{235,248,238}
+
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Vrm}{Vrm}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{La V-modificación de un marco}
+%\subtitle{y algunos axiomas de separación en la topología sin puntos}
+\event{Seminario de Álgebra, CUCEI}
+\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+%\frame[plain]{\titlepage}
+
+\begin{frame}[plain]
+\titlepage
+
+\vfill
+\begin{center}
+    \textcolor{white}{\scriptsize Investigación apoyada por SECIHTI-PROYECTO CBF2023-2024-2630}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Top y Frm}
+
+\centering
+
+\begin{tikzpicture}[
+    scale=0.85,
+    transform shape,
+    >=Latex,
+    font=\scriptsize
+]
+
+%------------------------------------------------
+% TITULOS
+%------------------------------------------------
+
+\node[
+    rounded corners,
+    fill=TopBlue!10,
+    text width=4cm,
+    align=center,
+    inner sep=6pt
+] (top) at (-4.5,2.5)
+{
+    {\Large\bfseries\color{TopBlue} Top}\\
+    Espacios topológicos
+};
+
+\node[
+    rounded corners,
+    fill=FrmGreen!10,
+    text width=4cm,
+    align=center,
+    inner sep=6pt
+] (frm) at (4.5,2.5)
+{
+    {\Large\bfseries\color{FrmGreen} Frm}\\
+    Marcos
+};
+
+%------------------------------------------------
+% CAJA TOP
+%------------------------------------------------
+
+\node[
+    draw=TopBlue,
+    rounded corners,
+    fill=TopBlue!5,
+    text width=3.9cm,
+    align=left,
+    inner sep=8pt
+] (topbox) at (-4.5,0.2)
+{
+\begin{itemize}
+\item Objetos: espacios topológicos
+\item Morfismos: funciones continuas
+\item La construcción de Vietoris se realiza en Top
+\end{itemize}
+};
+
+%------------------------------------------------
+% CAJA FRM
+%------------------------------------------------
+
+\node[
+    draw=FrmGreen,
+    rounded corners,
+    fill=FrmGreen!5,
+    text width=3.9cm,
+    align=left,
+    inner sep=8pt
+] (frmbox) at (4.5,0.2)
+{
+\begin{itemize}
+\item Objetos: marcos
+\item Morfismos: morfismos de marcos
+\item Buscamos trasladar Vietoris a Frm
+\end{itemize}
+};
+
+%------------------------------------------------
+% FLECHAS ENTRE TOP Y FRM
+%------------------------------------------------
+
+\draw[->,thick]
+([yshift=5pt]top.east)
+.. controls +(1.3,0.75) and +(-1.3,0.75) ..
+node[above=7pt] {\(\mathcal{O}(-)\)}
+([yshift=5pt]frm.west);
+
+\draw[->,thick]
+([yshift=-5pt]frm.west)
+.. controls +(-1.3,-0.75) and +(1.3,-0.75) ..
+node[below=7pt] {\(\operatorname{pt}(-)\)}
+([yshift=-5pt]top.east);
+
+%------------------------------------------------
+% PARTE INFERIOR
+%------------------------------------------------
+
+\node[
+    draw=TopBlue,
+    rounded corners,
+    fill=TopBlue!10,
+    text width=4.0cm,
+    align=center,
+    inner sep=7pt
+] at (-4.5,-2.3)
+{
+A un espacio topológico \(S\),\\
+le asignamos su\\
+\textbf{topología de Vietoris}
+};
+
+\node[
+    draw=FrmGreen,
+    rounded corners,
+    fill=FrmGreen!10,
+    text width=4.0cm,
+    align=center,
+    inner sep=7pt
+] at (4.5,-2.3)
+{
+A un marco \(A\),\\
+le asignaremos su\\
+\textbf{V-modificación}
+};
+
+\draw[dashed,->,thick]
+(-2.1,-2.3)--(2.1,-2.3);
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+\section{La construcción espacial}
+\begin{frame}{La idea de Vietoris}
+Sea $S\in \Top$ y $\mathcal{F}S$ una familia de subconjuntos de $S$
+\[
+(\text{cerrados, compactos, compactos saturados,} \dots). 
+\]
+
+\onslide<2->{Dotamos de una topología a $\mathcal{F}S$ por medio de condiciones de pertenencia y de intersección con abiertos de $S$.
+\begin{itemize}
+\item \textbf{[``Hit'' o $\Diamond(U)$]:} $H\in \mathcal{F}S$ intersecta a un abierto $U$ de $S$.
+\item \textbf{[``Miss'' o $\Box(U)$]:} $H\in \mathcal{F}S$ está contenido en un abierto $U$ de $S$.
+\end{itemize}}
+
+\onslide<3->\[
+\langle U_1,\dots,U_n\rangle
+=
+\left\{
+K\in\mathcal{F}(S)
+\mid
+K\subseteq \bigcup_{i=1}^n U_i
+\text{ y }
+K\cap U_i\neq\varnothing
+\ \forall i
+\right\}
+\]
+\end{frame}
+
+\begin{frame}{Aspectos topológicos}
+
+Sea \(S\in\Top\).
+
+\begin{itemize}
+
+\item<2-> Para \(p,q\in S\),
+\[
+q\sqsubseteq p
+\iff
+q\in\overline{\{p\}}
+\]
+define el orden de especialización en \(S\).
+
+\vspace{2mm}
+
+\item<3-> Consideraremos las siguientes familias de subconjuntos de \(S\):
+\[
+\mathcal{O}S,
+\quad
+\mathcal{C}S,
+\quad
+\mathcal{K}S,
+\quad
+\mathcal{U}S
+\]
+de abiertos, cerrados, compactos y saturados, respectivamente.
+
+\vspace{2mm}
+
+\item<4-> Para \(E\subseteq S\),
+\[
+E^\circ,
+\quad
+\overline{E},
+\quad
+\uparrow E
+\]
+denotan el interior, la cerradura y la saturación de \(E\), respectivamente.
+
+\end{itemize}
+
+\end{frame}
+\begin{frame}{La V-modificación de un espacio}
+    \begin{block}{Definición}
+Sea \(S\in\Top\) y \(\mathcal{K}S\) la familia de subconjuntos compactos de \(S\).
+
+\vspace{2mm}
+
+Para \(U\in\mathcal{O}S\), definimos
+
+\[
+\Box(U)
+=
+\{K\in\mathcal{K}S\mid K\subseteq U\}, \quad
+\Diamond(U)
+=
+\{K\in\mathcal{K}S\mid K\cap U\neq\varnothing\}.
+\]
+
+\vspace{2mm}
+
+La topología de Vietoris sobre \(\mathcal{K}S\) es la generada por los conjuntos de la forma
+
+\[
+\mathcal{O}(\mathcal{K}S)\langle U_1,\dots,U_n\rangle
+=
+\Box\!\left(\bigcup_{i=1}^n U_i\right)
+\cap
+\bigcap_{i=1}^n \Diamond(U_i),
+\]
+
+donde \(U_1,\dots,U_n\in\mathcal{O}S\).
+\end{block}
+\end{frame}
+
+\begin{frame}{Otras familias de subconjuntos de S}
+Sea $Q\in \mathcal{C}S$ y $Q\in \mathcal{U}S$, entonces 
+\[
+Q\in\mathcal{Q}S
+\]
+y $\mathcal{Q}S$ es la familia de subconjuntos compactos saturados.
+
+\begin{block}{Definición:}
+Un lente de un espacio $S$ es un subconjunto de la forma
+\[
+L=R\cap X
+\]
+donde $R\in \mathcal{U}S$ y $X\in \mathcal{C}S$.
+\end{block}
+Denotamos por $\mathcal{L}S$ a la familia de lentes compactos.
+\end{frame}
+
+\begin{frame}{Operadores en $\mathcal{C}S$}
+    \begin{block}{Definición}
+Consideremos $\partial\colon \mathcal{C}S\to \mathcal{C}S$. Decimos que $\partial$ es una derivada si:
+\begin{itemize}
+\item $\partial(X)\subseteq X$,
+\item Si $X\subseteq Y$, entonces $\partial(X)\subseteq \partial(Y)$,
+\item $\partial(X\cup Y)=\partial(X)\cup \partial(Y)$.
+\end{itemize}
+para todo $X,Y\in \mathcal{C}S$.
+\end{block}
+
+\vspace{2mm}
+
+\onslide<2->{Ejemplos de derivadas:
+\[
+\partial_Q(X)=\bigcap\{\overline{(X\cap U)}\mid Q\subseteq U\in \mathcal{O}S\},\quad \lim(X),
+\]
+donde $Q\in \mathcal{Q}S$ y $X\in \mathcal{C}S$.}
+
+\end{frame}
+
+\begin{frame}
+Consideremos $Q\in \mathcal{Q}S$ y $\alpha$ un ordinal. Para $Q(\alpha)=\partial_Q^\alpha(S)$ definimos:
+\begin{enumerate}
+\item $Q(0)=S$,
+\item $Q(\alpha+1)=\partial_Q(Q(\alpha))$,
+\item $Q(\lambda)=\bigcap\{Q(\alpha)\mid \alpha<\lambda\}$, para $\lambda$ un ordinal límite.
+\end{enumerate}
+\vspace{2mm}
+
+Denotamos por $Q(\infty)$ a $Q(\alpha)$ para el menor ordinal $\alpha$ tal que $Q(\alpha)=Q(\alpha+1)$.
+\vspace{2mm}
+
+\onslide<2->{Se satisface que 
+\[
+Q\subseteq Q(\alpha)\quad \overline{Q}\subseteq Q(\infty).
+\]}
+
+\end{frame}
+
+\begin{frame}{Operadores en $\mathcal{O}S$}
+Calculando el complemento dual de una derivada, obtenemos un operador 
+\[
+f\colon \mathcal{O}S\to \mathcal{O}S \; \text{tal que}
+\]
+\begin{itemize}
+\item $U\subseteq f(X)$,
+\item Si $U\subseteq V$, entonces $f(U)\subseteq f(V)$,
+\item $f(U\cap V)=f(U)\cap f(V)$.
+\end{itemize}
+para todo $U,V\in \mathcal{O}S$.
+
+\vspace{2mm}
+
+\onslide<2->{Ejemplos de estos operadores
+\[
+[E](U)=(E\cup U)^\circ,\quad \partial_Q(X')', \quad\lim(X')'.
+\]}
+\end{frame}
+
+\section{La construcción en marcos}
+
+\begin{frame}{Cuestiones de marcos}
+\[
+\Frm=
+\left\{
+\begin{array}{ll}
+\text{Objetos:} & (A,\leq, \bigvee, \wedge, 0, 1) 
+\\[1mm]
+\text{Morfismos:} & f\colon A\to B 
+\end{array}
+\right.
+\]
+
+Si $f\colon A\to B$, entonces tiene adjunto derecho
+\[
+f_*\colon B\to A.
+\]
+
+Para $S\in \Top$, entonces $\mathcal{O}S\in \Frm$
+
+\vspace{1mm}
+
+Si $f\colon S\to T$ es continua, entonces
+\[
+f^{-1}\colon\mathcal{O}T\to\mathcal{O}S
+\]
+es un morfismo de marcos.
+\end{frame}
+
+\begin{frame}{Filtros}
+    \begin{block}{Definición}
+    Sea $A\in \Frm$. Decimos que $F\subseteq A$ es un \textbf{filtro} si:
+    \begin{enumerate}
+      \item $1\in F$.
+      \item Si $a\leq b$ y $a\in F$, entonces $b\in F$.
+      \item Si $a, b\in F$, entonces $a\wedge b\in F$.
+    \end{enumerate}
+  \end{block}
+  \onslide<2->{En particular, decimos que $F$ es un \textbf{filtro abierto} si: 
+  \[
+    X\subseteq A \mbox{ dirigido tal que }\bigvee X\in F\Rightarrow F\cap X\neq \emptyset.
+  \]
+  $A^\wedge=$Filtros abiertos en $A$}.
+
+\end{frame}
+
+\begin{frame}{Puntos de un marco}
+
+Sea \(A\in\Frm\).
+
+\vspace{2mm}
+
+Existe una correspondencia biyectiva entre:
+
+\vspace{3mm}
+{\scriptsize
+\[
+\left\{
+\begin{array}{c}
+\text{puntos de }A
+\end{array}
+\right\}
+\longleftrightarrow
+\left\{
+\begin{array}{c}
+\text{filtros completamente}\\
+\text{primos de }A
+\end{array}
+\right\}
+\longleftrightarrow
+\left\{
+\begin{array}{c}
+\text{morfismos de marcos}\\
+A\to 2
+\end{array}
+\right\}.
+\]}
+
+\vspace{4mm}
+\onslide<2->{
+En particular, denotaremos por
+\[
+\pt(A)
+\]
+al conjunto de puntos de \(A\).}
+
+\end{frame}
+
+\begin{frame}{El espacio de puntos}
+Sea $S=\pt A$. Para $a\in A$, definimos
+\[
+\mathcal{U}(a)=\{p\in S\mid a\nleq p\}
+\]
+y $\mathcal{O}S=\{\mathcal{U}(a)\mid a\in A\}$.
+\vspace{2mm}
+
+\onslide<2->{Si $A, B\in \Frm$ tenemos
+\[
+f\colon A\to B\quad \Rightarrow \quad \varphi=f_*\colon \pt B\to \pt A
+\]
+
+\[
+\mathcal{U}\colon A\to \mathcal{O}S\quad a\mapsto \mathcal{U}(a)
+\]}
+\end{frame}
+
+\begin{frame}{El Teorema de Hofmann-Mislove}
+Consideremos $A\in Frm$ y $S=\pt A$. Existe una correspondencia biyectiva entre 
+\[
+F\in A^\wedge\longleftrightarrow Q\in \mathcal{Q}S
+\]
+\onslide<2->{Adicionalmente, si $\nabla\in \mathcal{O}S^\wedge$ tenemos
+\[
+F\in A^\wedge\longleftrightarrow Q\in \mathcal{Q}S\longleftrightarrow \nabla\in \mathcal{O}S^\wedge.
+\]}
+\onslide<3->{Decimos que $(F, Q)$ es un par HM y $(F, Q, \nabla)$ una terna HM.}
+\end{frame}
+
+\begin{frame}{La V-modificación de un marco}
+\begin{block}{Definición:}
+Sea $\Vrm$ la categoría de $V$-marcos. 
+\[
+\Vrm=
+\left\{
+\begin{array}{ll}
+\text{Objetos:} & \text{ marcos} 
+\\[1mm]
+\text{Morfismos:} & f_\Box\colon A\to B, \; f^\Diamond\colon A\to B \text{ tales que}
+\end{array}
+\right.
+\]
+\[
+\begin{split}
+\mathbf{(\wedge)}\; & f_\Box(x\wedge y)=f_\Box(x)\wedge f_\Box(y), \; f_\Box(1)=1 \\
+\mathbf{(c)}\; & f_\Box(\bigvee X)=\bigvee\{f_\Box(x)\mid x\in X\} \\
+\mathbf{(\bigvee)}\; & f^\Diamond(\bigvee Y)=\bigvee\{f^\Diamond(y)\mid y\in Y\}, \; f^\Diamond(0)=0 \\
+\mathbf{(m)} \; & \mathbf{(q)}\; f^\Diamond(x)\wedge f_\Box(y)\leq f^\Diamond(x\wedge y)\\
+& \mathbf{(s)}\; f_\Box(x\vee y)\leq f_\Box(x)\vee f_\Diamond(y)
+\end{split}
+\]
+para cada $x, y\in A$, $X, Y\subseteq A$, con $X$ dirigido.
+
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{El marco VA}
+\[\begin{tikzcd}
+	\Frm && \Vrm
+	\arrow["{¿}"', from=1-1, to=1-3]
+\end{tikzcd}\]
+
+\[
+(¿\,f)^\Diamond=f,\quad (¿f\,)_\Box=f.
+\]
+
+\[
+A\mapsto ¿\,A=A,\quad f\mapsto ((¿\,f)^\Diamond,(¿\,f)_\Box)=(f,f).
+\]
+
+\[\begin{tikzcd}
+	A && ¿\,A
+	\arrow["f", shift left=2, from=1-1, to=1-3]
+	\arrow["f"', shift right=2, from=1-1, to=1-3]
+\end{tikzcd}
+\]
+\end{frame}
+
+\begin{frame}
+¿Existe un marco $A$ de tal manera que la construcción anterior genere un nuevo marco?
+
+\onslide<2->{\begin{block}{Proposición:}
+Sea $S\in \Top$ y $A=\mathcal{O}S$. Entonces la topología $\mathcal{O}(\mathcal{K}S)$ de la V-modificación de $S$ satisfacen las condiciones de la definición anterior.
+\end{block}
+
+\begin{proof}
+Para $U\in \mathcal{O}S$, verificamos que $\Box(U)$ y $\Diamond(U)$ satisfacen las condiciones de la definición.
+\end{proof}}
+\end{frame}
+
+\begin{frame}[fragile]{Observaciones:}
+\[\begin{tikzcd}
+	{\mathcal{O}S} && {\mathcal{O}(\mathcal{K}S)}
+	\arrow["{\Diamond(-)}", shift left, from=1-1, to=1-3]
+	\arrow["{\Box(-)}"', shift right, from=1-1, to=1-3]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	{\mathcal{O}S} && {\mathcal{O}(\mathcal{L}S)} && {\mathcal{O}(\mathcal{Q}S)}
+	\arrow["{\Diamond(-)}", shift left, from=1-1, to=1-3]
+	\arrow["{\Box(-)}"', shift right, from=1-1, to=1-3]
+	\arrow[from=1-3, to=1-5]
+\end{tikzcd}\]
+
+Lo que buscamos
+\begin{equation}\label{eq:busqueda}
+\begin{tikzcd}
+	A && B \\
+	\\
+	VA
+	\arrow["{f^\Diamond}", shift left, from=1-1, to=1-3]
+	\arrow["{f_\Box}"', shift right, from=1-1, to=1-3]
+	\arrow[shift left, from=1-1, to=3-1]
+	\arrow[shift right, from=1-1, to=3-1]
+	\arrow["{!f^\#\in \Frm}"', from=3-1, to=1-3]
+\end{tikzcd}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Teorema:}
+Para cada $A\in \Frm$ existen $VA\in \Vrm$ y 
+\[\begin{tikzcd}
+	A && VA
+	\arrow[shift left, from=1-1, to=1-3]
+	\arrow[shift right, from=1-1, to=1-3]
+\end{tikzcd}\]
+con la siguiente propiedad universal:
+para todo $B\in \Vrm$ y toda $V$-flecha
+\[\begin{tikzcd}
+	A && B
+	\arrow["{f^\Diamond}", shift left, from=1-1, to=1-3]
+	\arrow["{f_\Box}"', shift right, from=1-1, to=1-3]
+\end{tikzcd}\]
+existe un único morfismo de marcos 
+\[\begin{tikzcd}
+	VA & B
+	\arrow["{f^\#}", from=1-1, to=1-2]
+\end{tikzcd}\]
+tal que el diagrama \eqref{eq:busqueda} conmuta.
+\end{block}
+\end{frame}
+
+\begin{frame}{Lo que hicimos}
+$A\in \Frm$ y $x\in A$, entonces
+\[
+x\mapsto \Diamond(x), \quad x\mapsto \Box(x)
+\]
+Cada elemento de $VA$ es un supremo de elementos de la forma
+\[
+\Box(x)\wedge \bigwedge_{i=1}^n \Diamond(y_i)
+\]
+donde $x, y_1,\dots,y_n\in A$.
+\end{frame}
+
+\section{¿Para qué queremos la V-modificación?}
+
+\begin{frame}{Algunas consecuencias}
+    \begin{itemize}
+        \item $V\colon \Vrm\to \Frm$ es un adjunto izquierdo de $¿\colon\Frm\to \Vrm$
+        \[
+            \Frm(VA, B)\cong \Vrm(A, ¿B).
+        \]
+        \item<2-> En particular,
+        \[
+            \Frm(VA, 2)\cong \Vrm(A, 2).
+        \]
+        y $\Frm(VA, 2)=\pt VA$. Por lo tanto,
+        \[
+            \pt(VA)\cong \Vrm(A, 2).
+        \]
+        \item<3-> Para todo $p\in \pt VA$, existe 
+        \[
+        (\Diamond_p,\Box_p)\colon A\to 2
+        \]
+        tal que $(\Diamond_p,\Box_p)\in \Vrm(A, 2)$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Definición:}
+Sea $A\in \Frm$ y $p\in \pt VA$. Definimos
+\[
+F=\{x\in A\mid \Box_p(x)=1\}\in A^\wedge,\quad a=\bigvee\{x\in A\mid \Diamond_p(x)=0\}
+\]
+\end{block}
+
+\onslide<2>{Por lo tanto, $p\in \pt VA\longleftrightarrow F\in A^\wedge \text{ y } a\in A$.}
+
+\onslide<3->{\begin{block}{Lema:}
+Consideremos $p\in \pt VA$ y sean $F\in A^\wedge$ y $a\in A$ los asociados a $p$. Las 
+condiciones $\mathbf{(s)}$ y $\mathbf{(q)}$ de la definición de $V$-morfismo corresponden a
+\[
+\begin{split}
+(F\text{-cerrado})\quad &(\forall x\in A)[x\in F\Rightarrow (x\succ a)=a]\\
+(F\text{-superfluo})\quad &(\forall x\in A)[x\vee a\in F\Rightarrow x\in F].
+\end{split}
+\]
+
+\end{block}}
+\end{frame}
+
+\begin{frame}{La $V$-modificación de un espacio}
+\begin{block}{Teorema:}
+Para cada marco $A$ los $V$-puntos son los pares $(F, a)$ donde 
+\[
+F\in A^\wedge\quad \text{y}\quad a\in [v_F(0), w_F(0)].
+\]
+\end{block}
+
+\onslide<2->{Se puede reformular el resultado anterior de la siguiente manera
+
+\begin{block}{Teorema:}
+Para cada espacio sobrio $S$ los $V$-puntos de $\mathcal{O}S$ son los pares $(Q, X)$ donde
+\[
+\overline{M}\subseteq X\subseteq Q(\infty).
+\]
+\end{block}}
+\end{frame}
+
+\begin{frame}{Espacios apilados y fuertemente apilados}
+\begin{block}{Definición:}
+Sea $S\in \Top$ y $(\nabla, Q)$ un par HM. Decimos que $S$ es:
+\begin{itemize}
+\item \textbf{apilado} si $Q(\infty)= \overline{Q}$,
+\item \textbf{fuertemente apilado} si $v_\nabla=[Q']$.
+\end{itemize}
+\end{block}
+\[
+\text{Fuertemente apilado}\Rightarrow \text{apilado}.
+\]
+\end{frame}
+
+\begin{frame}{Marcos apilados y fuertemente apilados}
+\begin{block}{Definición:}
+Sea $A\in \Frm$ y $(F, Q)$ un par HM. Decimos que $A$ es:
+\begin{itemize}
+\item \textbf{apilado} si $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)$,
+\item \textbf{fuertemente apilado} si $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$.
+\end{itemize}
+\end{block}
+\[
+\text{Fuertemente apilado}\Rightarrow \text{apilado}.
+\]
+\onslide<2->{La definición de apilado y fuertemente apilado tiene un comportamiento similar a la noción espacial}
+\end{frame}
+
+\begin{frame}{La relación entre las V-modificaciones}
+    En \cite{S.S.06} y \cite{H.S.V} prueban resultados que relacionan los $V$-puntos de $\mathcal{O}S$ con propiedades del espacio $S$. 
+    Por ejemplo
+    \begin{block}{Teorema 7.4 \cite{S.S.06}:}
+        Un espacio $S$ es $T_1$ y apilado si y solo si $S$ es sobrio y las $V$-modificaciones $\mathcal{Q}S$ y $\mathcal{V}S$ son canónicamente 
+        homeomorfas.
+
+    \end{block}
+
+\onslide<2->{El objetivo es obtener las versiones análogas libres de puntos de estos resultados
+\begin{block}{Proposición:}
+Si $A$ es un marco $T_1$ y apilado, entonces $A$ es espacial.
+\end{block}}
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\frametitle{Bibliografía}
+\begin{thebibliography}{20}\markboth{Bibliografía}{Bibliografía}
+
+\bibitem{P.T.} P. T. Johnstone, \textit{Stone spaces}, Cambridge Studies in Advanced Mathematics, vol. 3, Cambridge University Press, Cambridge, 1982. MR 698074
+
+%\bibitem{J.M.} J. Monter; A. Zaldívar, \textit{El enfoque locálico de las reflexiones booleanas: un análisis en la categoría de marcos} [tesis de maestría], 2022. Universidad de Guadalajara.
+
+%\bibitem{P.S.} J. Paseka and B. Smarda, \textit{$ T_2 $-frames and almost compact frames.} Czechoslovak Mathematical Journal (1992), 42(3), 385-402.
+
+\bibitem{J.P.} J. Picado and A. Pultr, \textit{Frames and locales: Topology without points}, Frontiers in Mathematics, Springer Basel, 2012.
+
+\bibitem{J.P.2} J. Picado and A. Pultr, \textit{Separation in point-free topology}, Springer, 2021.
+
+\bibitem{R.S.} RA Sexton, \textit{A point free and point-sensitive analysis of the patch assembly}, The University of Manchester (United Kingdom), 2003.
+
+\bibitem{R.S.2} RA Sexton, \textit{Frame theoretic assembly as a unifying construct}, The University of Manchester (United Kingdom), 2000.
+
+\bibitem{S.S.06} RA. Sexton and H.~Simmons, \textit{An ordinal indexed hierarchy of separation properties}, Topology Proceedings, Vol.~30, No.~2, 2006, pp.~585--625.
+%\bibitem{R.S.3} RA Sexton and H. Simmons, \textit{Point-sensitive and point-free patch constructions}, Journal of Pure and Applied Algebra \textbf{207} (2006), no. 2, 433-468.
+
+%\bibitem{H.S.} H. Simmons, \textit{An Introduction to Frame Theory}, lecture notes, University of Manchester. Disponible en línea en \url{https://web.archive.org/web/20190714073511/http://staff.cs.manchester.ac.uk/~hsimmons}.
+
+%\bibitem{H.S.R} H. Simmons, \textit{Regularity, fitness, and the block structure of frames.} Applied Categorical Structures 14 (2006): 1-34.
+
+%\bibitem{H.S.4} H. Simmons, \textit{The lattice theoretic part of topological separation properties}, Proceedings of the Edinburgh Mathematical Society, vol.~21, pp.~41--48, 1978.
+
+\bibitem{H.S.V} H. Simmons, \textit{The Vietoris modifications of a frame}. Unpublished manuscript (2004), 79pp., available online at http://www. cs. man. ac. uk/hsimmons.
+
+%\bibitem{A.W.} A. Wilansky, \textit{Between T1 and T2}, MONTHLY (1967): 261-266.
+
+\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\bfseries \smiley ¡Muchas gracias! \smiley}\\[1cm]
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      \scalebox{4}{\faGithub} \par\bigskip
+      \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+
+\end{document}
