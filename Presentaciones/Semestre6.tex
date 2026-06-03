@@ -37,6 +37,7 @@
 
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\Sp}{sp}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\Fit}{Fit}
 \DeclareMathOperator{\Pth}{P}
@@ -124,19 +125,19 @@
 \column{0.48\textwidth}
 \textbf{Núcleos}
 \begin{itemize}
-    \item Núcleos abiertos
-    \item Núcleos cerrados
-    \item Núcleos regulares
-    \item Núcleos ajustados
+    \item Núcleos abiertos $(v_\bullet)$
+    \item Núcleos cerrados $(u_\bullet)$
+    \item Núcleos regulares $(w_\bullet)$
+    \item Núcleos ajustados $(v_F)$
 \end{itemize}
 
 \vspace{0.4cm}
 
 \onslide<2->{\textbf{Filtros}
 \begin{itemize}
-    \item Filtros abiertos
+    \item Filtros abiertos $(A^\wedge )$
     \item Filtros completamente primos
-    \item Filtros de admisibilidad
+    \item Filtros de admisibilidad $(\nabla(j))$
 \end{itemize}}
 
 \column{0.48\textwidth}
@@ -144,7 +145,7 @@
 \onslide<3->{
 \textbf{Correspondencias biyectivas}
 \begin{itemize}
-    \item Puntos--caracteres
+    \item Puntos--caracteres--f.c.p.
     \item Núcleos--cocientes
     \item Teorema de Hofmann--Mislove
 \end{itemize}}
@@ -154,13 +155,13 @@
 \onslide<4->{
 \textbf{Nociones topológicas}
 \begin{itemize}
-    \item Morfismo reflexión espacial
+    \item Morfismo reflexión espacial $(\mathcal{U}_A)$
     \item Axiomas de separación
-    \item Núcleos espacialmente inducidos
+    \item Núcleos espacialmente inducidos $([E])$
 \end{itemize}}
 
 \end{columns}
-\vspace{0.4cm}
+%\vspace{0.4cm}
 
 \onslide<5->{
 \begin{center}
@@ -185,7 +186,7 @@ f(U)'=\partial(U')
 \]}
 \onslide<3->{Ejemplos:
 \[
-[E](U)=(E\cap U)^{\circ},\; \partial_Q(X)=\overline{(Q\cup X)}=v_Q(X')',\; \partial_Q^\infty(X)=v_\nabla(X')'
+[E](U)=(E\cup U)^{\circ},\; \partial_Q(X)=\overline{(Q\cap X)}=v_Q(X')',\; \partial_Q^\infty(X)=v_\nabla(X')'
 \]
 donde $Q\in \mathcal{Q}S$, $X\in \mathcal{C}S$, $U\in \mathcal{O}S$ y $\nabla\in \mathcal{O}S^\wedge$.}
 \end{frame}
@@ -313,7 +314,7 @@ u_e=v_F, \quad \text{donde }e=v_F(0) \text{ y cada } F\in A^\wedge.
 
   Para $A\in \Frm$
   \begin{itemize}
-    \item $\mathbf{(reg)}\Rightarrow \mathbf{aju}\Rightarrow \text{eficiencia}$.
+    \item $\mathbf{(reg)}\Rightarrow \mathbf{(aju)}\Rightarrow \text{eficiencia}$.
     \item $\mathbf{(fH)}\Rightarrow \text{eficiencia}$.
     \item $\text{Eficiencia}\Rightarrow T_1$.
     \item Son cerrados bajo cocientes y coproductos.
@@ -351,15 +352,15 @@ En particular, para $\varphi \in N\mathcal{O}S$,
 \end{frame}
 
 \begin{frame}{Nociones de apilamiento}
-Consideremos $S\in\Top$. Tenemos $Q\in \mathcal{Q}S$ y $\nabla\in \mathcal{O}S^\wedge$. Al par $(F, Q)$ lo llamamos para HM.
-Adicionalmente
+Consideremos $S\in\Top$, $Q\in \mathcal{Q}S$ y $\nabla\in \mathcal{O}S^\wedge$. Al par $(\nabla, Q)$ lo llamamos par HM.
+Adicionalmente, para $M=\mathcal{O}S\setminus \nabla$
 
 \[
-v_\nabla\leq [Q']\leq w_\nabla
+v_\nabla\leq [Q']\leq w_\nabla=[M']
 \]
 
 \begin{block}{Definición:}
-  Sea $S\in \Top$ y $(F, Q)$ un par HM.
+  Sean $S\in \Top$, $F\in A^\wedge$ y $(F, Q)$ un par HM.
 \begin{enumerate}
   \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_\nabla^\infty(S)$ y es fuertemente apilado si $v_\nabla=[Q']$.
   \item El espacio $S$ es apilado o fuertemente apilado si cada $Q\in \mathcal{Q}S$ es apilado o fuertemente apilado, respectivamente.
@@ -425,43 +426,83 @@ Se sigue del hecho de que $T_1$  es una propiedad hereditaría y de que $T_1$ y 
 Sean $A\in \Frm$, $S=\pt A$ y $(F, Q)$ cualquier par HM. Si $A$ es $T_1$ y apilado, las siguientes afirmaciones se cumplen:
 \begin{enumerate}
 \item $v_F(0)=w_F(0)$
-\item Para todo $p\in S$, p es máximo en $S$.
 \item Para cualquier para $(F_p, \uparrow p)$, $v_{F_p}=w_{F_p}=w_p$.
+\item Para todo $p\in S$, p es máximo en $S$.
 \end{enumerate}
 \end{block}
 
 \begin{proof}
-
+\begin{enumerate}
+\item $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)$ y $\mathcal{U}_*\circ[Q']\circ\mathcal{U}=w_F$.
+\item $\uparrow p=\{p\}$ y $A_{F_p}=\{p,1\}$. Por lo tanto, $v_{F_p}=w_{F_p}=w_p$. 
+\item Por 1), $v_{F_p}(0)=w_{F_p}(0)$ y considerando $p\leq q\in \pt A$, vemos que $p=q$.
+\end{enumerate}
 \end{proof}
 \end{frame}
 
 \begin{frame}
 Con respecto a la eficiencia, en espacios se cumple que
-\[
+\begin{equation}\label{eficiencia}
 \mathcal{O}S\text{ eficiente }\iff S \text{ apilado y empaquetado}
-\]
+\end{equation}
 
 \begin{block}{Proposición}
 Si $\mathcal{O}S$ es eficiente, entonces $S$ es fuertemente apilado
 \end{block}
 
 \begin{proof}
-aaa
+Por \eqref{eficiencia}, $S$ es apilado y empaquetado. Por empaquetado, 
+\[
+Q\in \mathcal{C}S \quad\text{y}\quad [Q']=u_{Q'}.
+\]
+Por apilado,
+\[
+\overline{Q}=\partial_\nabla^\infty(S)\Rightarrow Q'=v_\nabla(\emptyset).
+\]
+Por eficiencia, $v_\nabla=u_{Q'}=[Q']$.
 \end{proof}
+\end{frame}
 
+\begin{frame}[fragile]
+  Si consideramos $(F. Q, \nabla)$ una terna HM, entonces
+  \begin{equation}\label{laxo}
+  \begin{tikzcd}
+	A && A & \\
+	&&& {\text{ y }\quad\mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U}.} \\
+	{\mathcal{O}S} && {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}}", from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+\end{tikzcd}\end{equation}
+
+
+\begin{block}{Proposición:}
+Con los datos anteriores, las siguientes afirmaciones se cumplen:
+\begin{enumerate}
+  \item Si $A$ es fuertemente apilado, entonces \eqref{laxo} conmuta.
+  \item Si $A$ es eficiente y \eqref{laxo} conmuta, entonces $A$ es fuertemente apilado.
+\end{enumerate}
+\end{block}
 \end{frame}
 
 \begin{frame}
-\begin{block}{Proposición:}
-Sean $A\in\Frm$ y $(F.Q,\nabla)$  una terna HM. Para $j\in NA$ se cumple que:
-\begin{enumerate}
-  \item Si $A$ es fuertemente apilado, entonces $v_\nabla\circ j=j\circ v_F$.
-  \item Si $A$ es eficiente y $v_\nabla\circ j=j\circ v_F$, entonces $A$ es fuertemente apilado,
-\end{enumerate}
-\end{block}
-
 \begin{proof}
-
+\begin{enumerate}
+\item Se sigue de la definición de fuertemente apilado y de la propiedad del adjunto derecho de $\mathcal{U}$.
+\item Por la conmutatividad se cumple que
+\[
+\mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U}\quad\text{y}\quad v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F.
+\]
+Por la eficiencia,
+\[
+v_\nabla=[Q'].
+\]
+Sustituyendo y aplicando propiedades del adjunto derecho, obtenemos
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad\text{y}\quad v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+\end{enumerate}
 \end{proof}
 \end{frame}
 
@@ -476,7 +517,13 @@ Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaci
 \end{block}
 
 \begin{proof}
-
+1. ya fue probada y 2. es trivial.
+\begin{description}
+\item[3.] Tomamos $p\in \pt A$ y $a\in A$ tal que $p\leq a$. Como $Y\neq \emptyset$,
+\[
+p\leq a \leq \Sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p
+\]
+\end{description}
 \end{proof}
 \end{frame}
 
@@ -491,12 +538,16 @@ Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaci
 \end{block}
 
 \begin{proof}
-
+\begin{enumerate}
+  \item Ya fue probada.
+  \item Es trivial.
+  \item Se sigue de la proposición anterior.
+\end{enumerate}
 \end{proof}
 \end{frame}
 
 \begin{frame}{La V-modificación de un marco}
-\begin{block}{Definición:}
+\begin{block}{Definición \cite[Def 4.1]{simmons2004vietoris}:}
 Sea $\Vrm$ la categoría de $V$-marcos. 
 \[
 \Vrm=
@@ -508,17 +559,14 @@ Sea $\Vrm$ la categoría de $V$-marcos.
 \end{array}
 \right.
 \]
-\[
-\begin{split}
-\mathbf{(\wedge)}\; & f_\Box(x\wedge y)=f_\Box(x)\wedge f_\Box(y), \; f_\Box(1)=1 \\
-\mathbf{(c)}\; & f_\Box(\bigvee X)=\bigvee\{f_\Box(x)\mid x\in X\} \\
-\mathbf{(\bigvee)}\; & f^\Diamond(\bigvee Y)=\bigvee\{f^\Diamond(y)\mid y\in Y\}, \; f^\Diamond(0)=0 \\
-\mathbf{(m)} \; & \mathbf{(q)}\; f^\Diamond(x)\wedge f_\Box(y)\leq f^\Diamond(x\wedge y)\\
-& \mathbf{(s)}\; f_\Box(x\vee y)\leq f_\Box(x)\vee f_\Diamond(y)
-\end{split}
-\]
+\begin{description}
+\item[($\wedge$)] $f_\Box(x\wedge y)=f_\Box(x)\wedge f_\Box(y)$ y $f_\Box(1)=1$.
+\item[(c)] $f_\Box(\bigvee X)=\bigvee\{f_\Box(x)\mid x\in X\}$.
+\item[($\bigvee$)] $f^\Diamond(\bigvee Y)=\bigvee\{f^\Diamond(y)\mid y\in Y\}$ y $f^\Diamond(0)=0$.
+\item[(q)] $f^\Diamond(x)\wedge f_\Box(y)\leq f^\Diamond(x\wedge y)$.
+\item[(s)] $f_\Box(x\vee y)\leq f_\Box(x)\vee f^\Diamond(y)$
+\end{description}
 para cada $x, y\in A$, $X, Y\subseteq A$, con $X$ dirigido.
-
 \end{block}
 \end{frame}
 
@@ -576,7 +624,7 @@ tenemos
 \end{tikzcd}\]
 
 \begin{block}{Proposición:}
-Sean $A\in \Frm$, y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afirmaciones se cumplen:
+Sean $A\in \Frm$ y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afirmaciones se cumplen:
 \begin{enumerate}
   \item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$.
   \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $A$ es apilado. 
