@@ -26,6 +26,7 @@
 \usepackage{hyperref}
 \usepackage{ragged2e}
 \usepackage{wasysym}
+\usepackage[authoryear]{natbib}
 
 % Colores para la diapositiva Top/Frm
 \definecolor{TopBlue}{RGB}{14,73,160}
@@ -168,31 +169,96 @@
 \textbf{Entre otras...}
 \end{center}}
 
-\footnotetext[0]{Aspectos básicos sobre teoría de marcos y espacios topológicos pueden ser consultados en \cite{Johnstone82, PicadoPultr, picado2021separation, simmonsbasics, simmonscollection}}
+\footnotetext[0]{Aspectos básicos sobre teoría de marcos y su relación con espacios topológicos pueden ser consultados en \cite{Johnstone82, PicadoPultr, picado2021separation, simmonsbasics, simmonscollection, Zaldivar2023}}
 \end{frame}
 
-\begin{frame}{Derivadas y prenúcleos}
-  Sea $A\in \Frm$
-\[
-j\colon A\to A,\quad j\in NA\subseteq PrA
-\]
-\onslide<2->{Considerando $S\in \Top$ y $\mathcal{O}S\in \Frm$
-\[
-  \partial\colon \mathcal{C}S\to \mathcal{C}S,\qquad f\colon \mathcal{O}S\to \mathcal{O}S.
-\]
-Si $f\in Pr\mathcal{O}S$, entonces
-\[
-f(U)'=\partial(U')
-\]}
-\onslide<3->{Ejemplos:
-\[
-[E](U)=(E\cup U)^{\circ},\; \partial_Q(X)=\overline{(Q\cap X)}=v_Q(X')',\; \partial_Q^\infty(X)=v_\nabla(X')'
-\]
-donde $Q\in \mathcal{Q}S$, $X\in \mathcal{C}S$, $U\in \mathcal{O}S$ y $\nabla\in \mathcal{O}S^\wedge$.}
+\begin{frame}[plain]
+\scriptsize
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.25cm and 1.6cm,
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.6cm,
+        minimum height=0.75cm,
+        inner sep=4pt
+    },
+    mainbox/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.6cm,
+        minimum height=0.75cm,
+        inner sep=4pt,
+        very thick
+    },
+    arrow/.style={->, thick}
+]
+
+% Nodos centrales
+\node[mainbox] (top) {$S\in\Top$};
+\node[mainbox, right=4.2cm of top] (frm) {$A\in\Frm$};
+
+% Núcleos arriba
+\node[box, above=1.2cm of top] (ktop) {
+$u_E,\; v_E,\; w_E,\; E\subseteq \mathcal{O}S$
+};
+
+\node[box, above=1.2cm of frm] (kfrm) {
+$u_a,\; v_a,\; w_a,\; a\in A$
+};
+
+% Construcciones inducidas por núcleos
+\node[box, above=1.1cm of ktop] (espind) {
+${[Z]}\colon \mathcal{O}S\to \mathcal{O}S, \; [Z](U)=(Z\cup U)^\circ$
+};
+
+\node[box, above=1.1cm of kfrm] (quotind) {
+$j^*\colon A\to A_j,\; j\in NA$};
+
+
+% Compactos y filtros abiertos
+\node[box, below=1.2cm of top] (qs) {$Q(S)$};
+
+\node[box, below=1.2cm of frm] (filters) {$A^\wedge$};
+
+% Intervalos de admisibilidad
+\node[box, below=1.2cm of qs] (inttop) {$[v_\nabla,w_\nabla]$};
+
+\node[box, below=1.2cm of filters] (intfrm) {$[v_F,w_F]$};
+
+% Flechas verticales hacia arriba
+\draw[arrow] (top) -- (ktop);
+\draw[arrow] (frm) -- (kfrm);
+\draw[arrow] (ktop) -- (espind);
+\draw[arrow] (kfrm) -- (quotind);
+
+% Flechas verticales hacia abajo
+\draw[arrow] (top) -- (qs);
+\draw[arrow] (frm) -- (filters);
+
+\draw[arrow] (qs) -- (inttop);
+\draw[arrow] (filters) -- (intfrm);
+
+% Flechas horizontales
+\draw[<->, thick] (top) -- node[above] {$\mathcal O(-),\,\pt(-)$} (frm);
+
+%\draw[<->, thick] (ktop) -- node[above] {\scriptsize correspondencia} (kfrm);
+
+\draw[<->, thick] (qs) -- node[above] {\scriptsize Hofmann--Mislove} (filters);
+
+\draw[<->, thick] (inttop) -- node[above] {\scriptsize levantamiento--empuje} (intfrm);
+
+\end{tikzpicture}
+\end{center}
+
 \end{frame}
 
 \begin{frame}[fragile]{Espacio de parches}
-    Consideremos $S\in \Top$. Denotamos por $^pS=(S, \mathcal{O}^pS)$ al \textbf{espacio de parches}\footnote{El espacio de parches fue introducido por Hochster en \cite{hochster1969prime}} de $S$, donde $\mathcal{O}^pS$ está generado por
+    Consideremos $S\in \Top$. Denotamos por $^pS=(S, \mathcal{O}^pS)$ al \textbf{espacio de parches}\footnote{El espacio de parches fue introducido en \cite{hochster1969prime}} de $S$, donde $\mathcal{O}^pS$ está generado por
     \[
     \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
     \]
@@ -202,7 +268,7 @@ donde $Q\in \mathcal{Q}S$, $X\in \mathcal{C}S$, $U\in \mathcal{O}S$ y $\nabla\in
 \end{tikzcd}\]
 
 \onslide<2->{
-\begin{block}{Definición}
+\begin{block}{Definición \citep{sexton2006point}:}
 $S$ es \textbf{empaquetado} si todo subconjunto compacto (saturado) es cerrado.
 \end{block}
 \[
@@ -222,7 +288,7 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footno
 \end{tikzcd}\]
 
 \onslide<2->{
-\begin{block}{Definición}
+\begin{block}{Definición \citep{sexton2006point}:}
     $A$ es \textbf{parche trivial} si y solo si $A\cong PA$.
 \end{block}
       \[
@@ -263,9 +329,9 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footno
 \begin{frame}{Marcos eficientes}
 Sean $A\in \Frm$ y $F\in A^\wedge$. Consideramos
 \[ 
-f_F=\bigvee\{v_a\mid a\in F\}\in PrA.
+f_F=\dot{\bigvee}\{v_a\mid a\in F\}\in PrA.
 \]
-\begin{block}{Definición \cite[Def. 8.2.1]{sexton2003point}}
+\begin{block}{Definición \citep{sexton2006point}:}
 Para $\alpha\in \Ord$ decimos que:
 \begin{enumerate}
     \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde $d=f_F^\alpha(0)$.
@@ -274,7 +340,7 @@ Para $\alpha\in \Ord$ decimos que:
 \end{enumerate}
 \end{block}
 
-\onslide<5->{\begin{block}{Proposición \cite[Lema 8.2.2]{sexton2003point}}
+\onslide<5->{\begin{block}{Proposición \citep{sexton2003point}}
 \[
     A \mbox{ es eficiente}\quad \iff\quad A \mbox{ es parche trivial}.
 \]
@@ -293,7 +359,7 @@ T_2\Rightarrow 1\text{-eficiente}\Rightarrow\dots & \Rightarrow \alpha\text{-efi
 \item Clasifica espacios a través de la eficiencia de su topología.
 \end{itemize}
 
-Para $A\in \Frm$ y $F\in A^\wedge$
+\onslide<2->{Para $A\in \Frm$ y $F\in A^\wedge$
 \begin{itemize}
 \item Por construcción
 \[
@@ -301,27 +367,60 @@ u_e=v_F, \quad \text{donde }e=v_F(0) \text{ y cada } F\in A^\wedge.
 \]
 \item Cada filtro abierto proporciona un cociente cerrado compacto. 
 \item Refina la Pbase.
-\end{itemize}
+\end{itemize}}
 \end{frame}
 
-\begin{frame}{Propiedades de los marcos eficicientes}
+\begin{frame}{Propiedades de los marcos eficientes}
   Para $S\in \Top$
   \begin{itemize}
     \item $S$ es regular $\iff$ $\mathcal{O}S$ es 0-eficiente.
     \item $S$ es $T_2$ $\iff$ $\mathcal{O}S$ es 1-eficiente.
-    \item $S$ es apilado y empaquetado $\iff$ $\mathcal{O}S$ es eficiente.
+    \item $S$ es \alert<3->{apilado} y empaquetado $\iff$ $\mathcal{O}S$ es eficiente.
   \end{itemize}
 
-  Para $A\in \Frm$
+  \onslide<2->{Para $A\in \Frm$
   \begin{itemize}
     \item $\mathbf{(reg)}\Rightarrow \mathbf{(aju)}\Rightarrow \text{eficiencia}$.
     \item $\mathbf{(fH)}\Rightarrow \text{eficiencia}$.
     \item $\text{Eficiencia}\Rightarrow T_1$.
     \item Son cerrados bajo cocientes y coproductos.
-  \end{itemize}
+  \end{itemize}}
+\end{frame}
+
+\begin{frame}[plain,standout]
+\textbf{Objetivo general:}\\
+Analizar la construcción del marco de parches y su relación con los marcos eficientes, con el fin de comprender su interacción con distintos axiomas de separación 
+en la categoría $\Frm$.
+\end{frame}
+
+\begin{frame}[plain,standout]
+\textbf{Objetivos específicos:}
+\begin{enumerate}
+\item Estudiar las modificaciones de parches y los axiomas de separación desde el enfoque de $\Frm$. \onslide<2>{$\checkmark$}
+\item Obtener caracterizaciones internas de marcos eficientes en términos de núcleos, sublocales o condiciones asociadas al marco de parches. \onslide<2>{$\checkmark$}
+\item Investigar la posición de la jerarquía de marcos eficientes dentro de las jerarquías conocidas de axiomas de separación en teoría de marcos. \onslide<2>{$\checkmark$}
+\item Analizar la relación de la eficiencia con otras modificaciones de parches y la $V$-modificación.
+\item Desarrollar ejemplos y contraejemplos que ilustren las relaciones encontradas. 
+\end{enumerate}
 \end{frame}
 
 \section{Avances}
+\begin{frame}[plain,standout]
+\begin{center}
+  \Huge \textbf{Avances}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\includegraphics[width=0.62\textwidth]{Imagenes/Ordinal.png}
+
+\vspace{2mm}
+
+\includegraphics[width=0.62\textwidth]{Imagenes/Vietoris.png}
+
+\end{center}
+\end{frame}
 
 \begin{frame}[fragile]{Empujes y levantamientos}
   Sean $A, B\in \Frm$, $j\in NA$ y $k\in NA_j$, entonces 
@@ -355,11 +454,11 @@ En particular, para $\varphi \in N\mathcal{O}S$,
 Consideremos $S\in\Top$, $Q\in \mathcal{Q}S$ y $\nabla\in \mathcal{O}S^\wedge$. Al par $(\nabla, Q)$ lo llamamos par HM.
 Adicionalmente, para $M=\mathcal{O}S\setminus \nabla$
 
-\[
+\begin{equation}\label{Intervalo}
 v_\nabla\leq [Q']\leq w_\nabla=[M']
-\]
+\end{equation}
 
-\begin{block}{Definición:}
+\begin{block}{Definición \citep{sexton2006ordinal}:}
   Sean $S\in \Top$, $F\in A^\wedge$ y $(F, Q)$ un par HM.
 \begin{enumerate}
   \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_\nabla^\infty(S)$ y es fuertemente apilado si $v_\nabla=[Q']$.
@@ -392,8 +491,8 @@ Sean $A\in \Frm$, $S=\pt A$ y $(F, Q, \nabla)$ una terna HM. Para $v_\nabla, [Q'
 \begin{block}{Definición:}
 Sean $A\in \Frm$, $S=\pt A$ y $(F,Q)$ un par HM. Decimos que $A$ es:
 \begin{enumerate}
-  \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
-  \item fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
+  \item apilado si $(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(0)=v_F(0)$.
+  \item fuertemente apilado si $\mathcal{U}_*\circ [Q']\circ \mathcal{U}=v_F$.
 \end{enumerate}
 \end{block}
 
@@ -419,6 +518,23 @@ Si $A\in \Frm$ es $T_1$ y fuertemente apilado, entonces $v_F=w_F$.
 \begin{proof}
 Se sigue del hecho de que $T_1$  es una propiedad hereditaría y de que $T_1$ y fuertemente apilado son conservativas. 
 \end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Teorema \citep[6.2]{sexton2006ordinal}:}
+  Para $S\in \Top$, las siguientes implicaciones se cumplen:
+    \[
+      \text{eficiente}\Rightarrow \text{f. apilado}\Rightarrow \text{apilado}\quad T_1+\text{apilado}\Rightarrow \text{sobrio}.
+    \]
+\end{block}
+
+\begin{block}{Teorema \citep[7.4]{sexton2006ordinal}:}
+Un espacio $S$ es $T_1$ y apilado si y solo si $S$ es sobrio y sus $V$-modificaciones $\mathcal{Q}S$ y $\mathcal{V}S$ son canónicamente homeomorfas.
+\end{block}
+
+\begin{block}{Teorema \citep[7.11]{simmons2004vietoris}:}
+Sea $S$ un espacio sobrio. $S$ es $T_1$ y apilado si y solo si $\dagger Q$ tiene solo un elemento para cada $Q\in \mathcal{Q}S$, en otras palabras, \eqref{Intervalo} evaluado en $\emptyset$ colapsa.
+\end{block}
 \end{frame}
 
 \begin{frame}
@@ -547,7 +663,7 @@ Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaci
 \end{frame}
 
 \begin{frame}{La V-modificación de un marco}
-\begin{block}{Definición \cite[Def 4.1]{simmons2004vietoris}:}
+\begin{block}{Definición \citep{JohnstoneVietorisMonad}:}
 Sea $\Vrm$ la categoría de $V$-marcos. 
 \[
 \Vrm=
@@ -589,21 +705,21 @@ tal que $(\Diamond_p,\Box_p)\in \Vrm(A, 2)$.
 \end{frame}
 
 \begin{frame}
-\begin{block}{Definición:}
+\begin{block}{Definición \citep{JohnstoneVietorisMonad}:}
 Sea $A\in \Frm$ y $p\in \pt VA$. Definimos
 \[
 F=\{x\in A\mid \Box_p(x)=1\}\in A^\wedge,\quad a=\bigvee\{x\in A\mid \Diamond_p(x)=0\}
 \]
 \end{block}
 
-\onslide<2->{\begin{block}{Teorema \cite[Teo 5.7]{simmons2004vietoris}:}
+\onslide<2->{\begin{block}{Teorema \citep{JohnstoneVietorisMonad}:}
 Para cada marco $A$ los $V$-puntos son los pares $(F, a)$ donde 
 \[
 F\in A^\wedge\quad \text{y}\quad a\in [v_F(0), w_F(0)].
 \]
 \end{block}}
 
-\onslide<3->{\begin{block}{Teorema \cite[Teo 7.2]{sexton2006ordinal}:}
+\onslide<3->{\begin{block}{Teorema \citep{sexton2006ordinal}:}
 Para cada espacio sobrio $S$ los $V$-puntos de $\mathcal{O}S$ son los pares $(Q, X)$ donde
 \[
 \overline{M}\subseteq X\subseteq Q(\infty).
@@ -612,22 +728,24 @@ Para cada espacio sobrio $S$ los $V$-puntos de $\mathcal{O}S$ son los pares $(Q,
 \end{frame}
 
 \begin{frame}[fragile]
-Considerando $(A^\wedge, \mathcal{O}A^\wedge)$, donde 
+Sea $x\in A$ y $(A^\wedge, \mathcal{O}A^\wedge)$, donde 
 \[
 \mathcal{O}A^\wedge=\langle D(x)=\{F\in A^\wedge\mid x\in F\}\rangle  ,
 \]
-tenemos
-\[\begin{tikzcd}
-	{\pt(VA)} && {A^\wedge} && {\mathcal{O}A^\wedge} && {\mathcal{O}\pt(VA)}
-	\arrow["\pi", from=1-1, to=1-3]
-	\arrow["{\mathcal{O}(\pi)=\pi^{-1}}", from=1-5, to=1-7]
-\end{tikzcd}\]
+entonces
+\[
+\begin{split}
+\pi\colon \pt(VA)\to A^\wedge \quad & \quad \mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}A^\wedge \to \mathcal{O}\pt(VA) \\
+(F, a)\mapsto F \quad & \quad D(x)\mapsto \mathcal{U}(\Box(x)).
+\end{split}
+\]
 
 \begin{block}{Proposición:}
 Sean $A\in \Frm$ y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afirmaciones se cumplen:
 \begin{enumerate}
   \item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$.
   \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $A$ es apilado. 
+  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$ y $A$ es espacial, entonces $A$ es $T_1$.
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -637,6 +755,11 @@ Sean $A\in \Frm$ y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afi
 \begin{enumerate}
 \item $T_1+$apilado $\Rightarrow$ $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$. Por lo tanto, $\pi$ es una biyección y $\pi^{-1}$ es un morfismo de marcos biyectivo.
 \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $\pi$ es una biyección. Por lo tanto, $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$ y $A$ es apilado.
+\item Sean $a\in A$ y $p\in \pt A$ tales que $p\leq a$. Si  $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $v_F(0)=w_F(0)$.
+Por la espacialidad, 
+\[
+a=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p.
+\]
 \end{enumerate}
 \end{proof}
 \end{frame}
@@ -701,7 +824,9 @@ Líneas de trabajo inmediatas:
 %\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
 %\end{thebibliography}
 
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
+%\bibliographystyle{plain}
+%\bibliographystyle{amsalpha}
 \bibliography{research2}
 \end{frame}
 
