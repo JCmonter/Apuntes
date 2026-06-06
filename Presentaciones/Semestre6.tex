@@ -52,8 +52,8 @@
 \title{Modificaciones de parches}
 \subtitle{y algunos axiomas de separación en la topología sin puntos}
 %\event{58° Congreso Nacional de la SMM}
-%\event{Seminario de Álgebra, CUCEI}
-\date{\today}
+\event{Coloquio Fibonacci de Matemáticas, CUCEI}
+\date{10 de junio de 2026}
 \author{Juan Carlos Monter Cortés \\ Director: Dr. Luis Ángel Zaldívar Corichi}
 %\institute{Universidad de Guadalajara}
 %\email{juan.monter2902@alumnos.udg.mx}
@@ -136,9 +136,9 @@
 
 \onslide<2->{\textbf{Filtros}
 \begin{itemize}
-    \item Filtros abiertos $(A^\wedge )$
-    \item Filtros completamente primos
-    \item Filtros de admisibilidad $(\nabla(j))$
+    \item F. abiertos $(A^\wedge )$
+    \item F. completamente primos $(F_p)$
+    \item F. de admisibilidad $(\nabla(j))$
 \end{itemize}}
 
 \column{0.48\textwidth}
@@ -156,9 +156,9 @@
 \onslide<4->{
 \textbf{Nociones topológicas}
 \begin{itemize}
-    \item Morfismo reflexión espacial $(\mathcal{U}_A)$
+    \item Reflexión espacial $(\mathcal{U}_A)$
     \item Axiomas de separación
-    \item Núcleos espacialmente inducidos $([E])$
+    \item Núcleos espacialmente inducidos $([Z])$
 \end{itemize}}
 
 \end{columns}
@@ -221,7 +221,7 @@ $j^*\colon A\to A_j,\; j\in NA$};
 
 
 % Compactos y filtros abiertos
-\node[box, below=1.2cm of top] (qs) {$Q(S)$};
+\node[box, below=1.2cm of top] (qs) {$\mathcal{Q}S$};
 
 \node[box, below=1.2cm of frm] (filters) {$A^\wedge$};
 
@@ -281,7 +281,6 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footno
 \[
 \mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}
 \]
-
 \[\begin{tikzcd}
 	A & PA
 	\arrow[from=1-1, to=1-2]
@@ -461,7 +460,7 @@ v_\nabla\leq [Q']\leq w_\nabla=[M']
 \begin{block}{Definición \citep{sexton2006ordinal}:}
   Sean $S\in \Top$, $F\in A^\wedge$ y $(F, Q)$ un par HM.
 \begin{enumerate}
-  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_\nabla^\infty(S)$ y es fuertemente apilado si $v_\nabla=[Q']$.
+  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_Q^\infty(S)=v_\nabla(\emptyset)'$ y es fuertemente apilado si $v_\nabla=[Q']$.
   \item El espacio $S$ es apilado o fuertemente apilado si cada $Q\in \mathcal{Q}S$ es apilado o fuertemente apilado, respectivamente.
 \end{enumerate}
 \end{block}
@@ -481,7 +480,7 @@ Sean $A\in \Frm$, $S=\pt A$ y $(F, Q, \nabla)$ una terna HM. Para $v_\nabla, [Q'
 \begin{proof}
 \begin{enumerate}
 \item Sabemos que $\mho\colon [v_\nabla, w_\nabla]\to [v_F, w_F]$ y $v_F$, $w_F$ son el menor y mayor elemento de su bloque, respectivamente.
-\item Por propiedades del adjunto derecho, verificamos que $\mathcal{U}\circ w_F\subseteq  w_\nabla\circ \mathcal{U}$.
+\item Por propiedades del adjunto derecho, verificamos que $(\mathcal{U}\circ w_F)(x)\subseteq  (w_\nabla\circ \mathcal{U})(x)$ para todo $x\in A$.
 \end{enumerate}
 \end{proof}
 \end{frame}
@@ -542,7 +541,7 @@ Sea $S$ un espacio sobrio. $S$ es $T_1$ y apilado si y solo si $\dagger Q$ tiene
 Sean $A\in \Frm$, $S=\pt A$ y $(F, Q)$ cualquier par HM. Si $A$ es $T_1$ y apilado, las siguientes afirmaciones se cumplen:
 \begin{enumerate}
 \item $v_F(0)=w_F(0)$
-\item Para cualquier para $(F_p, \uparrow p)$, $v_{F_p}=w_{F_p}=w_p$.
+\item Para cualquier par $(F_p, p^\uparrow)$, $u_p=v_{F_p}=w_{F_p}=w_p$.
 \item Para todo $p\in S$, p es máximo en $S$.
 \end{enumerate}
 \end{block}
@@ -550,7 +549,7 @@ Sean $A\in \Frm$, $S=\pt A$ y $(F, Q)$ cualquier par HM. Si $A$ es $T_1$ y apila
 \begin{proof}
 \begin{enumerate}
 \item $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)$ y $\mathcal{U}_*\circ[Q']\circ\mathcal{U}=w_F$.
-\item $\uparrow p=\{p\}$ y $A_{F_p}=\{p,1\}$. Por lo tanto, $v_{F_p}=w_{F_p}=w_p$. 
+\item $p^\uparrow=\{p\}$ y $A_{F_p}=\{p,1\}$. Por lo tanto, $u_p=v_{F_p}=w_{F_p}=w_p$. 
 \item Por 1), $v_{F_p}(0)=w_{F_p}(0)$ y considerando $p\leq q\in \pt A$, vemos que $p=q$.
 \end{enumerate}
 \end{proof}
@@ -573,7 +572,7 @@ Q\in \mathcal{C}S \quad\text{y}\quad [Q']=u_{Q'}.
 \]
 Por apilado,
 \[
-\overline{Q}=\partial_\nabla^\infty(S)\Rightarrow Q'=v_\nabla(\emptyset).
+\overline{Q}=\partial_Q^\infty(S)\Rightarrow Q'=v_\nabla(\emptyset).
 \]
 Por eficiencia, $v_\nabla=u_{Q'}=[Q']$.
 \end{proof}
@@ -728,14 +727,14 @@ Para cada espacio sobrio $S$ los $V$-puntos de $\mathcal{O}S$ son los pares $(Q,
 \end{frame}
 
 \begin{frame}[fragile]
-Sea $x\in A$ y $(A^\wedge, \mathcal{O}A^\wedge)$, donde 
+Sea $x\in A$ y $(A^\wedge, \mathcal{O}(A^\wedge))$, donde 
 \[
-\mathcal{O}A^\wedge=\langle D(x)=\{F\in A^\wedge\mid x\in F\}\rangle  ,
+\mathcal{O}(A^\wedge)=\langle D(x)=\{F\in A^\wedge\mid x\in F\}\rangle  ,
 \]
 entonces
 \[
 \begin{split}
-\pi\colon \pt(VA)\to A^\wedge \quad & \quad \mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}A^\wedge \to \mathcal{O}\pt(VA) \\
+\pi\colon \pt(VA)\to A^\wedge \quad & \quad \mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}(A^\wedge) \to \mathcal{O}\pt(VA) \\
 (F, a)\mapsto F \quad & \quad D(x)\mapsto \mathcal{U}(\Box(x)).
 \end{split}
 \]
@@ -743,9 +742,9 @@ entonces
 \begin{block}{Proposición:}
 Sean $A\in \Frm$ y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afirmaciones se cumplen:
 \begin{enumerate}
-  \item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$.
-  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $A$ es apilado. 
-  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$ y $A$ es espacial, entonces $A$ es $T_1$.
+  \item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$.
+  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$, entonces $A$ es apilado. 
+  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$ y $A$ es espacial, entonces $A$ es $T_1$.
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -754,8 +753,8 @@ Sean $A\in \Frm$ y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afi
 \begin{proof}
 \begin{enumerate}
 \item $T_1+$apilado $\Rightarrow$ $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$. Por lo tanto, $\pi$ es una biyección y $\pi^{-1}$ es un morfismo de marcos biyectivo.
-\item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $\pi$ es una biyección. Por lo tanto, $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$ y $A$ es apilado.
-\item Sean $a\in A$ y $p\in \pt A$ tales que $p\leq a$. Si  $\mathcal{O}\pt(VA)\cong \mathcal{O}A^\wedge$, entonces $v_F(0)=w_F(0)$.
+\item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$, entonces $\pi$ es una biyección. Por lo tanto, $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$ y $A$ es apilado.
+\item Sean $a\in A$ y $p\in \pt A$ tales que $p\leq a$. Si  $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$, entonces $v_F(0)=w_F(0)$.
 Por la espacialidad, 
 \[
 a=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p.
@@ -771,7 +770,7 @@ Resultados obtenidos:
   \item Introdujimos las nociones de marco apilado y fuertemente apilado.
   \item Probamos que dichas nociones son conservativas.
   \item Obtuvimos caracterizaciones mediante los núcleos $v_F$ y $w_F$
-  \item Relacionamos el apilamiento con la eficiencia y con la estructura de los V-puntos.
+  \item Relacionamos el apilamiento con la eficiencia y con la estructura de los $V$-puntos.
   \item Analizamos el ejemplo A=[0,1] y sus modificaciones de parches.
 \end{itemize}
 \end{frame}
@@ -832,11 +831,11 @@ Líneas de trabajo inmediatas:
 
 \begin{frame}[plain,standout]
       \centering
-      \Huge{\bfseries \smiley ¡Muchas gracias! \smiley}\\[1cm]
+      \Huge{\bfseries \smiley ¡Muchas gracias! \smiley}
       %In combination with \textit{plain}, \\
       %it makes a nice thank-you slide!
-      \scalebox{4}{\faGithub} \par\bigskip
-      \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
       %\url{https://ctan.org/pkg/beamertheme-arguelles}
 \end{frame}
 \end{document}
