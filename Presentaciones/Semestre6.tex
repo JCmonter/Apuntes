@@ -26,6 +26,7 @@
 \usepackage{hyperref}
 \usepackage{ragged2e}
 \usepackage{wasysym}
+\usepackage[authoryear]{natbib}
 
 % Colores para la diapositiva Top/Frm
 \definecolor{TopBlue}{RGB}{14,73,160}
@@ -37,6 +38,7 @@
 
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\Sp}{sp}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\Fit}{Fit}
 \DeclareMathOperator{\Pth}{P}
@@ -50,8 +52,8 @@
 \title{Modificaciones de parches}
 \subtitle{y algunos axiomas de separación en la topología sin puntos}
 %\event{58° Congreso Nacional de la SMM}
-%\event{Seminario de Álgebra, CUCEI}
-\date{\today}
+\event{Coloquio Fibonacci de Matemáticas, CUCEI}
+\date{10 de junio de 2026}
 \author{Juan Carlos Monter Cortés \\ Director: Dr. Luis Ángel Zaldívar Corichi}
 %\institute{Universidad de Guadalajara}
 %\email{juan.monter2902@alumnos.udg.mx}
@@ -124,19 +126,19 @@
 \column{0.48\textwidth}
 \textbf{Núcleos}
 \begin{itemize}
-    \item Núcleos abiertos
-    \item Núcleos cerrados
-    \item Núcleos regulares
-    \item Núcleos ajustados
+    \item Núcleos abiertos $(v_\bullet)$
+    \item Núcleos cerrados $(u_\bullet)$
+    \item Núcleos regulares $(w_\bullet)$
+    \item Núcleos ajustados $(v_F)$
 \end{itemize}
 
 \vspace{0.4cm}
 
 \onslide<2->{\textbf{Filtros}
 \begin{itemize}
-    \item Filtros abiertos
-    \item Filtros completamente primos
-    \item Filtros de admisibilidad
+    \item F. abiertos $(A^\wedge )$
+    \item F. completamente primos $(F_p)$
+    \item F. de admisibilidad $(\nabla(j))$
 \end{itemize}}
 
 \column{0.48\textwidth}
@@ -144,7 +146,7 @@
 \onslide<3->{
 \textbf{Correspondencias biyectivas}
 \begin{itemize}
-    \item Puntos--caracteres
+    \item Puntos--caracteres--f.c.p.
     \item Núcleos--cocientes
     \item Teorema de Hofmann--Mislove
 \end{itemize}}
@@ -154,26 +156,109 @@
 \onslide<4->{
 \textbf{Nociones topológicas}
 \begin{itemize}
-    \item Morfismo reflexión espacial
+    \item Reflexión espacial $(\mathcal{U}_A)$
     \item Axiomas de separación
-    \item Núcleos espacialmente inducidos
+    \item Núcleos espacialmente inducidos $([Z])$
 \end{itemize}}
 
 \end{columns}
-\vspace{0.4cm}
+%\vspace{0.4cm}
 
 \onslide<5->{
 \begin{center}
 \textbf{Entre otras...}
 \end{center}}
+
+\footnotetext[0]{Aspectos básicos sobre teoría de marcos y su relación con espacios topológicos pueden ser consultados en \cite{Johnstone82, PicadoPultr, picado2021separation, simmonsbasics, simmonscollection, Zaldivar2023}}
 \end{frame}
 
-\begin{frame}{Derivadas y prenúcleos}
+\begin{frame}[plain]
+\scriptsize
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.25cm and 1.6cm,
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.6cm,
+        minimum height=0.75cm,
+        inner sep=4pt
+    },
+    mainbox/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.6cm,
+        minimum height=0.75cm,
+        inner sep=4pt,
+        very thick
+    },
+    arrow/.style={->, thick}
+]
+
+% Nodos centrales
+\node[mainbox] (top) {$S\in\Top$};
+\node[mainbox, right=4.2cm of top] (frm) {$A\in\Frm$};
+
+% Núcleos arriba
+\node[box, above=1.2cm of top] (ktop) {
+$u_E,\; v_E,\; w_E,\; E\subseteq \mathcal{O}S$
+};
+
+\node[box, above=1.2cm of frm] (kfrm) {
+$u_a,\; v_a,\; w_a,\; a\in A$
+};
+
+% Construcciones inducidas por núcleos
+\node[box, above=1.1cm of ktop] (espind) {
+${[Z]}\colon \mathcal{O}S\to \mathcal{O}S, \; [Z](U)=(Z\cup U)^\circ$
+};
+
+\node[box, above=1.1cm of kfrm] (quotind) {
+$j^*\colon A\to A_j,\; j\in NA$};
+
+
+% Compactos y filtros abiertos
+\node[box, below=1.2cm of top] (qs) {$\mathcal{Q}S$};
+
+\node[box, below=1.2cm of frm] (filters) {$A^\wedge$};
+
+% Intervalos de admisibilidad
+\node[box, below=1.2cm of qs] (inttop) {$[v_\nabla,w_\nabla]$};
+
+\node[box, below=1.2cm of filters] (intfrm) {$[v_F,w_F]$};
+
+% Flechas verticales hacia arriba
+\draw[arrow] (top) -- (ktop);
+\draw[arrow] (frm) -- (kfrm);
+\draw[arrow] (ktop) -- (espind);
+\draw[arrow] (kfrm) -- (quotind);
+
+% Flechas verticales hacia abajo
+\draw[arrow] (top) -- (qs);
+\draw[arrow] (frm) -- (filters);
+
+\draw[arrow] (qs) -- (inttop);
+\draw[arrow] (filters) -- (intfrm);
+
+% Flechas horizontales
+\draw[<->, thick] (top) -- node[above] {$\mathcal O(-),\,\pt(-)$} (frm);
+
+%\draw[<->, thick] (ktop) -- node[above] {\scriptsize correspondencia} (kfrm);
+
+\draw[<->, thick] (qs) -- node[above] {\scriptsize Hofmann--Mislove} (filters);
+
+\draw[<->, thick] (inttop) -- node[above] {\scriptsize levantamiento--empuje} (intfrm);
+
+\end{tikzpicture}
+\end{center}
 
 \end{frame}
 
 \begin{frame}[fragile]{Espacio de parches}
-    Consideremos $S\in \Top$. Denotamos por $^pS=(S, \mathcal{O}^pS)$ al \textbf{espacio de parches}\footnote{El espacio de parches fue introducido por Hochster en \cite{hochster1969prime}} de $S$, donde $\mathcal{O}^pS$ está generado por
+    Consideremos $S\in \Top$. Denotamos por $^pS=(S, \mathcal{O}^pS)$ al \textbf{espacio de parches}\footnote{El espacio de parches fue introducido en \cite{hochster1969prime}} de $S$, donde $\mathcal{O}^pS$ está generado por
     \[
     \mbox{pbase}=\{U\cap Q'\mid U\in \mathcal{O}S, Q\in \mathcal{Q}S\}
     \]
@@ -183,7 +268,7 @@
 \end{tikzcd}\]
 
 \onslide<2->{
-\begin{block}{Definición}
+\begin{block}{Definición \citep{sexton2006point}:}
 $S$ es \textbf{empaquetado} si todo subconjunto compacto (saturado) es cerrado.
 \end{block}
 \[
@@ -196,18 +281,17 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footno
 \[
 \mbox{Pbase}=\{u_a\wedge v_F\mid a\in A, F\in A^\wedge\}
 \]
-
 \[\begin{tikzcd}
 	A & PA
 	\arrow[from=1-1, to=1-2]
 \end{tikzcd}\]
 
 \onslide<2->{
-\begin{block}{Definición}
+\begin{block}{Definición \citep{sexton2006point}:}
     $A$ es \textbf{parche trivial} si y solo si $A\cong PA$.
 \end{block}
       \[
-        ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
+        ¿ \; ?\Rightarrow \mbox{ parche trivial }\Rightarrow T_1
       \]
 }
 \end{frame}
@@ -242,19 +326,20 @@ Consideremos $A\in \Frm$. Denotamos por $PA$ al \textbf{marco de parches}\footno
 \end{frame}
 
 \begin{frame}{Marcos eficientes}
-\begin{block}{Definición \cite[Def. 8.2.1]{sexton2003point}}
-Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
+Sean $A\in \Frm$ y $F\in A^\wedge$. Consideramos
+\[ 
+f_F=\dot{\bigvee}\{v_a\mid a\in F\}\in PrA.
+\]
+\begin{block}{Definición \citep{sexton2006point}:}
+Para $\alpha\in \Ord$ decimos que:
 \begin{enumerate}
-    \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde
-    \[
-    d:=d(\alpha)=f^\alpha(0).
-    \]
+    \item<2-> $F$ es $\alpha$\textbf{-eficiente} si para $x\in F$, $d\vee x=1$, donde $d=f_F^\alpha(0)$.
     \item<3-> $A$ es $\alpha$\textbf{-eficiente} si cada $F\in A^\wedge$ es $\alpha$-eficiente.
     \item<4-> $A$ es \textbf{eficiente} si es $\alpha$-eficiente para algún $\alpha\in \Ord$.
 \end{enumerate}
 \end{block}
 
-\onslide<5->{\begin{block}{Proposición \cite[Lema 8.2.2]{sexton2003point}}
+\onslide<5->{\begin{block}{Proposición \citep{sexton2003point}}
 \[
     A \mbox{ es eficiente}\quad \iff\quad A \mbox{ es parche trivial}.
 \]
@@ -262,47 +347,151 @@ Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
 \end{frame}
 
 \begin{frame}{Para qué sirve la eficiciencia}
+Para $S\in \Top$
+  \[
+\begin{split}
+T_2\Rightarrow 1\text{-eficiente}\Rightarrow\dots & \Rightarrow \alpha\text{-eficiente}\Rightarrow\alpha+1\text{-eficiente}\\
+& \Rightarrow \dots \Rightarrow T_1.
+\end{split}
+\]
+\begin{itemize}
+\item Clasifica espacios a través de la eficiencia de su topología.
+\end{itemize}
 
+\onslide<2->{Para $A\in \Frm$ y $F\in A^\wedge$
+\begin{itemize}
+\item Por construcción
+\[
+u_e=v_F, \quad \text{donde }e=v_F(0) \text{ y cada } F\in A^\wedge.
+\]
+\item Cada filtro abierto proporciona un cociente cerrado compacto. 
+\item Refina la Pbase.
+\end{itemize}}
 \end{frame}
 
-\begin{frame}{Propiedades de los marcos eficicientes}
+\begin{frame}{Propiedades de los marcos eficientes}
+  Para $S\in \Top$
+  \begin{itemize}
+    \item $S$ es regular $\iff$ $\mathcal{O}S$ es 0-eficiente.
+    \item $S$ es $T_2$ $\iff$ $\mathcal{O}S$ es 1-eficiente.
+    \item $S$ es \alert<3->{apilado} y empaquetado $\iff$ $\mathcal{O}S$ es eficiente.
+  \end{itemize}
 
+  \onslide<2->{Para $A\in \Frm$
+  \begin{itemize}
+    \item $\mathbf{(reg)}\Rightarrow \mathbf{(aju)}\Rightarrow \text{eficiencia}$.
+    \item $\mathbf{(fH)}\Rightarrow \text{eficiencia}$.
+    \item $\text{Eficiencia}\Rightarrow T_1$.
+    \item Son cerrados bajo cocientes y coproductos.
+  \end{itemize}}
 \end{frame}
 
-\begin{frame}{Eficiencia y su relación con otras construcciones}
+\begin{frame}[plain,standout]
+\textbf{Objetivo general:}\\
+Analizar la construcción del marco de parches y su relación con los marcos eficientes, con el fin de comprender su interacción con distintos axiomas de separación 
+en la categoría $\Frm$.
+\end{frame}
 
+\begin{frame}[plain,standout]
+\textbf{Objetivos específicos:}
+\begin{enumerate}
+\item Estudiar las modificaciones de parches y los axiomas de separación desde el enfoque de $\Frm$. \onslide<2>{$\checkmark$}
+\item Obtener caracterizaciones internas de marcos eficientes en términos de núcleos, sublocales o condiciones asociadas al marco de parches. \onslide<2>{$\checkmark$}
+\item Investigar la posición de la jerarquía de marcos eficientes dentro de las jerarquías conocidas de axiomas de separación en teoría de marcos. \onslide<2>{$\checkmark$}
+\item Analizar la relación de la eficiencia con otras modificaciones de parches y la $V$-modificación.
+\item Desarrollar ejemplos y contraejemplos que ilustren las relaciones encontradas. 
+\end{enumerate}
 \end{frame}
 
 \section{Avances}
+\begin{frame}[plain,standout]
+\begin{center}
+  \Huge \textbf{Avances}
+\end{center}
+\end{frame}
 
-\begin{frame}{Empujes y levantamientos}
-  
+\begin{frame}
+\begin{center}
+\includegraphics[width=0.62\textwidth]{Imagenes/Ordinal.png}
+
+\vspace{2mm}
+
+\includegraphics[width=0.62\textwidth]{Imagenes/Vietoris.png}
+
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Empujes y levantamientos}
+  Sean $A, B\in \Frm$, $j\in NA$ y $k\in NA_j$, entonces 
+\[\begin{tikzcd}
+	A && B && A && A \\
+	\\
+	NA && NB && {A_j} && {A_j}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["{\eta_A}"', from=1-1, to=3-1]
+	\arrow["{\eta_B}", from=1-3, to=3-3]
+	\arrow["j", from=1-5, to=1-7]
+	\arrow["{j^*}"', from=1-5, to=3-5]
+	\arrow["{N(f)}"', from=3-1, to=3-3]
+	\arrow["k"', from=3-5, to=3-7]
+	\arrow["{j_*}"', from=3-7, to=1-7]
+\end{tikzcd}\]
+
+En particular, para $\varphi \in N\mathcal{O}S$,
+  \[\begin{tikzcd}
+	A && A \\
+	\\
+	{\mathcal{O}S} && {\mathcal{O}S}
+	\arrow["j", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}}"', from=1-1, to=3-1]
+	\arrow["\varphi"', from=3-1, to=3-3]
+	\arrow["{\mathcal{U}_*}"', from=3-3, to=1-3]
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}{Nociones de apilamiento}
-Consideremos $S\in\Top$. Tenemos $Q\in \mathcal{Q}S$ y $F\in \mathcal{O}S^\wedge$. Al par $(F, Q)$ lo llamamos para HM.
-Adicionalmente
+Consideremos $S\in\Top$, $Q\in \mathcal{Q}S$ y $\nabla\in \mathcal{O}S^\wedge$. Al par $(\nabla, Q)$ lo llamamos par HM.
+Adicionalmente, para $M=\mathcal{O}S\setminus \nabla$
 
-\[
-v_F\leq [Q']\leq w_F
-\]
+\begin{equation}\label{Intervalo}
+v_\nabla\leq [Q']\leq w_\nabla=[M']
+\end{equation}
 
-\begin{block}{Definición:}
-  Sea $S\in \Top$ y $(F, Q)$ un par HM.
+\begin{block}{Definición \citep{sexton2006ordinal}:}
+  Sean $S\in \Top$, $F\in A^\wedge$ y $(F, Q)$ un par HM.
 \begin{enumerate}
-  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_F^\infty(S)$ y es fuertemente apilado si $v_F=[Q']$.
+  \item Un conjunto $Q\in \mathcal{Q}S$ es apilado si $\overline{Q}=\partial_Q^\infty(S)=v_\nabla(\emptyset)'$ y es fuertemente apilado si $v_\nabla=[Q']$.
   \item El espacio $S$ es apilado o fuertemente apilado si cada $Q\in \mathcal{Q}S$ es apilado o fuertemente apilado, respectivamente.
 \end{enumerate}
 \end{block}
 
+Dado que $v_\nabla, [Q'], w_\nabla\in N\mathcal{O}S$, sus levantamientos están en $NA$.
 \end{frame}
+
+\begin{frame}
+\begin{block}{Proposición:}
+Sean $A\in \Frm$, $S=\pt A$ y $(F, Q, \nabla)$ una terna HM. Para $v_\nabla, [Q']$ y $w_\nabla$ como antes, las siguientes son ciertas:
+\begin{enumerate}
+\item $\mathcal{U}_*\circ v_\nabla\circ \mathcal{U}, \mathcal{U}_*\circ [Q']\circ \mathcal{U}, \mathcal{U}_*\circ w_\nabla\circ \mathcal{U}\in [v_F, w_F]$
+\item $\mathcal{U}_*\circ w_\nabla\circ \mathcal{U}=w_F$.
+\end{enumerate}
+\end{block}
+
+\begin{proof}
+\begin{enumerate}
+\item Sabemos que $\mho\colon [v_\nabla, w_\nabla]\to [v_F, w_F]$ y $v_F$, $w_F$ son el menor y mayor elemento de su bloque, respectivamente.
+\item Por propiedades del adjunto derecho, verificamos que $(\mathcal{U}\circ w_F)(x)\subseteq  (w_\nabla\circ \mathcal{U})(x)$ para todo $x\in A$.
+\end{enumerate}
+\end{proof}
+\end{frame}
+
 
 \begin{frame}{Marcos apilados y fuertemente apilados}
 \begin{block}{Definición:}
 Sean $A\in \Frm$, $S=\pt A$ y $(F,Q)$ un par HM. Decimos que $A$ es:
 \begin{enumerate}
-  \item apilado si $(\mathcal{U}_*([Q'])\mathcal{U})(0)=v_F(0)$.
-  \item fuertemente apilado si $\mathcal{U}_*[Q']\mathcal{U}=v_F$.
+  \item apilado si $(\mathcal{U}_*\circ [Q']\circ\mathcal{U})(0)=v_F(0)$.
+  \item fuertemente apilado si $\mathcal{U}_*\circ [Q']\circ \mathcal{U}=v_F$.
 \end{enumerate}
 \end{block}
 
@@ -318,12 +507,282 @@ S \text{ apilado (f. apilado)}\iff \mathcal{O}S \text{ apilado (f. apilado)}.
 \end{proof}
 \end{frame}
 
-\begin{frame}{Interacción de la eficiencia con otras propiedades}
+\begin{frame}{Apilamiento con otras propiedades}
+En espacios, si $S\in \Top$ es $T_1$ y fuertemente apilado, entonces $v_\nabla=w_\nabla$
 
+\begin{block}{Proposición:}
+Si $A\in \Frm$ es $T_1$ y fuertemente apilado, entonces $v_F=w_F$.
+\end{block}
+
+\begin{proof}
+Se sigue del hecho de que $T_1$  es una propiedad hereditaría y de que $T_1$ y fuertemente apilado son conservativas. 
+\end{proof}
 \end{frame}
 
-\begin{frame}{Lista de actividades}
+\begin{frame}
+\begin{block}{Teorema \citep[6.2]{sexton2006ordinal}:}
+  Para $S\in \Top$, las siguientes implicaciones se cumplen:
+    \[
+      \text{eficiente}\Rightarrow \text{f. apilado}\Rightarrow \text{apilado}\quad T_1+\text{apilado}\Rightarrow \text{sobrio}.
+    \]
+\end{block}
 
+\begin{block}{Teorema \citep[7.4]{sexton2006ordinal}:}
+Un espacio $S$ es $T_1$ y apilado si y solo si $S$ es sobrio y sus $V$-modificaciones $\mathcal{Q}S$ y $\mathcal{V}S$ son canónicamente homeomorfas.
+\end{block}
+
+\begin{block}{Teorema \citep[7.11]{simmons2004vietoris}:}
+Sea $S$ un espacio sobrio. $S$ es $T_1$ y apilado si y solo si $\dagger Q$ tiene solo un elemento para cada $Q\in \mathcal{Q}S$, en otras palabras, \eqref{Intervalo} evaluado en $\emptyset$ colapsa.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Proposición:}
+Sean $A\in \Frm$, $S=\pt A$ y $(F, Q)$ cualquier par HM. Si $A$ es $T_1$ y apilado, las siguientes afirmaciones se cumplen:
+\begin{enumerate}
+\item $v_F(0)=w_F(0)$
+\item Para cualquier par $(F_p, p^\uparrow)$, $u_p=v_{F_p}=w_{F_p}=w_p$.
+\item Para todo $p\in S$, p es máximo en $S$.
+\end{enumerate}
+\end{block}
+
+\begin{proof}
+\begin{enumerate}
+\item $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)$ y $\mathcal{U}_*\circ[Q']\circ\mathcal{U}=w_F$.
+\item $p^\uparrow=\{p\}$ y $A_{F_p}=\{p,1\}$. Por lo tanto, $u_p=v_{F_p}=w_{F_p}=w_p$. 
+\item Por 1), $v_{F_p}(0)=w_{F_p}(0)$ y considerando $p\leq q\in \pt A$, vemos que $p=q$.
+\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+Con respecto a la eficiencia, en espacios se cumple que
+\begin{equation}\label{eficiencia}
+\mathcal{O}S\text{ eficiente }\iff S \text{ apilado y empaquetado}
+\end{equation}
+
+\begin{block}{Proposición}
+Si $\mathcal{O}S$ es eficiente, entonces $S$ es fuertemente apilado
+\end{block}
+
+\begin{proof}
+Por \eqref{eficiencia}, $S$ es apilado y empaquetado. Por empaquetado, 
+\[
+Q\in \mathcal{C}S \quad\text{y}\quad [Q']=u_{Q'}.
+\]
+Por apilado,
+\[
+\overline{Q}=\partial_Q^\infty(S)\Rightarrow Q'=v_\nabla(\emptyset).
+\]
+Por eficiencia, $v_\nabla=u_{Q'}=[Q']$.
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+  Si consideramos $(F. Q, \nabla)$ una terna HM, entonces
+  \begin{equation}\label{laxo}
+  \begin{tikzcd}
+	A && A & \\
+	&&& {\text{ y }\quad\mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U}.} \\
+	{\mathcal{O}S} && {\mathcal{O}S}
+	\arrow["{v_F}", from=1-1, to=1-3]
+	\arrow["{\mathcal{U}}"', from=1-1, to=3-1]
+	\arrow["{\mathcal{U}}", from=1-3, to=3-3]
+	\arrow["{v_\nabla}"', from=3-1, to=3-3]
+\end{tikzcd}\end{equation}
+
+
+\begin{block}{Proposición:}
+Con los datos anteriores, las siguientes afirmaciones se cumplen:
+\begin{enumerate}
+  \item Si $A$ es fuertemente apilado, entonces \eqref{laxo} conmuta.
+  \item Si $A$ es eficiente y \eqref{laxo} conmuta, entonces $A$ es fuertemente apilado.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+\begin{enumerate}
+\item Se sigue de la definición de fuertemente apilado y de la propiedad del adjunto derecho de $\mathcal{U}$.
+\item Por la conmutatividad se cumple que
+\[
+\mathcal{U}\circ v_F\leq v_\nabla\circ \mathcal{U}\quad\text{y}\quad v_\nabla\circ \mathcal{U}\leq \mathcal{U}\circ v_F.
+\]
+Por la eficiencia,
+\[
+v_\nabla=[Q'].
+\]
+Sustituyendo y aplicando propiedades del adjunto derecho, obtenemos
+\[
+\mathcal{U}_*\circ [Q']\circ \mathcal{U}\leq v_F\quad\text{y}\quad v_F\leq \mathcal{U}_*\circ [Q']\circ \mathcal{U}.
+\]
+\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Proposición:}
+Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaciones:
+\begin{enumerate}
+\item Si $A$ es $T_1$ y apilado, entonces $v_F(0)=w_F(0)$.
+\item Si $v_F(0)=w_F(0)$, entonces $A$ es apilado.
+\item Si $v_F(0)=w_F(0)$ y el conjunto $Y=\{q\in \pt A\mid a\leq q\}$ es distinto de vacío para todo $a\in A$, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{block}
+
+\begin{proof}
+1. ya fue probada y 2. es trivial.
+\begin{description}
+\item[3.] Tomamos $p\in \pt A$ y $a\in A$ tal que $p\leq a$. Como $Y\neq \emptyset$,
+\[
+p\leq a \leq \Sp(a)=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p
+\]
+\end{description}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Corolario:}
+Para $A\in \Frm$ y $(F, Q)$ cualquier par HM, se cumplen las siguientes afirmaciones::
+\begin{enumerate}
+\item Si $A$ es $T_1$ y fuertemente apilado, entonces $v_F=w_F$.
+\item Si $v_F=w_F$, entonces $A$ es fuertemente apilado.
+\item Si $v_F=w_F$ y el conjunto $Y=\{q\in \pt A\mid a\leq q\}$ es distinto de vacío para todo $a\in A$, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{block}
+
+\begin{proof}
+\begin{enumerate}
+  \item Ya fue probada.
+  \item Es trivial.
+  \item Se sigue de la proposición anterior.
+\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}{La V-modificación de un marco}
+\begin{block}{Definición \citep{JohnstoneVietorisMonad}:}
+Sea $\Vrm$ la categoría de $V$-marcos. 
+\[
+\Vrm=
+\left\{
+\begin{array}{ll}
+\text{Objetos:} & \text{ marcos} 
+\\[1mm]
+\text{Morfismos:} & f_\Box\colon A\to B, \; f^\Diamond\colon A\to B \text{ tales que}
+\end{array}
+\right.
+\]
+\begin{description}
+\item[($\wedge$)] $f_\Box(x\wedge y)=f_\Box(x)\wedge f_\Box(y)$ y $f_\Box(1)=1$.
+\item[(c)] $f_\Box(\bigvee X)=\bigvee\{f_\Box(x)\mid x\in X\}$.
+\item[($\bigvee$)] $f^\Diamond(\bigvee Y)=\bigvee\{f^\Diamond(y)\mid y\in Y\}$ y $f^\Diamond(0)=0$.
+\item[(q)] $f^\Diamond(x)\wedge f_\Box(y)\leq f^\Diamond(x\wedge y)$.
+\item[(s)] $f_\Box(x\vee y)\leq f_\Box(x)\vee f^\Diamond(y)$
+\end{description}
+para cada $x, y\in A$, $X, Y\subseteq A$, con $X$ dirigido.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\[
+\begin{tikzcd}
+\Vrm \arrow[rr, "V(-)", bend left] &  & \Frm \arrow[ll, "\iota (-)", bend left] &  & {\Frm(VA, B)\cong \Vrm(A, B)}
+\end{tikzcd}.
+\]
+Llamamos a $VA$ el marco de Vietoris\footnote{Información sobre esta construcción puede ser consultada en \cite{JohnstoneVietorisMonad, johnstone2020vietoris, simmons2004vietoris}} asociado a $A$.
+En particular,
+\[
+  \pt(VA)=\Frm(VA, 2)\cong \Vrm(A, 2).
+\]
+Para todo $p\in \pt VA$, existe 
+\[
+  (\Diamond_p,\Box_p)\colon A\to 2
+\]
+tal que $(\Diamond_p,\Box_p)\in \Vrm(A, 2)$.
+\end{frame}
+
+\begin{frame}
+\begin{block}{Definición \citep{JohnstoneVietorisMonad}:}
+Sea $A\in \Frm$ y $p\in \pt VA$. Definimos
+\[
+F=\{x\in A\mid \Box_p(x)=1\}\in A^\wedge,\quad a=\bigvee\{x\in A\mid \Diamond_p(x)=0\}
+\]
+\end{block}
+
+\onslide<2->{\begin{block}{Teorema \citep{JohnstoneVietorisMonad}:}
+Para cada marco $A$ los $V$-puntos son los pares $(F, a)$ donde 
+\[
+F\in A^\wedge\quad \text{y}\quad a\in [v_F(0), w_F(0)].
+\]
+\end{block}}
+
+\onslide<3->{\begin{block}{Teorema \citep{sexton2006ordinal}:}
+Para cada espacio sobrio $S$ los $V$-puntos de $\mathcal{O}S$ son los pares $(Q, X)$ donde
+\[
+\overline{M}\subseteq X\subseteq Q(\infty).
+\]
+\end{block}}
+\end{frame}
+
+\begin{frame}[fragile]
+Sea $x\in A$ y $(A^\wedge, \mathcal{O}(A^\wedge))$, donde 
+\[
+\mathcal{O}(A^\wedge)=\langle D(x)=\{F\in A^\wedge\mid x\in F\}\rangle  ,
+\]
+entonces
+\[
+\begin{split}
+\pi\colon \pt(VA)\to A^\wedge \quad & \quad \mathcal{O}(\pi)=\pi^{-1}\colon \mathcal{O}(A^\wedge) \to \mathcal{O}\pt(VA) \\
+(F, a)\mapsto F \quad & \quad D(x)\mapsto \mathcal{U}(\Box(x)).
+\end{split}
+\]
+
+\begin{block}{Proposición:}
+Sean $A\in \Frm$ y $A^\wedge$, $\pt(VA)$ como antes. Entonces las siguientes afirmaciones se cumplen:
+\begin{enumerate}
+  \item Si $A$ es $T_1$ y apilado, entonces $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$.
+  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$, entonces $A$ es apilado. 
+  \item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$ y $A$ es espacial, entonces $A$ es $T_1$.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+\begin{enumerate}
+\item $T_1+$apilado $\Rightarrow$ $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$. Por lo tanto, $\pi$ es una biyección y $\pi^{-1}$ es un morfismo de marcos biyectivo.
+\item Si $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$, entonces $\pi$ es una biyección. Por lo tanto, $v_F(0)=w_F(0)$ para cada $F\in A^\wedge$ y $A$ es apilado.
+\item Sean $a\in A$ y $p\in \pt A$ tales que $p\leq a$. Si  $\mathcal{O}\pt(VA)\cong \mathcal{O}(A^\wedge)$, entonces $v_F(0)=w_F(0)$.
+Por la espacialidad, 
+\[
+a=\bigwedge\{q\in \pt A\mid a\leq q\}\leq q=p.
+\]
+\end{enumerate}
+\end{proof}
+\end{frame}
+
+
+\begin{frame}{Lista de actividades}
+Resultados obtenidos:
+\begin{itemize}
+  \item Introdujimos las nociones de marco apilado y fuertemente apilado.
+  \item Probamos que dichas nociones son conservativas.
+  \item Obtuvimos caracterizaciones mediante los núcleos $v_F$ y $w_F$
+  \item Relacionamos el apilamiento con la eficiencia y con la estructura de los $V$-puntos.
+  \item Analizamos el ejemplo A=[0,1] y sus modificaciones de parches.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Líneas de trabajo inmediatas:
+\begin{itemize}
+  \item Profundizar la relación entre $V$-modificaciones, apilamiento y eficiencia.
+  \item Analizar ejemplos conocidos de marcos eficientes y no eficientes usando las nuevas caracterizaciones obtenidas.
+  \item Estudiar las modificaciones de parches introducidas en la literatura reciente (\cite{BalmerGallauer2025PatchDensity, klinke2013yet}).
+  \item Preparar un manuscrito con los resultados obtenidos y someterlo a revisión. 
+\end{itemize}
 \end{frame}
 
 
@@ -364,17 +823,19 @@ S \text{ apilado (f. apilado)}\iff \mathcal{O}S \text{ apilado (f. apilado)}.
 %\bibitem{A.Z.} A. Zaldívar, \textit{Introducción a la teoría de marcos} [notas curso], 2025. Universidad de Guadalajara.
 %\end{thebibliography}
 
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
+%\bibliographystyle{plain}
+%\bibliographystyle{amsalpha}
 \bibliography{research2}
 \end{frame}
 
 \begin{frame}[plain,standout]
       \centering
-      \Huge{\bfseries \smiley ¡Muchas gracias! \smiley}\\[1cm]
+      \Huge{\bfseries \smiley ¡Muchas gracias! \smiley}
       %In combination with \textit{plain}, \\
       %it makes a nice thank-you slide!
-      \scalebox{4}{\faGithub} \par\bigskip
-      \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
       %\url{https://ctan.org/pkg/beamertheme-arguelles}
 \end{frame}
 \end{document}
