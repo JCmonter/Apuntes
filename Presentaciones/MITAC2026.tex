@@ -1,0 +1,192 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[pages=some]{background}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{
+  babel,
+  arrows.meta,
+  calc,
+  positioning,
+  overlay-beamer-styles,
+  shadows.blur
+}
+
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage[authoryear]{natbib}
+
+% Colores para la diapositiva Top/Frm
+\definecolor{TopBlue}{RGB}{14,73,160}
+\definecolor{FrmGreen}{RGB}{15,120,45}
+\definecolor{TopLight}{RGB}{235,242,252}
+\definecolor{FrmLight}{RGB}{235,248,238}
+
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Vrm}{Vrm}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{Marcos apilados y fuertemente apilados}
+%\subtitle{}
+\event{MITAC 2026, BUAP}
+\date{\today}
+\author{Juan Carlos Monter Cortés \\ Dr. Luis Ángel Zaldívar Corichi}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+
+%\frame[plain]{\titlepage}
+
+\begin{frame}[plain]
+\titlepage
+
+\vfill
+\begin{center}
+    \textcolor{white}{\scriptsize Investigación apoyada por SECIHTI-PROYECTO CBF2023-2024-2630}
+\end{center}
+\end{frame}
+
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+\section{La noción espacial}
+\begin{frame}{Punto de partida}
+    \begin{center}
+\includegraphics[width=1\textwidth]{Imagenes/Sexton2006.png}
+    \end{center}
+     {\scriptsize
+        R. A. Sexton and H. Simmons,
+        \textit{An ordinal indexed hierarchy of separation properties},
+        Topology Proceedings \textbf{30} (2006), 585--625.
+        }
+\end{frame}
+
+\begin{frame}{Derivadas y núcleos espacialmente inducidos}
+
+Sea \(S\) un espacio topológico y \(E\subseteq S\).
+
+\vspace{0.1cm}
+
+\begin{columns}[T,onlytextwidth]
+
+    %--------------------------------
+    \column{0.48\textwidth}
+
+    \begin{block}{Derivada}
+    \[
+        \partial_E\colon\mathcal{C}S\longrightarrow\mathcal{C}S
+    \]
+    es una \textbf{derivada} si es:
+    \begin{itemize}
+        \item monótono,
+        \item desinflacionario,
+        \item preserva uniones.
+    \end{itemize}
+
+    Si además
+    \[
+        \partial_E^2=\partial_E,
+    \]
+    es una \textbf{derivada idempotente}.
+    \end{block}
+
+    %--------------------------------
+    \column{0.48\textwidth}
+
+    \begin{block}{Complemento dual}
+    \[
+        [E]\colon\mathcal{O}S\longrightarrow\mathcal{O}S
+    \]
+    es:
+    \begin{itemize}
+        \item monótono,
+        \item inflacionario,
+        \item preserva intersecciones.
+    \end{itemize}
+
+    Si \(\partial_E\) es idempotente, entonces
+    \[
+        [E]^2=[E],
+    \]
+    y \([E]\) es un \textbf{núcleo espacialmente inducido}.
+    \end{block}
+
+\end{columns}
+
+\vspace{0.1cm}
+
+\begin{center}
+    \small
+    \[
+    \boxed{
+    \begin{array}{ccccc}
+    \text{Derivada}
+        & \longleftrightarrow &
+    \text{Prenúcleo}
+    \\[1mm]
+    \text{Derivada idempotente}
+        & \longleftrightarrow &
+    \text{Núcleo espacialmente inducido}
+    \end{array}}
+    \]
+    \vspace{-0.2cm}
+
+    {\scriptsize La correspondencia está dada mediante complemento.}
+\end{center}
+
+\end{frame}
+
+\section{La noción en marcos}
+\begin{frame}
+    
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\bibliographystyle{plainnat}
+%\bibliographystyle{plain}
+%\bibliographystyle{amsalpha}
+\bibliography{research2}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\bfseries \smiley¡Muchas gracias!\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+\end{document}
