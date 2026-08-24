@@ -90,84 +90,441 @@
         }
 \end{frame}
 
-\begin{frame}{Derivadas y núcleos espacialmente inducidos}
+\begin{frame}{Derivadas}
 
-Sea \(S\) un espacio topológico y \(E\subseteq S\).
+Sea \(S\) un espacio topológico.
 
-\vspace{0.1cm}
+Un operador
+\[
+\partial\colon \mathcal{C}S\longrightarrow \mathcal{C}S \qquad 
+\]
+es una \textbf{derivada} si:
+\begin{itemize}
+    \item $C\subseteq D\Rightarrow \partial(C)\subseteq \partial(D)$,
+    \item $\partial(C)\subseteq C$,
+    \item $\partial(C\cup D)=\partial(C)\cup\partial(D)$.
+\end{itemize}
 
-\begin{columns}[T,onlytextwidth]
+Si además
+\[
+\partial^2=\partial,
+\]
+decimos que \(\partial\) es una \textbf{derivada idempotente}.
+\end{frame}
 
-    %--------------------------------
-    \column{0.48\textwidth}
+\begin{frame}{Núcleos espacialmente inducidos}
 
-    \begin{block}{Derivada}
-    \[
-        \partial_E\colon\mathcal{C}S\longrightarrow\mathcal{C}S
-    \]
-    es una \textbf{derivada} si es:
-    \begin{itemize}
-        \item monótono,
-        \item desinflacionario,
-        \item preserva uniones.
-    \end{itemize}
+Sea \(S\) un espacio topológico y \(E\subseteq S\). Consideremos
+\[
+    [E]\colon\mathcal{O}S\longrightarrow\mathcal{O}S,
+    \qquad
+    [E](U)=(E\cup U)^\circ.
+\]
 
-    Si además
-    \[
-        \partial_E^2=\partial_E,
-    \]
-    es una \textbf{derivada idempotente}.
-    \end{block}
+El operador \([E]\) es un \textbf{núcleo espacialmente inducido}.
 
-    %--------------------------------
-    \column{0.48\textwidth}
+\vspace{0.3cm}
 
-    \begin{block}{Complemento dual}
-    \[
-        [E]\colon\mathcal{O}S\longrightarrow\mathcal{O}S
-    \]
-    es:
-    \begin{itemize}
-        \item monótono,
-        \item inflacionario,
-        \item preserva intersecciones.
-    \end{itemize}
+Su complemento dual es la derivada idempotente
+\[
+    \langle E\rangle\colon\mathcal{C}S\longrightarrow\mathcal{C}S, \qquad \langle E\rangle(X)=\overline{(E\cap X)}.
+\]
 
-    Si \(\partial_E\) es idempotente, entonces
-    \[
-        [E]^2=[E],
-    \]
-    y \([E]\) es un \textbf{núcleo espacialmente inducido}.
-    \end{block}
-
-\end{columns}
-
-\vspace{0.1cm}
-
-\begin{center}
-    \small
-    \[
+Si $U=X'\in\mathcal{O}S$ (equivalentemente, \(X=U'\)), entonces
+\[
     \boxed{
-    \begin{array}{ccccc}
-    \text{Derivada}
-        & \longleftrightarrow &
-    \text{Prenúcleo}
-    \\[1mm]
-    \text{Derivada idempotente}
-        & \longleftrightarrow &
-    \text{Núcleo espacialmente inducido}
-    \end{array}}
-    \]
-    \vspace{-0.2cm}
+    \langle E\rangle(X)
+    =([E](U))'
+    =([E](X'))'.
+    }
+\]
+\end{frame}
 
-    {\scriptsize La correspondencia está dada mediante complemento.}
-\end{center}
+\begin{frame}{El teorema de Hofmann--Mislove}
+
+Sea \(S\) un espacio topológico. Consideremos
+\[
+    Q\in\mathcal{Q}S
+    \qquad\text{y}\qquad
+    \nabla\in(\mathcal{O}S)^\wedge
+\]
+relacionados mediante el teorema de Hofmann--Mislove:
+\[
+    \nabla
+    =
+    \{V\in\mathcal{O}S\mid Q\subseteq V\}.
+\]
+
+Para \(X\in\mathcal{C}S\), definimos
+\[
+    \partial_Q(X)
+    =
+    \bigwedge_{Q\subseteq V}
+    \overline{V\cap X}.
+\]
+
+Su complemento dual es el prenúcleo
+\[
+    f_\nabla(U)
+    =
+    \bigvee_{Q\subseteq V}
+    (V\cup U)^\circ,
+    \qquad U\in\mathcal{O}S.
+\]
+
+\end{frame}
+
+\begin{frame}{Iteración del prenúcleo}
+
+El operador \(f_\nabla\) es un prenúcleo, pero no es
+necesariamente idempotente.
+
+Consideramos sus iteraciones transfinitas:
+\[
+    f_\nabla^0
+    \leq
+    f_\nabla
+    \leq
+    f_\nabla^2
+    \leq
+    \cdots
+    \leq
+    f_\nabla^\alpha
+    \leq
+    \cdots
+\]
+
+hasta alcanzar un ordinal para el cual la iteración se estabiliza.
+
+Denotamos por
+\[
+    \boxed{f_\nabla^\infty}
+\]
+al núcleo obtenido mediante este proceso.
+
+El operador \(f_\nabla^\infty\) es el
+\textbf{fitted nucleus} asociado a \(\nabla\).
+
+\end{frame}
+
+\begin{frame}{Espacios apilados}
+\begin{block}{Definición (\cite{sexton2006ordinal}):}
+Sea \(S\) un espacio topológico y \(Q\in\mathcal{Q}S\).
+
+\vspace{0.3cm}
+
+Decimos que \(Q\) es \textbf{apilado} si
+\[
+    \boxed{
+        \overline{Q}=\partial_Q^\infty(S)
+    }.
+\]
+
+Decimos que \(Q\) es \textbf{fuertemente apilado} si
+\[
+    \boxed{
+        \langle Q\rangle=\partial_Q^\infty
+    }.
+\]
+
+El espacio \(S\) es \textbf{apilado} (resp. \textbf{fuertemente
+apilado}) si cada \(Q\in\mathcal{Q}S\) es apilado
+(resp. fuertemente apilado).
+\end{block}
+\end{frame}
+
+\begin{frame}{¿Por qué estudiar espacios apilados?}
+
+Sexton y Simmons prueban las implicaciones
+\[
+    \text{neat}
+    \Longrightarrow
+    \text{fuertemente apilado}
+    \Longrightarrow
+    \text{apilado}.
+\]
+
+Además,
+\[
+    \boxed{
+    T_1+\text{apilado}
+    \Longrightarrow
+    \text{sobrio}.
+    }
+\]
 
 \end{frame}
 
 \section{La noción en marcos}
+\begin{frame}{¿Qué ocurre en marcos?}
+
+En el caso espacial, la noción de apilamiento se construye a partir de
+
+\[
+\begin{array}{ccc}
+Q\in\mathcal{Q}S
+&\longleftrightarrow&
+\nabla\in(\mathcal{O}S)^\wedge,
+\\[3mm]
+\langle Q\rangle
+&&
+f_\nabla^\infty.
+\end{array}
+\]
+
+\vspace{0.4cm}
+
+\begin{center}
+\Large
+¿Cómo trasladar esta construcción a un marco arbitrario \(A\)?
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Hofmann--Mislove--Johnstone}
+
+En el caso espacial,
+\[
+    \nabla\in(\mathcal{O}S)^\wedge
+    \quad\longmapsto\quad
+    f_\nabla^\infty .
+\]
+
+Para un marco arbitrario \(A\), si \(F\in A^\wedge\),
+el Teorema de Hofmann--Mislove--Johnstone determina
+un intervalo
+\[
+    \boxed{
+        [v_F,w_F]\subseteq NA
+    }.
+\]
+
+Su extremo inferior
+\[
+    \boxed{v_F}
+\]
+es el \textbf{fitted nucleus} asociado a \(F\).
+
+\end{frame}
+
+\begin{frame}{Pares de Hofmann--Mislove}
+
+Consideremos un filtro abierto de Scott
+\[
+    F\in A^\wedge
+\]
+y un compacto saturado
+\[
+    Q\in\mathcal{Q}S.
+\]
+
+Cuando \(F\) y \(Q\) están relacionados mediante la
+correspondencia de Hofmann--Mislove, diremos que
+\[
+    \boxed{(F,Q)}
+\]
+es un \textbf{par HM}.
+
+\vspace{0.4cm}
+
+Estos objetos determinan, respectivamente,
+\[
+    \boxed{v_F}
+    \qquad\text{y}\qquad
+    \boxed{\mathcal{U}_*\circ[Q']\circ\mathcal{U}}.
+\]
+
+\end{frame}
+
+\begin{frame}{Intervalos de admisibilidad}
+
+Sea \((F,Q)\) un par HM y
+\(\nabla=\nabla(Q)\). Si
+\[
+    k\in[v_\nabla,w_\nabla],
+\]
+entonces
+\[
+    \boxed{
+    \mathcal{U}_*\circ k\circ\mathcal{U}
+    \in[v_F,w_F].
+    }
+\]
+
+Por tanto, obtenemos una aplicación
+\[
+    [v_\nabla,w_\nabla]
+    \longrightarrow
+    [v_F,w_F],
+    \qquad
+    k\longmapsto
+    \mathcal{U}_*\circ k\circ\mathcal{U}.
+\]
+
+\end{frame}
+
+\begin{frame}{Comportamiento de los extremos}
+
+La aplicación
+\[
+    k\longmapsto
+    \mathcal{U}_*\circ k\circ\mathcal{U}
+\]
+no preserva, en general, ambos extremos del intervalo.
+
+\vspace{0.4cm}
+
+Para el extremo inferior,
+\[
+    \boxed{
+    v_F
+    \leq
+    \mathcal{U}_*\circ v_\nabla\circ\mathcal{U}
+    }.
+\]
+
+\vspace{0.5cm}
+
+En cambio, para el extremo superior,
+\[
+    \boxed{
+    w_F
+    =
+    \mathcal{U}_*\circ w_\nabla\circ\mathcal{U}
+    }.
+\]
+
+\end{frame}
+
+\begin{frame}{El caso \(T_1\)}
+
+Si el espacio \(S\) es \(T_1\), entonces
+\[
+    [Q']=w_\nabla.
+\]
+
+Por tanto,
+\[
+    w_F
+    =
+    \mathcal{U}_*\circ w_\nabla\circ\mathcal{U}
+    =
+    \mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+\]
+
+En consecuencia,
+\[
+    \boxed{
+    v_F
+    \leq
+    \mathcal{U}_*\circ[Q']\circ\mathcal{U}
+    =
+    w_F.
+    }
+\]
+
+\end{frame}
+
+\begin{frame}{Marcos apilados}
+
+\begin{block}{Definición:}
+Sea \(A\) un marco y \((F,Q)\) un par HM.
+
+Decimos que \(A\) es \textbf{apilado} si
+\[
+    \boxed{
+    v_F(0)
+    =
+    \bigl(
+        \mathcal{U}_*\circ[Q']\circ\mathcal{U}
+    \bigr)(0)
+    }
+\]
+para todo par HM \((F,Q)\).
+
+\vspace{0.5cm}
+
+Decimos que \(A\) es \textbf{fuertemente apilado} si
+\[
+    \boxed{
+    v_F
+    =
+    \mathcal{U}_*\circ[Q']\circ\mathcal{U}
+    }
+\]
+para todo par HM \((F,Q)\).
+\end{block}
+\end{frame}
+
+\begin{frame}{Del espacio al marco}
+
+\begin{center}
+\begin{tabular}{c@{\qquad\qquad}c}
+    \textbf{Espacios} & \textbf{Marcos} \\[0.3cm]
+
+    \((\nabla,Q)\) par HM
+    &
+    \((F,Q)\) par HM
+    \\[0.5cm]
+
+    \textbf{Apilado}
+    &
+    \textbf{Apilado}
+    \\[0.2cm]
+
+    \(
+        \overline{Q}=\partial_Q^\infty(S)
+    \)
+    &
+    \(
+        v_F(0)
+        =
+        \bigl(
+        \mathcal{U}_*\circ[Q']\circ\mathcal{U}
+        \bigr)(0)
+    \)
+    \\[0.7cm]
+
+    \textbf{Fuertemente apilado}
+    &
+    \textbf{Fuertemente apilado}
+    \\[0.2cm]
+
+    \(
+        [Q']=f_\nabla^\infty
+    \)
+    &
+    \(
+        v_F
+        =
+        \mathcal{U}_*\circ[Q']\circ\mathcal{U}
+    \)
+\end{tabular}
+\end{center}
+
+\end{frame}
+
 \begin{frame}
-    
+\begin{block}{Proposición:}
+Las nociones de \textbf{apilado} y
+\textbf{fuertemente apilado} son conservativas.
+\end{block}
+
+\textbf{Idea de la prueba:} Sea \(A=\mathcal{O}S\) y \((F=\nabla,Q)\) un par HM.
+
+\vspace{0.2cm}
+
+Si \(S\) es \textbf{fuertemente apilado}, entonces
+\[
+    v_F=[Q']
+\iff    \mathcal{U}_*\circ[Q']\circ\mathcal{U}
+    =[Q']=v_F.
+\]
+
+Si \(S\) es \textbf{apilado}, entonces
+\[
+    \overline{Q}=\partial_Q^\infty(S)\iff  (\mathcal{U}_*\circ [Q']\circ \mathcal{U})(\emptyset)=(Q')^\circ=v_\nabla(\emptyset) 
+\]
 \end{frame}
 
 \End
