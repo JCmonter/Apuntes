@@ -17,6 +17,7 @@
   overlay-beamer-styles,
   shadows.blur
 }
+\usetikzlibrary{decorations.pathmorphing}
 
 \usepackage{amsmath,amssymb,latexsym,amscd} 
 \usepackage[all,cmtip]{xy}
@@ -38,6 +39,7 @@
 
 \DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\tp}{tp}
 \DeclareMathOperator{\Sp}{sp}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\Fit}{Fit}
@@ -525,6 +527,306 @@ Si \(S\) es \textbf{apilado}, entonces
 \[
     \overline{Q}=\partial_Q^\infty(S)\iff  (\mathcal{U}_*\circ [Q']\circ \mathcal{U})(\emptyset)=(Q')^\circ=v_\nabla(\emptyset) 
 \]
+\end{frame}
+
+\begin{frame}{Ejemplos}
+
+\begin{block}{Ejemplo 1}
+Los \textbf{espacios de Alexandroff} son fuertemente apilados.
+
+Por conservatividad,
+\[
+    S \text{ Alexandroff}
+    \quad\Longrightarrow\quad
+    \mathcal{O}S \text{ es fuertemente apilado}.
+\]
+\end{block}
+
+\begin{block}{Ejemplo 2:}
+El marco
+\[
+    A=[0,1]
+\]
+es fuertemente apilado, pues $v_F=[Q']$ para todo par HM.
+\end{block}
+
+\alert{En 1, si S es discreto, $\mathcal{O}S$ es $T_1$. En 2, $A$ no es $T_1$.}
+\end{frame}
+
+\begin{frame}{Del caso espacial al caso de marcos}
+
+Para espacios, Sexton--Simmons prueban que
+\[
+    \boxed{
+    S\text{ es }T_1\text{ y apilado}
+    \quad\Longrightarrow\quad
+    S\text{ es sobrio}.
+    }
+\]
+
+\vspace{0.5cm}
+
+Al trasladar este fenómeno al contexto de marcos,
+la pregunta natural es:
+
+\[
+    \boxed{
+    A\text{ es }T_1\text{ y apilado}
+    \quad\stackrel{?}{\Longrightarrow}\quad
+    A\text{ es espacial}.
+    }
+\]
+
+\vspace{0.5cm}
+
+Nuestros resultados muestran que varias consecuencias
+del caso espacial permanecen válidas
+\textbf{sin suponer que \(A\) sea espacial}.
+
+\end{frame}
+
+\begin{frame}{Colapso del intervalo de admisibilidad}
+
+\begin{block}{Proposición:}
+Sea \(A\) un marco y \((F,Q)\) un par HM.
+
+\begin{enumerate}
+    \item Si \(A\) es \(T_1\) y apilado, entonces
+    \[
+        \boxed{v_F(0)=w_F(0)}.
+    \]
+
+    \item Si
+    \[
+        v_F(0)=w_F(0),
+    \]
+    entonces \(A\) es apilado.
+\end{enumerate}
+\end{block}
+
+En particular, si 
+\[
+    v_F(0)=w_F(0)\quad \text{y}\quad \mathcal{V}(a)=\{q\in\operatorname{pt}A\mid a\leq q\},
+\]
+entonces $A$ es $T_1$.
+\end{frame}
+
+\begin{frame}{El espacio de puntos de \(VA\)}
+
+Los puntos de \(VA\) están descritos por
+\[
+    \operatorname{pt}(VA)
+    =
+    \left\{
+        (F,a)\mid
+        F\in A^\wedge,\;
+        v_F(0)\leq a\leq w_F(0)
+    \right\}.
+\]
+
+Consideremos la proyección
+\[
+    \pi\colon \operatorname{pt}(VA)\longrightarrow A^\wedge,
+    \qquad
+    (F,a)\longmapsto F.
+\]
+
+Si \(A\) es \(T_1\) y apilado, entonces
+\[
+    v_F(0)=w_F(0)
+\]
+para todo \(F\in A^\wedge\).
+
+Por tanto, cada fibra de \(\pi\) contiene un único elemento.
+
+\end{frame}
+
+\begin{frame}{Una consecuencia del colapso}
+
+Consideremos
+\[
+    \pi\colon\operatorname{pt}(VA)\longrightarrow A^\wedge.
+\]
+
+\begin{block}{Proposición:}
+Se tienen las siguientes implicaciones:
+
+\[
+\begin{aligned}
+A\text{ es }T_1\text{ y apilado}
+&\Longrightarrow
+\mathcal{O}(A^\wedge)
+\cong
+\mathcal{O}(\operatorname{pt}(VA)),
+\\[0.4cm]
+\mathcal{O}(\pi)\text{ es un isomorfismo}
+&\Longrightarrow
+A\text{ es apilado}.
+\end{aligned}
+\]
+
+Además, bajo la condición
+\[
+    \mathcal{V}(a)
+    =
+    \{q\in\operatorname{pt}A\mid a\leq q\}
+    \neq\varnothing,
+\]
+el isomorfismo anterior implica que \(A\) es \(T_1\).
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Cocientes}
+
+\begin{block}{Proposición:}
+Sea \(A\) un marco y \(j\in NA\). Si \(A\) es
+\textbf{fuertemente apilado}, entonces el cociente
+\[
+    A_j
+\]
+es fuertemente apilado.
+\end{block}
+
+\vspace{0.5cm}
+
+En particular, la clase de marcos fuertemente apilados
+es cerrada bajo cocientes.
+
+\end{frame}
+
+\begin{frame}{Una pregunta natural}
+
+En espacios se tiene
+\[
+    T_1+\text{apilado}
+    \quad\Longrightarrow\quad
+    \text{sobrio}.
+\]
+
+\vspace{0.5cm}
+
+En marcos hemos obtenido
+\[
+    T_1+\text{apilado}
+    \quad\Longrightarrow\quad
+    v_F(0)=w_F(0),
+\]
+y, consecuentemente,
+\[
+    \mathcal{O}(A^\wedge)
+    \cong
+    \mathcal{O}(\operatorname{pt}(VA)).
+\]
+
+\vfill
+
+\begin{center}
+\Large
+\textbf{¿Existen marcos \(T_1\) apilados\\
+que no sean espaciales?}
+\end{center}
+
+\vfill
+
+\end{frame}
+
+\begin{frame}{Una posible familia de ejemplos}
+
+Sabemos que
+\[
+    \mathbf{(H)}\quad\Longrightarrow\quad T_1.
+\]
+
+Actualmente estudiamos si también se tiene
+\[
+    \boxed{
+    \mathbf{(H)}\quad\Longrightarrow\quad\text{apilado}.
+    }
+\]
+
+\vspace{0.5cm}
+
+De ser así, en \cite{Paseka1987} presentan una clase de marcos que satisfacen $\mathbf{(H)}$ que no son espaciales.
+\end{frame}
+
+\begin{frame}[fragile]{La idea detrás de la definición}
+
+\[
+\begin{tikzcd}[column sep=large, row sep=large]
+    A && NA & {[v_F,w_F]} \\
+    & \longmapsto && \dashv \\
+    {\mathcal{O}S} && {N\mathcal{O}S} & {[v_\nabla,w_\nabla]}
+    \arrow["{\mathcal{U}_A}"', from=1-1, to=3-1]
+    \arrow[squiggly, maps to, from=1-3, to=1-4]
+    \arrow["{N(\mathcal{U}_A)}"', from=1-3, to=3-3]
+    \arrow[shift right=5, from=1-4, to=3-4]
+    \arrow[squiggly, maps to, from=3-3, to=3-4]
+    \arrow["{N(\mathcal{U}_A)_*}"', shift right=5, from=3-4, to=1-4]
+\end{tikzcd}
+\]
+
+\vspace{0.4cm}
+
+La definición compara operadores sobre \(A\) que provienen de
+\textbf{construcciones distintas}:
+\[
+    \boxed{
+    v_F
+    \qquad\text{y}\qquad
+    \mathcal{U}_*\circ[Q']\circ\mathcal{U}.
+    }
+\]
+
+\end{frame}
+
+\begin{frame}[fragile]{Hacia una noción más general}
+
+\[\begin{tikzcd}
+	A && NA & {[v_F,\tp_A]} \\
+	& \longmapsto && \dashv \\
+	B && NB & {[v_{f[F]}, \tp_B]}
+	\arrow["f"', from=1-1, to=3-1]
+	\arrow[squiggly, maps to, from=1-3, to=1-4]
+	\arrow["{N(f)}"', from=1-3, to=3-3]
+	\arrow[shift right=5, from=1-4, to=3-4]
+	\arrow[squiggly, from=3-3, to=3-4]
+	\arrow[shift right=5, from=3-4, to=1-4]
+\end{tikzcd}\]
+
+\vspace{0.4cm}
+
+La pregunta es qué condiciones permiten comparar,
+mediante \(N(f)\) y su adjunto derecho, núcleos adecuados de
+\[
+    [v_F,\tp_A]
+    \qquad\text{y}\qquad
+    [v_{f[F]},\tp_B].
+\]
+
+\end{frame}
+
+\begin{frame}{Conclusiones}
+
+\begin{itemize}
+
+    \item Las nociones espaciales de apilado y fuertemente apilado
+    admiten una extensión \textbf{conservativa} al contexto de marcos.
+
+    \vspace{0.3cm}
+
+    \item La interacción entre \(T_1\), apilamiento y espacialidad
+    plantea nuevas preguntas genuinamente \emph{point-free}.
+
+    \vspace{0.3cm}
+
+    \item La construcción sugiere una noción más general,
+    asociada a un morfismo arbitrario de marcos
+    \[
+        f\colon A\longrightarrow B.
+    \]
+
+\end{itemize}
 \end{frame}
 
 \End
