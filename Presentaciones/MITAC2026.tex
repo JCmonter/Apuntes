@@ -41,6 +41,8 @@
 \DeclareMathOperator{\pt}{pt}
 \DeclareMathOperator{\tp}{tp}
 \DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\SP}{Sp}
+\DeclareMathOperator{\Sob}{Sob}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\Fit}{Fit}
 \DeclareMathOperator{\Pth}{P}
@@ -78,6 +80,163 @@
 
 \begin{frame}{Contenido}
 \tableofcontents
+\end{frame}
+
+\section{Teoría preliminar}
+
+\begin{frame}[fragile]{Espacios y marcos}
+
+%------------------------------------------------
+% Parte superior
+%------------------------------------------------
+\begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.48\textwidth}
+        \[
+        \begin{tikzcd}[column sep=large, row sep=large]
+            \Frm & \SP \\
+            \Top & \Sob
+            \arrow["{\mathcal{O}}", shift left=3,
+                from=1-1, to=2-1]
+            \arrow[hook', from=1-2, to=1-1]
+            \arrow[shift left=3, from=1-2, to=2-2]
+            \arrow["\pt", shift left=3,
+                from=2-1, to=1-1]
+            \arrow[shift left=3, from=2-2, to=1-2]
+            \arrow[hook', from=2-2, to=2-1]
+        \end{tikzcd}
+        \]
+    \end{column}
+
+    
+    \begin{column}{0.48\textwidth}
+     \begin{center}
+        \small{   \textbf{En objetos}
+        \[
+        \begin{aligned}
+            S &\mapsto \mathcal{O}S,\\[1mm]
+            A &\mapsto \pt A,
+        \end{aligned}
+        \]}
+    \end{center}
+    \end{column}
+
+\end{columns}
+    
+\vspace{0.15cm}
+
+%------------------------------------------------
+% Parte inferior
+%------------------------------------------------
+\begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.52\textwidth}
+        \begin{center}
+        \small{\textbf{En flechas}
+        \[
+        \begin{split}
+        (f\colon S\to T)
+        &\mapsto
+        (f^{-1}\colon\mathcal{O}T\to\mathcal{O}S),\\
+        (h\colon A\to B)
+        &\mapsto
+        (\pt(h)\colon\pt B\to\pt A).
+        \end{split}
+        \]}
+        \end{center}
+    \end{column}
+
+    \begin{column}{0.44\textwidth}
+        \begin{center}
+        \small{\textbf{Reflexión espacial}
+        \[
+        \begin{split}
+            \mathcal{U}_A
+            &\colon
+            A\to\mathcal{O}(\pt A),\\
+            \mathcal{U}_A&(a)
+            =\{p\in\pt A\mid a\nleq p\}.
+        \end{split}
+        \]}
+        \end{center}
+    \end{column}
+
+\end{columns}
+
+\vspace{0.2cm}
+
+Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
+\[
+    a\nleq b
+    \quad\Longrightarrow\quad
+    \exists\,p\in\pt A:
+    \quad b\leq p
+    \quad\text{y}\quad
+    a\nleq p.
+\]
+
+\end{frame}
+
+\begin{frame}{Núcleos y filtros}
+
+\begin{columns}[T,onlytextwidth]
+
+%------------------------------------------------
+% Columna izquierda: núcleos
+%------------------------------------------------
+\begin{column}{0.48\textwidth}
+\small{
+\(j:A\to A\) es un \textbf{núcleo} si
+\begin{itemize}
+\item $x \leq j(x)$,
+\item $x\leq y \Rightarrow j(x)\leq j(y)$,
+\item $j(x\wedge y)= j(x)\wedge j(y)$,
+\item $j^2= j$.
+\end{itemize}
+
+\medskip
+
+\textbf{Ejemplos}
+
+Para \(a\in A\),
+\begin{itemize}
+\item $u_a(x)=a\vee x$,
+\item $v_a(x)=(a\succ x)$.
+\end{itemize}
+}
+\end{column}
+
+%------------------------------------------------
+% Columna derecha: filtros
+%------------------------------------------------
+\begin{column}{0.48\textwidth}
+\small{
+\(F\subseteq A\) es un \textbf{filtro} si
+\begin{itemize}
+\item $1 \in F$,
+\item $a,b\in F \Rightarrow a\wedge b\in F$,
+\item $a\in F,\, a\leq b \Rightarrow b\in F$.
+\end{itemize}
+
+
+\medskip
+
+\textbf{Ejemplos}
+\begin{itemize}
+\item Filtro propio,
+\item Filtro admisibile,
+\item Filtro abierto.
+\end{itemize}
+}
+\end{column}
+
+\end{columns}
+
+\[
+F\longleftrightarrow
+v_F=\bigvee_{a\in F}v_a
+\]
+
 \end{frame}
 
 \section{La noción espacial}
@@ -749,6 +908,8 @@ Actualmente estudiamos si también se tiene
 
 De ser así, en \cite{Paseka1987} presentan una clase de marcos que satisfacen $\mathbf{(H)}$ que no son espaciales.
 \end{frame}
+
+\section{Una posible generalización}
 
 \begin{frame}[fragile]{La idea detrás de la definición}
 
