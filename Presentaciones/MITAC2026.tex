@@ -96,11 +96,11 @@
         \begin{tikzcd}[column sep=large, row sep=large]
             \Frm & \SP \\
             \Top & \Sob
-            \arrow["{\mathcal{O}}", shift left=3,
+            \arrow["\pt", shift left=3,
                 from=1-1, to=2-1]
             \arrow[hook', from=1-2, to=1-1]
             \arrow[shift left=3, from=1-2, to=2-2]
-            \arrow["\pt", shift left=3,
+            \arrow["{\mathcal{O}}", shift left=3,
                 from=2-1, to=1-1]
             \arrow[shift left=3, from=2-2, to=1-2]
             \arrow[hook', from=2-2, to=2-1]
@@ -231,12 +231,13 @@ Para \(a\in A\),
 \end{column}
 
 \end{columns}
-
+\small{
+Existe una relación entre nucleos y filtros
 \[
 F\longleftrightarrow
-v_F=\bigvee_{a\in F}v_a
+v_F=\bigvee_{a\in F}v_a.
 \]
-
+denominamos a $v_F$ como el \textbf{núcleo ajustado} asociado a $F$.}
 \end{frame}
 
 \section{La noción espacial}
@@ -364,7 +365,7 @@ Denotamos por
 al núcleo obtenido mediante este proceso.
 
 El operador \(f_\nabla^\infty\) es el
-\textbf{fitted nucleus} asociado a \(\nabla\).
+núcleo ajustado asociado a \(\nabla\).
 
 \end{frame}
 
@@ -398,7 +399,7 @@ apilado}) si cada \(Q\in\mathcal{Q}S\) es apilado
 
 Sexton y Simmons prueban las implicaciones
 \[
-    \text{neat}
+    \text{eficiente}
     \Longrightarrow
     \text{fuertemente apilado}
     \Longrightarrow
@@ -464,7 +465,7 @@ Su extremo inferior
 \[
     \boxed{v_F}
 \]
-es el \textbf{fitted nucleus} asociado a \(F\).
+es el núcleo ajustado asociado a \(F\).
 
 \end{frame}
 
@@ -765,7 +766,7 @@ Sea \(A\) un marco y \((F,Q)\) un par HM.
 
 En particular, si 
 \[
-    v_F(0)=w_F(0)\quad \text{y}\quad \mathcal{V}(a)=\{q\in\operatorname{pt}A\mid a\leq q\},
+    v_F(0)=w_F(0)\quad \text{y}\quad \mathcal{V}(a)=\{q\in\operatorname{pt}A\mid a\leq q\}\neq \emptyset,
 \]
 entonces $A$ es $T_1$.
 \end{frame}
