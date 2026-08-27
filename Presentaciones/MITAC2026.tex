@@ -162,9 +162,7 @@
     \end{column}
 
 \end{columns}
-
-\vspace{0.2cm}
-
+\small{
 Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
 \[
     a\nleq b
@@ -173,8 +171,8 @@ Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
     \quad b\leq p
     \quad\text{y}\quad
     a\nleq p.
-\]
-
+\]}
+\footnotetext[0]{Ver \cite{Johnstone82, PicadoPultr, picado2021separation, simmonsbasics, simmonscollection, Zaldivar2023} para obtener información sobre marcos}
 \end{frame}
 
 \begin{frame}{Núcleos y filtros}
@@ -232,7 +230,7 @@ Para \(a\in A\),
 
 \end{columns}
 \small{
-Existe una relación entre nucleos y filtros
+Existe una relación entre filtros y núcleos
 \[
 F\longleftrightarrow
 v_F=\bigvee_{a\in F}v_a.
@@ -414,7 +412,7 @@ Además,
     \text{sobrio}.
     }
 \]
-
+\footnotetext[0]{Estos y otros resultados en los que se involucran las propiedades de apilamiento pueden consultarse en \cite{sexton2003point,simmons2004vietoris,sexton2006point}.}
 \end{frame}
 
 \section{La noción en marcos}
@@ -584,7 +582,7 @@ En consecuencia,
     w_F.
     }
 \]
-
+\footnotetext[0]{Recordemos que un marco $A$ es $T_1$ si para todo $p\in \pt A$, $p$ es máximo.\\}
 \end{frame}
 
 \begin{frame}{Marcos apilados}
@@ -672,7 +670,7 @@ Las nociones de \textbf{apilado} y
 \textbf{fuertemente apilado} son conservativas.
 \end{block}
 
-\textbf{Idea de la prueba:} Sea \(A=\mathcal{O}S\) y \((F=\nabla,Q)\) un par HM.
+Consideremos \(A=\mathcal{O}S\) y \((F=\nabla,Q)\) un par HM.
 
 \vspace{0.2cm}
 
@@ -703,14 +701,14 @@ Por conservatividad,
 \end{block}
 
 \begin{block}{Ejemplo 2:}
-El marco
+Consideremos el marco $A=[0,1]$, entonces
 \[
-    A=[0,1]
+S=\pt A=[0,1)
 \]
 es fuertemente apilado, pues $v_F=[Q']$ para todo par HM.
 \end{block}
 
-\alert{En 1, si S es discreto, $\mathcal{O}S$ es $T_1$. En 2, $A$ no es $T_1$.}
+\alert{En 1), si S es discreto, $\mathcal{O}S$ es $T_1$. En 2), $A$ no es $T_1$.}
 \end{frame}
 
 \begin{frame}{Del caso espacial al caso de marcos}
@@ -905,9 +903,12 @@ Actualmente estudiamos si también se tiene
     }
 \]
 
-\vspace{0.5cm}
+En \cite{Paseka1987} presentan una clase de marcos que satisfacen $\mathbf{(H)}$ que no son espaciales.
 
-De ser así, en \cite{Paseka1987} presentan una clase de marcos que satisfacen $\mathbf{(H)}$ que no son espaciales.
+\footnotetext[0]{Decimos que un marco $A$ satisface la propiedad $\mathbf{(H)}$ si para cualesquier $1\neq a\nleq b\in A$ existe $c\in A$ tal que
+\[
+c\nleq a\quad\text{y}\quad \neg c\nleq b 
+\]}
 \end{frame}
 
 \section{Una posible generalización}
