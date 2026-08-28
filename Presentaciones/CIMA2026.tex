@@ -1,0 +1,329 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[pages=some]{background}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{
+  babel,
+  arrows.meta,
+  calc,
+  positioning,
+  overlay-beamer-styles,
+  shadows.blur
+}
+\usetikzlibrary{decorations.pathmorphing}
+
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage[authoryear]{natbib}
+
+% Colores para la diapositiva Top/Frm
+\definecolor{TopBlue}{RGB}{14,73,160}
+\definecolor{FrmGreen}{RGB}{15,120,45}
+\definecolor{TopLight}{RGB}{235,242,252}
+\definecolor{FrmLight}{RGB}{235,248,238}
+
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\SP}{Sp}
+\DeclareMathOperator{\Sob}{Sob}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Vrm}{Vrm}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{De espacios a marcos:}
+\subtitle{la teoría de categorías como puente hacia la topología sin puntos}
+\event{CIMA 2026, BUAP}
+\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+
+%\frame[plain]{\titlepage}
+
+\begin{frame}[plain]
+\titlepage
+
+\vfill
+\begin{center}
+    \textcolor{white}{\scriptsize Investigación apoyada por SECIHTI-PROYECTO CBF2023-2024-2630}
+\end{center}
+\end{frame}
+
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+```latex
+\begin{frame}{¿Cuánta información de un espacio topológico está contenida en sus abiertos?}
+\small{
+\begin{columns}[c]
+
+% Columna izquierda
+\begin{column}{0.38\textwidth}
+\centering
+
+\[
+X=\{x,y,z\}
+\]
+
+\vspace{0.3cm}
+
+\begin{tikzpicture}[scale=1.1]
+    \fill (0,0) circle (2pt) node[below] {$x$};
+    \fill (1.2,0.8) circle (2pt) node[right] {$y$};
+    \fill (2.2,-0.1) circle (2pt) node[below] {$z$};
+\end{tikzpicture}
+\end{column}
+
+% Columna derecha
+\begin{column}{0.58\textwidth}
+
+\[
+\mathcal O(X)
+=
+\left\{
+\varnothing,\,
+\{z\},\,
+\{y,z\},\,
+X
+\right\}.
+\]
+
+\centering
+
+\begin{tikzpicture}[
+    node distance=0.65cm,
+    every node/.style={inner sep=1pt}
+]
+\node (X) {$X$};
+\node[below=of X] (yz) {$\{y,z\}$};
+\node[below=of yz] (z) {$\{z\}$};
+\node[below=of z] (empty) {$\varnothing$};
+
+\draw (X) -- (yz);
+\draw (yz) -- (z);
+\draw (z) -- (empty);
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}
+}
+
+\[
+X \longmapsto \mathcal O(X)
+\]
+
+\begin{block}{Pregunta}
+¿Qué información topológica permanece si olvidamos los puntos y
+ conservamos únicamente sus abiertos?
+\end{block}
+
+\end{frame}
+
+\begin{frame}{La estructura algebraica de los abiertos}
+\small{
+Sea $X$ un espacio topológico. La colección $\mathcal O(X)$ de sus
+abiertos posee naturalmente las siguientes operaciones:
+
+\begin{columns}[T]
+
+    \begin{column}{0.47\textwidth}
+        \begin{block}{Supremos arbitrarios}
+            Si $\{U_i\}_{i\in I}\subseteq\mathcal O(X)$, entonces
+            \[
+                \bigvee_{i\in I}U_i
+                =
+                \bigcup_{i\in I}U_i.
+            \]
+        \end{block}
+    \end{column}
+
+    \begin{column}{0.47\textwidth}
+        \begin{block}{Ínfimos finitos}
+            Si $U,V\in\mathcal O(X)$, entonces
+            \[
+                U\wedge V
+                =
+                U\cap V.
+            \]
+        \end{block}
+    \end{column}
+
+\end{columns}
+
+Estas operaciones satisfacen la ley distributiva
+
+\[
+    U\wedge\bigvee_{i\in I}V_i
+    =
+    \bigvee_{i\in I}(U\wedge V_i).
+\]
+
+    \centering
+    ¿Podemos tomar esta estructura algebraica como nuestro punto de partida?
+
+}
+\end{frame}
+
+\begin{frame}{Marcos}
+\small{
+\begin{block}{Definición}
+Un \textbf{marco} es un retículo completo $A$ que satisface la
+ley distributiva
+\[
+    a\wedge\bigvee S
+    =
+    \bigvee_{s\in S}(a\wedge s),
+    \qquad a\in A,\quad S\subseteq A.
+\]
+\end{block}
+
+\pause
+
+\medskip
+
+El ejemplo fundamental proviene de la topología:
+\[
+\boxed{
+    X\text{ espacio topológico}
+    \qquad\Longrightarrow\qquad
+    \mathcal O(X)\text{ es un marco}.
+}
+\]
+
+\pause
+
+\medskip
+
+En $\mathcal O(X)$,
+\[
+    \bigvee_{i\in I}U_i=\bigcup_{i\in I}U_i,
+    \qquad
+    U\wedge V=U\cap V.
+\]
+
+\begin{center}
+\textbf{La estructura de marco puede estudiarse sin hacer referencia
+a los puntos de $X$.}
+\end{center}
+}
+\end{frame}
+
+\begin{frame}{¿Qué ocurre con las funciones continuas?}
+\small{
+Sea
+\[
+    f:X\longrightarrow Y
+\]
+una función continua.
+
+\pause
+
+Entonces la imagen inversa induce una aplicación
+\[
+    f^{-1}:\mathcal O(Y)\longrightarrow\mathcal O(X),
+    \qquad
+    V\longmapsto f^{-1}(V).
+\]
+
+\pause
+
+
+Además, $f^{-1}$ preserva la estructura de marco:
+\[
+    f^{-1}\left(\bigcup_{i\in I}V_i\right)
+    =
+    \bigcup_{i\in I}f^{-1}(V_i),
+\quad\text{y}\quad
+    f^{-1}(U\cap V)
+    =
+    f^{-1}(U)\cap f^{-1}(V).
+\]
+
+\centering
+Una función continua entre espacios induce un morfismo
+entre sus marcos de abiertos, \textbf{pero en dirección contraria}.
+}
+\end{frame}
+
+\begin{frame}{De espacios a marcos}
+\small{
+Hemos visto que
+\[
+    X \longmapsto \mathcal O(X)
+\]
+asocia a cada espacio topológico su marco de abiertos.
+
+\pause
+
+Además, si
+\[
+    f:X\longrightarrow Y
+\]
+es continua, entonces
+\[
+    f^{-1}:\mathcal O(Y)\longrightarrow\mathcal O(X)
+\]
+es un morfismo de marcos.
+
+\pause
+
+\medskip
+
+Por lo tanto, obtenemos un funtor contravariante
+\[
+    \mathcal O:\mathbf{Top}\longrightarrow\mathbf{Frm}^{op}=\mathbf{Loc}.
+\]
+}
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\bibliographystyle{plainnat}
+%\bibliographystyle{plain}
+%\bibliographystyle{amsalpha}
+\bibliography{research2}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\bfseries \smiley¡Muchas gracias!\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+\end{document}
