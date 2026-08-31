@@ -108,7 +108,7 @@
         \]
     \end{column}
 
-    
+    \onslide<2->{
     \begin{column}{0.48\textwidth}
      \begin{center}
         \small{   \textbf{En objetos}
@@ -120,7 +120,7 @@
         \]}
     \end{center}
     \end{column}
-
+    }
 \end{columns}
     
 \vspace{0.15cm}
@@ -129,7 +129,7 @@
 % Parte inferior
 %------------------------------------------------
 \begin{columns}[T,onlytextwidth]
-
+\onslide<3->{
     \begin{column}{0.52\textwidth}
         \begin{center}
         \small{\textbf{En flechas}
@@ -144,8 +144,8 @@
         \end{split}
         \]}
         \end{center}
-    \end{column}
-
+    \end{column}}
+\onslide<4->{
     \begin{column}{0.44\textwidth}
         \begin{center}
         \small{\textbf{Reflexión espacial}
@@ -160,8 +160,9 @@
         \]}
         \end{center}
     \end{column}
-
+}
 \end{columns}
+\onslide<5->{
 \small{
 Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
 \[
@@ -171,7 +172,7 @@ Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
     \quad b\leq p
     \quad\text{y}\quad
     a\nleq p.
-\]}
+\]}}
 \footnotetext[0]{Ver \cite{Johnstone82, PicadoPultr, picado2021separation, simmonsbasics, simmonscollection, Zaldivar2023} para obtener información sobre marcos}
 \end{frame}
 
@@ -193,7 +194,7 @@ Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
 \end{itemize}
 
 \medskip
-
+\onslide<2->{
 \textbf{Ejemplos}
 
 Para \(a\in A\),
@@ -201,12 +202,13 @@ Para \(a\in A\),
 \item $u_a(x)=a\vee x$,
 \item $v_a(x)=(a\succ x)$.
 \end{itemize}
-}
+}}
 \end{column}
 
 %------------------------------------------------
 % Columna derecha: filtros
 %------------------------------------------------
+\onslide<3->{
 \begin{column}{0.48\textwidth}
 \small{
 \(F\subseteq A\) es un \textbf{filtro} si
@@ -215,27 +217,28 @@ Para \(a\in A\),
 \item $a,b\in F \Rightarrow a\wedge b\in F$,
 \item $a\in F,\, a\leq b \Rightarrow b\in F$.
 \end{itemize}
-
+}
 
 \medskip
-
+\onslide<4->{
 \textbf{Ejemplos}
 \begin{itemize}
 \item Filtro propio,
 \item Filtro admisibile,
 \item Filtro abierto.
 \end{itemize}
-}
+}}
 \end{column}
 
 \end{columns}
+\onslide<5->{
 \small{
 Existe una relación entre filtros y núcleos
 \[
 F\longleftrightarrow
 v_F=\bigvee_{a\in F}v_a.
 \]
-denominamos a $v_F$ como el \textbf{núcleo ajustado} asociado a $F$.}
+denominamos a $v_F$ como el \textbf{núcleo ajustado} asociado a $F$.}}
 \end{frame}
 
 \section{La noción espacial}
