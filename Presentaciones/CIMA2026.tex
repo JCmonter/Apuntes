@@ -197,7 +197,7 @@ Estas operaciones satisfacen la ley distributiva
 \begin{frame}{Marcos}
 \small{
 \begin{block}{Definición}
-Un \textbf{marco} es un retículo completo $A$ que satisface la
+Un \textbf{marco} es una retícula completa $A$ que satisface la
 ley distributiva
 \[
     a\wedge\bigvee S
@@ -360,7 +360,7 @@ Denotamos por
 \[
     \operatorname{pt}(A)
     =
-    \{p\in A : p \text{ es } \wedge\text{-irreducible}\}
+    \{p\in A\mid p \text{ es } \wedge\text{-irreducible}\}
 \]
 
 al conjunto de puntos de $A$, equipado con la topología generada por los conjuntos abiertos
@@ -397,7 +397,13 @@ Estas construcciones se relacionan mediante una adjunción:
 \]
 
 \[
-    \mathcal O \dashv \operatorname{pt}.
+\boxed{
+\operatorname{Hom}_{\mathbf{Frm}}
+\bigl(A,\mathcal O(X)\bigr)
+\cong
+\operatorname{Hom}_{\mathbf{Top}}
+\bigl(X,\operatorname{pt}(A)\bigr)
+}
 \]
 
 \pause
@@ -432,7 +438,7 @@ X
 
 \medskip
 
-Existe una aplicación natural
+Existe una función continua
 \[
 X\longrightarrow
 \operatorname{pt}(\mathcal O(X)).
@@ -460,7 +466,7 @@ A
 
 \medskip
 
-Existe un morfismo natural
+Existe un morfismo
 \[
 A\longrightarrow
 \mathcal O(\operatorname{pt}(A)).
@@ -845,7 +851,7 @@ A
 \medskip
 
 Para ello aparecen herramientas propias de la teoría de marcos,
-como los \textbf{núcleos}, que permiten describir sublocales
+como los \textbf{núcleos}, que permiten describir cocientes
 y construir nuevas estructuras a partir de $A$.
 
 \pause
