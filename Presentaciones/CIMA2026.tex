@@ -306,15 +306,779 @@ Por lo tanto, obtenemos un funtor contravariante
 }
 \end{frame}
 
+\begin{frame}{¿Podemos recuperar los puntos?}
+\small{
+\begin{block}{Pregunta}
+Dado un marco $A$, ¿podemos asociarle un espacio topológico
+de manera natural?
+\end{block}
+
+\pause
+
+\medskip
+
+La respuesta consiste en considerar sus \textbf{puntos}.
+
+\[
+    A
+    \quad\longmapsto\quad
+    \operatorname{pt}(A).
+\]
+
+\pause
+
+\vfill
+
+De esta manera aparecen dos construcciones:
+
+\[
+\boxed{
+    X\longmapsto\mathcal O(X)
+    \qquad\text{y}\qquad
+    A\longmapsto\operatorname{pt}(A).
+}
+\]
+}
+\end{frame}
+
+\begin{frame}{Los puntos de un marco}
+Sea $A$ un marco. Un elemento $p\in A$, con $p\neq 1$, es
+\textbf{$\wedge$-irreducible} si
+
+\[
+    a\wedge b\leq p
+    \quad\Longrightarrow\quad
+    a\leq p \;\text{ o }\; b\leq p.
+\]
+
+\pause
+
+\medskip
+
+Denotamos por
+
+\[
+    \operatorname{pt}(A)
+    =
+    \{p\in A : p \text{ es } \wedge\text{-irreducible}\}
+\]
+
+al conjunto de puntos de $A$, equipado con la topología generada por los conjuntos abiertos
+\[
+    \mathcal{U}(a)=\{p\in \pt A\mid a\nleq p\}.
+\]
+
+\end{frame}
+
+\begin{frame}[fragile]{La adjunción entre espacios y marcos}
+\small{
+Hemos construido dos asignaciones naturales:
+
+\[
+    X \longmapsto \mathcal O(X),
+    \qquad
+    A \longmapsto \operatorname{pt}(A).
+\]
+
+\pause
+
+\medskip
+
+Estas construcciones se relacionan mediante una adjunción:
+
+\[
+\begin{tikzcd}[column sep=huge]
+    \mathbf{Top}
+    \arrow[r, shift left=1.2ex, "\mathcal O"]
+&
+    \mathbf{Frm}^{op}
+    \arrow[l, shift left=1.2ex, "\operatorname{pt}"]
+\end{tikzcd}
+\]
+
+\[
+    \mathcal O \dashv \operatorname{pt}.
+\]
+
+\pause
+
+\begin{block}{}
+\centering
+La teoría de categorías proporciona el lenguaje natural
+para comparar espacios topológicos y marcos.
+\end{block}
+}
+\end{frame}
+
+\begin{frame}{¿Cuándo recuperamos el objeto original?}
+\small{
+La adjunción nos permite recorrer ambos caminos:
+
+\medskip
+
+\begin{columns}[T]
+
+% Columna izquierda
+\begin{column}{0.47\textwidth}
+
+\begin{block}{Desde un espacio}
+\[
+X
+\longmapsto
+\mathcal O(X)
+\longmapsto
+\operatorname{pt}(\mathcal O(X)).
+\]
+
+\medskip
+
+Existe una aplicación natural
+\[
+X\longrightarrow
+\operatorname{pt}(\mathcal O(X)).
+\]
+
+\medskip
+
+Cuando ésta es un homeomorfismo,
+decimos que $X$ es \textbf{sobrio}.
+\end{block}
+
+\end{column}
+
+% Columna derecha
+\begin{column}{0.47\textwidth}
+
+\begin{block}{Desde un marco}
+\[
+A
+\longmapsto
+\operatorname{pt}(A)
+\longmapsto
+\mathcal O(\operatorname{pt}(A)).
+\]
+
+\medskip
+
+Existe un morfismo natural
+\[
+A\longrightarrow
+\mathcal O(\operatorname{pt}(A)).
+\]
+
+\medskip
+
+Cuando éste es un isomorfismo,
+decimos que $A$ es \textbf{espacial}.
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\pause
+
+\vfill
+
+\begin{center}
+\boxed{
+\mathbf{Sob}
+\;\simeq\;
+\mathbf{Sp}^{op}
+}
+\end{center}
+}
+\end{frame}
+
+\begin{frame}{¿Y si el marco no es espacial?}
+\small{
+Existen marcos $A$ para los cuales
+
+\[
+A \not\cong \mathcal O(X)
+\]
+
+para ningún espacio topológico $X$.
+
+\pause
+
+\bigskip
+
+\begin{block}{Topología sin puntos}
+La idea es estudiar la estructura de marco como un objeto
+topológico por derecho propio, sin exigir que sus elementos
+sean los abiertos de un espacio de puntos.
+\end{block}
+
+\pause
+
+\vfill
+
+\begin{center}
+¿Qué conceptos y construcciones topológicas sobreviven
+sin utilizar puntos?
+\end{center}
+}
+\end{frame}
+
+\begin{frame}{Axiomas de separación}
+\small
+En topología clásica, muchas propiedades se formulan
+directamente en términos de puntos.
+
+\medskip
+
+Por ejemplo, un espacio $X$ es \textbf{$T_1$} si
+
+\[
+    x\neq y
+    \quad\Longrightarrow\quad
+    \text{existe } U\in\mathcal O(X)
+    \text{ tal que }
+    x\in U,\; y\notin U.
+\]
+
+\pause
+
+\medskip
+
+Equivalentemente,
+
+\[
+    X \text{ es } T_1
+    \quad\Longleftrightarrow\quad
+    \{x\} \text{ es cerrado para todo }x\in X.
+\]
+
+\pause
+
+\vfill
+
+\begin{block}{El problema}
+\centering
+Si queremos trabajar únicamente con un marco $A$,
+¿cómo formulamos una propiedad que originalmente
+habla de \textbf{puntos}?
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Reformular antes de generalizar}
+\small
+
+Para trasladar una propiedad topológica al contexto de marcos
+buscamos una formulación que dependa únicamente de los abiertos.
+
+\medskip
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=0.75cm,
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        text width=2.5cm,
+        minimum height=0.9cm,
+        inner sep=3pt
+    }
+]
+
+\node[box] (top) {Propiedad\\topológica};
+
+\node[box, right=of top] (open)
+    {Formulación \\en términos\\ de abiertos};
+
+\node[box, right=of open] (frame)
+    {Propiedad\\del marco};
+
+\draw[->] (top) -- (open);
+\draw[->] (open) -- (frame);
+
+\end{tikzpicture}
+\end{center}
+
+\pause
+
+\medskip
+
+Así, una propiedad inicialmente formulada sobre un espacio $X$
+\[
+    \text{puede adquirir sentido directamente sobre } \mathcal O(X),
+\]
+
+y posteriormente sobre un marco arbitrario $A$.
+
+\medskip
+
+\begin{block}{}
+\centering
+La traducción no consiste en eliminar los puntos de la notación,
+sino en encontrar la estructura algebraica que expresa
+la misma información topológica.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Un ejemplo: regularidad}
+\small
+
+Recordemos que un espacio topológico $X$ es \textbf{regular} si,
+dados un punto $x\in X$ y un cerrado $C$ con $x\notin C$,
+existen abiertos disjuntos que los separan.
+
+\pause
+
+\medskip
+
+Esta propiedad puede expresarse únicamente en términos de abiertos.
+
+\begin{block}{La relación \textit{well inside}}
+Para $U,V\in\mathcal O(X)$, escribimos $U\prec V$ si existe $W\in\mathcal O(X)$ tal que
+\[
+    U\cap W=\varnothing
+    \qquad\text{y}\qquad
+    V\cup W=X.
+\]
+\end{block}
+
+\pause
+
+Entonces la regularidad puede expresarse como
+
+\[
+    U
+    =
+    \bigcup\{V\in\mathcal O(X):V\prec U\},
+    \qquad U\in\mathcal O(X).
+\]
+
+\end{frame}
+
+\begin{frame}{Olvidemos el espacio}
+\small
+Para $a,b\in A$, definimos
+
+\[
+    a\prec b
+    \quad\Longleftrightarrow\quad
+    \exists\,c\in A
+    \text{ tal que }
+    a\wedge c=0
+    \quad\text{y}\quad
+    b\vee c=1.
+\]
+
+\pause
+
+\medskip
+
+\begin{block}{Marco regular}
+Un marco $A$ es \textbf{regular} si, para todo $a\in A$,
+\[
+    a=\bigvee\{b\in A:b\prec a\}.
+\]
+\end{block}
+
+\pause
+
+\vfill
+
+\begin{center}
+\boxed{
+\text{La definición ya no necesita un espacio de puntos.}
+}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{De propiedades a construcciones}
+
+Hasta ahora hemos visto cómo una \textbf{propiedad topológica}
+puede reformularse en el lenguaje de marcos:
+
+\[
+\boxed{
+\text{Espacios}
+\longrightarrow
+\text{Abiertos}
+\longrightarrow
+\text{Marcos}
+}
+\]
+
+\pause
+
+\medskip
+
+Pero podemos hacer la misma pregunta para
+\textbf{construcciones topológicas}.
+
+\pause
+
+\bigskip
+
+\begin{center}
+\Large
+¿Qué ocurre, por ejemplo, con la modificación \textit{patch}?
+\end{center}
+
+\end{frame}
+
+\begin{frame}{La modificación \textit{patch}}
+\small
+
+Sea $X$ un espacio topológico.
+
+\medskip
+
+La idea de una modificación \textit{patch} es considerar
+una topología más fina sobre el mismo conjunto de puntos:
+
+\[
+\boxed{
+(X,\tau)
+\qquad\longmapsto\qquad
+(X,\tau_{\mathrm{patch}})
+}
+\]
+
+\pause
+
+\medskip
+
+Se conservan los puntos de $X$, pero se incorporan nuevos abiertos
+a partir de información que ya estaba presente en la topología original.
+
+\pause
+
+\bigskip
+
+Por tanto, $\tau\subseteq\tau_{\mathrm{patch}}$.
+
+
+\begin{block}{Idea}
+\centering
+El espacio no cambia como conjunto; lo que cambia es
+la manera en que observamos topológicamente sus puntos.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{¿Cómo hacemos \textit{patch} sin puntos?}
+\small
+
+En espacios, una modificación \textit{patch} cambia la topología:
+
+\[
+(X,\tau)
+\longmapsto
+(X,\tau_{\mathrm{patch}}).
+\]
+
+\pause
+
+\medskip
+
+Pero si nuestro objeto de partida es un marco $A$,
+ya no tenemos que comenzar con un conjunto de puntos.
+
+\bigskip
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.3cm,
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.7cm,
+        minimum height=1cm
+    }
+]
+
+\node[box] (space) {Espacio\\$X$};
+\node[box, right=of space] (opens) {Marco de abiertos\\$\mathcal O(X)$};
+\node[box, right=of opens] (patch) {Construcción\\\textit{patch}};
+
+\draw[->] (space) -- (opens);
+\draw[->] (opens) -- (patch);
+
+\end{tikzpicture}
+\end{center}
+
+\pause
+
+\bigskip
+
+\begin{block}{Pregunta}
+\centering
+¿Podemos describir la modificación \textit{patch}
+utilizando únicamente la estructura del marco?
+\end{block}
+
+\end{frame}
+
+\begin{frame}{El \textit{patch} en el mundo point-free}
+\small
+
+La construcción \textit{patch} también admite una formulación
+intrínseca en el lenguaje de marcos.
+
+\pause
+
+\medskip
+
+En lugar de modificar directamente los puntos de un espacio,
+trabajamos con la estructura interna del marco:
+
+\[
+\boxed{
+A
+\qquad\longmapsto\qquad
+\operatorname{Patch}(A)
+}
+\]
+
+\pause
+
+\medskip
+
+Para ello aparecen herramientas propias de la teoría de marcos,
+como los \textbf{núcleos}, que permiten describir sublocales
+y construir nuevas estructuras a partir de $A$.
+
+\pause
+
+\vfill
+
+\begin{block}{}
+\centering
+Una construcción que nació en términos de espacios
+puede continuar teniendo sentido aun cuando
+el marco no sea espacial.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{¿Qué ganamos con esta perspectiva?}
+
+\begin{columns}[T]
+
+% Primera columna
+\begin{column}{0.30\textwidth}
+\centering
+
+\Large
+\textbf{Traducir}
+
+\normalsize
+\medskip
+
+\[
+\mathbf{Top}
+\longleftrightarrow
+\mathbf{Frm}
+\]
+
+\medskip
+
+Interpretar propiedades y construcciones topológicas
+en términos algebraicos.
+
+\end{column}
+
+\pause
+
+% Segunda columna
+\begin{column}{0.30\textwidth}
+\centering
+
+\Large
+\textbf{Generalizar}
+
+\normalsize
+\medskip
+
+\[
+\mathcal O(X)
+\rightsquigarrow
+A
+\]
+
+\medskip
+
+Extender conceptos desde marcos espaciales
+hacia marcos arbitrarios.
+
+\end{column}
+
+\pause
+
+% Tercera columna
+\begin{column}{0.30\textwidth}
+\centering
+
+\Large
+\textbf{Descubrir}
+
+\normalsize
+\medskip
+
+\[
+\text{¿?}
+\]
+
+\medskip
+
+Encontrar nuevos fenómenos y preguntas
+que no dependen de la existencia de puntos.
+
+\end{column}
+
+\end{columns}
+
+\vfill
+
+\begin{block}{}
+\centering
+La traducción categórica no es únicamente un cambio de lenguaje:
+permite ampliar el dominio de la topología.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{¿Qué preguntas aparecen?}
+\small
+
+\begin{block}{Separación}
+¿Qué axiomas de separación admiten una formulación
+puramente algebraica en marcos?
+\end{block}
+
+\pause
+
+\begin{block}{Conservatividad}
+Si una propiedad se define en el contexto point-free,
+¿recuperamos la propiedad topológica original cuando
+\[
+A=\mathcal O(X)?
+\]
+\end{block}
+
+\pause
+
+\begin{block}{Más allá de los espacios}
+¿Qué nuevos fenómenos aparecen cuando trabajamos con
+marcos no espaciales?
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Para llevar a casa}
+
+\begin{center}
+
+\begin{tikzpicture}[
+    node distance=1.6cm,
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=3cm,
+        minimum height=1.2cm
+    }
+]
+
+\node[box] (top) {
+    Espacios topológicos\\
+    $\mathbf{Top}$
+};
+
+\node[box, right=of top] (loc) {
+    Marcos / Locales\\
+    $\mathbf{Frm}^{op}=\mathbf{Loc}$
+};
+
+\draw[->, bend left=15, thick]
+(top) to node[above] {$\mathcal O$} (loc);
+
+\draw[->, bend left=15, thick]
+(loc) to node[below] {$\operatorname{pt}$} (top);
+
+\end{tikzpicture}
+
+\medskip
+
+\begin{minipage}{0.78\textwidth}
+    \begin{block}{}
+        \centering
+        La teoría de categorías proporciona el puente
+        entre ambos mundos.
+    \end{block}
+\end{minipage}
+
+\pause
+
+\bigskip
+
+Los abiertos no solamente describen un espacio:
+
+\medskip
+
+{\Large
+\textbf{pueden convertirse en el objeto de estudio.}
+}
+
+\end{center}
+
+\end{frame}
+
 \End
 
-\section*{\textsc{Referencias}}
-\begin{frame}[allowframebreaks]
-\bibliographystyle{plainnat}
+\begin{frame}{Referencias}
+\small
+
+\begin{itemize}
+
+\item
+J. Picado and A. Pultr,
+\textit{Frames and Locales: Topology without Points},
+Frontiers in Mathematics, Birkh\"auser, 2012.
+
+\medskip
+
+\item
+J. Picado and A. Pultr,
+\textit{Separation in Point-Free Topology},
+Birkh\"auser, 2021.
+
+\medskip
+
+\item
+P. T. Johnstone,
+\textit{Stone Spaces},
+Cambridge Studies in Advanced Mathematics,
+Cambridge University Press, 1982.
+
+\medskip
+
+\item
+R. A. Sexton,
+\textit{A Point-Free and Point-Sensitive Analysis of the Patch Assembly},
+Ph.D. Thesis, University of Manchester, 2003.
+
+\end{itemize}
+
+\end{frame}
+
+%\section*{\textsc{Referencias}}
+%\begin{frame}[allowframebreaks]
+%\bibliographystyle{plainnat}
 %\bibliographystyle{plain}
 %\bibliographystyle{amsalpha}
-\bibliography{research2}
-\end{frame}
+%\bibliography{research2}
+%\end{frame}
 
 \begin{frame}[plain,standout]
       \centering
