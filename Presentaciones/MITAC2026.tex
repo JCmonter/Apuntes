@@ -331,7 +331,7 @@ Su complemento dual es el prenúcleo
     f_\nabla(U)
     =
     \bigvee_{Q\subseteq V}
-    (V\cup U)^\circ,
+    (V'\cup U)^\circ,
     \qquad U\in\mathcal{O}S.
 \]
 
@@ -404,9 +404,12 @@ Sexton y Simmons prueban las implicaciones
     \Longrightarrow
     \text{fuertemente apilado}
     \Longrightarrow
-    \text{apilado}.
+    \text{apilado},
 \]
-
+y
+\[
+\text{eficiente}\iff \text{apilado y empaquetado.}
+\]
 Además,
 \[
     \boxed{
@@ -415,6 +418,7 @@ Además,
     \text{sobrio}.
     }
 \]
+\footnotetext[0]{En la literatura, podemos encontrar a la eficiencia como "\emph{tidy}" o "\emph{neat}".}
 \footnotetext[0]{Estos y otros resultados en los que se involucran las propiedades de apilamiento pueden consultarse en \cite{sexton2003point,simmons2004vietoris,sexton2006point}.}
 \end{frame}
 
@@ -765,7 +769,7 @@ Sea \(A\) un marco y \((F,Q)\) un par HM.
 \end{enumerate}
 \end{block}
 
-En particular, si 
+En particular, con $a\neq 1$, si 
 \[
     v_F(0)=w_F(0)\quad \text{y}\quad \mathcal{V}(a)=\{q\in\operatorname{pt}A\mid a\leq q\}\neq \emptyset,
 \]
@@ -828,12 +832,9 @@ A\text{ es apilado}.
 
 Además, bajo la condición
 \[
-    \mathcal{V}(a)
-    =
-    \{q\in\operatorname{pt}A\mid a\leq q\}
-    \neq\varnothing,
+    \mathcal{V}(a)\neq\varnothing,
 \]
-el isomorfismo anterior implica que \(A\) es \(T_1\).
+con $a\neq 1$, el isomorfismo anterior implica que \(A\) es \(T_1\).
 \end{block}
 
 \end{frame}
