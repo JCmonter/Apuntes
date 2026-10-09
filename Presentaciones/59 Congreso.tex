@@ -1,0 +1,175 @@
+\documentclass[compress,12pt]{beamer}
+
+\usetheme{Arguelles}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[pages=some]{background}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{
+  babel,
+  arrows.meta,
+  calc,
+  positioning,
+  overlay-beamer-styles,
+  shadows.blur
+}
+\usetikzlibrary{decorations.pathmorphing}
+
+\usepackage{amsmath,amssymb,latexsym,amscd} 
+\usepackage[all,cmtip]{xy}
+\usepackage{fancyhdr}
+\usepackage{mathalfa}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage[authoryear]{natbib}
+
+% Colores para la diapositiva Top/Frm
+\definecolor{TopBlue}{RGB}{14,73,160}
+\definecolor{FrmGreen}{RGB}{15,120,45}
+\definecolor{TopLight}{RGB}{235,242,252}
+\definecolor{FrmLight}{RGB}{235,248,238}
+
+\pagenumbering{arabic}
+
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\tp}{tp}
+\DeclareMathOperator{\Sp}{sp}
+\DeclareMathOperator{\SP}{Sp}
+\DeclareMathOperator{\Sob}{Sob}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Pth}{P}
+\DeclareMathOperator{\Vrm}{Vrm}
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\Top}{Top}
+\DeclareMathOperator{\Ord}{Ord}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Hom}{Hom}
+
+\title{De espacios a marcos:}
+\subtitle{una mirada libre de puntos a construcciones topológicas clásicas}
+\event{59.° Congreso de la Sociedad Matemática Mexicana, FCBIyT, UATx}
+\date{\today}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\email{juan.monter2902@alumnos.udg.mx}
+
+%\homepage{www.mywebsite.com}
+\github{JCmonter}
+
+\begin{document}
+
+
+%\frame[plain]{\titlepage}
+
+\begin{frame}[plain]
+\titlepage
+
+\vfill
+\begin{center}
+    \textcolor{white}{\scriptsize Investigación apoyada por SECIHTI-PROYECTO CBF2023-2024-2630}
+\end{center}
+\end{frame}
+
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+\begin{frame}[plain]{¿Cuánta información de un espacio topológico está contenida en sus abiertos?}
+\small{
+\begin{columns}[c]
+
+% Columna izquierda
+\begin{column}{0.38\textwidth}
+\centering
+
+\[
+X=\{x,y,z\}
+\]
+
+\vspace{0.3cm}
+
+\begin{tikzpicture}[scale=1.1]
+    \fill (0,0) circle (2pt) node[below] {$x$};
+    \fill (1.2,0.8) circle (2pt) node[right] {$y$};
+    \fill (2.2,-0.1) circle (2pt) node[below] {$z$};
+\end{tikzpicture}
+\end{column}
+
+% Columna derecha
+\begin{column}{0.58\textwidth}
+
+\[
+\mathcal O(X)
+=
+\left\{
+\varnothing,\,
+\{z\},\,
+\{y,z\},\,
+X
+\right\}.
+\]
+
+\centering
+
+\begin{tikzpicture}[
+    node distance=0.65cm,
+    every node/.style={inner sep=1pt}
+]
+\node (X) {$X$};
+\node[below=of X] (yz) {$\{y,z\}$};
+\node[below=of yz] (z) {$\{z\}$};
+\node[below=of z] (empty) {$\varnothing$};
+
+\draw (X) -- (yz);
+\draw (yz) -- (z);
+\draw (z) -- (empty);
+\end{tikzpicture}
+
+\end{column}
+
+\end{columns}
+}
+
+\[
+X \longmapsto \mathcal O(X)
+\]
+
+\begin{block}{Pregunta}
+¿Qué información topológica permanece si olvidamos los puntos y
+ conservamos únicamente sus abiertos?
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\End
+
+\section*{\textsc{Referencias}}
+\begin{frame}[allowframebreaks]
+\bibliographystyle{plainnat}
+%\bibliographystyle{plain}
+%\bibliographystyle{amsalpha}
+\bibliography{research2}
+\end{frame}
+
+\begin{frame}[plain,standout]
+      \centering
+      \Huge{\bfseries \smiley¡Muchas gracias!\smiley}
+      %In combination with \textit{plain}, \\
+      %it makes a nice thank-you slide!
+      %\scalebox{4}{\faGithub} \par\bigskip
+      %\url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
+      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+\end{frame}
+\end{document}
