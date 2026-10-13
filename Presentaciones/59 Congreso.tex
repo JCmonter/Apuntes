@@ -27,7 +27,7 @@
 \usepackage{hyperref}
 \usepackage{ragged2e}
 \usepackage{wasysym}
-\usepackage[authoryear]{natbib}
+\usepackage[numbers]{natbib}
 
 % Colores para la diapositiva Top/Frm
 \definecolor{TopBlue}{RGB}{14,73,160}
@@ -78,98 +78,1239 @@
 \end{center}
 \end{frame}
 
-\begin{frame}{Contenido}
-\tableofcontents
-\end{frame}
+%\begin{frame}{Contenido}
+%\tableofcontents
+%\end{frame}
 
-\begin{frame}[plain]{¿Cuánta información de un espacio topológico está contenida en sus abiertos?}
-\small{
-\begin{columns}[c]
+\section{De espacios a marcos}
+\begin{frame}{¿Cuánta información contienen los abiertos?}
 
-% Columna izquierda
-\begin{column}{0.38\textwidth}
 \centering
+\vspace{-0.35cm}
+\begin{columns}[T,onlytextwidth]
 
+% ========================================
+% ESPACIO TOPOLÓGICO
+% ========================================
+\begin{column}{0.48\textwidth}
+
+\centering
+\textbf{Espacio topológico}
 \[
 X=\{x,y,z\}
 \]
 
-\vspace{0.3cm}
+\begin{tikzpicture}[scale=0.78]
 
-\begin{tikzpicture}[scale=1.1]
-    \fill (0,0) circle (2pt) node[below] {$x$};
-    \fill (1.2,0.8) circle (2pt) node[right] {$y$};
-    \fill (2.2,-0.1) circle (2pt) node[below] {$z$};
+% Abierto X
+\filldraw[
+    fill=blue!10,
+    draw=blue!50,
+    thick,
+    rounded corners=13pt
+] (0,0) rectangle (5,2.6);
+
+% Abierto {y,z}
+\filldraw[
+    fill=teal!14,
+    draw=teal!65,
+    thick,
+    rounded corners=12pt
+] (1.7,0.35) rectangle (4.7,2.25);
+
+% Abierto {z}
+\filldraw[
+    fill=orange!17,
+    draw=orange!75,
+    thick,
+    rounded corners=12pt
+] (3.35,0.65) rectangle (4.45,1.95);
+
+% Puntos
+\fill (0.8,1.3) circle (2.5pt);
+\fill (2.5,1.3) circle (2.5pt);
+\fill (3.9,1.3) circle (2.5pt);
+
+% Etiquetas de puntos
+\node[below=4pt] at (0.8,1.3) {$x$};
+\node[below=4pt] at (2.5,1.3) {$y$};
+\node[below=4pt] at (3.9,1.3) {$z$};
+
+% Etiquetas de abiertos
+\node[blue!65!black] at (0.35,2.25) {$X$};
+\node[teal!75!black] at (2.35,1.95) {$\{y,z\}$};
+\node[orange!85!black] at (3.9,1.68) {$\{z\}$};
+
 \end{tikzpicture}
+
 \end{column}
 
-% Columna derecha
-\begin{column}{0.58\textwidth}
-
-\[
-\mathcal O(X)
-=
-\left\{
-\varnothing,\,
-\{z\},\,
-\{y,z\},\,
-X
-\right\}.
-\]
+% ========================================
+% RETÍCULA DE ABIERTOS
+% ========================================
+\begin{column}{0.48\textwidth}
 
 \centering
 
-\begin{tikzpicture}[
-    node distance=0.65cm,
-    every node/.style={inner sep=1pt}
-]
-\node (X) {$X$};
-\node[below=of X] (yz) {$\{y,z\}$};
-\node[below=of yz] (z) {$\{z\}$};
-\node[below=of z] (empty) {$\varnothing$};
+\visible<2->{
 
-\draw (X) -- (yz);
-\draw (yz) -- (z);
-\draw (z) -- (empty);
+\textbf{Abiertos de $X$}
+
+\vspace{0.1cm}
+
+\begin{center}
+$\displaystyle
+\mathcal O(X)=
+\{\varnothing,\{z\},\{y,z\},X\}
+$
+\end{center}
+
+\vspace{0.1cm}
+
+\begin{tikzpicture}[
+    every node/.style={
+        font=\normalsize,
+        inner sep=3pt
+    },
+    scale=0.95
+]
+
+% Elementos del marco
+\node[blue!65!black] (top) at (0,3.0) {$X$};
+
+\node[teal!75!black] (yz) at (0,2.0)
+    {$\{y,z\}$};
+
+\node[orange!85!black] (z) at (0,1.0)
+    {$\{z\}$};
+
+\node (bot) at (0,0)
+    {$\varnothing$};
+
+% Relaciones de inclusión
+\draw[thick,gray!75]
+    (bot.north) -- (z.south);
+
+\draw[thick,gray!75]
+    (z.north) -- (yz.south);
+
+\draw[thick,gray!75]
+    (yz.north) -- (top.south);
+
 \end{tikzpicture}
+
+
+}
 
 \end{column}
 
 \end{columns}
+
+% ========================================
+% PREGUNTA FINAL
+% ========================================
+
+\begin{overlayarea}{\textwidth}{1.0cm}
+\centering
+
+\only<3->{
+\begin{block}{Pregunta}
+\centering
+\small
+¿Qué podemos aprender de un espacio topológico
+estudiando únicamente la estructura de sus abiertos?
+\end{block}
 }
 
-\[
-X \longmapsto \mathcal O(X)
-\]
-
-\begin{block}{Pregunta}
-¿Qué información topológica permanece si olvidamos los puntos y
- conservamos únicamente sus abiertos?
-\end{block}
+\end{overlayarea}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]{De los abiertos a los marcos}
+
+\small
+
+% ========================================
+% OPERACIONES ENTRE ABIERTOS
+% ========================================
+\uncover<1->{
+Sea $X$ un espacio topológico. En $\mathcal O(X)$
+consideramos las operaciones
+}
+
+\begin{center}
+\uncover<1->{
+$\displaystyle
+\bigvee_{i\in I}U_i=\bigcup_{i\in I}U_i,
+\qquad
+U\wedge V=U\cap V.
+$
+}
+\end{center}
+
+\vspace{-0.15cm}
+
+% ========================================
+% DISTRIBUTIVIDAD
+% ========================================
+\uncover<2->{
+Estas operaciones satisfacen la identidad
+}
+
+\begin{center}
+\uncover<2->{
+$\displaystyle
+U\cap\left(\bigcup_{i\in I}V_i\right)
+=
+\bigcup_{i\in I}(U\cap V_i).
+$
+}
+\end{center}
+
+\vspace{-0.15cm}
+
+% ========================================
+% DEFINICIÓN DE MARCO
+% ========================================
+\uncover<3->{
+\begin{block}{Definición}
+Un \textbf{marco} es una retícula completa $A$
+en la que, para todo $a\in A$ y $S\subseteq A$,
+\[
+a\wedge\bigvee S
+=
+\bigvee_{s\in S}(a\wedge s).
+\]
+\end{block}
+}
+
+% ========================================
+% CONCLUSIÓN
+% ========================================
+\uncover<4->{
+\begin{center}
+\textbf{En particular, $\mathcal O(X)$ es un marco.}
+\end{center}
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{¿Podemos recuperar los puntos?}
+
+\small
+
+% ========================================
+% DE ESPACIOS A MARCOS
+% ========================================
+\uncover<1->{
+A cada espacio topológico $X$ le asociamos
+su marco de abiertos:
+\[
+X \longmapsto \mathcal O(X).
+\]
+}
+
+% ========================================
+% PUNTOS DE UN MARCO
+% ========================================
+\uncover<2->{
+\begin{block}{Puntos de un marco}
+Sea $A$ un marco. Un \textbf{punto} de $A$ es un
+elemento $p\neq 1$ tal que
+\[
+a\wedge b\leq p
+\quad\Longrightarrow\quad
+a\leq p\; \text{o}\; b\leq p.
+\]
+Denotamos por $\operatorname{pt}(A)$
+al conjunto de todos sus puntos.
+\end{block}
+}
+
+% ========================================
+% RELACIÓN ENTRE AMBAS CONSTRUCCIONES
+% ========================================
+\uncover<3->{
+\begin{center}
+\begin{tikzpicture}[
+    >=Stealth,
+    node distance=3.4cm,
+    every node/.style={font=\normalsize}
+]
+
+\node (X) at (0,0) {$X$};
+\node (OX) at (5,0) {$\mathcal O(X)$};
+
+\draw[->,thick,bend left=25]
+    (X) to node[above] {$\mathcal O$} (OX);
+
+\draw[->,thick,bend left=25]
+    (OX) to node[below] {$\operatorname{pt}$}
+    (X);
+
+\end{tikzpicture}
+\end{center}
+}
+\end{frame}
+
+
+
+\begin{frame}[t]{¿Todos los marcos provienen de espacios?}
+
+\small
+
+% ========================================
+% MARCOS ESPACIALES
+% ========================================
+\uncover<1->{
+\begin{block}{Marcos espaciales}
+Un marco $A$ es \textbf{espacial} si existe
+un espacio topológico $X$ tal que
+\[
+A\cong\mathcal O(X).
+\]
+\end{block}
+}
+
+% ========================================
+% MARCOS NO ESPACIALES
+% ========================================
+\uncover<2->{
+
+Sin embargo, existen marcos que no son espaciales.
+
+\vspace{-0.15cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    >=Stealth,
+    every node/.style={font=\normalsize}
+]
+
+\node (X) at (0,0) {$X$};
+\node (OX) at (2.8,0) {$\mathcal O(X)$};
+
+\draw[->,thick]
+    (X) -- node[above] {$\mathcal O$} (OX);
+
+\node (A) at (6.6,0) {$A$};
+
+\node at (4.7,0) {$\not\cong$};
+
+\node[below=0.18cm of A,
+      font=\scriptsize]
+    {No espacial};
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{-0.2cm}
+
+}
+
+% ========================================
+% MOTIVACIÓN
+% ========================================
+\uncover<3->{
+
+\begin{block}{Una nueva perspectiva}
+Podemos estudiar construcciones y propiedades
+topológicas directamente en marcos, incluso
+cuando estos no provienen de espacios.
+\end{block}
+
+\vspace{-0.21cm}
+
+\begin{center}
+\textbf{¿Qué construcciones clásicas podemos
+trasladar a este contexto?}
+\end{center}
+
+}
+
+\end{frame}
+
+\section{Trasladando nociones clásicas a marcos}
+\begin{frame}[t]{¿Qué ganamos al cambiar de perspectiva?}
+
+\small
+
+\vspace{0.3cm}
+
+\begin{columns}[T,onlytextwidth]
+
+% ========================================
+% TRADUCIR
+% ========================================
+\begin{column}{0.31\textwidth}
+
+\begin{block}{Traducir}
+
+Reformular construcciones y propiedades
+topológicas utilizando únicamente
+la estructura de los abiertos.
+
+\end{block}
+
+\end{column}
+
+\hfill
+
+% ========================================
+% GENERALIZAR
+% ========================================
+\begin{column}{0.31\textwidth}
+
+\begin{block}{Generalizar}
+
+Estudiar estas construcciones en marcos
+que no necesariamente provienen
+de espacios topológicos.
+
+\end{block}
+
+\end{column}
+
+\hfill
+
+% ========================================
+% DESCUBRIR
+% ========================================
+\begin{column}{0.31\textwidth}
+
+\begin{block}{Descubrir}
+
+Identificar nuevas relaciones
+entre propiedades y formular
+preguntas que surgen en
+el contexto libre de puntos.
+
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\vspace{0.8cm}
+
+\uncover<2->{
+
+\begin{center}
+
+\textbf{Cuatro ejemplos de esta perspectiva:}
+
+\vspace{0.25cm}
+
+Subespacios $\cdot$ Hiperespacios
+$\cdot$ Modificaciones $\cdot$ Separación
+
+\end{center}
+
+}
+
+\end{frame}
+
+\begin{frame}[t]{De subespacios a cocientes de marcos}
+
+\small
+
+% ========================================
+% ESPACIO Y SUBESPACIO
+% ========================================
+\uncover<1->{
+
+Consideremos el espacio
+$X=\{x,y,z\}$ y el subconjunto $Y=\{x,z\}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+
+% Espacio X
+\filldraw[
+    fill=blue!10,
+    draw=blue!55,
+    thick,
+    rounded corners=12pt
+] (0,0) rectangle (5,2.5);
+
+% Abierto {y,z}
+\filldraw[
+    fill=teal!12,
+    draw=teal!65,
+    thick,
+    rounded corners=10pt
+] (1.7,0.35) rectangle (4.7,2.15);
+
+% Abierto {z}
+\filldraw[
+    fill=orange!15,
+    draw=orange!80,
+    thick,
+    rounded corners=10pt
+] (3.35,0.65) rectangle (4.45,1.85);
+
+% Puntos
+\fill (0.8,1.25) circle (2.5pt);
+\fill (2.5,1.25) circle (2.5pt);
+\fill (3.9,1.25) circle (2.5pt);
+
+\node[below=4pt] at (0.8,1.25) {$x$};
+\node[below=4pt] at (2.5,1.25) {$y$};
+\node[below=4pt] at (3.9,1.25) {$z$};
+
+% Subespacio Y: destacar sus puntos
+\draw[
+    red!75,
+    thick,
+    dashed
+] (0.8,1.25) circle (0.27);
+
+\draw[
+    red!75,
+    thick,
+    dashed
+] (3.9,1.25) circle (0.27);
+
+\node[red!75!black] at (2.5,-0.35)
+    {$Y=\{x,z\}$};
+
+\end{tikzpicture}
+\end{center}
+
+}
+
+% ========================================
+% TOPOLOGÍA RELATIVA
+% ========================================
+\uncover<2->{
+
+La topología relativa sobre $Y$ es
+\[
+\mathcal O(Y)
+=
+\{U\cap Y\mid U\in\mathcal O(X)\}
+=
+\{\varnothing,\{z\},Y\}.
+\]
+}
+\vspace{-0.21cm}
+% ========================================
+% MORFISMO DE MARCOS
+% ========================================
+\uncover<3->{
+La inclusión $Y\hookrightarrow X$ induce
+un morfismo sobreyectivo de marcos:
+\[
+\begin{aligned}
+\varphi\colon \mathcal O(X)&\longrightarrow\mathcal O(Y),\\
+U&\longmapsto U\cap Y.
+\end{aligned}
+\]
+}
+
+% ========================================
+% CONCLUSIÓN
+% ========================================
+\uncover<4->{
+\begin{center}
+\textbf{Los subespacios producen cocientes de marcos.}
+\end{center}
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{De cocientes de marcos a núcleos}
+
+\small
+
+% ========================================
+% RECORDATORIO
+% ========================================
+\uncover<1->{
+Para $Y=\{x,z\}\subseteq X$, la aplicación
+\(
+\varphi\colon \mathcal O(X)\longrightarrow\mathcal O(Y),
+\)
+es un cociente de marcos.
+}
+
+% ========================================
+% NÚCLEOS
+% ========================================
+\uncover<2->{
+\begin{block}{Núcleos}
+Un \textbf{núcleo} sobre un marco $A$ es una
+aplicación $j:A\to A$ monótona, inflacionaria,
+idempotente y que preserva ínfimos finitos.
+\end{block}
+}
+
+% ========================================
+% EJEMPLO
+% ========================================
+\uncover<3->{
+El núcleo asociado al cociente anterior es
+$j=\varphi_*\varphi$, y en nuestro ejemplo:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|cccc}
+$U$ &
+$\varnothing$ & $\{z\}$ & $\{y,z\}$ & $X$\\
+\hline
+$j(U)$ &
+$\varnothing$ & $\{y,z\}$ & $\{y,z\}$ & $X$
+\end{tabular}
+\end{center}
+}
+
+% ========================================
+% CONCLUSIÓN
+% ========================================
+\uncover<4->{
+\[
+\operatorname{Fix}(j)
+=\{\varnothing,\{y,z\},X\}
+\cong\mathcal O(Y).
+\]
+
+\begin{center}
+\textbf{Los núcleos generalizan la noción
+de subespacio.}
+\end{center}
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{De espacios a hiperespacios}
+
+\small
+
+% ========================================
+% HIPERESPACIO DE CERRADOS
+% ========================================
+\uncover<1->{
+
+En lugar de estudiar los puntos de $X$,
+consideremos sus subconjuntos cerrados no vacíos:
+\[
+\mathcal F(X)=
+\big\{
+\{x\},\{x,y\},\{x,z\},X
+\big\}.
+\]
+
+Cada elemento de $\mathcal F(X)$ será
+un punto de un nuevo espacio topológico.
+
+}
+
+% ========================================
+% TOPOLOGÍA DE VIETORIS
+% ========================================
+\uncover<2->{
+
+\begin{block}{Topología de Vietoris}
+Para cada $U\in\mathcal O(X)$, consideramos
+\[
+\Diamond U
+=
+\{F\in\mathcal F(X)\mid F\cap U\neq\varnothing\},
+\qquad
+\Box U
+=
+\{F\in\mathcal F(X)\mid F\subseteq U\}.
+\]
+
+Estos conjuntos generan una topología
+sobre $\mathcal F(X)$.
+\end{block}
+
+}
+
+% ========================================
+% EJEMPLO CONCRETO
+% ========================================
+\uncover<3->{
+
+Por ejemplo, para $U=\{z\}$,
+\[
+\Diamond\{z\}=\big\{\{x,z\},X\big\},
+\qquad
+\Box\{z\}=\varnothing.
+\]
+
+}
+
+\end{frame}
+
+\begin{frame}[t]{Vietoris sin puntos}
+
+\small
+
+% ========================================
+% MOTIVACIÓN
+% ========================================
+\uncover<1->{
+
+En la construcción clásica de Vietoris,
+la topología del hiperespacio se obtiene
+a partir de los abiertos de $X$:
+\[
+\mathcal O(X)
+\longrightarrow
+\mathcal O(\mathcal F(X)).
+\]
+
+}
+
+\vspace{-0.2cm}
+
+% ========================================
+% CONSTRUCCIÓN POINT-FREE
+% ========================================
+\uncover<2->{
+
+\begin{block}{La construcción de Vietoris}
+
+Dado un marco $A$, consideramos los símbolos
+\[
+\lozenge a,\qquad \square a,
+\qquad a\in A,
+\]
+
+sujetos a relaciones algebraicas que
+generalizan las de la topología clásica.
+\end{block}
+}
+
+\vspace{-0.25cm}
+% ========================================
+% CONCLUSIÓN
+% ========================================
+\uncover<3->{
+El marco resultante se denota por $VA$.
+\[
+A\longmapsto VA
+\]
+
+\begin{center}
+\textbf{Podemos construir hiperespacios
+sin partir de un espacio de puntos.}
+\end{center}
+
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Modificando una topología}
+
+\small
+
+\uncover<1->{
+Partimos nuevamente del espacio
+\[
+X=\{x,y,z\},\qquad
+\tau=\{\varnothing,\{z\},\{y,z\},X\}.
+\]
+}
+\uncover<2->{
+\begin{block}{Modificación de Skula}
+La topología de Skula está generada por
+los abiertos de $X$ y sus complementos.
+\end{block}
+}
+
+\uncover<3->{
+En nuestro ejemplo, los conjuntos
+\[
+\begin{aligned}
+\{x\}&=X\setminus\{y,z\},\quad
+\{y\}&=\{y,z\}\setminus\{z\},\quad
+\{z\}&\in\tau
+\end{aligned}
+\]
+son abiertos en la nueva topología.
+}
+\uncover<4->{
+\[
+\tau_{\mathrm{Sk}}=\mathcal P(X)
+\]
+
+\begin{center}
+\textbf{La modificación de Skula
+convierte nuestro espacio en uno discreto.}
+\end{center}
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Modificaciones en marcos}
+
+\small
+
+% ========================================
+% MOTIVACIÓN
+% ========================================
+\uncover<1->{
+En un espacio topológico podemos construir
+nuevas topologías incorporando abiertos.
+En un marco, podemos realizar construcciones
+análogas utilizando \textbf{núcleos}.
+
+}
+
+% ========================================
+% NÚCLEOS BÁSICOS
+% ========================================
+\uncover<2->{
+
+\begin{block}{Dos familias de núcleos}
+Para cada $a\in A$, consideramos
+\[
+u_a(x)=a\vee x,
+\qquad
+v_a(x)=a\succ x.
+\]
+\end{block}
+}
+
+% ========================================
+% CONSTRUCCIÓN PATCH
+% ========================================
+\uncover<3->{
+Estos núcleos generan cocientes que denominamos 
+cerrados y abiertos, respectivamente.
+
+
+El \textbf{marco} $NA$ es generado por
+los núcleos $u_a$ y $v_a$, con $a\in A$.
+\[
+A\longmapsto NA
+\]
+
+\begin{center}
+\textbf{Una modificación topológica
+descrita mediante operaciones algebraicas.}
+\end{center}
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{¿Separación sin puntos?}
+
+\small
+
+% ========================================
+% MOTIVACIÓN
+% ========================================
+\uncover<1->{
+
+En topología clásica, los axiomas de
+separación describen cómo distinguir
+puntos mediante conjuntos abiertos.
+
+}
+
+% ========================================
+% AXIOMAS CLÁSICOS
+% ========================================
+\uncover<2->{
+
+\begin{block}{Algunos axiomas clásicos}
+
+\begin{description}
+
+\item[$T_0$:]
+Dos puntos distintos pueden distinguirse
+mediante un abierto.
+
+\medskip
+
+\item[$T_1$:]
+Cada uno de dos puntos distintos tiene
+una vecindad que no contiene al otro.
+
+\medskip
+
+\item[$T_2$:]
+Dos puntos distintos admiten
+vecindades abiertas disjuntas.
+
+\end{description}
+
+\end{block}
+
+}
+
+% ========================================
+% PREGUNTA CENTRAL
+% ========================================
+\uncover<3->{
+
+\begin{center}
+\textbf{¿Podemos expresar estas propiedades
+utilizando únicamente la estructura
+de un marco?}
+\end{center}
+
+\medskip
+
+La topología sin puntos propone
+formulaciones algebraicas de los
+axiomas de separación.
+
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Reformulando la regularidad}
+
+\small
+
+\uncover<1->{
+
+Un espacio $X$ es \textbf{regular} si para
+cada $x\in U$, con $U$ abierto, existe
+un abierto $V$ tal que
+\[
+x\in V\subseteq\overline V\subseteq U.
+\]
+
+}
+
+\vspace{-0.15cm}
+
+\uncover<2->{
+
+\begin{block}{Una relación entre abiertos}
+
+Para $V,U\in\mathcal O(X)$, escribimos
+$V\prec U$ si existe $W\in\mathcal O(X)$
+tal que
+\[
+V\cap W=\varnothing,
+\qquad
+U\cup W=X.
+\]
+
+\end{block}
+
+}
+
+\vspace{-0.15cm}
+
+\uncover<3->{
+
+La regularidad puede expresarse
+únicamente mediante abiertos:
+\[
+\boxed{
+U=\bigcup\{V\in\mathcal O(X):V\prec U\}.
+}
+\]
+
+\begin{center}
+\textbf{¡Los puntos han desaparecido
+de la formulación!}
+\end{center}
+
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Regularidad sin puntos}
+
+\small
+
+\uncover<1->{
+
+La formulación anterior utiliza
+únicamente uniones e intersecciones
+de abiertos.
+\[
+\begin{aligned}
+V\cap W=\varnothing
+&\longrightarrow b\wedge c=0,\\
+U\cup W=X
+&\longrightarrow a\vee c=1.
+\end{aligned}
+\]
+
+}
+
+\vspace{-0.15cm}
+
+\uncover<2->{
+
+\begin{block}{Relación bastante por debajo}
+
+En un marco $A$, definimos
+\[
+b\prec a
+\iff
+\exists c\in A:
+\quad b\wedge c=0,\quad a\vee c=1.
+\]
+
+\end{block}
+
+}
+
+\vspace{-0.15cm}
+
+\uncover<3->{
+
+\begin{block}{Marco regular}
+
+Un marco $A$ es \textbf{regular} si
+
+\[
+a=\bigvee\{b\in A:b\prec a\}
+\qquad
+\text{para todo }a\in A.
+\]
+
+\end{block}
+
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{¿Una única noción de Hausdorff?}
+
+\small
+
+\uncover<1->{
+
+En topología clásica, un espacio es
+\textbf{Hausdorff} si dos puntos distintos
+admiten vecindades abiertas disjuntas.
+
+}
+
+\uncover<2->{
+
+En topología sin puntos existen
+distintas formulaciones algebraicas
+inspiradas en esta propiedad:
+
+\[
+\boxed{
+(H)\qquad\text{y}\qquad(sH)
+}
+\]
+
+}
+
+\uncover<3->{
+
+Estas condiciones no son equivalentes
+en marcos arbitrarios.
+
+\medskip
+
+\begin{center}
+\textbf{Una propiedad clásica puede admitir
+distintas generalizaciones libres de puntos.}
+\end{center}
+
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Dos perspectivas de una misma teoría}
+
+\small
+
+\uncover<1->{
+
+Los funtores de abiertos y de puntos
+relacionan ambas teorías:
+\[
+\mathcal O\colon \mathbf{Top}\longrightarrow
+\mathbf{Frm}^{op},
+\qquad
+\operatorname{pt}\colon \mathbf{Frm}^{op}
+\longrightarrow\mathbf{Top}.
+\]
+
+}
+
+\uncover<2->{
+
+Para cada espacio $X$ y cada marco $A$,
+tenemos aplicaciones canónicas:
+\[
+\eta_X\colon X\longrightarrow
+\operatorname{pt}(\mathcal O(X)),
+\]
+\[
+\varepsilon_A\colon A\longrightarrow
+\mathcal O(\operatorname{pt}(A)).
+\]
+
+}
+
+\uncover<3->{
+
+\begin{block}{¿Cuándo recuperamos el objeto original?}
+
+\begin{itemize}
+    \item Si $X$ es sobrio, $\eta_X$
+    es un homeomorfismo.
+
+    \medskip
+
+    \item Si $A$ es espacial, $\varepsilon_A$
+    es un isomorfismo.
+\end{itemize}
+
+\end{block}
+
+}
+
+\end{frame}
+
+
+\begin{frame}[t]{Una nueva forma de mirar la topología}
+
+\small
+
+\uncover<1->{
+
+Hemos visto que distintas construcciones
+clásicas admiten formulaciones algebraicas:
+
+\[
+\begin{aligned}
+\text{Subespacios}
+&\longrightarrow \text{Núcleos},\\[2mm]
+\text{Hiperespacios}
+&\longrightarrow \text{Marcos tipo Vietoris},\\[2mm]
+\text{Modificaciones de espacios}
+&\longrightarrow \text{Modificaciones de marcos}.
+\end{aligned}
+\]
+
+}
+
+\uncover<2->{
+
+También encontramos formulaciones
+libres de puntos de los axiomas
+de separación.
+
+}
+
+\uncover<3->{
+
+\begin{block}{Una idea para llevarse}
+
+La topología sin puntos no busca
+reemplazar a la topología clásica,
+sino ampliar nuestra manera de
+comprender sus construcciones
+y propiedades.
+
+\end{block}
+
+}
 
 \end{frame}
 
 \End
 
 \section*{\textsc{Referencias}}
-\begin{frame}[allowframebreaks]
-\bibliographystyle{plainnat}
+%\begin{frame}[allowframebreaks]
+%\bibliographystyle{plainnat}
 %\bibliographystyle{plain}
 %\bibliographystyle{amsalpha}
-\bibliography{research2}
-\end{frame}
+%\bibliography{research2}
+%\end{frame}
 
-\begin{frame}[plain,standout]
-      \centering
-      \Huge{\bfseries \smiley¡Muchas gracias!\smiley}
+%\begin{frame}[plain,standout]
+  %    \centering
+ %     \Huge{\bfseries \smiley¡Muchas gracias!\smiley}
       %In combination with \textit{plain}, \\
       %it makes a nice thank-you slide!
       %\scalebox{4}{\faGithub} \par\bigskip
       %\url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
       %\url{https://ctan.org/pkg/beamertheme-arguelles}
+%\end{frame}
+
+
+\begin{frame}[plain, t]{Referencias y lecturas recomendadas}
+
+\footnotesize
+
+\begin{thebibliography}{99}
+
+\bibitem{Johnstone}
+P. T. Johnstone.
+\newblock \emph{Stone Spaces}.
+\newblock Cambridge University Press, 1982.
+
+\bibitem{PicadoPultr}
+J. Picado and A. Pultr.
+\newblock \emph{Frames and Locales:
+Topology without Points}.
+\newblock Birkhäuser, 2012.
+
+\bibitem{Separation}
+J. Picado and A. Pultr.
+\newblock \emph{Separation in Point-Free Topology}.
+\newblock Birkhäuser, 2021.
+
+
+\bibitem{Sexton2003}
+R. A. Sexton.
+\newblock \emph{A point-free and point-sensitive
+analysis of the patch assembly}.
+\newblock Ph.D. thesis,
+Victoria University of Manchester, 2003.
+
+
+\bibitem{SimmonsNotes}
+H. Simmons.
+\newblock \emph{A Collection of Notes on Frames}.
+\newblock Notas de investigación, sin fecha.
+
+
+\bibitem{ZaldivarNotas}
+L. A. Zaldívar Corichi.
+\newblock \emph{Notas sobre Teoría de marcos}.
+\newblock Notas en preparación.
+
+
+\end{thebibliography}
+
 \end{frame}
+
+\begin{frame}[plain,c]
+
+\begin{center}
+    {\Huge\bfseries ¡Gracias por su atención!}
+    \vspace{0.05cm}
+
+\includegraphics[
+    width=1\paperwidth,
+    height=0.82\paperheight,
+    keepaspectratio
+]{Imagenes/pointfree.jpg}
+
+\end{center}
+
+\end{frame}
+
 \end{document}
