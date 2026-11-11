@@ -1,0 +1,145 @@
+% Plantilla inspirada en el cartel Seminario Chichimeca
+% Compilar en VS Code con pdfLaTeX (LaTeX Workshop)
+\documentclass[final]{beamer}
+\usepackage[size=custom,width=84.1,height=118.9,scale=1.0]{beamerposter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{lmodern}
+
+% ===== COLORES EDITABLES =====
+\definecolor{grisFondo}{HTML}{FFFFFF}
+\definecolor{grisCabecera}{HTML}{EEEEEE}
+\definecolor{grisSeccion}{HTML}{EEEEEE}
+\definecolor{azulTitulo}{HTML}{27394C}
+\definecolor{rojoAcento}{HTML}{B64A4B}
+\definecolor{doradoAcento}{HTML}{A47C3C}
+\definecolor{texto}{HTML}{333333}
+\setbeamercolor{background canvas}{bg=grisFondo}
+\setbeamercolor{normal text}{fg=texto,bg=grisFondo}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{azulTitulo}\raisebox{0.2ex}{\tiny$\blacksquare$}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+% ===== DATOS DEL CARTEL =====
+\newcommand{\TituloCartel}{Propiedades de separación\\inducidas por cocientes compactos}
+\newcommand{\AutorCartel}{Juan Carlos Monter Cortés}
+\newcommand{\InstitucionCartel}{Universidad de Guadalajara}
+\newcommand{\EventoCartel}{Seminario Chichimeca de Álgebra}
+\newcommand{\CorreoCartel}{juan.monter2902@alumnos.udg.mx}
+\newcommand{\ProgramaCartel}{Doctorado en Ciencias Matemáticas}
+
+% Logos opcionales: coloca logo_izq.png y logo_der.png en la carpeta
+\newcommand{\LogoOpcional}[1]{%
+  \IfFileExists{#1}{\includegraphics[width=8cm,height=8cm,keepaspectratio]{#1}}{%
+  \begin{tikzpicture}\draw[rounded corners=3pt,draw=gray!55,dashed] (0,0) rectangle (8,8);
+  \node[align=center,text=gray,font=\fontsize{16}{18}\selectfont] at (4,4) {LOGOTIPO\\institucional};\end{tikzpicture}}}
+
+% ===== ENCABEZADO DE SECCION =====
+\newcommand{\Seccion}[1]{%
+  \vspace{0.6cm}
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.35cm,center]{section heading}
+    {\color{azulTitulo}\bfseries\fontsize{22}{26}\selectfont #1}
+  \end{beamercolorbox}
+  \vspace{-0.2cm}\color{gray!75}\rule{\linewidth}{1.1pt}\color{texto}\vspace{0.25cm}
+}
+\setbeamercolor{section heading}{bg=grisSeccion,fg=azulTitulo}
+\newcommand{\Subtitulo}[1]{\vspace{0.2cm}{\bfseries\color{azulTitulo} #1}\par}
+\newcommand{\Destacado}[1]{{\color{rojoAcento}\bfseries #1}}
+\newcommand{\Caja}[1]{%
+ \begin{tikzpicture}\node[draw=doradoAcento,rounded corners=4pt,inner sep=10pt,text width=0.91\linewidth,align=left] {#1};\end{tikzpicture}}
+
+\begin{document}
+\begin{frame}[t]
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[grisCabecera] (current page.north west) rectangle ([yshift=-12.7cm]current page.north east);
+  \draw[gray!45,line width=0.6pt] ([yshift=-12.7cm]current page.north west) -- ([yshift=-12.7cm]current page.north east);
+\end{tikzpicture}
+\vspace{-0.4cm}
+\begin{columns}[c,totalwidth=0.96\paperwidth]
+ \begin{column}{0.13\paperwidth}\centering\LogoOpcional{logo_izq.png}\end{column}
+ \begin{column}{0.70\paperwidth}\centering
+  {\color{black}\bfseries\fontsize{36}{42}\selectfont \TituloCartel\par}
+  \vspace{0.45cm}{\fontsize{23}{28}\selectfont \AutorCartel\par}
+  {\fontsize{19}{23}\selectfont \InstitucionCartel\par}
+ \end{column}
+ \begin{column}{0.13\paperwidth}\centering\LogoOpcional{logo_der.png}\end{column}
+\end{columns}
+\vspace{2.3cm}
+
+\begin{columns}[t,totalwidth=0.94\paperwidth]
+\begin{column}{0.455\paperwidth}
+\fontsize{19}{24}\selectfont\justifying
+\Seccion{Introducción y motivación}
+Aquí puedes presentar el problema central de tu investigación. La plantilla conserva el estilo de dos columnas y encabezados grises del cartel de referencia.
+
+\Seccion{Preliminares}
+\Subtitulo{Definición}
+Un \emph{marco} es un retículo completo $A$ en el que se cumple
+\[
+ a\wedge\bigvee S=\bigvee\{a\wedge s:s\in S\}.
+\]
+\Subtitulo{Notación}
+Escribe aquí tus conceptos básicos, definiciones y referencias.
+
+\Seccion{Resultados principales}
+\Subtitulo{Teorema A (enunciado de ejemplo)}
+\Caja{Sea $A$ un marco que satisface las hipótesis indicadas. Entonces se obtiene la siguiente propiedad de separación.}
+
+\Destacado{Idea de la demostración.} Añade aquí el argumento, un esquema o una ecuación relevante.
+\[
+  A\xrightarrow{\ f\ }B,\qquad f_*:B\longrightarrow A.
+\]
+
+\Seccion{Ejemplos y observaciones}
+Puedes incluir contraejemplos, construcciones particulares o diagramas de implicaciones.
+\end{column}
+\hspace{0.02\paperwidth}
+\begin{column}{0.455\paperwidth}
+\fontsize{19}{24}\selectfont\justifying
+\Seccion{Cocientes compactos}
+\Subtitulo{Planteamiento}
+Explica aquí el papel de los cocientes compactos y su relación con los axiomas de separación en la categoría de marcos.
+
+\Seccion{Construcción o metodología}
+\Subtitulo{Paso 1.} Presenta la construcción.
+\Subtitulo{Paso 2.} Describe sus propiedades.
+\Subtitulo{Paso 3.} Expón la conclusión.
+\[
+\begin{tikzpicture}[>=stealth,baseline]
+\node (A) at (0,0) {$A$};\node (B) at (5,0) {$A_j$};
+\draw[->,thick,azulTitulo] (A)--node[above] {$q$}(B);
+\end{tikzpicture}
+\]
+
+\Seccion{Consecuencias}
+\Subtitulo{Corolario (ejemplo)}
+Escribe aquí una consecuencia del teorema principal. Puedes resaltar una afirmación breve con el color de acento.
+
+\Destacado{Observación.} Los títulos y las dimensiones se modifican en la sección de configuración del archivo.
+
+\Seccion{Conclusiones}
+Resume las aportaciones principales y menciona las preguntas abiertas.
+
+\Seccion{Referencias}
+{\fontsize{16}{20}\selectfont
+[1] P. T. Johnstone, \emph{Stone Spaces}, Cambridge University Press, 1982.\par
+[2] J. Picado y A. Pultr, \emph{Frames and Locales}, Springer, 2012.\par
+[3] J. Picado y A. Pultr, \emph{Separation in Point-Free Topology}, Springer, 2021.\par}
+\end{column}
+\end{columns}
+\vfill
+\color{gray!60}\rule{0.94\paperwidth}{0.6pt}
+\begin{columns}[c,totalwidth=0.94\paperwidth]
+\begin{column}{0.32\paperwidth}{\fontsize{15}{19}\selectfont \ProgramaCartel}\end{column}
+\begin{column}{0.36\paperwidth}\centering{\fontsize{15}{19}\selectfont \EventoCartel}\end{column}
+\begin{column}{0.32\paperwidth}\raggedleft{\fontsize{15}{19}\selectfont \CorreoCartel}\end{column}
+\end{columns}
+\vspace{0.5cm}
+\end{frame}
+\end{document}

@@ -1,0 +1,116 @@
+% Plantilla editable inspirada en el cartel original del Seminario Chichimeca
+% COMPILAR CON XELATEX (LaTeX Workshop en VS Code)
+\documentclass[final]{beamer}
+\usepackage[orientation=portrait,size=a2,scale=1.15]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{nott}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{ragged2e}
+
+% ========= DATOS EDITABLES =========
+\title{Propiedades de separación inducidas\\por cocientes compactos}
+\author{Juan Carlos Monter Cortés}
+\institute{Universidad de Guadalajara}
+\footercontent{Doctorado en Ciencias Matemáticas \hfill Seminario Chichimeca de Álgebra \hfill juan.monter2902@alumnos.udg.mx}
+\logoleft{\hspace{8ex}\includegraphics[height=5.5cm]{logos/ppgca-logo.png}}
+\logoright{\hspace{8ex}\includegraphics[height=5.5cm]{logos/utfpr-logo.png}}
+
+% ========= COLUMNAS =========
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.45\paperwidth}
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ========= NOTACION =========
+\DeclareMathOperator{\Frm}{Frm}
+\DeclareMathOperator{\pt}{pt}
+\DeclareMathOperator{\Top}{Top}
+\newcommand{\separacion}[1]{\textcolor{red!70!black}{\textbf{#1}}}
+
+\begin{document}
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+\begin{column}{\colwidth}
+
+\begin{block}{Introducción y motivación}
+El objetivo de este cartel es estudiar propiedades de separación en la categoría de marcos a través de sus cocientes compactos.
+
+La topología sin puntos permite formular propiedades topológicas directamente en términos de los elementos de un marco.
+\end{block}
+
+\begin{block}{Preliminares}
+Un \textbf{marco} es un retículo completo $A$ que satisface
+\[
+ a\wedge\bigvee S=\bigvee\{a\wedge s:s\in S\}.
+\]
+
+\textbf{Notación.} Escribimos $\Frm$ para la categoría de marcos y $\pt A$ para el espacio de puntos de $A$.
+\end{block}
+
+\begin{alertblock}{Idea principal}
+Esta caja resaltada puede utilizarse para una construcción, un esquema o el resultado central del póster.
+
+\begin{center}
+\begin{tikzpicture}[node distance=2.5cm,>=Latex]
+\node[draw=orange!70!black,rounded corners,fill=orange!5,inner sep=9pt] (a) {$\Top$};
+\node[draw=orange!70!black,rounded corners,fill=orange!5,inner sep=9pt,right=of a] (b) {$\Frm$};
+\draw[->,thick,orange!70!black] (a) -- node[above] {$\mathcal O$} (b);
+\end{tikzpicture}
+\end{center}
+\end{alertblock}
+
+\begin{block}{Ejemplos}
+Aquí puedes incorporar ejemplos, contraejemplos y cálculos de núcleos.
+\[
+ u_a(x)=a\vee x.
+\]
+\end{block}
+\end{column}
+\separatorcolumn
+\begin{column}{\colwidth}
+
+\begin{block}{Resultados principales}
+\textbf{Proposición (espacio reservado).} Sustituye este enunciado por uno de tus resultados.
+
+\medskip
+\separacion{Observación.} Este texto rojo sirve para destacar una consecuencia o una traducción importante.
+\end{block}
+
+\begin{block}{Esquema de la demostración}
+Puedes presentar aquí los pasos esenciales del argumento y las igualdades más relevantes.
+\[
+ A\xrightarrow{f}B,\qquad f_*:B\longrightarrow A.
+\]
+\end{block}
+
+\begin{exampleblock}{Diagrama de implicaciones}
+Este bloque de fondo gris resulta útil para diagramas y comparaciones.
+\[
+ \text{Propiedad A}\;\Longrightarrow\;\text{Propiedad B}
+\]
+\end{exampleblock}
+
+\begin{block}{Conclusiones}
+Resume aquí las contribuciones del trabajo y las preguntas que permanecen abiertas.
+\end{block}
+
+\begin{block}{Referencias}
+\small
+[1] P. T. Johnstone, \emph{Stone Spaces}, Cambridge University Press, 1982.
+
+[2] J. Picado y A. Pultr, \emph{Frames and Locales: Topology without Points}, Springer, 2012.
+
+[3] J. Picado y A. Pultr, \emph{Separation in Point-Free Topology}, Springer, 2021.
+\end{block}
+\end{column}
+\separatorcolumn
+\end{columns}
+\end{frame}
+\end{document}
