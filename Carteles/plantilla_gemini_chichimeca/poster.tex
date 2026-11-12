@@ -9,14 +9,29 @@
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-\usetikzlibrary{arrows.meta,positioning}
+\usetikzlibrary{arrows.meta,positioning,decorations.pathmorphing}
 \usepackage{ragged2e}
+
+% ==========================================
+% Bibliografía
+% ==========================================
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=none,
+    maxbibnames=2,
+    doi=false,
+    isbn=false,
+    url=false
+]{biblatex}
+
+\addbibresource{research2.bib}
 
 % ========= DATOS EDITABLES =========
 \title{Propiedades de separación inducidas\\por cocientes compactos}
-\author{Juan Carlos Monter Cortés}
+\author{Juan Carlos Monter Cortés\\ Dr. Luis Ángel Záldivar Corichi}
 \institute{Universidad de Guadalajara}
-\footercontent{Doctorado en Ciencias Matemáticas \hfill Seminario Chichimeca de Álgebra \hfill juan.monter2902@alumnos.udg.mx}
+\footercontent{Doctorado en Ciencias en Matemáticas \hfill Seminario Chichimeca de Álgebra \hfill juan.monter2902@alumnos.udg.mx}
 \logoleft{\hspace{8ex}\includegraphics[height=5.5cm]{logos/ppgca-logo.png}}
 \logoright{\hspace{8ex}\includegraphics[height=5.5cm]{logos/utfpr-logo.png}}
 
@@ -34,81 +49,227 @@
 \newcommand{\separacion}[1]{\textcolor{red!70!black}{\textbf{#1}}}
 
 \begin{document}
-\begin{frame}[t]
+\begin{frame}[fragile,t]
 \begin{columns}[t]
 \separatorcolumn
 \begin{column}{\colwidth}
 
 \begin{block}{Introducción y motivación}
-El objetivo de este cartel es estudiar propiedades de separación en la categoría de marcos a través de sus cocientes compactos.
+El objetivo de este cartel es presentar nuevas propiedades de separación en la categoría de marcos a 
+través de sus cocientes compactos.\\
 
-La topología sin puntos permite formular propiedades topológicas directamente en términos de los elementos de un marco.
+Una vez enunciadas dichas propiedades, se comparan con algunas propiedades de 
+separación ya existentes en en la literatura sobre teoría de marcos. 
 \end{block}
 
 \begin{block}{Preliminares}
-Un \textbf{marco} es un retículo completo $A$ que satisface
+Un \emph{\textbf{marco}} es un retícula completa $(A,\leq, \wedge, \bigvee, 1, 0)$ que satisface
 \[
- a\wedge\bigvee S=\bigvee\{a\wedge s:s\in S\}.
+ a\wedge\bigvee S=\bigvee\{a\wedge s\mid s\in S\}.
 \]
+Junto con los morfismos de marcos, forman la categoría $\Frm$.
+Recordemos que existe una adjunción entre la categoría $\Frm$ y la categoría $\Top$ de espacios topológicos
+\[
+\begin{tikzcd}
+\Frm \arrow[r, "\pt", bend left] & \Top \arrow[l, "\mathcal{O}", bend left]
+\end{tikzcd}
+\]
+Los marco $A$ y $\mathcal{O}(\pt A)$ los relacionamos a traves del morfismo de marcos
+\[
+\mathcal{U}\colon A\to \mathcal{O}(\pt A),\qquad a\mapsto \mathcal{U}(a)=\{p\in \pt A\mid p(a)=1\}.
+\]
+En $\Frm$, los cocientes pueden trabajarse a traves de los \emph{\textbf{núcleos}}, 
+los cuales son funciones $j\colon A\to A$ que satisfacen:
+\[
+a\leq j(a),\quad j(a\wedge b)=j(a)\wedge j(b),\quad j^2=j, \qquad (a, b\in A).
+\]
+De manera particular, si $a\in A$, definimos los siguientes núcleos:
+\[
+u_a(x)=a\vee x,\qquad v_a(x)=(a\succ x)
+\]
+Si $j$ es un núcleo, podemos definir los siguientes objetos:
+\begin{itemize}
+    \item El \emph{\textbf{marco cociente:}} $A_j=\{a\in A\mid j(a)=a\}$.
+    \item El \emph{\textbf{filtro de admisibilidad:}} $\nabla(j)=\{a\in A\mid j(a)=1\}$.
+\end{itemize}
+\textit{\textbf{Teorema:} Para $j$ un núcleo en $A$, el cociente $A_j$ es compacto si y sólo si $\nabla(j)$ es un filtro abierto.}
 
-\textbf{Notación.} Escribimos $\Frm$ para la categoría de marcos y $\pt A$ para el espacio de puntos de $A$.
+Si $F\subseteq A$ es un filtro abierto, podemos construir su \emph{\textbf{intervalo de admisibilidad}}, esto es el conjunto de todos 
+los núcleos $j$ tales que $\nabla(j)=F$. Dicho intervalo lo denotamos por 
+\(
+[v_F, w_F].
+\)
+
+En la categoría $\Frm$, se tiene la siguiente relación entre las distintas propiedades de separación:
+\[\begin{tikzcd}
+	&& {\mathbf{(reg)}} && \\
+	{\mathbf{(fit)}} && {\mathbf{(sH)}} && {\mathbf{(H)}+\mathbf{(sfit)}} \\
+	{\mathbf{(sfit)}} && {T_1} && {\mathbf{(H)}}
+	\arrow[Rightarrow, from=1-3, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-5]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[squiggly, no head, from=2-1, to=3-3]
+	\arrow[squiggly, no head, from=2-1, to=3-5]
+	\arrow[squiggly, no head, from=2-3, to=2-1]
+	\arrow[squiggly, no head, from=2-3, to=2-5]
+	\arrow[squiggly, no head, from=2-3, to=3-1]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+	\arrow[Rightarrow, from=2-5, to=3-1]
+	\arrow[squiggly, no head, from=2-5, to=3-3]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[squiggly, no head, from=3-1, to=3-3]
+	\arrow[Rightarrow, from=3-5, to=3-3]
+\end{tikzcd}\]
+Información sobre el diagrama y teoría de marcos puede ser consultada en \cite{Johnstone82, PicadoPultr, picado2021separation}.
 \end{block}
 
 \begin{alertblock}{Idea principal}
-Esta caja resaltada puede utilizarse para una construcción, un esquema o el resultado central del póster.
+Siguiendo las ideas de Sexton y Simmons presentadas en \cite{sexton2006ordinal,sexton2006point}, definimos 4 clases de marcos relacionados con núcleos 
+que producen cocientes compactos. 
 
-\begin{center}
-\begin{tikzpicture}[node distance=2.5cm,>=Latex]
-\node[draw=orange!70!black,rounded corners,fill=orange!5,inner sep=9pt] (a) {$\Top$};
-\node[draw=orange!70!black,rounded corners,fill=orange!5,inner sep=9pt,right=of a] (b) {$\Frm$};
-\draw[->,thick,orange!70!black] (a) -- node[above] {$\mathcal O$} (b);
-\end{tikzpicture}
-\end{center}
+Por el Teorema de Hofmann-Mislove, existe una correspondencia biyectiva entre 
+\[
+F\in A^\wedge\longleftrightarrow Q\in \mathcal{Q}S\qquad (S=\pt A).
+\]
+Cada par relacionado por dicha correspondencia lo llamamos \emph{\textbf{par HM}}.
+
+Considerando $\mathcal{O}S\in \Frm$ y el conjunto $\mathcal{O}S^\wedge$, tenemos el par HM $(G\in \mathcal{O}S^\wedge, Q\in \mathcal{Q}S)$, donde $G\in \mathcal{O}S^\wedge$. 
+Así, tenemos una terna HM $(F, Q, G)$ a la cual le podemos asociar los intervalos de admisibilidad $[v_F, w_F]$ y $[v_G, w_G]$.
+
+Si $Q\in \mathcal{Q}S$, definimos el núcleo $[Q']\colon \mathcal{O}S\to \mathcal{O}S$ como
+\[
+[Q'](U)=(Q'\cup U)^\circ\quad \text{y}\quad v_G\leq [Q']\leq w_G.
+\]
+\textit{\textbf{Definición:} Sea $A$ un marco y $(F, Q)$ un par HM y $[v_F, w_F]$ su respectivo intervalo de admisibilidad. Decimos que $A$ es:
+\begin{itemize}
+\item \separacion{eficiente}, si $v_F=u_d$, donde $d=v_F(0)$, para cada filtro abierto $F$.
+\item \separacion{KC}, si para $j\in [v_F, w_F]$, $j=u_a$, para algún $a\in A$ y todo filtro abierto $F$.
+\item \separacion{apilado}, si $v_F(0)=(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0)$, para cada par HM $(F, Q)$.
+\item \separacion{fuertemente apilado}, si $v_F=\mathcal{U}_*\circ [Q']\circ \mathcal{U}$, para cada par HM $(F, Q)$.
+\item \separacion{débilmente apilado}, si $v_F=\mathcal{U}_*\circ v_G\circ \mathcal{U}$, para cada terna HM $(F, Q, G)$.
+\end{itemize}}
+
+Se puede verificar que estos marcos se relacionan de la siguiente manera:
+\[\begin{tikzcd}
+	{\text{KC}} & {\text{Eft.}} && {\text{Ap.}} & {\text{F.Ap.}} & {\text{D.Ap.}}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-5, to=1-4]
+	\arrow[Rightarrow, from=1-5, to=1-6]
+\end{tikzcd}\]
 \end{alertblock}
 
-\begin{block}{Ejemplos}
-Aquí puedes incorporar ejemplos, contraejemplos y cálculos de núcleos.
-\[
- u_a(x)=a\vee x.
-\]
-\end{block}
+%\begin{block}{Ejemplos}
+%Aquí puedes incorporar ejemplos, contraejemplos y cálculos de núcleos.
+%\[
+% u_a(x)=a\vee x.
+%\]
+%\end{block}
 \end{column}
 \separatorcolumn
 \begin{column}{\colwidth}
 
-\begin{block}{Resultados principales}
-\textbf{Proposición (espacio reservado).} Sustituye este enunciado por uno de tus resultados.
+\begin{block}{Herencia, preservación y conservatividad}
+Las clases de marcos definidos anteriormente satisfacen las siguintes propiedades.
 
-\medskip
-\separacion{Observación.} Este texto rojo sirve para destacar una consecuencia o una traducción importante.
+\separacion{Teorema:} Los marcos KC, eficientes y fuertemente apilados son hereditarios.
+
+\separacion{Teorema:} Los marcos eficientes se preservan bajo coproductos arbitrarios. Los marcos KC no se preservan
+bajo coproductos.
+
+\separacion{Teorema:} Las nociones de apilamiento son conservativas.
+
 \end{block}
 
-\begin{block}{Esquema de la demostración}
-Puedes presentar aquí los pasos esenciales del argumento y las igualdades más relevantes.
-\[
- A\xrightarrow{f}B,\qquad f_*:B\longrightarrow A.
-\]
+\begin{alertblock}{Relación con axiomas de separación}
+\separacion{Proposición:} Las siguientes afirmaciones son ciertas:
+\begin{enumerate}
+    \item Existen marcos fuertemente apilados que no son $T_1$
+    \item Existen marcos $T_1$ y fuertemente apilados que no son espaciales.
+    \item Existen marcos $\mathbf{(H)}$ que no son fuertemente apilados.
+    \item Existen marcos KC compactos que no son $\mathbf{(reg)}$.
+    \item Existen marcos KC que no son $\mathbf{(sfit)}$.
+    \item $\mathbf{(sH)}$ implica KC.
+\end{enumerate}
+\end{alertblock}
+
+\begin{block}{Interacción entre las propiedades inducidas por cocientes compactos}
+\separacion{Proposición:} Las siguientes afirmaciones son ciertas:
+\begin{enumerate}
+    \item Si $A\cong \mathcal{O}S$, entonces KC $\iff$ Eficiente. Lo anterior no es cierto
+    para marcos arbitrarios.
+    \item Si $A\in \Frm$ es eficiente $\mathbf{(fit)}$, entonces $A$ es KC.
+    \item Si $A\in \Frm$ es eficiente fuertemente apilado, entonces $A$ es KC.
+    \item Si $A\in \Frm$ es KC, entonces fuertemente apilado $\iff$ apilado.
+    \item Si $A\in \Frm$ es eficiente débilmente apilado, entonces $A$ es fuertemente apilado.
+    \item Si $A\in \Frm$ es KC $\mathbf{(sfit)}$, entonces $A$ es fuertemente apilado.
+    \item Existen marcos KC que no son fuertemente apilados. 
+\end{enumerate}
 \end{block}
 
-\begin{exampleblock}{Diagrama de implicaciones}
-Este bloque de fondo gris resulta útil para diagramas y comparaciones.
+\begin{exampleblock}{Conclusiones}
+Las propiedades definidas a través de los cocientes compactos tienen relación con la teoría
+de separación en $\Frm$. Lo anterior puede permitir estudiar construcciones como la del marco
+de parches a través de dichas deficiones.
+
+Los siguientes diagramas muestran un resumen de la interacción entre algunas propiedades de 
+separación y las nuevas propiedades definidas.
 \[
- \text{Propiedad A}\;\Longrightarrow\;\text{Propiedad B}
+\begin{tikzcd}
+	&&& {\mathbf{(reg)}} &&& \\
+	{\mathbf{(fit)}} &&& {\mathbf{(sH)}} & {\mathbf{(H)}} && {\mathbf{(sH)}+\mathbf{(sfit)}} \\
+	&&& {\text{KC}} &&& {\text{KC}+\mathbf{(sfit)}} \\
+	{\mathbf{(sfit)}} &&& {\text{Eft}} &&& {\text{F.Ap.}} \\
+	&&& {T_1} &&& {\text{Ap.}}
+	\arrow[Rightarrow, from=1-4, to=2-1]
+	\arrow[Rightarrow, from=1-4, to=2-4]
+	\arrow[Rightarrow, from=1-4, to=2-7]
+	\arrow[squiggly, no head, from=2-1, to=2-4]
+	\arrow[squiggly, no head, from=2-1, to=3-4]
+	\arrow[Rightarrow, from=2-1, to=4-1]
+	\arrow[Rightarrow, from=2-1, to=5-4]
+	\arrow[Rightarrow, from=2-4, to=2-5]
+	\arrow[Rightarrow, from=2-4, to=3-4]
+	\arrow[squiggly, no head, from=2-5, to=4-7]
+	\arrow[Rightarrow, from=2-5, to=5-4]
+	\arrow[squiggly, no head, from=2-5, to=5-7]
+	\arrow[Rightarrow, from=2-7, to=2-5]
+	\arrow[Rightarrow, from=2-7, to=3-4]
+	\arrow[Rightarrow, from=2-7, to=3-7]
+	\arrow[Rightarrow, from=3-4, to=4-4]
+	\arrow[squiggly, no head, from=3-4, to=4-7]
+	\arrow[squiggly, no head, from=3-4, to=5-7]
+	\arrow[Rightarrow, from=3-7, to=4-4]
+	\arrow[Rightarrow, from=3-7, to=4-7]
+	\arrow[squiggly, no head, from=4-1, to=2-4]
+	\arrow[squiggly, no head, from=4-1, to=3-4]
+	\arrow[squiggly, no head, from=4-1, to=4-4]
+	\arrow[squiggly, no head, from=4-1, to=5-4]
+	\arrow[squiggly, no head, from=4-4, to=4-7]
+	\arrow[Rightarrow, from=4-4, to=5-4]
+	\arrow[squiggly, no head, from=4-7, to=5-4]
+	\arrow[Rightarrow, from=4-7, to=5-7]
+	\arrow[squiggly, no head, from=5-7, to=5-4]
+\end{tikzcd}
 \]
+\[\begin{tikzcd}
+	{\text{Eft}+\mathbf{(fit)}} & {\text{KC}} & {\text{Eft.}+\text{F.Ap.}} \\
+	{\text{KC}+\mathbf{(sfit)}} & {\text{F. Ap.}} & {\text{Eft.}+\text{D.Ap.}}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-3, to=1-2]
+	\arrow[Rightarrow, from=2-2, to=2-1]
+	\arrow[Rightarrow, from=2-3, to=2-2]
+\end{tikzcd}\]
 \end{exampleblock}
 
-\begin{block}{Conclusiones}
-Resume aquí las contribuciones del trabajo y las preguntas que permanecen abiertas.
-\end{block}
-
 \begin{block}{Referencias}
-\small
-[1] P. T. Johnstone, \emph{Stone Spaces}, Cambridge University Press, 1982.
-
-[2] J. Picado y A. Pultr, \emph{Frames and Locales: Topology without Points}, Springer, 2012.
-
-[3] J. Picado y A. Pultr, \emph{Separation in Point-Free Topology}, Springer, 2021.
+    \begingroup
+    \footnotesize
+    \printbibliography[heading=none]
+    \endgroup
 \end{block}
+
 \end{column}
 \separatorcolumn
 \end{columns}
