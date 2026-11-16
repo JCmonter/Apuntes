@@ -55,11 +55,8 @@
 \begin{column}{\colwidth}
 
 \begin{block}{Introducción y motivación}
-El objetivo de este cartel es presentar nuevas propiedades de separación en la categoría de marcos a 
-través de sus cocientes compactos.\\
-
-Una vez enunciadas dichas propiedades, se comparan con algunas propiedades de 
-separación ya existentes en en la literatura sobre teoría de marcos. 
+En topología clásica, ciertas propiedades de separación pueden caracterizarse mediante el comportamiento de los subconjuntos compactos. 
+Nuestro objetivo es estudiar propiedades libres de puntos a través de los cocientes compactos de un marco.
 \end{block}
 
 \begin{block}{Preliminares}
@@ -71,10 +68,10 @@ Junto con los morfismos de marcos, forman la categoría $\Frm$.
 Recordemos que existe una adjunción entre la categoría $\Frm$ y la categoría $\Top$ de espacios topológicos
 \[
 \begin{tikzcd}
-\Frm \arrow[r, "\pt", bend left] & \Top \arrow[l, "\mathcal{O}", bend left]
+\Frm \arrow[rr, "\pt", bend left] & \intercal & \Top \arrow[ll, "\mathcal{O}", bend left]
 \end{tikzcd}
 \]
-Los marco $A$ y $\mathcal{O}(\pt A)$ los relacionamos a traves del morfismo de marcos
+Los marcos $A$ y $\mathcal{O}(\pt A)$ se relacionan a través del morfismo de marcos
 \[
 \mathcal{U}\colon A\to \mathcal{O}(\pt A),\qquad a\mapsto \mathcal{U}(a)=\{p\in \pt A\mid p(a)=1\}.
 \]
@@ -126,7 +123,7 @@ Información sobre el diagrama y teoría de marcos puede ser consultada en \cite
 \end{block}
 
 \begin{alertblock}{Idea principal}
-Siguiendo las ideas de Sexton y Simmons presentadas en \cite{sexton2006ordinal,sexton2006point}, definimos 4 clases de marcos relacionados con núcleos 
+Siguiendo las ideas de Sexton y Simmons presentadas en \cite{sexton2006ordinal,sexton2006point}, definimos cinco clases de marcos relacionados con núcleos 
 que producen cocientes compactos. 
 
 Por el Teorema de Hofmann-Mislove, existe una correspondencia biyectiva entre 
@@ -153,7 +150,7 @@ Si $Q\in \mathcal{Q}S$, definimos el núcleo $[Q']\colon \mathcal{O}S\to \mathca
 
 Se puede verificar que estos marcos se relacionan de la siguiente manera:
 \[\begin{tikzcd}
-	{\text{KC}} & {\text{Eft.}} && {\text{Ap.}} & {\text{F.Ap.}} & {\text{D.Ap.}}
+	{\text{KC}} & {\text{Efc.}} && {\text{Ap.}} & {\text{F.Ap.}} & {\text{D.Ap.}}
 	\arrow[Rightarrow, from=1-1, to=1-2]
 	\arrow[Rightarrow, from=1-5, to=1-4]
 	\arrow[Rightarrow, from=1-5, to=1-6]
@@ -171,7 +168,7 @@ Se puede verificar que estos marcos se relacionan de la siguiente manera:
 \begin{column}{\colwidth}
 
 \begin{block}{Herencia, preservación y conservatividad}
-Las clases de marcos definidos anteriormente satisfacen las siguintes propiedades.
+Las clases de marcos definidos anteriormente satisfacen las siguientes propiedades.
 
 \separacion{Teorema:} Los marcos KC, eficientes y fuertemente apilados son hereditarios.
 
@@ -194,7 +191,7 @@ bajo coproductos.
 \end{enumerate}
 \end{alertblock}
 
-\begin{block}{Interacción entre las propiedades inducidas por cocientes compactos}
+\begin{block}{Interacción entre las nuevas propiedades}
 \separacion{Proposición:} Las siguientes afirmaciones son ciertas:
 \begin{enumerate}
     \item Si $A\cong \mathcal{O}S$, entonces KC $\iff$ Eficiente. Lo anterior no es cierto
@@ -209,18 +206,16 @@ bajo coproductos.
 \end{block}
 
 \begin{exampleblock}{Conclusiones}
-Las propiedades definidas a través de los cocientes compactos tienen relación con la teoría
-de separación en $\Frm$. Lo anterior puede permitir estudiar construcciones como la del marco
-de parches a través de dichas deficiones.
-
-Los siguientes diagramas muestran un resumen de la interacción entre algunas propiedades de 
-separación y las nuevas propiedades definidas.
+El estudio de los cocientes compactos permite introducir nuevas propiedades de separación en la categoría de marcos y establecer 
+relaciones con axiomas clásicos. Los resultados obtenidos muestran diferencias significativas entre el caso espacial y el caso 
+libre de puntos, así como distintos comportamientos respecto de herencia, preservación y conservatividad. Estas conexiones abren 
+nuevas perspectivas para el estudio de construcciones como el marco de parches.
 \[
 \begin{tikzcd}
 	&&& {\mathbf{(reg)}} &&& \\
 	{\mathbf{(fit)}} &&& {\mathbf{(sH)}} & {\mathbf{(H)}} && {\mathbf{(sH)}+\mathbf{(sfit)}} \\
 	&&& {\text{KC}} &&& {\text{KC}+\mathbf{(sfit)}} \\
-	{\mathbf{(sfit)}} &&& {\text{Eft}} &&& {\text{F.Ap.}} \\
+	{\mathbf{(sfit)}} &&& {\text{Efc}} &&& {\text{F.Ap.}} \\
 	&&& {T_1} &&& {\text{Ap.}}
 	\arrow[Rightarrow, from=1-4, to=2-1]
 	\arrow[Rightarrow, from=1-4, to=2-4]
@@ -254,8 +249,8 @@ separación y las nuevas propiedades definidas.
 \end{tikzcd}
 \]
 \[\begin{tikzcd}
-	{\text{Eft}+\mathbf{(fit)}} & {\text{KC}} & {\text{Eft.}+\text{F.Ap.}} \\
-	{\text{KC}+\mathbf{(sfit)}} & {\text{F. Ap.}} & {\text{Eft.}+\text{D.Ap.}}
+	{\text{Efc}+\mathbf{(fit)}} & {\text{KC}} & {\text{Efc.}+\text{F.Ap.}} \\
+	{\text{KC}+\mathbf{(sfit)}} & {\text{F. Ap.}} & {\text{Efc.}+\text{D.Ap.}}
 	\arrow[Rightarrow, from=1-1, to=1-2]
 	\arrow[Rightarrow, from=1-3, to=1-2]
 	\arrow[Rightarrow, from=2-2, to=2-1]
