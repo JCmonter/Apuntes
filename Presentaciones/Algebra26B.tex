@@ -290,15 +290,44 @@ A^\wedge=\{F\subseteq A\mid F\text{ es abierto}\}.
 
 \begin{frame}{Cocientes compactos}
 \begin{block}{Definición:}
-
+Sea $A$ un marco y $X\subseteq A$. Decimos que $A$ es \emph{compacto} si
+\[
+\bigvee X=1\Rightarrow \exists\; I\subseteq X\text{ tal que }\bigvee I=1,
+\]
+donde $I$ es finito.
 \end{block}
+
 \begin{block}{Teorema:}
-
+$A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$.
 \end{block}
+
+En particular, si $F\in A\wedge$, entonces 
+\[
+\forall \; j \in [v_F, w_F], \; A_j\text{ es compacto}.
+\]
 \end{frame}
 
-\begin{frame}{Axiomas de separación}
-    
+\begin{frame}[fragile]{Axiomas de separación}
+    \[\begin{tikzcd}
+	&& {\mathbf{(reg)}} && \\
+	{\mathbf{(fit)}} && {\mathbf{(sH)}} && {\mathbf{(H)}+\mathbf{(sfit)}} \\
+	{\mathbf{(sfit)}} && {T_1} && {\mathbf{(H)}}
+	\arrow[Rightarrow, from=1-3, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=2-5]
+	\arrow[squiggly, no head, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[squiggly, no head, from=2-1, to=3-3]
+	\arrow[squiggly, no head, from=2-1, to=3-5]
+	\arrow[squiggly, no head, from=2-3, to=2-5]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[Rightarrow, from=2-3, to=3-5]
+	\arrow[Rightarrow, from=2-5, to=3-1]
+	\arrow[Rightarrow, from=2-5, to=3-5]
+	\arrow[squiggly, no head, from=3-1, to=2-3]
+	\arrow[squiggly, no head, from=3-1, to=3-3]
+	\arrow[Rightarrow, from=3-5, to=3-3]
+\end{tikzcd}\]
 \end{frame}
 
 \section{El trabajo de Sexton y Simmons}
