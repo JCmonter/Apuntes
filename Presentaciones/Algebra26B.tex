@@ -45,6 +45,7 @@
 \DeclareMathOperator{\Sob}{Sob}
 \DeclareMathOperator{\spec}{spec}
 \DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\Fil}{Fil}
 \DeclareMathOperator{\Pth}{P}
 \DeclareMathOperator{\Vrm}{Vrm}
 \DeclareMathOperator{\Frm}{Frm}
@@ -79,9 +80,9 @@ Dr. Luis Ángel Zaldívar Corichi}
 \end{center}
 \end{frame}
 
-%\begin{frame}{Contenido}
-%\tableofcontents
-%\end{frame}
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
 
 \section{Información preliminar}
 \begin{frame}{Marcos}
@@ -251,16 +252,49 @@ Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
         \item $a,b \in F$, entonces $a\wedge b\in F$.
     \end{enumerate}
 \end{block}
-
-En particular, $F\subseteq A$ es un \emph{filtros abierto} si:
 \[
-D\subseteq A\text{y}\bigvee D\in F\Rightarrow D\cap F\neq \emptyset,
+\Fil(A)=\{F\subseteq A\mid F\text{ es un filtro de }A\}.
+\]
+
+En particular, $F\subseteq \Fil(A)$ es un \emph{filtros abierto} si:
+\[
+D\subseteq A\quad\text{y}\quad\bigvee D\in F\Rightarrow D\cap F\neq \emptyset,
 \]
 con $D$ dirigido.
+\[
+A^\wedge=\{F\subseteq A\mid F\text{ es abierto}\}.
+\]
 \end{frame}
 
 \begin{frame}{Relación entre núcleos y filtros}
-    
+    \(
+    j\in NA\longmapsto \nabla(j)=\{a\in A\mid j(a)=1\}\in \Fil(A).
+    \)
+    \begin{block}{Definición:}
+        Sean $j, k\in NA$ y $\nabla(j),\nabla(k)\in \Fil(A)$.
+        \[
+        j\sim k\iff \nabla(j)=\nabla(k)    
+        \]
+    \end{block}
+    Si $F=\nabla(j)$, 
+    \[
+    k\in [\;j\;]\iff \nabla(k)=F.
+    \]
+    \begin{block}{Proposición:}
+    \begin{itemize}
+    \item Si $F\in A^\wedge$, entonces $F=\nabla(j)$ para algún $j\in NA$.
+    \item Si $F=\nabla(j)\in A^\wedge$, entonces $[\;j\;]=[v_F, w_F]$.
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Cocientes compactos}
+\begin{block}{Definición:}
+
+\end{block}
+\begin{block}{Teorema:}
+
+\end{block}
 \end{frame}
 
 \begin{frame}{Axiomas de separación}
