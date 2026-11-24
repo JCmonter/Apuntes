@@ -277,38 +277,64 @@ A^\wedge=\{F\subseteq A\mid F\text{ es abierto}\}.
         \]
     \end{block}
     Si $F=\nabla(j)$, 
-    \[
+    \(
     k\in [\;j\;]\iff \nabla(k)=F.
-    \]
+    \)
     \begin{block}{Proposición:}
     \begin{itemize}
     \item Si $F\in A^\wedge$, entonces $F=\nabla(j)$ para algún $j\in NA$.
     \item Si $F=\nabla(j)\in A^\wedge$, entonces $[\;j\;]=[v_F, w_F]$.
     \end{itemize}
     \end{block}
+    Llamamos a $[v_F, w_F]$ \emph{intervalo de admisibilidad}.
 \end{frame}
 
 \begin{frame}{Cocientes compactos}
 \begin{block}{Definición:}
-Sea $A$ un marco y $X\subseteq A$. Decimos que $A$ es \emph{compacto} si
+Sean $A$ un marco y $X\subseteq A$. Decimos que $A$ es \emph{compacto} si
 \[
-\bigvee X=1\Rightarrow \exists\; I\subseteq X\text{ tal que }\bigvee I=1,
+\bigvee X=1\Rightarrow \exists\; I\subseteq X\text{ finito tal que }\bigvee I=1,
 \]
-donde $I$ es finito.
 \end{block}
 
 \begin{block}{Teorema:}
 $A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$.
 \end{block}
 
-En particular, si $F\in A\wedge$, entonces 
+En particular, si $F\in A^\wedge$, entonces 
 \[
 \forall \; j \in [v_F, w_F], \; A_j\text{ es compacto}.
 \]
 \end{frame}
 
 \begin{frame}[fragile]{Axiomas de separación}
-    \[\begin{tikzcd}
+    \small{
+    Sea $A$ un marco y $a, b\in A$ con $a\nleq b$. Decimos que $A$ es:
+    \begin{itemize}
+        \item $\mathbf{(reg)}$ si $\exists\; x,y\in A$ tal que
+        \[
+        a\vee x=1, \quad y\nleq b,\quad x\wedge y=0.
+        \]
+        \item $\mathbf{(fit)}$ si $\exists\; x,y\in A$ tal que 
+        \[
+        a\vee x=1,\quad y\nleq b,\quad x\wedge y\leq b.
+        \]
+        \item $\mathbf{(H)}$ si $\exists\; c\in A$ tal que 
+        \[
+        c\nleq a,\quad \neg c\nleq b,\quad a\neq 1.
+        \]
+        \item $\mathbf{(sfit)}$ si $\exists\; c\in A$ tal que 
+        \[
+        a\vee c=1\neq b\vee c.
+        \]
+        \item $\mathbf{(sH)}$ si $\Delta\colon A\oplus A\to A$, entonces $A_\Delta$ es un cociente cerrado.
+        \item $T_1$ si todo punto es máximo.
+    \end{itemize}}
+\end{frame}
+
+\begin{frame}[fragile]{La jerarquia en Frm}
+    En \cite[Pag 84]{picado2021separation}, se puede encontrar el siguiente diagrama:
+     \[\begin{tikzcd}
 	&& {\mathbf{(reg)}} && \\
 	{\mathbf{(fit)}} && {\mathbf{(sH)}} && {\mathbf{(H)}+\mathbf{(sfit)}} \\
 	{\mathbf{(sfit)}} && {T_1} && {\mathbf{(H)}}
@@ -328,15 +354,34 @@ En particular, si $F\in A\wedge$, entonces
 	\arrow[squiggly, no head, from=3-1, to=3-3]
 	\arrow[Rightarrow, from=3-5, to=3-3]
 \end{tikzcd}\]
+Las flechas 
+\[\begin{tikzcd}
+	P && R
+	\arrow[squiggly, no head, from=1-1, to=1-3]
+\end{tikzcd}\]
+representa incomparabilidad entre las propiedades $P$ y $R$.
 \end{frame}
 
 \section{El trabajo de Sexton y Simmons}
 \begin{frame}{El trabajo de Sexton y Simmons}
-    
+    \begin{center}
+\includegraphics[width=0.6\textwidth]{Imagenes/Sexton2006.png}
+    \end{center}
+    \begin{center}
+\includegraphics[width=0.6\textwidth]{Imagenes/pointsexton.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Ideas principales}
-
+En~\cite{sexton2006ordinal,sexton2006point,sexton2003point}, Sexton y Simmons trabajan lo siguiente:
+\begin{itemize}
+    \item Definen los espacios \emph{empaquetados, apilados y fuertemente apilados}.
+    \item Definen los marcos \emph{$\alpha$-eficientes} y \emph{$\alpha$-regulares}, donde $\alpha\in \Ord$.
+    \item Introducen una jerarquia estratificada de propiedades de separación.
+    \item Prueban que $\mathcal{O}S$ es eficiente si y solo si $S$ es empaquetado y apilado.
+    \item Para $(G, Q)$ un par HM, relacionan las propiedades de apilamiento con los intervalos $[v_G, w_G]$.
+    \item Entre otras cosas más\ldots   
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Marcos eficientes y espacios apilados}
