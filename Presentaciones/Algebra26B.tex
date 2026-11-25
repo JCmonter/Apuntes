@@ -419,7 +419,7 @@ En~\cite{sexton2006ordinal,sexton2006point,sexton2003}, Sexton y Simmons realiza
         \end{itemize}
     \end{block}
     \[
-    T_2\Rightarrow 1\text{-eficiente}\Rightarrow\ldots\Rightarrow T_1
+    T_2\Rightarrow 1\text{-eficiente}\Rightarrow\ldots\Rightarrow \alpha\text{-eficiente}\Rightarrow\ldots\Rightarrow T_1
     \]
 \end{frame}
 
@@ -486,8 +486,27 @@ Recordemos que $A_j$ es compacto si y solo si $j\in [v_F,w_F]$.
 \]
 \end{frame}
 
-\begin{frame}{Relación con los axiomas clásicos}
+\begin{frame}[fragile]{Relación con los axiomas clásicos}
+\begin{block}{Proposición:}
+Existen marcos fuertemente apilados que no son $T_1$. Existen marcos $\mathbf{(H)}$ que no son apilados.
+\end{block}
 
+\[\begin{tikzcd}
+	{\text{F.Ap.}} && {\mathbf{(H)}} \\
+	{\text{Ap.}} && {T_1}
+	\arrow[squiggly, no head, from=1-1, to=1-3]
+	\arrow[Rightarrow, from=1-1, to=2-1]
+	\arrow[squiggly, no head, from=1-1, to=2-3]
+	\arrow[squiggly, no head, from=1-3, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[squiggly, no head, from=2-1, to=2-3]
+\end{tikzcd}\]
+\end{frame}
+
+\begin{frame}
+\begin{block}{Teorema \cite[Sexton-Simmons (2006)]{sexton2006ordinal}}
+    Si $S\in \Top$ es un espacio $T_1$ y apialdo, entonces $S$ es sobrio.
+\end{block}
 \end{frame}
 
 \begin{frame}{Interacción entre las propiedades}
