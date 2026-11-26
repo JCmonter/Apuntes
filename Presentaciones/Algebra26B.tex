@@ -19,6 +19,12 @@
 }
 \usetikzlibrary{decorations.pathmorphing}
 
+\tikzset{
+    visible on/.style={
+        alt={#1{}{opacity=0}}
+    }
+}
+
 \usepackage{amsmath,amssymb,latexsym,amscd} 
 \usepackage[all,cmtip]{xy}
 \usepackage{fancyhdr}
@@ -92,7 +98,7 @@ ley distributiva
 \[
     a\wedge\bigvee X
     =
-    \bigvee_{x\in X}(a\wedge s),
+    \bigvee_{x\in X}(a\wedge x),
     \qquad (a\in A,\quad X\subseteq A).
 \]
 \end{block}
@@ -123,107 +129,118 @@ En $\mathcal O(S)$,
 \end{frame}
 
 \begin{frame}[fragile]{Marcos y espacios}
-
 %------------------------------------------------
-% Parte superior
+% Parte superior: diagrama de la adjunción
 %------------------------------------------------
-\begin{columns}[T,onlytextwidth]
-
-    \begin{column}{0.48\textwidth}
-        \[
-        \begin{tikzcd}[column sep=large, row sep=large]
-            \Frm & \SP \\
-            \Top & \Sob
-            \arrow["\pt", shift left=3,
-                from=1-1, to=2-1]
-            \arrow[hook', from=1-2, to=1-1]
-            \arrow[shift left=3, from=1-2, to=2-2]
-            \arrow["{\mathcal{O}}", shift left=3,
-                from=2-1, to=1-1]
-            \arrow[shift left=3, from=2-2, to=1-2]
-            \arrow[hook', from=2-2, to=2-1]
-        \end{tikzcd}
-        \]
-    \end{column}
-
-    \onslide<2->{
-    \begin{column}{0.48\textwidth}
-     \begin{center}
-        \small{   \textbf{En objetos}
-        \[
-        \begin{aligned}
-            S &\mapsto \mathcal{O}S,\\[1mm]
-            A &\mapsto \pt A,
-        \end{aligned}
-        \]}
-    \end{center}
-    \end{column}
-    }
-\end{columns}
-    
-\vspace{0.15cm}
-
-%------------------------------------------------
-% Parte inferior
-%------------------------------------------------
-\begin{columns}[T,onlytextwidth]
-\onslide<3->{
-    \begin{column}{0.52\textwidth}
-        \begin{center}
-        \small{\textbf{En flechas}
-        \[
-        \begin{split}
-        (\varphi\colon S\to T)
-        &\mapsto
-        (\varphi^{-1}\colon\mathcal{O}T\to\mathcal{O}S),\\
-        (f\colon A\to B)
-        &\mapsto
-        (\pt(f)\colon\pt B\to\pt A).
-        \end{split}
-        \]}
-        \end{center}
-    \end{column}}
-\onslide<4->{
-    \begin{column}{0.44\textwidth}
-        \begin{center}
-        \small{\textbf{Reflexión espacial}
-        \[
-        \begin{split}
-            \mathcal{U}_A
-            &\colon
-            A\to\mathcal{O}(\pt A),\\
-            \mathcal{U}_A&(a)
-            =\{p\in\pt A\mid a\nleq p\}.
-        \end{split}
-        \]}
-        \end{center}
-    \end{column}
-}
-\end{columns}
-\onslide<5->{
-\small{
-Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
+\vspace{-0.15cm}
 \[
-    a\nleq b
-    \quad\Longrightarrow\quad
-    \exists\,p\in\pt A:
-    \quad b\leq p
-    \quad\text{y}\quad
-    a\nleq p.
-\]}}
-\footnotetext[0]{Ver~\cite{Johnstone82, PicadoPultr, picado2021separation, simmons_frames, Zaldivar2023} para obtener información sobre teoría marcos}
+\begin{tikzcd}[column sep=large, row sep=large]
+    \Frm & \SP \\
+    \Top & \Sob
+    \arrow["\pt", shift left=3,
+        from=1-1, to=2-1]
+    \arrow[hook', from=1-2, to=1-1]
+    \arrow[shift left=3, from=1-2, to=2-2]
+    \arrow["{\mathcal{O}}", shift left=3,
+        from=2-1, to=1-1]
+    \arrow[shift left=3, from=2-2, to=1-2]
+    \arrow[hook', from=2-2, to=2-1]
+\end{tikzcd}
+\]
+
+\vspace{-0.15cm}
+
+%------------------------------------------------
+% Parte central: asignaciones
+%------------------------------------------------
+\begin{columns}[T,onlytextwidth]
+
+    % Primera columna
+    \begin{column}{0.45\textwidth}
+        \uncover<2->{
+            \begin{center}
+                \small
+                \textbf{En objetos}
+                \[
+                \begin{split}
+                    S &\mapsto \mathcal{O}S,\\
+                    A &\mapsto \pt A.
+                \end{split}
+                \]
+            \end{center}
+        }
+    \end{column}
+
+    % Segunda columna
+    \begin{column}{0.55\textwidth}
+        \uncover<3->{
+            \begin{center}
+                \small
+                \textbf{En flechas}
+                \[
+                \begin{split}
+                    (\varphi\colon S\to T)
+                    &\mapsto
+                    (\varphi^{-1}\colon
+                    \mathcal{O}T\to\mathcal{O}S),\\
+                    (f\colon A\to B)
+                    &\mapsto
+                    (\pt(f)\colon\pt B\to\pt A).
+                \end{split}
+                \]
+            \end{center}
+        }
+    \end{column}
+\end{columns}
+
+\vspace{-0.15cm}
+
+%------------------------------------------------
+% Parte inferior: reflexión espacial
+%------------------------------------------------
+\uncover<4->{
+    \begin{center}
+        \small
+        \textbf{Reflexión espacial}
+        \[
+        \mathcal{U}_A\colon
+        A\longrightarrow\mathcal{O}(\pt A),
+        \qquad
+        \mathcal{U}_A(a)
+        =\{p\in\pt A\mid a\nleq p\}.
+        \]
+    \end{center}
+}
+\vspace{-0.15cm}
+%------------------------------------------------
+% Caracterización de espacialidad
+%------------------------------------------------
+\uncover<5->{
+    \small
+    Un marco \(A\) es \textbf{espacial} si y solo si
+    \(\mathcal{U}_A\) es un isomorfismo.
+}
+
+\footnotetext[0]{
+Ver~\cite{Johnstone82, PicadoPultr,
+picado2021separation, simmons_frames,
+Zaldivar2023} para obtener información
+sobre teoría de marcos.
+}
+
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Núcleos y cocientes}
 \begin{block}{Definición:}
     Sea $A$ un marco. Decimos que:
     \begin{enumerate}
-        \item $j\colon A\to A$ es un \emph{núcleo} si:
+        \item<2-> $j\colon A\to A$ es un \emph{núcleo} si:
         \[
         a\leq j(a),\quad j(a\wedge b)=j(a)\wedge j(b),\quad j^2=j, \quad (a,b \in A).
         \]
-        \item un marco $B$ es un \emph{cociente} de $A$ si 
+        \item<3-> un marco $B$ es un \emph{cociente} de $A$ si 
         \(
         f\colon A\to B
         \)
@@ -231,17 +248,17 @@ Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
     \end{enumerate}    
 \end{block}
 
-\begin{block}{Observaciones:}
+\onslide<4->{\begin{block}{Observaciones:}
     \begin{itemize}
-        \item El conjunto de todos los núcleos sobre $A$ ($NA$) es un marco.
-        \item Si $j\in NA$, $A_j=\{x\in A\mid j(x)=x\}$ es un cociente de  $A$.
-        \item El morfismo $j^*\colon A\to A_j$, dado por 
+        \item<5-> El conjunto de todos los núcleos sobre $A$ ($NA$) es un marco.
+        \item<6-> Si $j\in NA$, $A_j=\{x\in A\mid j(x)=x\}$ es un cociente de  $A$.
+        \item<7-> El morfismo $j^*\colon A\to A_j$, dado por 
         \(
         j^*(x)=j(x),
         \)
         lo llamamos \emph{paso al cociente}.
     \end{itemize}
-\end{block}
+\end{block}}
 \end{frame}
 
 \begin{frame}{Filtros}
@@ -252,62 +269,62 @@ Un marco \(A\) es \textbf{espacial} si sus puntos separan elementos:
         \item $a,b \in F$, entonces $a\wedge b\in F$.
     \end{enumerate}
 \end{block}
-\[
+\vspace{-0.15cm}
+\onslide<2->{\[
 \Fil(A)=\{F\subseteq A\mid F\text{ es un filtro de }A\}.
-\]
-
-En particular, $F\subseteq \Fil(A)$ es un \emph{filtros abierto} si:
+\]}
+\onslide<3->{En particular, $F\in \Fil(A)$ es un \emph{filtros abierto} si:
 \[
-D\subseteq A\quad\text{y}\quad\bigvee D\in F\Rightarrow D\cap F\neq \emptyset,
+\bigvee D\in F\Rightarrow D\cap F\neq \emptyset,
 \]
-con $D$ dirigido.
-\[
-A^\wedge=\{F\subseteq A\mid F\text{ es abierto}\}.
-\]
+para todo $D\subseteq A$ dirigido.}
+\onslide<4->{\[
+A^\wedge=\{F\in \Fil(A)\mid F\text{ es abierto}\}.
+\]}
 \end{frame}
 
 \begin{frame}{Relación entre núcleos y filtros}
     \(
     j\in NA\longmapsto \nabla(j)=\{a\in A\mid j(a)=1\}\in \Fil(A).
     \)
-    \begin{block}{Definición:}
+    \onslide<2->{\begin{block}{Definición:}
         Sean $j, k\in NA$ y $\nabla(j),\nabla(k)\in \Fil(A)$.
         \[
         j\sim k\iff \nabla(j)=\nabla(k)    
         \]
-    \end{block}
-    Si $F=\nabla(j)$, 
+    \end{block}}
+    \onslide<3->{Si $F=\nabla(j)$, 
     \(
     k\in [\;j\;]\iff \nabla(k)=F.
-    \)
-    \begin{block}{Proposición \cite[Escardó (2003)]{escardo2003joins}:}
+    \)}
+    \onslide<4->{\begin{block}{Proposición~\cite[Escardó (2003)]{escardo2003joins}:}
     \begin{itemize}
-    \item Si $F\in A^\wedge$, entonces $F=\nabla(j)$ para algún $j\in NA$.
-    \item Si $F=\nabla(j)\in A^\wedge$, entonces $[\;j\;]=[v_F, w_F]$.
+    \item<5-> Si $F\in A^\wedge$, entonces $F=\nabla(j)$ para algún $j\in NA$.
+    \item<6-> Si $F=\nabla(j)\in A^\wedge$, entonces $[\;j\;]=[v_F, w_F]$.
     \end{itemize}
-    \end{block}
-    Llamamos a $[v_F, w_F]$ \emph{intervalo de admisibilidad}.
+    \end{block}}
+    \onslide<7->{Llamamos a $[v_F, w_F]$ \emph{intervalo de admisibilidad}.}
 \end{frame}
 
 \begin{frame}{Pares y ternas HM}
 Sea $A\in \Frm$ y $S=\pt A$. Denotamos a la familia de \emph{subconjuntos compactos saturados} de $S$ por 
 $\mathcal{Q}S$.
 
-\begin{block}{Teorema~\cite[Hofmann-Mislove-Johnstone (1979)]{hofmann2006local}:}
+\onslide<2->{\begin{block}{Teorema~\cite[Hofmann-Mislove-Johnstone (1979)]{hofmann2006local}:}
     Si $A\in \Frm$ y $S=\pt A$, entonces
     \[
     F\in A^\wedge \longleftrightarrow Q\in \mathcal{Q}S
     \]
-\end{block}
+\end{block}}
 
-Considerando $A=\mathcal{O}S$ y $G\in \mathcal{O}S^\wedge$, por el Teorema HM
+\onslide<3->{Considerando $A=\mathcal{O}S$ y $G\in \mathcal{O}S^\wedge$, por el Teorema HM
 \[
 G\longleftrightarrow Q.
-\]
+\]}
 
 \begin{itemize}
-    \item Llamamos a $(F, Q)$ un \emph{par HM}.
-    \item Llamamos a $(F, Q, G)$ una \emph{terna HM}.
+    \item<4-> Llamamos a $(F, Q)$ un \emph{par HM}.
+    \item<5-> Llamamos a $(F, Q, G)$ una \emph{terna HM}.
 \end{itemize}
 \end{frame}
 
@@ -319,18 +336,20 @@ Sean $A$ un marco y $X\subseteq A$. Decimos que $A$ es \emph{compacto} si
 \]
 \end{block}
 
-\begin{block}{Teorema~\cite[Johnstone (1985)]{johnstone1985vietoris}:}
-$A_j$ es compacto si y solo si $\nabla(j)\in A^\wedge$.
-\end{block}
+\onslide<2->{\begin{block}{Teorema~\cite[Johnstone (1985)]{johnstone1985vietoris}:}
+\[
+    A_j \text{ compacto} \iff \nabla(j)\in A^\wedge.
+    \]
+\end{block}}
 
-En particular, si $F\in A^\wedge$, entonces 
+\onslide<3->{En particular, si $F\in A^\wedge$, entonces 
 \[
 \forall \; j \in [v_F, w_F], \; A_j\text{ es compacto}.
-\]
+\]}
 \end{frame}
 
 \begin{frame}[fragile]{Axiomas de separación}
-    \small{
+    \onslide<2->{\small{
     Sea $A$ un marco y $a, b\in A$ con $a\nleq b$. Decimos que $A$ es:
     \begin{itemize}
         \item $\mathbf{(reg)}$ si $\exists\; x,y\in A$ tal que
@@ -351,37 +370,75 @@ En particular, si $F\in A^\wedge$, entonces
         \]
         \item $\mathbf{(sH)}$ si $\Delta\colon A\oplus A\to A$, entonces $A_\Delta$ es un cociente cerrado.
         \item $T_1$ si todo punto es máximo.
-    \end{itemize}}
+    \end{itemize}}}
 \end{frame}
 
-\begin{frame}[fragile]{La jerarquia en Frm}
-    En \cite[Pag 84]{picado2021separation}, se puede encontrar el siguiente diagrama:
-     \[\begin{tikzcd}
-	&& {\mathbf{(reg)}} && \\
-	{\mathbf{(fit)}} && {\mathbf{(sH)}} && {\mathbf{(H)}+\mathbf{(sfit)}} \\
-	{\mathbf{(sfit)}} && {T_1} && {\mathbf{(H)}}
-	\arrow[Rightarrow, from=1-3, to=2-1]
-	\arrow[Rightarrow, from=1-3, to=2-3]
-	\arrow[Rightarrow, from=1-3, to=2-5]
-	\arrow[squiggly, no head, from=2-1, to=2-3]
-	\arrow[Rightarrow, from=2-1, to=3-1]
-	\arrow[squiggly, no head, from=2-1, to=3-3]
-	\arrow[squiggly, no head, from=2-1, to=3-5]
-	\arrow[squiggly, no head, from=2-3, to=2-5]
-	\arrow[Rightarrow, from=2-3, to=3-3]
-	\arrow[Rightarrow, from=2-3, to=3-5]
-	\arrow[Rightarrow, from=2-5, to=3-1]
-	\arrow[Rightarrow, from=2-5, to=3-5]
-	\arrow[squiggly, no head, from=3-1, to=2-3]
-	\arrow[squiggly, no head, from=3-1, to=3-3]
-	\arrow[Rightarrow, from=3-5, to=3-3]
-\end{tikzcd}\]
-Las flechas 
+
+\begin{frame}[fragile]{La jerarquía en Frm}
+
+En~\cite[p.~84]{picado2021separation}, se puede
+encontrar el siguiente diagrama:
+
+\[
+\begin{tikzcd}
+    && {\mathbf{(reg)}} && \\
+    {\uncover<2->{\mathbf{(fit)}}}
+    &&
+    {\uncover<2->{\mathbf{(sH)}}}
+    &&
+    {\uncover<2->{\mathbf{(H)}+\mathbf{(sfit)}}}
+    \\
+    {\uncover<2->{\mathbf{(sfit)}}}
+    &&
+    {\uncover<2->{T_1}}
+    &&
+    {\uncover<2->{\mathbf{(H)}}}
+    \arrow[Rightarrow, visible on=<3->,
+        from=1-3, to=2-1]
+    \arrow[Rightarrow, visible on=<3->,
+        from=1-3, to=2-3]
+    \arrow[Rightarrow, visible on=<3->,
+        from=1-3, to=2-5]
+    \arrow[Rightarrow, visible on=<3->,
+        from=2-1, to=3-1]
+    \arrow[Rightarrow, visible on=<3->,
+        from=2-3, to=3-3]
+    \arrow[Rightarrow, visible on=<3->,
+        from=2-3, to=3-5]
+    \arrow[Rightarrow, visible on=<3->,
+        from=2-5, to=3-1]
+    \arrow[Rightarrow, visible on=<3->,
+        from=2-5, to=3-5]
+    \arrow[Rightarrow, visible on=<3->,
+        from=3-5, to=3-3]
+    \arrow[squiggly, no head,
+        visible on=<4->,
+        from=2-1, to=2-3]
+    \arrow[squiggly, no head,
+        visible on=<4->,
+        from=2-1, to=3-3]
+    \arrow[squiggly, no head,
+        visible on=<4->,
+        from=2-1, to=3-5]
+    \arrow[squiggly, no head,
+        visible on=<4->,
+        from=2-3, to=2-5]
+    \arrow[squiggly, no head,
+        visible on=<4->,
+        from=3-1, to=2-3]
+    \arrow[squiggly, no head,
+        visible on=<4->,
+        from=3-1, to=3-3]
+\end{tikzcd}
+\]
+
+\begin{uncoverenv}<5->Las flechas 
 \[\begin{tikzcd}
 	P && R
 	\arrow[squiggly, no head, from=1-1, to=1-3]
 \end{tikzcd}\]
 representa incomparabilidad entre las propiedades $P$ y $R$.
+\end{uncoverenv}
 \end{frame}
 
 \section{El trabajo de Sexton y Simmons}
@@ -480,10 +537,24 @@ Recordemos que $A_j$ es compacto si y solo si $j\in [v_F,w_F]$.
         \item \emph{debilmente apilado} si $v_F=\mathcal{U}_*\circ v_G\circ \mathcal{U}$.
     \end{itemize}
 \end{block}
-
 \[
 \text{Ap.}\Leftarrow\text{F.Ap.}\Rightarrow\text{D.Ap.}
 \]
+\end{frame}
+
+\begin{frame}{Qué nos dicen las propiedades}
+\begin{itemize}
+    \item Eficiencia produce un cociente compacto cerrado
+    \item Si $A$ es KC, todo cociente compacto es cerrado
+    \item Bajo fuertemente apilado,
+    \[
+    [v_F, w_F]\longmapsto [\mathcal{U}_*\circ [Q']\circ \mathcal{U}, w_F].
+    \]
+    \item Bajo f apilamiento,
+    \[
+    [v_F(0), w_F(0)]\longmapsto [(\mathcal{U}_*\circ [Q']\circ \mathcal{U})(0), w_F(0)].
+    \]
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Relación con los axiomas clásicos}
@@ -504,13 +575,99 @@ Existen marcos fuertemente apilados que no son $T_1$. Existen marcos $\mathbf{(H
 \end{frame}
 
 \begin{frame}
-\begin{block}{Teorema \cite[Sexton-Simmons (2006)]{sexton2006ordinal}}
-    Si $S\in \Top$ es un espacio $T_1$ y apialdo, entonces $S$ es sobrio.
+\begin{block}{Proposición~\cite[Sexton-Simmons (2003)]{sexton2003}}
+$S\in Top$ es $T_1$ y fuertemente apilado si y solo si $v_G=w_G$.    
+\end{block}
+
+\begin{block}{Teorema~\cite[Simmons (2004)]{simmons2004vietoris}}
+Sea $S\in \Top$ sobrio. $S$ es $T_1$ y apilado si y solo si $v_G(\emptyset)=w_G(\emptyset)$.    
+\end{block}
+
+\begin{block}{Teorema~\cite[Sexton-Simmons (2006)]{sexton2006ordinal}}
+    Si $S\in \Top$ es $T_1$ y apialdo, entonces $S$ es sobrio.
 \end{block}
 \end{frame}
 
+\begin{frame}
+\begin{block}{Proposición:}
+Sean $A$ un marco $T_1$ y $F\in A^\wedge$. Entonces:
+\begin{enumerate}
+    \item $A$ es apilado si y solo si $v_F(0)=w_F(0)$.
+    \item $A$ es fuertemente apialdo si y solo si $v_F=w_F$.
+\end{enumerate}
+\end{block}
+
+\begin{block}{Teorema:}
+Existen marcos $T_1$ y apilados que no son espaciales.
+\end{block}
+
+\begin{block}{Proposición}
+Si $A$ es un marco $T_1$ y fuertemente apilado, entonces todo cociente compacto es espacial.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Proposición:}
+    Las siguientes afirmaciones se cumplen:
+    \begin{enumerate}
+        \item $\mathbf{(sH)}\Rightarrow \text{KC}\Rightarrow T_1$.
+        \item Existen marcos KC que no son $\mathbf{(reg)}$.
+        \item Existen marcos KC que no son $\mathbf{(sfit)}$.
+    \end{enumerate}
+\end{block}
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} & {\mathbf{(sH)}} & {\text{KC}} & {\text{Efc}} & {T_1} \\
+	& {\mathbf{(fit)}} & {\mathbf{(sfit)}}
+	\arrow[Rightarrow, from=1-1, to=1-2]
+	\arrow[Rightarrow, from=1-1, to=2-2]
+	\arrow[Rightarrow, from=1-2, to=1-3]
+	\arrow[squiggly, no head, from=1-2, to=2-2]
+	\arrow[squiggly, no head, from=1-2, to=2-3]
+	\arrow[Rightarrow, from=1-3, to=1-4]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, squiggly, no head, from=1-3, to=2-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, squiggly, no head, from=1-3, to=2-3]
+	\arrow[Rightarrow, from=1-4, to=1-5]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, squiggly, no head, from=1-4, to=2-3]
+	\arrow[squiggly, no head, from=1-5, to=2-3]
+	\arrow[squiggly, no head, from=2-2, to=1-5]
+	\arrow[Rightarrow, from=2-2, to=2-3]
+\end{tikzcd}\]
+\end{frame}
+
 \begin{frame}{Interacción entre las propiedades}
-    
+\begin{block}{Proposición:}
+Las siguientes afirmaciones se cumplen:
+\begin{enumerate}
+    \item Bajo KC, apilado y fuertemente apilado coinciden.
+    \item Si $A$ es espacial, entonces KC y eficiente coinciden.
+    \item Eficiente $+$ débilmente apilado $\Rightarrow$ fuertemente apilado.
+    \item KC $+ \mathbf{(sfit)}\Rightarrow$ fuertemente apilado.
+    \item Eficiente $+$ fuertemente apilado $\Rightarrow$ KC
+    \item Eficiente $+ \mathbf{(fit)}\Rightarrow$ KC
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Teorema:}
+    Existen marcos eficientes no espaciales que no son ni KC ni fuertemente apilados.
+\end{block}
+
+\[\begin{tikzcd}
+	{\mathbf{(reg)}} && {\mathbf{(sfit)}+\text{KC}} \\
+	{\text{KC}} && {\text{F.Ap.}} \\
+	{\text{Efc}} && {\text{Ap.}}
+	\arrow[Rightarrow, from=1-1, to=1-3]
+	\arrow[Rightarrow, from=1-1, to=2-1]
+	\arrow[Rightarrow, from=1-3, to=2-3]
+	\arrow[squiggly, no head, from=2-1, to=2-3]
+	\arrow[Rightarrow, from=2-1, to=3-1]
+	\arrow[squiggly, no head, from=2-1, to=3-3]
+	\arrow[squiggly, no head, from=2-3, to=3-1]
+	\arrow[Rightarrow, from=2-3, to=3-3]
+	\arrow[squiggly, no head, from=3-1, to=3-3]
+\end{tikzcd}\]
 \end{frame}
 
 \begin{frame}[fragile,plain]{Agregando las nuevas propiedades}
@@ -564,16 +721,37 @@ Existen marcos fuertemente apilados que no son $T_1$. Existen marcos $\mathbf{(H
 \end{frame}
 
 \begin{frame}{Conservatividad}
-    
+\[
+\text{Espacio f. apilado (apialdo)}
+\] 
+
+\[
+\text{Marco f. apilado (apilado)}.
+\]
+
+\begin{block}{Proposición:}
+    $S$ es fuertemente apilado (resp. apilado) si y solo si $\mathcal{O}S$ es fuertemente apilado (resp. apilado).
+\end{block}
+
 \end{frame}
 
-\begin{frame}{Herencia}
-    
+\begin{frame}{Herencia y preservación}
+Sea $P$ una propiedad que satisface un marco $A$. La propiedad $P$ es \emph{hereditaria} si para todo
+$j\in NA$, $A_j$ satisface $P$.
+
+\begin{block}{Proposición:}
+    KC, eficiente y fuertemente apilado son propiedades hereditarias.
+\end{block}
+
+\begin{block}{Teorema:}
+    Eficiente se preserva bajo coproductos. KC no se preserva bajo coproductos.
+\end{block}
+
+\begin{block}{Corolario:}
+    La subcategoría de marcos eficientes es correflexiva a $\Frm$.
+\end{block}
 \end{frame}
 
-\begin{frame}{Preservación}
-    
-\end{frame}
 
 \begin{frame}{Para terminar}
     
