@@ -454,12 +454,12 @@ representa incomparabilidad entre las propiedades $P$ y $R$.
 \begin{frame}{Ideas principales}
 En~\cite{sexton2006ordinal,sexton2006point,sexton2003}, Sexton y Simmons realizan lo siguiente:
 \begin{itemize}
-    \item Definen los espacios \emph{empaquetados, apilados y fuertemente apilados}.
-    \item Definen los marcos \emph{$\alpha$-eficientes} y \emph{$\alpha$-regulares}, donde $\alpha\in \Ord$.
-    \item Introducen una jerarquia estratificada de propiedades de separación.
-    \item Prueban que $\mathcal{O}S$ es eficiente si y solo si $S$ es empaquetado y apilado.
-    \item Para $(G, Q)$ un par HM, relacionan las propiedades de apilamiento con los intervalos $[v_G, w_G]$.
-    \item Entre otras cosas más\ldots   
+    \item<2-> Definen los espacios \emph{empaquetados, apilados y fuertemente apilados}.
+    \item<3-> Definen los marcos \emph{$\alpha$-eficientes} y \emph{$\alpha$-regulares}, donde $\alpha\in \Ord$.
+    \item<4-> Introducen una jerarquia estratificada de propiedades de separación.
+    \item<5-> Caracterizan la eficiencia de un marco mediante el empaquetamiento y apilamiento de su espacio de puntos.
+    \item<6-> Relacionan el apilamiento con los intervalos $[v_G, w_G]$.
+    \item<7-> Entre otras cosas más\ldots   
 \end{itemize}
 \end{frame}
 
@@ -467,15 +467,15 @@ En~\cite{sexton2006ordinal,sexton2006point,sexton2003}, Sexton y Simmons realiza
     \begin{block}{Definición:}
         Sean $A\in \Frm$, $F\in A^\wedge$ y $\alpha\in \Ord$. Decimos que:
         \begin{itemize}
-            \item $F$ es \emph{$\alpha$-eficiente} si
+            \item<2-> $F$ es \emph{$\alpha$-eficiente} si
             \[
             \forall \; x\in F\Rightarrow d\vee x=1\quad (d=f_F^\alpha(0)).
             \]
-            \item $A$ es \emph{$\alpha$-eficiente} si cada $F$ es $\alpha$-eficiente.
-            \item $A$ es \emph{eficiente} si es $\alpha$-eficiente para algún $\alpha$
+            \item<3-> $A$ es \emph{$\alpha$-eficiente} si cada $F$ es $\alpha$-eficiente.
+            \item<4-> $A$ es \emph{eficiente} si es $\alpha$-eficiente para algún $\alpha$
         \end{itemize}
     \end{block}
-    \[
+    \onslide<5->\[
     T_2\Rightarrow 1\text{-eficiente}\Rightarrow\ldots\Rightarrow \alpha\text{-eficiente}\Rightarrow\ldots\Rightarrow T_1
     \]
 \end{frame}
@@ -486,15 +486,15 @@ En~\cite{sexton2006ordinal,sexton2006point,sexton2003}, Sexton y Simmons realiza
     [E]\colon\mathcal{O}S\to \mathcal{O}S\quad [E](U)=(E\cup U)^\circ.
     \]
 
-    \begin{block}{Definición:}
+    \onslide<2->{\begin{block}{Definición:}
         Sean $S\in \Top$ y $(G, Q)$ un par HM. Decimos que $S$ es:
         \begin{itemize}
-            \item \emph{fuertemente apialdo} si $[Q']=v_G$.
-            \item \emph{apilado} si $[Q'](\emptyset)=v_G(\emptyset)$.
+            \item<3-> \emph{fuertemente apialdo} si $[Q']=v_G$.
+            \item<4-> \emph{apilado} si $[Q'](\emptyset)=v_G(\emptyset)$.
         \end{itemize}
-    \end{block}
-    \[
-    \text{f. apilado}\Rightarrow\text{apilado},\quad A\text{ eficiente}\iff S \text{ apilado y empaquetado}. 
+    \end{block}}
+    \onslide<5->\[
+    \text{f.~apilado}\Rightarrow\text{apilado},\quad A\text{ eficiente}\Leftrightarrow S \text{ apilado y empaquetado}. 
     \]
 \end{frame}
 
