@@ -456,7 +456,7 @@ En~\cite{sexton2006ordinal,sexton2006point,sexton2003}, Sexton y Simmons realiza
 \begin{itemize}
     \item<2-> Definen los espacios \emph{empaquetados, apilados y fuertemente apilados}.
     \item<3-> Definen los marcos \emph{$\alpha$-eficientes} y \emph{$\alpha$-regulares}, donde $\alpha\in \Ord$.
-    \item<4-> Introducen una jerarquia estratificada de propiedades de separación.
+    \item<4-> Introducen una jerarquía estratificada de propiedades de separación.
     \item<5-> Caracterizan la eficiencia de un marco mediante el empaquetamiento y apilamiento de su espacio de puntos.
     \item<6-> Relacionan el apilamiento con los intervalos $[v_G, w_G]$.
     \item<7-> Entre otras cosas más\ldots   
@@ -640,12 +640,12 @@ Sea $A$ un marco $T_1$. Entonces:
 \begin{enumerate}
     \item $A$ es apilado si y solo si
     \(
-        v_F(0)=w_F(0).
-    \)
+        v_F(0)=w_F(0)
+    \) para todo $F\in A^\wedge$.
     \item $A$ es fuertemente apilado si y solo si
     \(
-        v_F=w_F.
-    \)
+        v_F=w_F
+    \) para todo $F\in A^\wedge$.
 \end{enumerate}
 \end{block}
 \end{uncoverenv}
@@ -711,11 +711,11 @@ Las siguientes afirmaciones se cumplen:
         visible on=<4->, from=1-2, to=2-2]
     \arrow[squiggly, no head,
         visible on=<4->, from=1-2, to=2-3]
-    \arrow[red, squiggly, no head,
+    \arrow[blue, squiggly, no head,
         visible on=<4->, from=1-3, to=2-2]
-    \arrow[red, squiggly, no head,
+    \arrow[blue, squiggly, no head,
         visible on=<4->, from=1-3, to=2-3]
-    \arrow[red, squiggly, no head,
+    \arrow[blue, squiggly, no head,
         visible on=<4->, from=1-4, to=2-3]
     \arrow[squiggly, no head,
         visible on=<4->, from=1-5, to=2-3]
@@ -810,90 +810,190 @@ que no son KC ni fuertemente apilados.
 \end{frame}
 
 \begin{frame}[fragile,plain]{Agregando las nuevas propiedades}
-    \small{
-    \[
-\begin{tikzcd}
-	&&& {\mathbf{(reg)}} &&& \\
-	{\mathbf{(fit)}} &&& {\mathbf{(sH)}} & {\mathbf{(H)}} && {\mathbf{(sH)}+\mathbf{(sfit)}} \\
-	&&& {\text{KC}} &&& {\text{KC}+\mathbf{(sfit)}} \\
-	{\mathbf{(sfit)}} &&& {\text{Efc}} &&& {\text{F.Ap.}} \\
-	&&& {T_1} &&& {\text{Ap.}}
-	\arrow[Rightarrow, from=1-4, to=2-1]
-	\arrow[Rightarrow, from=1-4, to=2-4]
-	\arrow[Rightarrow, from=1-4, to=2-7]
-	\arrow[squiggly, no head, from=2-1, to=2-4]
-	\arrow[squiggly, no head, from=2-1, to=3-4]
-	\arrow[Rightarrow, from=2-1, to=4-1]
-	\arrow[Rightarrow, from=2-1, to=5-4]
-	\arrow[Rightarrow, from=2-4, to=2-5]
-	\arrow[Rightarrow, from=2-4, to=3-4]
-	\arrow[squiggly, no head, from=2-5, to=4-7]
-	\arrow[Rightarrow, from=2-5, to=5-4]
-	\arrow[squiggly, no head, from=2-5, to=5-7]
-	\arrow[Rightarrow, from=2-7, to=2-5]
-	\arrow[Rightarrow, from=2-7, to=3-4]
-	\arrow[Rightarrow, from=2-7, to=3-7]
-	\arrow[Rightarrow, from=3-4, to=4-4]
-	\arrow[squiggly, no head, from=3-4, to=4-7]
-	\arrow[squiggly, no head, from=3-4, to=5-7]
-	\arrow[Rightarrow, from=3-7, to=4-4]
-	\arrow[Rightarrow, from=3-7, to=4-7]
-	\arrow[squiggly, no head, from=4-1, to=2-4]
-	\arrow[squiggly, no head, from=4-1, to=3-4]
-	\arrow[squiggly, no head, from=4-1, to=4-4]
-	\arrow[squiggly, no head, from=4-1, to=5-4]
-	\arrow[squiggly, no head, from=4-4, to=4-7]
-	\arrow[Rightarrow, from=4-4, to=5-4]
-	\arrow[squiggly, no head, from=4-7, to=5-4]
-	\arrow[Rightarrow, from=4-7, to=5-7]
-	\arrow[squiggly, no head, from=5-7, to=5-4]
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+    &&& {\mathbf{(reg)}} &&& \\
+    {\mathbf{(fit)}} &&&
+    {\mathbf{(sH)}} &
+    {\mathbf{(H)}} &&
+    {\mathbf{(sH)}+\mathbf{(sfit)}} \\
+    &&& {\text{KC}} &&&
+    {\text{KC}+\mathbf{(sfit)}} \\
+    {\mathbf{(sfit)}} &&&
+    {\text{Efc}} &&&
+    {\text{F.Ap.}} \\
+    &&& {T_1} &&&
+    {\text{Ap.}}
+    % Implicaciones clasicas
+    \arrow[Rightarrow, visible on=<2->, from=1-4, to=2-1]
+    \arrow[Rightarrow, visible on=<2->, from=1-4, to=2-4]
+    \arrow[Rightarrow, visible on=<2->, from=1-4, to=2-7]
+    \arrow[Rightarrow, visible on=<2->, from=2-1, to=4-1]
+    \arrow[Rightarrow, visible on=<2->, from=2-1, to=5-4]
+    \arrow[Rightarrow, visible on=<2->, from=2-4, to=2-5]
+    \arrow[Rightarrow, visible on=<2->, from=2-5, to=5-4]
+    \arrow[Rightarrow, visible on=<2->, from=2-7, to=2-5]
+    % Incomparabilidades clasicas
+    \arrow[squiggly, no head, visible on=<3->, from=2-1, to=2-4]
+    \arrow[squiggly, no head, visible on=<3->, from=4-1, to=2-4]
+    \arrow[squiggly, no head, visible on=<3->, from=4-1, to=5-4]
+    % Implicaciones nuevas
+    \arrow[blue, Rightarrow, visible on=<4->, from=2-4, to=3-4]
+    \arrow[blue, Rightarrow, visible on=<4->, from=2-7, to=3-4]
+    \arrow[blue, Rightarrow, visible on=<4->, from=2-7, to=3-7]
+    \arrow[blue, Rightarrow, visible on=<4->, from=3-4, to=4-4]
+    \arrow[blue, Rightarrow, visible on=<4->, from=3-7, to=4-4]
+    \arrow[blue, Rightarrow, visible on=<4->, from=3-7, to=4-7]
+    \arrow[blue, Rightarrow, visible on=<4->, from=4-4, to=5-4]
+    \arrow[blue, Rightarrow, visible on=<4->, from=4-7, to=5-7]
+    % Incomparabilidades nuevas
+    \arrow[blue, squiggly, no head, visible on=<5->, from=2-1, to=3-4]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=2-5, to=4-7]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=2-5, to=5-7]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=3-4, to=4-7]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=3-4, to=5-7]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=4-1, to=3-4]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=4-1, to=4-4]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=4-4, to=4-7]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=4-7, to=5-4]
+    \arrow[blue, squiggly, no head, visible on=<5->, from=5-7, to=5-4]
 \end{tikzcd}
 \]
-\[\begin{tikzcd}
-	{\text{Efc}+\mathbf{(fit)}} & {\text{KC}} & {\text{Efc.}+\text{F.Ap.}} \\
-	{\text{KC}+\mathbf{(sfit)}} & {\text{F. Ap.}} & {\text{Efc.}+\text{D.Ap.}}
-	\arrow[Rightarrow, from=1-1, to=1-2]
-	\arrow[Rightarrow, from=1-3, to=1-2]
-	\arrow[Rightarrow, from=2-1, to=2-2]
-	\arrow[Rightarrow, from=2-3, to=2-2]
-\end{tikzcd}\]}
+\begin{uncoverenv}<6->
+\[
+\begin{tikzcd}[column sep=small]
+    {\text{Efc}+\mathbf{(fit)}} &
+    {\text{KC}} &
+    {\text{Efc}+\text{F.Ap.}} \\
+    {\text{KC}+\mathbf{(sfit)}} &
+    {\text{F.Ap.}} &
+    {\text{Efc}+\text{D.Ap.}}
+    \arrow[blue, Rightarrow, from=1-1, to=1-2]
+    \arrow[blue, Rightarrow, from=1-3, to=1-2]
+    \arrow[blue, Rightarrow, from=2-1, to=2-2]
+    \arrow[blue, Rightarrow, from=2-3, to=2-2]
+\end{tikzcd}
+\]
+\end{uncoverenv}
 \end{frame}
 
+
 \begin{frame}{Conservatividad}
-\[
-\text{Espacio f. apilado (apialdo)}
-\] 
 
+\begin{uncoverenv}<1->
 \[
-\text{Marco f. apilado (apilado)}.
+\begin{gathered}
+\text{Espacio fuertemente apilado}\\
+\text{Espacio apilado}
+\end{gathered}
 \]
+\end{uncoverenv}
+\begin{uncoverenv}<2->
+\[
+\Updownarrow
+\]
+\[
+\begin{gathered}
+\text{Marco de abiertos fuertemente apilado}\\
+\text{Marco de abiertos apilado}
+\end{gathered}
+\]
+\end{uncoverenv}
 
-\begin{block}{Proposición:}
-    $S$ es fuertemente apilado (resp. apilado) si y solo si $\mathcal{O}S$ es fuertemente apilado (resp. apilado).
+\begin{uncoverenv}<3->
+\begin{block}{Proposición}
+Sea $S\in\Top$. Entonces:
+\begin{enumerate}
+    \item $S$ es fuertemente apilado si y solo si
+    $\mathcal{O}S$ es fuertemente apilado.
+    \item $S$ es apilado si y solo si
+    $\mathcal{O}S$ es apilado.
+\end{enumerate}
 \end{block}
+\end{uncoverenv}
 
 \end{frame}
 
 \begin{frame}{Herencia y preservación}
-Sea $P$ una propiedad que satisface un marco $A$. La propiedad $P$ es \emph{hereditaria} si para todo
-$j\in NA$, $A_j$ satisface $P$.
 
-\begin{block}{Proposición:}
-    KC, eficiente y fuertemente apilado son propiedades hereditarias.
-\end{block}
+\begin{uncoverenv}<1->
+Una propiedad $P$ es hereditaria 
+si, para todo marco $A$ que satisface
+$P$ y todo núcleo $j$ sobre $A$,
+el cociente $A_j$ también satisface $P$.
+\end{uncoverenv}
 
-\begin{block}{Teorema:}
-    Eficiente se preserva bajo coproductos. KC no se preserva bajo coproductos.
+\begin{uncoverenv}<2->
+\begin{block}{Proposición}
+Las propiedades KC, eficiencia y
+apilamiento fuerte son hereditarias.
 \end{block}
+\end{uncoverenv}
 
-\begin{block}{Corolario:}
-    La subcategoría de marcos eficientes es correflexiva a $\Frm$.
+\begin{uncoverenv}<3->
+\begin{block}{Teorema}
+\begin{enumerate}
+    \item La eficiencia se preserva bajo coproductos.
+    \item KC no se preserva bajo coproductos.
+\end{enumerate}
 \end{block}
+\end{uncoverenv}
+
+\begin{uncoverenv}<4->
+\begin{block}{Corolario}
+La subcategoría de marcos eficientes es
+coreflexiva en $\Frm$.
+\end{block}
+\end{uncoverenv}
+
 \end{frame}
 
 
-\begin{frame}{Para terminar}
-    
+\begin{frame}{Conclusiones}
+\begin{uncoverenv}<1->
+\begin{block}{Conclusiones}
+\begin{itemize}
+    \item Los cocientes compactos permiten estudiar
+    nuevas propiedades de separación en marcos.
+
+    \item Se establecieron relaciones entre
+    eficiencia, KC, apilamiento y los axiomas
+    clásicos de separación.
+
+    \item Se analizaron propiedades de herencia,
+    preservación y conservatividad.
+\end{itemize}
+\end{block}
+\end{uncoverenv}
+
+\begin{uncoverenv}<2->
+\begin{center}
+\emph{Los cocientes compactos ofrecen una vía
+para comprender los axiomas de separación
+desde una perspectiva libre de puntos.}
+\end{center}
+\end{uncoverenv}
+
+\end{frame}
+
+\begin{frame}{Perspectivas}
+    \begin{uncoverenv}<2->
+\begin{block}{Perspectivas}
+\begin{itemize}
+    \item Profundizar en la interacción de
+    $\mathbf{(H)}$ con KC, eficiencia y
+    las nociones de apilamiento.
+
+    \item Identificar nuevas implicaciones
+    e incomparabilidades entre las
+    propiedades estudiadas.
+
+    \item Explorar otras construcciones
+    categóricas que permitan comprender
+    mejor estas propiedades.
+\end{itemize}
+\end{block}
+\end{uncoverenv}
 \end{frame}
 
 \End
@@ -907,12 +1007,17 @@ $j\in NA$, $A_j$ satisface $P$.
 
 \begin{frame}[plain,standout]
     \centering
-    \Huge{\bfseries \smiley¡Muchas gracias!\smiley}
-      %In combination with \textit{plain}, \\
-      %it makes a nice thank-you slide!
-      \scalebox{4}{\faGithub} \par\bigskip
-      \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones} \\
-      %\url{https://ctan.org/pkg/beamertheme-arguelles}
+
+    {\Huge\bfseries
+    \smiley¡Muchas gracias!\smiley
+
+    \scalebox{4}{\faGithub}\par\bigskip
+    }
+
+    {\fontsize{8}{10}\selectfont
+    \url{https://github.com/JCmonter/Apuntes/tree/main/Presentaciones}
+    }
+
 \end{frame}
 
 \end{document}
